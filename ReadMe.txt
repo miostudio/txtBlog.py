@@ -3,8 +3,8 @@
 # desc: [知识管理]A simple yet powerful blog system for reading and organizing txt files.
 # desc2: Pyhton3编写的、基于文件的文本笔记管理系统，简捷高效，可用于管理知识。
 # version: 0.0.8
-# github: https://github.com/DawnEve/txtBlog.py
-# appearence: https://github.com/DawnEve/txtBlog
+# github: https://github.com/littlePig100/txtBlog.py
+# appearence: https://github.com/littlePig100/txtBlog
 #
 # local test url: http://blog2.163.com:8000/index.py
 # local dir:G:\xampp\htdocs\163
@@ -39,9 +39,9 @@ $ pip install flask
 
 2.下载该项目
 通过
-$ git clone https://github.com/DawnEve/txtBlog.py.git
+$ git clone https://github.com/littlePig100/txtBlog.py.git
 或者下载压缩包并解压
-$ wget https://github.com/DawnEve/txtBlog.py/archive/master.zip
+$ wget https://github.com/littlePig100/txtBlog.py/archive/master.zip
 
 可以放到硬盘的任意位置，但是路径中不要出现中文字符。
 

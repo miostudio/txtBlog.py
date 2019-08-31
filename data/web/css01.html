@@ -1,0 +1,58 @@
+<div class=content>
+<h2>css(样式表)是网页的皮肤</h2>
+<p>学习css就是记住常见标签的样式，及其属性值。比如颜色color、背景色background, 字体大小font-size, 边框border, 高度height, 定位方式position等。</p>
+
+
+<h3>优秀作者</h3>
+<p>博客 <a target="_blank" href="https://www.zhangxinxu.com/" title="研究前端10年">张鑫旭</a></p>
+
+
+
+<h2>浮动和清除浮动: float和clear</h2>
+<p><a target="_blank" href="https://www.cnblogs.com/zfquan/p/7793945.html">css(float浮动和clear清除)</a></p>
+<ul>
+	<li>浮动可以理解为让某个div元素脱离标准流，漂浮在标准流之上，和标准流不是一个层次。</li>
+	<li>假如某个div元素A是浮动的，如果A元素上一个元素也是浮动的，那么A元素会跟随在上一个元素的后边(如果一行放不下这两个元素，那么A元素会被挤到下一行)；如果A元素上一个元素是标准流中的元素，那么A的相对垂直位置不会改变，也就是说A的顶部总是和上一个元素的底部对齐。</li>
+	<li> div的顺序是HTML代码中div的顺序决定的。</li>
+	<li>靠近页面边缘的一端是前，远离页面边缘的一端是后。float:left第一个div在最左边，float:right时第一个div在最右侧。</li>
+	<li>清除浮动可以理解为打破横向排列。对于CSS的清除浮动(clear)，一定要牢记：这个规则只能影响使用清除的元素本身，不能影响其他元素。比如，不准left浮动的B跟在前一个left浮动A的右侧，就给B设置clear:left,这样B的左侧就不允许有浮动元素了，B就不得不另起一行。</li>
+</ul>
+
+<style type="text/css">
+#ex1{height:200px;}
+#ex1 div{border:1px solid black; height:50px;width:100px;}
+#ex1 .d1{
+	background:red;
+	height:80px;
+	float:left;
+}
+#ex1 .d2{
+	background:lightgreen;
+	height:20px;
+	width:400px;
+	float:left;
+	clear:left;
+}
+#ex1 .d3{
+	margin-width:10px;
+	background:yellow;
+	height:120px;
+	width:80px;
+
+}
+#ex1 .d4{
+	background:cyan;
+	height:60px;
+	width:220px;
+	float:left;
+}
+</style>
+<div id=ex1>
+	<div class=d1>div1</div>
+	<div class=d2>div2</div>
+	<div class=d3>div3</div>
+	<div class=d4>div4</div>
+</div>
+some text
+
+</div>
