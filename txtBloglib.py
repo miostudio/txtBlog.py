@@ -80,7 +80,7 @@ def txtReader(fpath,txtStyle="ubuntu1"):
 	fr=open(fpath, 'r', encoding="utf8")
 	tmp=''
 	for lineR in fr.readlines():
-		line=lineR.strip()
+		line=lineR.strip('\n')
 		#if line.match("")
 		line=re.sub("<","&lt;",line);
 		line=re.sub(">","&gt;",line);

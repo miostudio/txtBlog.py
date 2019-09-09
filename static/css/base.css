@@ -24,6 +24,10 @@
 
 /*left*/
 .main .left{
+	border-bottom: 1px solid #d9dde1;
+	box-shadow: 0 4px 8px 0 rgba(7,17,27,.1);
+	border-radius: 12px;
+
 	background-color: #f3f3f3;
 	border: 1px solid #D9D9D9;
 	

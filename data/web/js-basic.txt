@@ -1,0 +1,524 @@
+js 基础
+
+
+基础js https://wangdoc.com/javascript/
+
+========================================
+正则表达式 Regular Expression
+----------------------------------------
+https://github.com/cucygh/learn-regex
+
+
+
+========================================
+node.js
+----------------------------------------
+Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
+1. 下载安装
+https://nodejs.org/en/
+10.16.3 LTS(2019.8.31)
+
+
+1.从国内镜像，挑选最新的版本：
+https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/
+
+https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/v10.16.3/node-v10.16.3-x86.msi
+
+版本号
+$ npm --version
+6.9.0
+
+
+
+
+2. 淘宝的镜像 https://npm.taobao.org/dist
+$ npm set registry https://registry.npm.taobao.org # 注册模块镜像
+$ npm set disturl https://npm.taobao.org/dist # node-gyp 编译依赖的 node 源码镜像
+
+
+
+
+
+3.npm下载太慢，怎么安装cnpm？
+$ npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+以后就可以使用cnpm了
+$ cnpm install
+
+
+
+========================================
+ECMAScript 6 入门
+----------------------------------------
+书 http://es6.ruanyifeng.com/
+ES6特性官网 http://es6-features.org/#Constants
+
+ES6 快速入门 https://www.imooc.com/learn/955
+
+1. 本课程只介绍ES6的冰山一角
+常量
+作用域
+箭头函数
+默认参数
+对象代理
+
+
+
+
+2. 环境搭建 git, webpack, js 
+整理收集最有趣的前端技术教程及文档 https://github.com/cucygh/fe-material
+https://github.com/cucygh/es6-lessons
+
+webpack 是为了构建，如果使用最新chrome，则可以忽略。
+需要先安装node.js，否则没有npm命令。
+
+$ git clone https://github.com/cucygh/es6-webpack.git
+$ cd es6-webpack && npm install
+
+npm install 出警告了
+> uglifyjs-webpack-plugin@0.4.6 postinstall G:\xampp\htdocs\es6-webpack\node_modules\uglifyjs-webpack-plugin
+> node lib/post_install.js
+
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.1.3 (node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.1.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"win32","arch":"ia32"})
+
+added 882 packages from 520 contributors in 195.865s
+
+
+
+(2)然后全局安装webpack
+$ cnpm i webpack -g
+$ cnpm i webpack-dev-server -g
+
+(3)运行
+$ npm start
+> es6-webpack@1.0.0 start G:\xampp\htdocs\es6-webpack
+> webpack-dev-server --open
+
+clean-webpack-plugin: G:\xampp\htdocs\es6-webpack\dist has been removed.
+
+构建环境就搭建好了。
+之后修改代码并保存，页面就自动刷新了。
+
+
+
+30分钟 ES6从陌生到熟悉
+https://www.cnblogs.com/yexiaochai/p/9359943.html
+
+
+
+========================================
+|-- ES6 常量
+----------------------------------------
+// ES6 的常量写法
+const PI = 3.1415926
+console.log(PI)
+
+
+例1: 
+对于win7上最新版的chrome
+直接就能在控制台看到结果
+<h1>ES6 test</h1>
+<p>Press F12, watch Console.</p>
+
+<script>
+const PI2=3.14159265358979
+
+//PI2=4; //Uncaught TypeError: Assignment to constant variable.
+
+console.log(PI2);
+</script>
+
+
+
+例2：
+const仅保证指针不发生改变，修改对象的属性不会改变对象的指针，所以可以修改引用类型的值。
+
+const arr = ['a','b']
+arr[0] = 'c'
+console.log(arr) //['c','b']
+
+
+========================================
+|-- ES6 作用域{}做隔离，而ES3需要使用立即执行函数做作用域隔离
+----------------------------------------
+1.ES3中的闭包的经典例子
+例1：
+var callbacks=[];
+for(var i=0;i<=2;i++){
+	callbacks[i]=function(){
+		return i*2;
+	}
+}
+
+//这里有一个js闭包问题。
+//返回的匿名函数，能使用上下文中的i，调用时才取值，i已经是3了。
+console.table([
+	callbacks[0](),
+	callbacks[1](),
+	callbacks[2](),
+]); //6 6 6
+
+
+
+
+2.用let声明的变量，有块作用域的概念，简单说
+{
+	let a=12;
+	console.log(a);
+}
+console.log(a); //not defined
+
+而这在ES3中需要使用立即执行函数：
+;(function(){
+	var a=12;
+	console.log(a);
+})()
+console.log(a);//a is not defined
+
+
+例2：ES6能避免闭包产生的问题
+仅仅把例1中var i改为let i 
+
+var callbacks2=[];
+for(let j=0;j<=2;j++){
+	callbacks2[j]=function(){
+		return j*2;
+	}
+}
+
+//这里有一个js闭包问题。
+//返回的匿名函数，能使用上下文中的i，调用时才取值，i已经是3了。
+console.table([
+	callbacks2[0](),
+	callbacks2[1](),
+	callbacks2[2](),
+]);// 0 2 4
+
+
+========================================
+|-- ES6 箭头函数 =>
+----------------------------------------
+ES3 
+function fn(){
+}
+
+箭头函数：前面的小括号内是参数，如果只要一个参数，可以省略小括号。
+()=>{
+}
+
+
+好处1省代码，2是箭头函数内不改变this指向；
+
+1.箭头函数可以节省代码
+(1)ES3,ES5对数组的遍历
+var events=[10,11,12,13];
+var odds=events.map(function(val,index, _this){
+	//console.log(val,index,_this)//10 0 (4) [10, 11, 12, 13]
+	return val+1;
+})
+console.log(events, odds);//(4) [10, 11, 12, 13] (4) [11, 12, 13, 14]
+
+
+
+(2).ES6怎么做呢？
+{
+	let events=[10,11,12,13];
+	let odds=events.map(v=>v+1);
+	console.log(events, odds);//(4) [10, 11, 12, 13] (4) [11, 12, 13, 14]
+}
+
+
+
+
+2.箭头函数不改变this的指向
+(1)//ES3,ES5的工厂
+var Factory=function(){
+	this.a="a";
+	this.b="b";
+	this.c={
+		a:"a+",
+		b:function(){
+			return this.a;
+		}
+	}
+}
+console.log(new Factory().c.b())//a+
+因为ES3中函数的this是函数的调用者，也就是b()中的this就是c。
+
+
+怎么取出工厂的a呢？
+//ES3,ES5的工厂2
+var Factory=function(){
+	var _this=this;//先获取this
+	this.a="a";
+	this.b="b";
+	this.c={
+		a:"a+",
+		b:function(){
+			return _this.a;//再去取值才是"a"
+		}
+	}
+}
+console.log(new Factory().c.b())//a
+
+
+
+(2)ES6的箭头函数，不改变this的指向。
+ES6中箭头函数的this，就是定义时的this的指向。
+解决了ES3中this指向混乱的问题。
+
+{
+	var Factory=function(){
+		this.a="a";
+		this.b="b";
+		this.c={
+			a:"a+",
+			b:()=>{
+				return this.a;
+			}
+		}
+	}
+	console.log(new Factory().c.b())//a
+}
+
+
+========================================
+|-- ES6 默认参数: 和R、python的默认参数很像了
+----------------------------------------
+1.ES3,ES5中的函数默认参数，必须有赋值操作
+function fn(x,y){
+	x=x||1;
+	y=y||2;
+	return x+y;
+}
+
+
+ES6中呢？
+function fn(x=1,y=2){
+	return x+y;
+}
+console.log(fn(100)) //102
+
+
+
+
+
+2.如果检查必选参数呢？
+ES3中只能做if检查。
+
+ES6中
+function checkParameter(){
+	throw new Error('can\'t be empty')
+}
+
+function fn(x=checkParameter(), y=2){
+	return x+y;
+}
+
+console.log(fn(100)) //102
+try{
+	console.log(fn())
+}catch(e){
+	console.log(e)
+}finally{}
+
+
+
+
+
+3.不定参数，比如求和
+ES3的做法：
+function getSum(){
+	var arr=Array.prototype.slice.call(arguments);
+	var sum=0;
+	arr.forEach(function(val){
+		sum+=val*1;
+	});
+	return sum;
+}
+console.log(getSum(1,2,3,400));//406
+
+
+ES6呢？
+{
+	function getSum(...arr){
+		var sum=0;
+		arr.forEach( val=>{
+			sum+=val*1;
+		});
+		return sum;
+	}
+	console.log(getSum(1,2,3,400));//406
+}
+
+
+
+
+4. 合并2个数组
+ES3中: 很复杂的函数调用
+var arr1=[1,2,3], arr2=[4,5,6];
+//Array.prototype.push.apply(arr1,arr2)
+[].push.apply(arr1, arr2);
+console.log(arr1) //(6) [1, 2, 3, 4, 5, 6]
+
+
+ES5中函数已经很简单了。
+var arr1=[1,2,3], arr2=[4,5,6];
+var arr3=arr1.concat(arr2)
+console.log(arr3) //(6) [1, 2, 3, 4, 5, 6]
+
+
+ES6中，太骚了，连函数名都省略了。
+var arr1=[1,2,3], arr2=[4,5,6];
+var arr3=[...arr1, ...arr2,"theEnd"];
+console.log(arr3);//(7) [1, 2, 3, 4, 5, 6, "theEnd"]
+
+
+
+========================================
+|-- ES6 对象代理 let p1=new Proxy(Person, {get(target, key){}, set(){}}
+----------------------------------------
+私有属性，或者只读属性，怎么实现？
+
+
+1. ES3是用闭包模拟。
+构造函数内声明内部变量，在set中使用if设置条件模拟只读属性，很复杂。
+var Person=function(){
+	var data={
+		name:'es3',
+		sex:'male',
+		age:15
+	}
+	this.get=function(key){
+		return data[key];
+	}
+	this.set=function(key,value){
+		//数据保护，不能修改性别
+		if(key!=='sex')
+			data[key]=value;
+	}
+}
+
+//实例化一个人
+var p1=new Person();
+console.table({
+	name: p1.get("name"),
+	sex: p1.get("sex"),
+	age: p1.get("age")
+})
+//修改姓名
+p1.set('name','wangCai');
+p1.set('sex','femail');//没有变化，还是male
+p1.set('age','51');
+console.table({
+	name: p1.get("name"),
+	sex: p1.get("sex"),
+	age: p1.get("age")
+})
+
+
+
+2. ES5中呢，能定义只读变量
+var Person={
+	name:'es5',
+	age:15
+};
+//定义只读属性
+Object.defineProperty(Person,'sex',{
+	writable:false,
+	value:'male'
+});
+
+console.table({
+	name: Person.name,
+	age: Person.age,
+	sex: Person.sex
+})
+
+//修改
+Person.name="WangCai";
+Person.age=16;
+Person.sex='Female';//没有被修改
+
+console.table({
+	name: Person.name,
+	age: Person.age,
+	sex: Person.sex
+})
+
+
+
+3. ES6呢？使用代理，和ES3类似，简化很多。
+//原始数据，用户不直接访问
+let Person={
+	name:'es6',
+	sex:'male',
+	age:15
+}
+//写一个代理，代理Person。用户直接使用这个代理。
+let p1=new Proxy(Person, {
+	get(target, key){
+		return target[key];
+	},
+	set(target, key, value){
+		if(key!='sex'){
+			target[key]=value;
+		}
+	}
+});
+
+//访问
+console.table({
+	name: p1.name,
+	sex:p1.sex,
+	age:p1.age
+})
+
+//修改
+p1.name="WangCai";
+p1.sex="Female";//没有被修改
+p1.age=17;
+
+console.table({
+	name: p1.name,
+	sex:p1.sex,
+	age:p1.age
+})
+
+
+
+
+
+
+========================================
+|-- ES6 更多内容
+----------------------------------------
+解构赋值---模板字符串---正则扩展---数字扩展
+
+---Iterator--Generator
+---Set和Map
+---函数扩展---Class---Module---Symbol---对象扩展
+
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+========================================
+----------------------------------------
+
+
+
+========================================
+----------------------------------------
+
+
+
+========================================
+----------------------------------------
+

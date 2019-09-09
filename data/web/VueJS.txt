@@ -12,53 +12,177 @@ https://cn.vuejs.org/
 渐进式JavaScript 框架
 
 
+<meta charset="UTF-8">
+
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="/static/js/vue.js"></script>
+
+<div id="app">
+  {{ message + name }}
+</div>
+
+
+<script>
+var app=new Vue({
+	'el':"#app",
+	data:{ //直接绑定到vue对象了
+		message:"hello, ",
+		name:"Vue.js2"
+	}
+})
+</script>
+
+</script>
+
+
+
 2.教程
 https://www.runoob.com/vue2/vue-tutorial.html
 
+Vue 进阶系列之响应式原理及实现
+https://www.imooc.com/article/291853?block_id=tuijian_wz
 
 
 
 ========================================
-前置知识
+前置知识和Vue要点
 ----------------------------------------
 ES6, webpack, vue, vuex
 
+指令
+双向数据绑定
+组件、组建的通信
+路由和请求
+生命周期
+========================================
+v-model, v-if, v-show
+----------------------------------------
+v-model="name" 绑定值; 
+是否显示 
+	v-show='age'(display:none) 
+	或 v-if='sex';(直接删除dom)
+
+<meta charset="UTF-8">
+
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="/static/js/vue.js"></script>
+
+<div id="app">
+  <div>
+	<input type="text" v-model="name">
+	<span>名字: {{name}}</span>
+  </div>
+  <div>
+	<input type="text" v-model="age">
+	<span v-show='age'>年龄: {{age}}</span>
+  </div>
+  <div>
+	<input type="text" v-model="sex">
+	<span v-if='sex'>性别: {{sex}}</span>
+  </div>
+
+</div>
+
+
+<script>
+var app=new Vue({
+	el:"#app",
+	data:{ //直接绑定到vue对象了
+		message:"hello, ",
+		name:"Vue.js2",
+		age:"2",
+		sex:"M",
+	}
+})
+</script>
+
+
 
 
 ========================================
-ECMAScript 6 入门
+webpack
 ----------------------------------------
-先学基础js https://wangdoc.com/javascript/
-
-http://es6.ruanyifeng.com/
+(angular)前端内容的自动化构建 https://www.imooc.com/learn/922
+(node)webpack深入与实战 https://www.imooc.com/learn/802
 
 
 
 
 ========================================
+vue实例
 ----------------------------------------
+(ES6)使用vue2.0实现购物车和地址选配功能 https://www.imooc.com/learn/796
 
-
-
-========================================
-----------------------------------------
-
-
-
-========================================
-----------------------------------------
 
 
 
 
 ========================================
+Vue.js火速上手
 ----------------------------------------
+https://study.163.com/course/introduction.htm?courseId=1004181065#/courseDetail?tab=1
+为什么用Vue？很简单，顺心。 在目前的三大前端框架中（Vue，Angular，React）Vue怕是最好上手的框架了，然而其核心功能和其他两者也竟然不相伯仲，那有什么理由不先学它呢？看不到。 人生如此苦短，Vue会使我们的开发过程变得更像是一种享受。对于中小型项目及个人和小型团队简直是不二之选。
+
+1.简介
+
+前端解析html好还是后端解析html好？
+前端好，节省服务器压力。
+
+
+2. 开始学
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 ========================================
+Vue深入浅出(从入门到开发) 用到 Vue cli
 ----------------------------------------
+https://study.163.com/course/introduction.htm?courseId=1004461012#/courseDetail?tab=1
+https://study.163.com/course/introduction.htm?courseId=1004711010#/courseDetail?tab=1
+简　　介	整个系列课程带领大家可以快速掌握Vue开发的流程,课程从简单到实战,适用于0基础学习.
 
+Vue-CLI脚手架搭建
+Vue-指令
+Vue-条件及循环语句
+Vue-事件及双向绑定
+Vue-模板引擎
+Vue-组件
+Vue-属性传值
+Vue-路由
+Vue-资源请求
+
+
+
+
+
+========================================
+撩课-零基础玩转Vue2.x-基础篇
+----------------------------------------
+https://study.163.com/course/introduction.htm?courseId=1005974007#/courseDetail?tab=1
+课程大纲：
+1.ES6语法基础，包括let/const、解构赋值、set/map、Symbol、Iterator、Class、继承、综合案例；
+2.Vue 2.x语法基础，包括指令、计算属性、set/get、全局组件、父子组件、data、组件间通信、动态绑定、自定义事件、插槽等；
+3.Vue 2.x进阶篇，包括Vue-router、命名路由、嵌套路由、京东商城（购物车）实战；
 
 
 ========================================
