@@ -104,6 +104,174 @@ var app=new Vue({
 
 
 ========================================
+v-for
+----------------------------------------
+<meta charset="UTF-8">
+
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="/static/js/vue.js"></script>
+
+<div id="app">
+<h1>{{ name }}</h1>
+	<ol>
+		<li v-for="food in foodList">{{food}}</li>
+	</ol>
+	
+	<ul>
+		<li v-for="food in foodList2">{{food.name}}: ￥<del>{{food.price}}</del> ￥{{food.discount?food.price * food.discount:food.price}}</li>
+	</ul>
+</div>
+在F12控制台，改变数据会立刻更新dom视图:<br>
+app.foodList2.push({name:"猪肉", price:50, discount:0.99}) 
+
+<script>
+var app=new Vue({
+	el:'#app',
+	data:{
+		name:'Vue v-for 杂货店',
+		foodList:['葱','姜','蒜'],//str数组，信息不够丰富
+		foodList2:[//obj数组，信息更多
+			{
+				name:"葱",
+				price:10,
+				discount:0.8
+			},
+			{
+				name:"姜",
+				price:30,
+				discount:0.5
+			},
+			{
+				name:"蒜",
+				price:15,
+				discount:0.3
+			},
+			{
+				name:"鸡蛋",
+				price:20,
+				//不打折，怎么设置默认值？防止出错NaN
+				//div中使用三元运算符 x?a:b;
+			},
+			
+			
+		]
+	}
+})
+</script>
+
+
+
+
+========================================
+v-on 绑定事件: 简写做 @
+----------------------------------------
+v-on:click="fnInJS"; 简写做 @:click="fnInJS";
+
+写多个动作v-on="{mouseenter:onEnter, mouseleave:onOut}";
+
+
+v-on:submit="onSubmit;
+v-on:submit.stop="onSubmit;
+v-on:submit.prevent="onSubmit;
+v-on:submit="onSubmit($event); 
+v-on:submit.prevent="onSubmit($event)
+
+
+
+
+实例：
+<meta charset="UTF-8">
+
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="/static/js/vue.js"></script>
+
+<style>
+.top_title{color:white; background:#ddd; padding:5px 10px;}
+.active{color:red;}
+</style>
+
+
+<div id="app">
+	<h1 :class="a_class" @click='changeColor'>{{ name }}</h1>	
+	<a v-on="{mouseenter:onEnter, mouseleave:onOut}" v-bind:class="{active:isActive}" v-bind:href="url">link</a>
+	<br>
+	<button v-on:click="changeColor">改变颜色 click me</button>
+	
+	
+	<hr>
+	<form @keyUp="onKeyUp" v-on:submit.prevent="onSubmit">
+		用户名 <input id="focus" v-on:keyUp.enter="onPressEnter" type="text" name="username"> <br>
+		密码 <input type="password" name="pass"> <br>
+		<input type="submit" value="提交">
+	</form>
+</div>
+<hr>
+
+
+<script>
+var app=new Vue({
+	el:'#app',
+	data:{
+		name:'v-on',
+		url:"https://baidu.com",
+		a_class:'top_title',
+		isActive:true,
+	},
+	methods:{
+		changeColor:function(){
+			this.isActive=!this.isActive
+		},
+		
+		onEnter:function(){
+			console.log("enter")
+		},
+		onOut:function(){
+			console.log("out")
+		},
+		onSubmit:function(e){
+			//e.preventDefault();
+			console.log('submit e=',e)
+			return false;
+		},
+		onKeyUp:function(e){
+			console.log('keyup presssed=', e.key, e);
+		},
+		onPressEnter:function(e){ //只响应键盘的 enter 键
+			console.log(">>enter pressed: e=",e.key, e)
+		},
+		
+		onLoad:function(e){
+			console.log("load now", e)
+		}
+	}
+})
+
+window.onload=function(){
+	document.getElementById("focus").focus()
+}
+</script>
+
+
+
+
+
+
+========================================
+v-model 模型及其修饰符
+----------------------------------------
+
+
+
+todo
+https://study.163.com/course/courseLearn.htm?courseId=1004181065#/learn/video?lessonId=1048300109&courseId=1004181065
+
+
+
+========================================
 webpack
 ----------------------------------------
 (angular)前端内容的自动化构建 https://www.imooc.com/learn/922
