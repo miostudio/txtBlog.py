@@ -177,6 +177,7 @@ ul li span{font-size:180%;}
 3. 以上属性，是css属性display控制的。
     display: block; 则独占一行
     display: inline;或 inline-block; 则能和其他元素共存一行。
+		有block则可以设置宽高，边框，边距等。
 
 
 例：让最后的123和ul共用一行
@@ -200,7 +201,83 @@ ul{display: inline-block;}
 
 
 ========================================
+实例: 纯css二级导航下拉菜单
 ----------------------------------------
+<style>
+.wrap{	width:800px; margin:0 auto; }
+*{padding:0;margin:0;}
+#nav{width:800px; background:#eee; 
+	border-top:1px solid black;
+	border-bottom:1px solid black;
+}
+#nav ul{color:red; 
+	letter-spacing: -5px;
+	position:relative;
+	display: inline-block;
+}
+#nav ul li{color:black;background:white; 
+	list-style: none; 
+	float:left;
+	letter-spacing: normal;
+}
+#nav ul li:hover{color:white; background:black; cursor:pointer;}
+#nav ul li a{display:block; padding:10px 20px;}
+
+#nav ul li ul li{float:none; background:white;color:black;}
+#nav ul li ul li:hover{background:black;color:white;}
+
+#nav ul li ul{display:none; position:absolute;
+	border:1px solid black; min-width:100px;}
+#nav ul li:hover ul{display:block;}
+</style>
+
+<div class=wrap>
+	<h1>油条咖啡店</h1>
+	<div id=nav>
+	<ul>
+	  <li><a>茶</a>
+	  <ul>
+	      <li><a>红茶</a>
+		  <li><a>绿茶</a></li>
+		  <li><a>茉莉花茶</a></li>
+	  </ul>
+	  <li><a>牛奶(二级菜单)</a>
+		<ul>
+			<li><a>纯牛奶</a></li>
+			<li><a>酸牛奶</a></li>
+			<li><a>牛奶花生</a></li>
+			<li><a>牛奶红豆</a></li>
+			<li><a>牛奶黑豆</a></li>
+			<li><a>牛奶核桃</a></li>
+		</ul>
+	  </li>
+	  <li><a>肉包子</a></li>
+	  <li><a>豆浆</a>
+		<ul>
+		  <li><a>五谷豆浆</a></li>
+		  <li><a>热豆浆</a></li>
+		  <li><a>豆浆王</a></li>
+		</ul>
+	  </li>
+	  <li><a>纯css二级导航下拉菜单</a></li>
+	</ul>
+	</div>
+
+
+<pre>
+兼容问题：
+1.li标签间有空白是怎么回事？ 消除li横排后空隙
+https://www.yaxi.net/2016-06-30/1019.html
+
+2.二级菜单做不出来？
+纯css二级导航下拉菜单 https://blog.csdn.net/zhaiyq/article/details/81479613
+
+
+
+</pre>
+</div>
+
+
 
 
 ========================================
