@@ -261,13 +261,329 @@ window.onload=function(){
 
 
 ========================================
-v-model 模型及其修饰符
+v-model 模型及其修饰符: input/radio/checkbox/select/textarea/
+----------------------------------------
+<meta charset="UTF-8"> 
+
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="/static/js/vue.js"></script>
+<style>
+label{line-height:30px; display:block;}
+pre b{color:red;}
+</style>
+v-model 模型：添加新员工
+<hr>
+
+<div id="app">
+	<label>Name: 
+		<input type="input" v-model.number="name">
+	</label>
+
+	<label>Sex: 
+		<input type="radio" v-model="sex" value="F">Female
+		<input type="radio" v-model="sex" value="M">Male
+	</label>
+
+	<label>habit: 
+		<input type="checkbox" v-model="habit" value="化妆">化妆
+		<input type="checkbox" v-model="habit" value="跳舞">跳舞
+		<input type="checkbox" v-model="habit" value="唱歌">唱歌
+		<input type="checkbox" v-model="habit" value="画画">画画
+	</label>
+
+	<label>Story: 
+		<select v-model="story">
+			<option value="1">1层: 奢侈品</option>
+			<option value="2">2层：超市</option>
+			<option value="3">3层：服装</option>
+			<option value="4">4层：电器</option>
+			<option value="5">5层：教育</option>
+			<option value="6">6层：餐饮</option>
+		</select>
+	</label>
+
+	<label>Ideal Job: <br>
+		<select v-model="job" multiple>
+			<option value="0">经理</option>
+			<option value="1">销售</option>
+			<option value="2">收银</option>
+			<option value="3">程序员</option>
+		</select>
+	</label>
+
+	<label>Other note: <br>
+		<textarea v-model="text"></textarea>
+	</label>
+	
+	<label>提交： 
+		<input type='submit' value='都没有name，则么提交呢？ajax'>
+	</label>
+	
+	<hr>核对区域:
+	<pre>info: name:<b>{{name}}</b>; Sex:<b>{{sex}}</b>; Story:<b>{{story}}</b>; habit:<b>{{habit}}</b>; text:<b>{{text}}</b>; job:<b>{{job}}</b></pre>
+</div>
+
+<hr>
+F12 控制台，输入 app.sex="F"<br>
+app.story=2
+
+<script>
+var app=new Vue({
+	el:"#app",
+	data:{
+		name:"Lily",
+		sex:"M",
+		habit:["唱歌","化妆"],
+		story:3,
+		job:[],
+		text:"this is a very long text; this is a very long text; ",
+	}
+});
+</script>
+
+
+
+========================================
+vue 控制流指令:v-if/ v-if-else/ v-esle/
+----------------------------------------
+1.v-else
+<div id="app">
+	<div v-if="role=='admin'">
+		管理员你好
+	</div>
+	<div v-else>
+		您没有权限访问此页面
+	</div>
+</div>
+
+app=new Vue({
+	el:'#app',
+	data:{
+		name:'vue.js',
+		role:'hr'
+	}
+});
+
+
+
+
+2.完整实例，if还可以跟逻辑判断
+
+<meta charset="UTF-8"> 
+
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="/static/js/vue.js"></script>
+vue 控制流
+<hr>
+
+<div id="app">
+	<div v-if="role=='admin' || role=='super_admin'">
+		管理员你好
+	</div>
+	<div v-else-if="role=='hr'">
+		hr 页面: 查看简历列表
+	</div>
+	<div v-else>
+		您没有权限访问此页面
+	</div>
+</div>
+
+<hr>
+F12 控制台，输入 app.role='super_admin'
+
+<script>
+app=new Vue({
+	el:'#app',
+	data:{
+		name:'vue.js',
+		role:'hr'
+	}
+});
+</script>
+
+
+
+
+
+========================================
+计算属性: computed 带缓存
+----------------------------------------
+<meta charset="UTF-8"> 
+
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="/static/js/vue.js"></script>
+vue 计算属性：
+<hr>
+尝试修改分数:<br>
+在v-model中要使用.number后缀修饰符，否则默认是字符串，总分会不正常。<br>
+或者使用 parseFloat(str) 在js中转换。
+
+<div id="app">
+	<table border='1' cellspacing="0">
+		<tr><th>科目</th> <th>分数</th> </tr>
+		<tr><td>数学</td> <td><input type="text" v-model.number="math"></td> </tr>
+		<tr><td>物理</td> <td><input type="text" v-model.number="physics"></td> </tr>
+		<tr><td>英语</td> <td><input type="text" v-model.number="english"></td> </tr>
+		<tr><td>语文</td> <td><input type="text" v-model.number="chinese"></td> </tr>
+		<tr><td>总分</td> <td>{{sum}}</td> </tr>
+		<tr><td>平均分</td> <td>{{ mean }}</td> </tr>
+	</table>
+	
+</div>
+
+<hr>
+F12 控制台，输入 app.chinese=80
+
+<script>
+app=new Vue({
+	el:'#app',
+	data:{
+		math:100,
+		physics:90,
+		english:95,
+		chinese:30,
+	},
+	computed:{
+		sum:function(){
+			return parseFloat(this.math)+this.physics+this.english+this.chinese;
+		},
+		mean: function(){
+			return Math.round(this.sum/4);
+		}
+	}
+});
+</script>
+
+
+
+========================================
+方法 methods: 不缓存
+----------------------------------------
+<p>Reversed message: "{{ reversedMessage() }}"</p>
+
+// 在组件中
+methods: {
+  reversedMessage: function () {
+    return this.message.split('').reverse().join('')
+  }
+}
+
+计算属性是基于它们的响应式依赖进行缓存的。只在相关响应式依赖发生改变时它们才会重新求值。这就意味着只要 message 还没有发生改变，多次访问 reversedMessage 计算属性会立即返回之前的计算结果，而不必再次执行函数。
+
+这也同样意味着下面的计算属性将不再更新，因为 Date.now() 不是响应式依赖：
+
+computed: {
+  now: function () {
+    return Date.now()
+  }
+}
+
+相比之下，每当触发重新渲染时，调用方法将总会再次执行函数。
+
+
+
+========================================
+vue 全局及局部组件 Vue.component('newTagName',{})
+----------------------------------------
+<meta charset="UTF-8"> 
+
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="/static/js/vue.js"></script>
+vue 全局及局部组件：
+<hr>
+<style>
+div{border:1px dashed #eee; margin:5px; padding:10px;}
+</style>
+
+<div id="seg1">
+	<alert></alert>
+	<alert></alert>
+</div>
+
+<div id="seg2">
+	<alert></alert>
+	<alert2></alert2>
+</div>
+
+<div id="seg3">
+	<alert></alert>
+	<alert2>没有显示2</alert2>
+	<alert3></alert3>
+</div>
+
+<div id="app">
+	{{math}}
+</div>
+
+<hr>
+F12 控制台，输入 app.chinese=80
+
+<script>
+Vue.component('alert',{
+	template:'<button @click="on_click">弹出窗提醒！</button>',
+	methods:{
+		on_click:function(){
+			alert('弹出的js窗口。'+this.math)
+		}
+	}
+})
+//组件必须放到实例内部，才能渲染
+new Vue({el:'#seg1'})
+
+//私有的组件
+new Vue({
+	el:'#seg2',
+	components:{
+		'alert2':{
+			template:'<button @click="on_click2">弹2</button>',
+			methods:{
+				on_click2:function(){
+					alert('on click2');
+				}
+			}
+		}
+	}
+})
+
+//私有的组件，封装版
+var alert3_component={
+	template:'<button @click="on_click2">弹3</button>',
+	methods:{
+		on_click2:function(){
+			alert('on click3');
+		}
+	}
+}
+new Vue({
+	el:'#seg3',
+	components:{
+		'alert3':alert3_component,
+	}
+})
+
+//还没有说组件之间的通信
+app=new Vue({
+	el:'#app',
+	data:{
+		math:100,
+	},
+});
+</script>
+
+
+
+========================================
+|-- 组件-配置组件
 ----------------------------------------
 
-
-
-todo
-https://study.163.com/course/courseLearn.htm?courseId=1004181065#/learn/video?lessonId=1048300109&courseId=1004181065
 
 
 

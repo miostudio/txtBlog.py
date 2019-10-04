@@ -6,7 +6,7 @@ html就是记住一些常用的标签，及其属性。
 超链接 a
 表格 table 
 列表 ol ul 
-表单 form
+表单 form/input[type=]/select/radio/
 
 分隔 div span p
 
@@ -133,6 +133,36 @@ if __name__ == '__main__':
 
 
 ========================================
+|-- 多选框 select
+----------------------------------------
+[select下拉框实例]
+<form>
+选择汽车品牌：
+<select name='carMaker' id="box">
+  <option value ="volvo">Volvo</option>
+  <option value ="saab" selected>Saab</option>
+  <option value="opel">Opel</option>
+  <option value="audi">Audi</option>
+</select>
+<input type='submit'>
+</form>
+
+<script>
+var oSel=document.getElementById('box')
+console.log(oSel.selectedIndex, oSel.value)
+oSel.selectedIndex=0 //改变当前项。编号从0开始的
+console.log(oSel.selectedIndex, oSel.value)
+
+//选择事件
+oSel.onchange=function(e){
+	console.log(this.selectedIndex, this.value)
+	//console.log(e)
+}
+//提交给 ?carMaker=saab
+</script>
+
+
+========================================
 span：行内，划定范围
 ----------------------------------------
 <span>一个</span>段落
@@ -195,6 +225,45 @@ tr用于一行的标记。
 
 到js中再讲。
 
+
+
+3. 用css为表格添加边框，去掉间隙
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>菜鸟教程(runoob.com)</title>
+<style>
+table {
+    border-collapse: collapse;
+}
+
+table, td, th {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+<table>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+  </tr>
+  <tr>
+    <td>Peter</td>
+    <td>Griffin</td>
+  </tr>
+  <tr>
+    <td>Lois</td>
+    <td>Griffin</td>
+  </tr>
+</table>
+
+<p><b>注意：</b> 如果没有指定 !DOCTYPE  border-collapse 属性在 IE8 及更早 IE 版本中是不起作用的。</p>
+
+</body>
+</html>
 
 
 ========================================

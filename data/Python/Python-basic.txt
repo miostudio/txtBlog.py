@@ -1,22 +1,1812 @@
-python 测试web标签转码
+python3 基础教程
+
+要学Python3，不要学Python2，因为2已经过时了。
+2的特征是print xx; 3的特征是 print(xx);
+
+
+
+
+Python一小时快速入门【强烈推荐 - 长文预警】
+
+Python是一门具有强类型(即变量类型是强制要求的)、动态性、隐式类型(不需要做变量声明)、大小写敏感(var和VAR代表了不同的变量)以及面向对象(一切皆为对象)等特点的编程语言。
+
+
+python3练习：https://www.cnblogs.com/cjsblog/p/9427157.html
+
+
+========================================
+教程资源、运行方式
+----------------------------------------
+1.文字版：
+廖雪峰 https://www.liaoxuefeng.com/wiki/1016959663602400
+菜鸟教程： https://www.runoob.com/python/python-tutorial.html
+
+
+视频：
+https://www.imooc.com/learn/177
+
+
+2.运行方式有2种
+2.1 交互式运行Python: 
+优点：输入一行，回车，立刻有反馈。
+缺点：报错了就要重新输入，不方便修改。上下键只能返回到过去某一行。
+
+(1)运行cmd黑窗口
+1)开始-运行，输入 cmd，回车，出现黑窗口。
+2)快捷键 win+R，输入cmd，回车，出现黑窗口。
+3)打开 我的电脑，进入任意文件夹内，在地址栏输入cmd，出现黑窗口。
+
+
+(2)在黑窗口内输入 python 回车，进入python交互式界面。
+G:\html5>python
+Python 3.7.0 (v3.7.0:1bf9cc5093, Jun 27 2018, 04:06:47) [MSC v.1914 32 bit (Inte
+l)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+可以输入python语句了。换行符是空格加斜杠 \
+退出输入quit()回车。
+
+
+
+
+2.2 脚本式运行Python: 建议在硬盘根目录保存和执行文件，方便找到文件夹。
+优点：可以随意修改脚本，修改完善再运行。脚本可以长期保存。
+缺点：不能立刻显示变量，想显示必须使用print()命令。
+
+(1) 新建文本文件，后缀名是.py，文件名尽量不出现中文和空格。
+文件名首位不能是数字。
+比如：
+新建
+G:\PythonCode\001\hello.py 文件，内容是
+print('hello, from python!~~');
+
+(2) 打开黑窗口，使用cd命令进入脚本所在文件夹：
+C:\Users\Administrator>G:
+G:\>cd PythonCode
+G:\PythonCode>cd 001
+G:\PythonCode\001>
+
+运行：
+G:\PythonCode\001>python a1.py
+hello, from python!~~
+即可看到运行结果。
+
+
+(3)#######黑窗口操作命令:
+输入盘符加冒号，回车，进入某个硬盘;
+进入该硬盘后输入 
+cd 文件夹名字 #进入该文件夹内;
+cd ..  #进入上一个文件夹
+
 
 
 
 ========================================
-a test
+变量和数据类型
 ----------------------------------------
-<a href="">xxx</a>
+1. 整数
+a=1
+b=2
+c=a+b
+print(c)
+
+
+2.字符串
+a1='lilei'
+b1=' is coming'
+c1=a1+b1
+print(c1)
+
+
+3.向量
+a=[1,2,3] #list
+b=(1,2,3) #tuple
+
+#取值
+print(a[1]) #2
+
+
+
+
+4.字典 本质是键值对 key:value, key2:value2, ...
+a={
+	'box1':'苹果',
+	'box2':'还是苹果',
+	'box3':'香蕉',
+	'box4':'又是一个苹果',
+}
+
+#取值
+print(a['box3'])
+
+实例
+lilei={
+	'math':90,
+	'chinese':79,
+	'physics':99,
+	'english':10
+}
+print(lilei)
+
+
+
+
+
+
+========================================
+运算符
+----------------------------------------
+1.数学运算符
++
+-
+*
+/
+
+取余数 100%3 #1
+整除 100//3 #33
+100 ÷ 3=33 ... 1
+
+
+
+2. 自加、自减
+a+=1 就是a=a+1的简写
+a-=9 就是a=a-9的简写
+
+例子
+sum=0
+for i in range(11):
+	sum+=i; #等价于sum=sum+1
+print(sum)#55
+
+同理
+a*=2
+a/=5
+
+
+3. 
+
+
+
+========================================
+控制结构:if / for - range() / while /
+----------------------------------------
+1.if 选择
+#不同年龄判刑不同，写if实现判断。
+
+age=8
+if age < 12:
+    print('不判')
+elif 12<=age<18:
+    print('一半刑')
+else:
+    print('全刑')
+
+
+
+
+
+
+2. for 循环
+
+#高中数学：
+#  开区间(1,5)就是首尾都不包括，(1,5)包括 2,3,4
+#  闭区间[1,5]就是包括首尾,[1,5]包括1,2,3,4,5
+#  半开半闭区间[1,5)就是包括1，不包括5:1,2,3,4
+#  半开半闭区间(1,5]就是不包括1，包括5: 2,3,4,5
+
+
+#for 循环:是用来做重复的事情的
+#打印0-10
+for i in range(11):
+	print(i)
+#
+#range(start,stop,step)
+#从[start,stop)的整数
+#如果只有一个参数 range(stop)，则表示[0,stop)
+#步长，就是等差，默认是1
+#>>> [i for i in range(1,10,5)]
+#打印0-10之间，步长=2的整数
+for i in range(0,11,2):
+	print(i)
+#
+
+
+(2)例2 求数组的和
+arr=[210,-300, 43,89,2,100,21,-900]
+#arr=[1,2,3]
+
+sum=0;
+for j in arr:
+	#print('='*30, 'current=',j)
+	#print('sum (before add %d): '%(j),sum)
+	sum=sum+j
+	#print('sum (after add %d): '%(j),sum)
+print('数组的总和是：',sum)
+
+(3)用循环画三角形*阵列
+    *
+   ***
+  *****
+ *******
+*********
+for r in range(5):#5
+	str1=''
+	for c in range(9):#9
+		if c<5-r-1:
+			str1+=' '
+		elif c<5+r:
+			str1+="*"
+		else:
+			str1+=' '
+	print(str1)
+#
+
+
+
+
+3.while循环
+
+
+
+
+
+
+
+========================================
+函数
+----------------------------------------
+1.函数包括函数名、输入参数(可选)、输出返回值(可选)
+
+#函数的定义：
+#def 空格 函数名(参数列表):
+#	接着是函数体#do something
+#	return 返回值
+def add(a,b=10): 
+#可以指定参数默认值，有默认值的参数要往后放
+	x=a+b
+	return x
+#
+
+#函数的调用
+print('1-->', add(1,200) )
+
+rs=add(20)
+print('2-->',rs)
+
+
+
+
+2.函数可以嵌套
+#嵌套
+def add3(a,b,c):
+
+	def add2(x,y):
+		return x+y
+	#print(add2(1,2))
+	tmp=add2(a,b)
+	return add2(tmp, c)
+#
+
+rs=add3(10,20,300)
+print(rs) #330
+
+
+
+
+3.递归函数，就是函数内调用自己
+#求阶乘
+def fn(n):
+	if n==1:
+		return 1;
+	return n*fn(n-1)
+#
+print('fn result:', fn(10) ) #3628800
+
+
+
+========================================
+todo: 类/ 切片 /迭代 /列表生成器
+----------------------------------------
+
+
+
+
+========================================
+1.获取帮助
+----------------------------------------
+你可以很容易的通过Python解释器获取帮助。
+如果你想知道一个对象(object)是如何工作的，那么你所需要做的就是调用help(<object>)！
+另外还有一些有用的方法，dir()会显示该对象的所有方法，
+还有<object>.__doc__会显示其文档：
+
+>>> help(5)
+Help on int object:
+(etc etc)
+
+>>> dir(5)
+['__abs__', '__add__', ...]
+
+>>> abs.__doc__
+'abs(number) -> number
+
+Return the absolute value of the argument.'
+
+
+
+========================================
+2.语法
+----------------------------------------
+Python中没有强制的语句终止字符，且代码块是通过缩进来指示的。缩进表示一个代码块的开始，逆缩进则表示一个代码块的结束。
+声明以冒号(:)字符结束，并且开启一个缩进级别。
+单行注释以井号字符(#)开头，多行注释则以多行字符串的形式出现。
+赋值（事实上是将对象绑定到名字）通过等号(“=”)实现，双等号(“==”)用于相等判断，”+=”和”-=”用于增加/减少运算(由符号右边的值确定增加/减少的值)。
+这适用于许多数据类型，包括字符串。你也可以在一行上使用多个变量。例如：
+
+>>> myvar = 3
+>>> myvar += 2
+>>> myvar
+5
+>>> myvar -= 1
+>>> myvar
+4
+"""This is a multiline comment.
+The following lines concatenate the two strings."""
+
+>>> mystring = "Hello"
+>>> mystring += " world."
+>>> print(mystring)
+Hello world.
+
+# This swaps the variables in one line(!).
+# It doesn't violate strong typing because values aren't
+# actually being assigned, but new objects are bound to
+# the old names.
+>>> myvar, mystring = mystring, myvar
+
+
+
+
+========================================
+3.数据类型：普通变量、列表(数组)、字典、集合
+----------------------------------------
+
+Python具有列表（list）、元组（tuple）和字典（dictionaries）三种基本的数据结构，而集合(sets)则包含在集合库中(但从Python2.5版本开始正式成为Python内建类型)。
+ - 列表[1,2,3]的特点跟一维数组类似（当然你也可以创建类似多维数组的“列表的列表”），
+ - 字典{"key":"value",}则是具有关联关系的数组（通常也叫做哈希表），
+ - 而元组(1,2,3)则是不可变的一维数组（Python中“数组”可以包含任何类型的元素，这样你就可以使用混合元素，例如整数、字符串或是嵌套包含列表、字典或元组）。
+
+
+
+1.普通变量
+(1)str跟int的转换
+字符串str转换成int: int_value = int(str_value)
+int转换成字符串str: str_value = str(int_value)
+
+
+(2)四舍五入保留小数点后3位
+x=3.14159265358989
+print(x)
+round(x,3) #3.142
+
+
+
+
+2.数组
+数组中第一个元素索引值(下标)为0，使用负数索引值能够从后向前访问数组元素，-1表示最后一个元素。数组元素还能指向函数。来看下面的用法：
+
+>>> sample = [1, ["another", "list"], ("a", "tuple")]
+>>> dir(sample) #查找方法
+['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dir__'
+, '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__'
+, '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__iter__', '__le__'
+, '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_e
+x__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__s
+izeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'ex
+tend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+
+>>> sample.append(200) #追加一个元素
+>>> sample #查看元素
+[1, ['another', 'list'], ('a', 'tuple'), 200]
+
+>>> len(sample) #数组长度
+4
+
+>>> mylist = ["List item 1", 2, 3.14]
+>>> mylist[0] = "List item 1 again" # We're changing the item.
+>>> mylist[-1] = 3.21 # Here, we refer to the last item.
+
+
+你可以使用:运算符访问数组中的某一段，如果:左边为空则表示从第一个元素开始，
+同理:右边为空则表示到最后一个元素结束。负数索引则表示从后向前数的位置（-1是最后一个项目），例如：
+
+>>> mylist = ["List item 1", 2, 3.14]
+>>> print(mylist[:])    #['List item 1', 2, 3.14]
+>>> print(mylist[0:2])  #['List item 1', 2]
+>>> print(mylist[-3:-1])#['List item 1', 2]
+>>> print(mylist[1:])   #[2, 3.14]
+
+
+
+列表、元组可以使用切片，语法为:  
+变量[起始位置: 结束位置: 步长]  #代表从起始位置，到结束位置（不含），根据步长（默认1）取得的所有元素。
+
+# Adding a third parameter, "step" will have Python step in N item increments, rather than 1.
+# E.g., this will return the first item, then go to the third and
+# return that (so, items 0 and 2 in 0-indexing).
+>>> print(mylist[::2]) # ['List item 1', 3.14]
+
+# 最简单的倒序排列
+>>> mylist[::-1]  #[3.14, 2, 'List item 1']
+
+#对字符串的倒序
+>>> "abcde"[::-1] #'edcba'
+
+
+
+(2)向数组中任意位置处插入一个数据
+1)insert() 将一个元素插入到列表中
+k=['b','c']
+k.insert(0,'a')
+k  ##['a','b','c']
+
+2)extend:扩展两个数组
+a=[1,2,3]
+b=[10,20,30]
+a.extend(b)
+a ## [1, 2, 3, 10, 20, 30]
+
+
+(3) 数组变字符串string
+"_".join(["a", "b", "c"]) ## 'a_b_c'
+
+(4)string变数组
+string = '[1,2,3]'
+arr = string[1:-1].split(',')
+##字符串形式 ['1', '2', '3'] 
+
+或者使用eval函数
+eval(string) ##数字形式 [1, 2, 3]
+
+
+
+
+3.字典
+>>> mydict = {"Key 1": "Value 1", 2: 3, "pi": 3.14}
+>>> mydict["pi"] = 3.15 # This is how you change dictionary values.
+>>> mytuple = (1, 2, 3)
+
+>>> myfunction = len
+>>> myfunction(mylist)
+3
+
+>>> type(sample) #查询数据类型
+<class 'list'>
+
+
+
+#字典类型和json类似
+dict={
+    "Name":'27班',
+    "id":'a001',
+}
+print(dict) #1
+
+print(dict['Name'])
+
+del dict['Name']; # 删除键是'Name'的条目
+print(dict) #2
+dict.clear();     # 清空词典所有条目
+
+print(dict) #3
+del dict ;        # 删除词典
+
+
+
+
+
+4.集合：不能重复、无序
+a=set()
+a.add("8")
+a.add("3")
+a.add("8")
+a #{'3', '8'}
+
+
+
+
+
+
+
+
+
+========================================
+4.字符串
+----------------------------------------
+
+Python中的字符串使用单引号(')或是双引号(")来进行标示，并且你还能够在通过某一种标示的字符串中使用另外一种标示符(例如 “He said ‘hello’.”)。
+而多行字符串可以通过三个连续的单引号('')或是双引号("")来进行标示。
+Python可以通过u”This is a unicode string” 这样的语法使用Unicode字符串。
+如果想通过变量来填充字符串，那么可以使用取模运算符(%)和一个元组。使用方式是在目标字符串中从左至右使用%s来指代变量的位置，或者使用字典来代替，示例如下：
+
+>>> print("Name: %s, number: %d"%("lilei",45))
+Name: lilei, number: 45
+
+>>> dict={
+...     "Name":'27班',
+...     "id":'a001',
+... }
+>>> print(dict) #1
+{'id': 'a001', 'Name': '27班'}
+>>> print("Name:%s\
+...  Number:%s\
+...  String:%s"%(dict['Name'],3,3*'-'))
+Name:27班 Number:3 String:---
+
+>>> mstr="""This is
+... a multiline
+... string."""
+>>> mstr
+'This is \na multiline\nstring.'
+
+>>> print("This %(verb)s a %(noun)s." % {"noun":"test","verb":"is"})
+This is a test.
+
+>>> print("Name: %(Name)s, number: %(id)s"%dict)
+Name: 27班, number: a001
+
+
+截取字符串
+>>> str='helloWorld'
+>>> str[0:5] #注意截取的有头无尾。
+'hello'
+
+
+a = 'flimsy'
+b = 'miserable'
+c = b[0:1] + a[2:]
+print(c)
+#mimsy
+
+
+
+========================================
+5.流程控制
+----------------------------------------
+(此后的演示越来越复杂，故采用Eclipse+pyDev进行编辑和演示)
+
+Python中可以使用if、for和while来实现流程控制。
+Python中并没有select，取而代之使用if来实现。
+使用for来枚举列表中的元素。如果希望生成一个由数字组成的列表，则可以使用range(<number>)函数。以下是这些声明的语法示例：
+
+
+#for-if
+rangelist = range(10)
+print(rangelist)
+#[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+for number in rangelist:
+    # Check if number is one of
+    # the numbers in the tuple.
+    if number in (3, 19):
+        # "Break" terminates a for without
+        # executing the "else" clause.
+        print('break: %s'%(number));
+        break
+    else:
+        # "Continue" starts the next iteration
+        # of the loop. It's rather useless here,
+        # as it's the last statement of the loop.
+        print('continue: %s'%(number));
+        continue
+else:
+    # The "else" clause is optional and is
+    # executed only if the loop didn't "break".
+    print('the for -> else');
+    pass # Do nothing
+
+#if
+if rangelist[1] == 2:
+    print("The second item (lists are 0-based) is 2")
+elif rangelist[1] == 3:
+    print( "The second item (lists are 0-based) is 3")
+else:
+    print( "Dunno")
+
+#while
+i=100;sum=0;
+while i>0:
+    sum += i
+    i -= 1
+    #pass
+    
+print(sum)
+
+输出：
+range(0, 10)
+continue: 0
+continue: 1
+continue: 2
+break: 3
+Dunno
+5050
+
+
+
+
+
+# 三元运算符，功能和js中的一致: aa=5>3?1:0 ##1
+>>> aa = 1 if 5>3 else 0;
+>>> aa
+1
+>>> aa = 1 if 5>30 else 0;
+>>> aa
+0
+
+
+
+
+========================================
+6.函数
+----------------------------------------
+
+函数通过“def”关键字进行声明。可选参数以集合的方式出现在函数声明中并紧跟着必选参数，可选参数可以在函数声明中被赋予一个默认值。已命名的参数需要赋值。
+函数可以返回一个元组（使用元组拆包可以有效返回多个值）。
+Lambda函数是由一个单独的语句组成的特殊函数，参数通过引用进行传递，但对于不可变类型(例如元组，整数，字符串等)则不能够被改变。这是因为只传递了该变量的内存地址，并且只有丢弃了旧的对象后，变量才能绑定一个对象，所以不可变类型是被替换而不是改变（译者注：虽然Python传递的参数形式本质上是引用传递，但是会产生值传递的效果）。例如：
+
+# 作用等同于 def funcvar(x): return x + 1
+>>> funcvar=lambda x:x+1
+>>> funcvar(1)
+2
+
+
+# an_int 和 a_string 是可选参数，它们有默认值
+# 如果调用 passing_example 时只指定一个参数，那么 an_int 缺省为 2 ，a_string 缺省为 A default string。如果调用 passing_example 时指定了前面两个参数，a_string 仍缺省为 A default string。
+# a_list 是必备参数，因为它没有指定缺省值。
+>>> def passing_example(a_list,an_int=2,a_string="a default string"):
+...     a_list.append("a new item")
+...     an_int=4
+...     return a_list,an_int,a_string
+...
+>>> my_list=[1,2,3]
+>>> my_int=10
+>>> passing_example(my_list,my_int)
+([1, 2, 3, 'a new item'], 4, 'a default string')
+>>> my_list
+[1, 2, 3, 'a new item']
+>>> my_int
+10
+
+
+#支持函数嵌套
+def add3(a,b,c):
+    #内部函数
+    def add2(x,y):
+        return x+y
+    return add2(add2(a,b),c)
+
+print(add3(1,2,3))
+
+
+
+
+
+
+
+========================================
+7.类，面向对象 OOP
+----------------------------------------
+
+Python支持有限的多继承形式。私有变量和方法可以通过添加至少两个前导下划线和最多尾随一个下划线的形式进行声明（如“__spam”，这只是惯例，而不是Python的强制要求）。当然，我们也可以给类的实例取任意名称。例如：
+
+
+>>> class MyClass(object):
+...     common = 10
+...     def __init__(self):
+...         self.myvariable = 3
+...     def myfunction(self, arg1, arg2):
+...         return self.myvariable
+...
+
+# This is the class instantiation
+>>> ci=MyClass()
+>>> ci.myfunction(3,2)
+3
+# This variable is shared by all classes.
+>>> ci.common
+10
+>>> ci2=MyClass()
+>>> ci2.common
+10
+
+# This will not update the variable on the class,
+# instead it will bind a new object to the old
+# variable name.
+>>> ci.common=30
+>>> ci.common
+30
+>>> ci2.common
+10
+
+# Note how we use the class name
+# instead of the instance.
+>>> MyClass.common=20
+
+# This has not changed, because "common" is
+# now an instance variable.
+>>> ci.common
+30
+>>> ci2.common
+20
+
+
+
+# This class inherits from MyClass. The example
+# class above inherits from "object", which makes
+# it what's called a "new-style class".
+# Multiple inheritance is declared as:
+# class OtherClass(MyClass1, MyClass2, MyClassN)
+
+>>> class OtherClass(MyClass):
+    # The "self" argument is passed automatically
+    # and refers to the class instance, so you can set
+    # instance variables as above, but from inside the class.
+...     def __init__(self,arg1):
+...             self.myvariable=3
+...             print(arg1)
+...
+>>> oci=OtherClass("hello")
+hello
+>>> oci.myfunction(3,4)
+3
+
+# 还是受到 MyClass.common=20 的影响的（注意是类名，而不是实例名）
+>>> oci.common
+20
+
+
+# This class doesn't have a .test member, but
+# we can add one to the instance anyway. Note
+# that this will only be a member of classinstance.
+>>> oci.test=15
+>>> oci.test
+15
+
+
+
+
+
+
+
+========================================
+|-- OOP实例
+----------------------------------------
+
+这里是基本的例子，详情看 Python OOP 专题。
+
+
+#继承：
+    #1.子类缺省构造函数时，直接执行父类构造函数；
+    #  (1)子类有__init__时,基类的构造方法不会自动调用，需要时要在子类构造函数中专门调用
+    #2.调用基类方法时要加上基类的类名前缀，并带上self参数。
+    #  (1)而调用自身方法不需要加self参数。
+    #  (2)子类不能调用父类的私有方法: Father.__fn(self)找不到。
+    #3.在子类中找不到对应方法，才到基类中逐个查找。
+    #4. py的继承是不严格的。“鸭子类型”。isinstance(dog, Dog) )
+
+
+#基类
+class Animal(object):
+    def __init__(self):#1. 子类缺省构造函数时，直接执行父类构造函数。
+        print("==============Animal init.==============")
+    #类中定义的方法，第一个参数必须是self。其他和普通函数一致。
+    def run(self):
+        print('Animal is running...')
+    def eat(self):
+        print('Animal is eating...')
+        #self.__private_eat(); #调用自身方法不需要加self参数。
+    def __private_eat(self):
+        print('Animal is __private_eat ing.')
+
+#子类继承是通过类后的括号实现的。
+class Dog(Animal):
+	#子类的run()覆盖了父类的run()，
+    def run(self):
+        print('Dog is running...')
+
+    def eat(self):
+        print('Eating meat...')
+
+#子类定义
+class Cat(Animal):
+    def __init__(self):
+        print("Cat init.===")
+    def run(self):
+        print('Cat is running...')
+#孙子类
+class SmallCat(Cat):
+    def __init__(self):
+        Cat.__init__(self);#1(1). 子类有__init__时,基类的构造方法不会自动调用，需要时要在子类构造函数中专门调用
+        print("SmallCat init.===")
+    def animalEat(self):
+        print("==small cat eat: ")
+        Animal.eat(self);
+        #Animal.__private_eat(self);#type object 'Animal' has no attribute '_SmallCat__private_eat'
+
+################################
+# 类定义结束
+################################
+dog=Dog(); dog.run();
+print('dog<Dog>:', isinstance(dog, Dog) )
+print('dog<Animal>:', isinstance(dog, Animal) )
+print('dog<Cat>:', isinstance(dog, Cat) )
+smallCat=SmallCat();print('smallCat<Animal>:', isinstance(smallCat, Animal) )
+
+
+#定义一个函数：
+def run_twice(animal):
+    animal.run()
+    animal.run()
+#使用函数
+print()
+run_twice(Animal())
+run_twice(dog)
+run_twice(smallCat) #自动识别当前类的run方法，新增Animal子类不用对run_twice函数做修改就可使用，这就是多态。
+#这就是著名的“开闭”原则：
+#对扩展开放：允许新增Animal子类；
+#对修改封闭：不需要修改依赖Animal类型的run_twice()等函数。    
+
+
+
+#对于静态语言（例如Java）来说，如果需要传入Animal类型，则传入的对象必须是Animal类型或者它的子类，否则，将无法调用run()方法。
+#对于Python这样的动态语言来说，则不一定需要传入Animal类型。我们只需要保证传入的对象有一个run()方法就可以了.
+#比如钟表的run()方法
+class Watch():
+	def run(self):
+		print('The watch is ticking!');
+w=Watch();
+print()
+run_twice(w)
+#这就是动态语言的“鸭子类型”，它并不要求严格的继承体系，一个对象只要“看起来像鸭子，走起路来像鸭子”，那它就可以被看做是鸭子。
+
+
+print()
+sc=SmallCat()
+sc.animalEat()
+
+
+#
+# 输出结果
+#
+==== ===== =====Animal init.=== ====== =====
+Dog is running...
+dog<Dog>: True
+dog<Animal>: True
+dog<Cat>: False
+Cat init.===
+SmallCat init.===
+smallCat<Animal>: True
+
+==== ===== =====Animal init.==== ===== =====
+Animal is running...
+Animal is running...
+Dog is running...
+Dog is running...
+Cat is running...
+Cat is running...
+
+The watch is ticking!
+The watch is ticking!
+
+Cat init.===
+SmallCat init.===
+==small cat eat: 
+Animal is eating...
+
+
+
+
+
+========================================
+8.异常
+----------------------------------------
+
+Python中的异常由 try-except [exceptionname] 块处理，例如：
+
+def some_function(n):
+    print('    begin')
+    try:
+        # Division by zero raises an exception
+        r=10 / n
+        print('如果出错，该行不会被打印. 结果是',r);
+    #except ZeroDivisionError:
+    except ZeroDivisionError as e:
+        print("Oops, invalid.",e)
+    else:
+        # Exception didn't occur, we're good.
+        pass
+    finally:
+        # This is executed after the code block is run
+        # and all exceptions have been handled, even
+        # if a new exception is raised while handling.
+        print("We're done with that.本行总是被打印")
+ 
+some_function(0.1)
+#结果是 100.0
+#We're done with that.
+
+some_function(0)
+#Oops, invalid.
+#We're done with that.
+
+
+
+
+
+
+========================================
+9.导入(import) 与py路径
+----------------------------------------
+外部包需要提前使用pip包管理器安装。
+外部库可以使用 import [libname] 关键字来导入。同时，你还可以用 from [libname] import [funcname] 来导入所需要的函数。例如：
+
+import random
+from time import clock
+ 
+randomint = random.randint(1, 100)
+print(randomint)
+
+
+
+
+#### 用到再看，入门时不要继续看了。 ####
+
+
+1.第三方模块包，可以通过pip安装或者python setup install 进行安装后，通过
+import XXX 
+或
+from XXX import yyy  (全部导入 from mod1 import *; )
+进行导入。
+
+不过如果是自己遍写的依赖包，又不想安装到python的相应目录，可以放到本目录里进行import进行调用。
+为了更清晰的理清程序之间的关系，例如我们会把这种包放到lib目录再调用。
+
+
+(1)同级目录下的调用
+程序结构如下：
+-- src
+    |-- mod1.py ##定义了函数xx()
+    |-- test1.py
+
+若在程序test1.py中导入模块mod1, 则直接使用
+import mod1  ## 使用函数xx这么写: mod1.xx())
+或
+from mod1 import *  ## 使用函数xx时直接用: xx()
+
+
+
+(2)调用子目录下的模块
+程序结构如下：
+-- src
+    |-- mod1.py ##定义了函数xx()
+    |-- lib
+    |    |-- mod2.py ##也定义了函数xx()
+    |-- test1.py
+
+这时看到test1.py和lib目录（即mod2.py的父级目录），如果想在程序test1.py中导入模块mod2.py ，可以在lib件夹中建立空文件__init__.py文件(也可以在该文件中自定义输出模块接口)，然后使用：
+
+from lib.mod2 import *  ## 用函数时: lib.mod2.xx()
+或
+import lib.mod2  ## 用函数时: lib.mod2.xx()
+
+
+新建lib/__init__.py 空文件与否对函数调用好像没有影响。
+
+
+
+
+
+(3)调用上级目录下的文件
+程序结构如下：
+-- src
+    |-- mod1.py
+    |-- lib
+    |    |-- mod2.py
+    |-- sub
+    |    |-- test2.py
+
+这里想要实现test2.py调用mod1.py和mod2.py ，做法是我们先跳到src目录下面，直接可以调用mod1，然后在lib上当下建一个空文件__init__.py ，就可以像第二步调用子目录下的模块一样，通过import  lib.mod2进行调用了。具体代码如下：
+
+import sys
+sys.path.append("..")  ## 所以，py的执行路径就在 sys.path 这个数组中维护。
+import mod1  ## mod1.xx()
+import lib.mod2 ## lib.mod2.yy("good")
+
+
+
+refer:
+https://www.cnblogs.com/luoye00/p/5223543.html
+
+
+
+========================================
+10.文件I / O
+----------------------------------------
+
+Python针对文件的处理有很多内建的函数库可以调用。
+例如，这里演示了如何序列化文件(使用pickle库将数据结构转换为字符串)：
+
+
+1.#普通文本文件写
+#myfile2 = open(r"C:\\Tools\\test.txt", "w") #写入
+myfile2 = open(r"C:\\Tools\\test.txt", "a") #追加
+myfile2.write("This is a sample string \n")
+myfile2.close()
+
+2.读取
+myfile3 = open(r"C:\\Tools\\test.txt") #读取
+print(myfile3.read())
+myfile3.close()
+
+
+3.用with可以不显式的调用 close()语句
+with open("C:\\Tools\\test.txt", 'r', encoding='utf-8') as f:
+    print(f.read())
+#代码更简洁。
+
+
+4.获取和改变python的工作目录
+import os
+print('1>', os.path.abspath('.') )# 当前工作目录
+
+print('2>',os.getcwd()) # 打印当前工作目录
+os.chdir('c:/Tools/') # 改变当前工作目录
+
+print('3>',os.listdir()) #列出当前目录下的文件和文件夹
+
+
+5.文件重命名 http://www.runoob.com/python/os-rename.html
+import os
+
+# 列出目录
+print("目录为: %s"%os.listdir(os.getcwd()) )
+
+# 重命名，没有返回值
+os.rename("test2.txt","test3.txt")
+
+print("重命名成功。")
+
+# 列出重命名后的目录
+print( "目录为: %s" %os.listdir(os.getcwd()) )
+
+
+6.删除文件
+import os
+os.remove('test3.txt')
+
+
+7.#按照字节进行迭代
+f_name=open("test.txt",'r')
+c_str=f_name.read(1)
+while c_str:
+    print('read str is:', c_str)
+    c_str=f_name.read(1)
+f_name.close()
+#汉字会乱码
+
+
+
+
+8.按行迭代
+fr=open("test.txt",'r',encoding="utf-8")
+while True:
+    line=fr.readline()
+    if not line:
+        break
+    print('read line is:', line)
+fr.close()
+
+
+#2) 或者用for循环，直接对文件迭代：
+fr=open("test.txt",'r',encoding="utf-8")
+for line in fr:
+    print('line is:', line)
+fr.close()
+
+
+#3) 或者
+fr=open("test.txt",'r',encoding="utf-8")
+for line in fr.readlines():
+    print('line is:', line)
+fr.close()
+
+#3.1) 删掉结尾的换行符
+fr=open("test.txt",'r',encoding="utf-8")
+for lineR in fr.readlines():
+    line=lineR.strip()
+    print('line is:', line)
+fr.close()
+
+
+
+
+
+========================================
+|-- python数据持久存储：pickle和json模块的基本使用
+----------------------------------------
+JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。它基于ECMAScript的一个子集。 JSON采用完全独立于语言的文本格式，但是也使用了类似于C语言家族的习惯(包括C、C++、Java、JavaScript、Perl、Python等)。这些特性使JSON成为理想的数据交换语言。易于人阅读和编写，同时也易于机器解析和生成(一般用于提升网络传输速率)。
+
+JSON在python中分别由list和dict组成。
+
+这是用于序列化的两个模块：
+json: 用于字符串和python数据类型间进行转换
+pickle： 用于python特有的类型和python的数据类型间进行转换
+
+Json模块提供了四个功能：dumps、dump、loads、load
+pickle模块提供了四个功能：dumps、dump、loads、load
+
+json 
+dumps把数据类型转换成字符串
+dump把数据类型转换成字符串并存储在文件中  
+loads把字符串转换成数据类型  
+load把文件打开从字符串转换成数据类型
+
+json是可以在不同语言之间交换数据的，而pickle只在python之间使用。json只能序列化最基本的数据类型，josn只能把常用的数据类型序列化（列表、字典、列表、字符串、数字、），比如日期格式、类对象！josn就不行了。而pickle可以序列化所有的数据类型，包括类，函数都可以序列化。
+
+
+
+
+
+
+1.pickle相当于二进制序列化，结果只能python能读写。
+#http://www.cnblogs.com/pzxbc/archive/2012/03/18/2404715.html
+
+import pickle
+mylist = ["This", "is", 4, 13327]
+# Open the file C:\\Tools\\binary.dat for writing. The letter r before the
+# filename string is used to prevent backslash escaping.
+myfile = open(r"C:\\Tools\\binary.dat", "wb")
+pickle.dump(mylist, myfile)
+myfile.close()
+
+#二进制读取
+myfileR = open(r"C:\\Tools\\binary.dat",'rb')
+re=pickle.load(myfileR)
+print(re)
+print(re==mylist) #True
+myfileR.close()
+
+
+
+
+
+
+
+2.JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式，易于人阅读和编写。
+如果想和其他共享数据，还是推荐使用json包。
+
+#json.dumps	将 Python 对象编码成 JSON 字符串
+#json.loads	将已编码的 JSON 字符串解码为 Python 对象
+
+import json
+mylist = ["This", "is", 4, 13327]
+
+#json 2 str
+jStr = json.dumps(mylist)
+print(jStr, type(jStr)) # 已经变成了字符串
+#["This", "is", 4, 13327] <class 'str'>
+
+#str 2 json
+jn=json.loads(jStr)
+print(type(jn), jn )
+# <class 'list'> ['This', 'is', 4, 13327]
+
+
+#json写入文件
+with open("web/record.json","w") as f:
+    json.dump(mylist,f)
+    print("写入文件完成...")
+#$ head record.json 
+#["This", "is", 4, 13327]
+
+#文件读为json
+with open("web/record.json",'r') as load_f:
+    load_jn = json.load(load_f)
+    print(type(load_jn), load_jn)
+#<class 'list'> ['This', 'is', 4, 13327]
+
+
+https://www.cnblogs.com/bigberg/p/6430095.html
+
+
+
+
+========================================
+11.其它杂项
+----------------------------------------
+数值判断可以连续使用，例如 1<a<3 能够判断变量 a 是否在1和3之间。
+可以使用 del 删除变量或删除数组中的元素。
+
+列表推导式(List Comprehension)提供了一个创建和操作列表的有力工具。列表推导式由一个表达式以及紧跟着这个表达式的for语句构成，for语句还可以跟0个或多个if或for语句，来看下面的例子：
+
+
+>>> list1=[1,2,3]
+>>> list2=[4,5,6]
+>>> print([x*y for x in list1 for y in list2])
+[4, 5, 6, 8, 10, 12, 12, 15, 18]
+
+>>> print(x for x in list1 if 1<x<4) #不懂：生成器
+<generator object <genexpr> at 0x006FC870>
+
+>>> print([x for x in list1 if 1 < x < 4]) #需要加入[]符号
+[2, 3]
+
+# Check if an item has a specific property.
+# "any" returns true if any item in the list is true.
+>>> any([i % 3==0 for i in [4, 4]])
+False
+>>> any([i % 3==0 for i in [4, 42]])
+True
+
+# This is because 6 % 5 = 1, and 1 is true, so any()
+# returns True.
+>>> any([i%5==1 for i in [2,3]])
+False
+>>> any([i%5==1 for i in [2,6]])
+True
+>>> any([i%5 for i in [2,6]])
+True
+>>> any([i%5 for i in [2,3]]) #bug?为什么是True
+True
+
+
+>>> list1
+[1, 2, 3]
+>>> del list1[0]
+>>> list1
+[2, 3]
+>>> del list1
+>>> list1
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'list1' is not defined
+
+
+
+
+
+全局变量在函数之外声明，并且可以不需要任何特殊的声明即能读取，但如果你想要修改全局变量的值，就必须在函数开始之处用global关键字进行声明，否则Python会将此变量按照新的局部变量处理（请注意，如果不注意很容易被坑）。例如：
+
+
+c=0
+print('outer1',c);
+
+def fn1():
+	#不要和全局变量重名，可以直接使用全局变量；
+	print('fn1 inner:',c) 
+	
+def fn2():
+	#如果接下来定义全局变量同名变量，则此处无法提前读取全局变量，提示本地变量定义之前使用
+	#UnboundLocalError: local variable 'c' referenced before assignment
+	#要么不要和全局变量重名，可以直接使用全局变量,如fn1
+	#要么和全局变量重名，定义完本地后再使用该变量,如fn2
+	#print('fn2-1:',c) 
+	c=2
+	print('fn2-2:',c)
+
+def fn10():
+	global c #加了global就读写全局变量了
+	c=5+4
+	print('inner:', c)
+
+fn1()
+print('outer after fn1:',c);
+
+fn2()
+print('outer after fn2:',c);
+
+fn10()
+print('outer after fn10:',c);
+
+
+
+
+
+
+
+========================================
+12. py快速web服务器
+----------------------------------------
+1.在cmd中输入(Python3) python -m http.server 8888
+ -此时你所在的文件路径，就是之后你访问的文件路径； 
+ -8888是定义的端口名称，你可以随便改成其他你喜欢的端口。
+
+ 据说 Python2 是 Python -m SimpleHTTPServer
+
+2.windows的IP地址可以通过 ipconfig 获得。
+3. 可以用url访问了资源了，能快速局域网传输大文件了。
+
+https://www.cnblogs.com/asis/p/6842996.html
+
+
+========================================
+13. 正则表达式 regExp
+----------------------------------------
+1.正则分割
+import re 
+
+# 从字符串中获取cellID
+def getCellID(t1):
+    t2=re.split(r'[.\/]', t1)
+    t3=re.split(r'_Log',t2[3])
+    return(t3[0])
+#usage
+str1="==> ../c12_A1_Log.final.out <==" 
+print( getCellID(str1) ) #输出c12_A1
+
+
+
+import re
+re.split(r'[^A-Za-z]+',"book/cat/n") #['book', 'cat', 'n']
+
+
+
+
+2.正则匹配，以及分割、替换
+import re 
+line='gene_id "ENSG00000000003.14_2"; gene_type "protein_coding"; gene_name "TSPAN6"; level 2; havana_gene "OTTHUMG00000022002.1_2"'
+arr=re.split(r"; ",line) #正则分割成数组
+if re.match("gene_name ",arr[2]):
+	gname=arr[2]
+else:
+	gname=arr[3]
+print(gname) #'gene_name "TSPAN6"'
+gname=re.sub("gene_name ","", gname) #替换 gene_name 为空，相当于删除
+gname=re.sub('"', "",gname) #去掉引号
+print(gname) #TSPAN6
+
+
+
+========================================
+14. 操作mysql(Ubuntu1804)
+----------------------------------------
+1.安装包
+
+(1)http://www.runoob.com/python/python-mysql.html
+import MySQLdb
+
+$ pip install MySQLdb 安装失败
+
+MySQL-python (1.2.5)  - Python interface to MySQL
+$ pip install MySQL-python 安装失败
+
+
+
+(2)廖雪峰推荐的
+https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014320107391860b39da6901ed41a296e574ed37104752000
+
+
+由于MySQL服务器以独立的进程运行，并通过网络对外服务，所以，需要支持Python的MySQL驱动来连接到MySQL服务器。
+MySQL官方提供了mysql-connector-python驱动，但是安装的时候需要给pip命令加上参数--allow-external：
+$ pip install mysql-connector-python --allow-external mysql-connector-python
+mysql-connector-python (8.0.13) - MySQL driver written in Python
+报错 no such option: --allow-external
+$ pip install --user mysql-connector-python  #加--user后安装成功
+
+
+如果上面的命令安装失败，可以试试另一个驱动：
+$ pip install mysql-connector
+mysql-connector (2.1.6)   - MySQL driver written in Python
+
+(3)《Python3.5从零开始学》刘宇宙 中是用的
+$ pip install --user  pymysql
+
+并且提到Python DB-API规定了Python所有数据库的接口，为不同数据库提供了一致的结构，因此不同数据库之间移植代码成为一件很轻松的事情。
+DB-API规范包括全局变量、异常、链接、游标和类型等基本概念。
+
+
+2. DP-API
+
+
+
+
+
+(1)实例1: 查询
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+import pymysql
+
+#mysql 获取数据
+
+# 打开数据库连接
+db = pymysql.connect(host='y.biomooc.com',port=7070,user='yanpd', password='789789', database='english')
+
+# 使用cursor()方法获取操作游标 
+cursor = db.cursor()
+
+# SQL 插入语句
+sql = "select * from EMPLOYEE"
+# 执行sql语句
+cursor.execute(sql)
+values = cursor.fetchall()
+
+print(values)
+
+# 关闭数据库连接
+db.close()
+# (('Mac', 'Mohan', 20, 'M', 2000.0),)
+
+
+
+
+
+(2)实例2：mysql事务
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+##事务
+
+import mysql.connector
+
+# 打开数据库连接
+db = mysql.connector.connect(host='y.biomooc.com',port=7070,user='root', password='123', database='wang')
+#("y.biomooc.com:7070", "root", "123", "wang", charset='utf8' )
+
+# 使用cursor()方法获取操作游标 
+cursor = db.cursor()
+
+# SQL 插入语句
+sql = "INSERT INTO EMPLOYEE(FIRST_NAME,LAST_NAME, AGE, SEX, INCOME) \
+       VALUES ('%s', '%s', '%d', '%c', '%d' )" % \
+       ('Mac', 'Mohan', 20, 'M', 2000)
+try:
+    # 执行sql语句
+    cursor.execute(sql)
+    # 提交到数据库执行
+    db.commit()
+    print("commit")
+except:
+    # 发生错误时回滚
+    db.rollback()
+    print("rollback")
+
+# 关闭数据库连接
+db.close()
+
+
+
+
+
+(3)实例3
+#mysql和python
+
+#1. 导入MySQL驱动:
+import mysql.connector
+#2. 获取连接，注意把password设为你的root口令:
+conn = mysql.connector.connect(host='y.biomooc.com',port=7070,user='root', password='123', database='wang')
+
+
+
+#3.使用cursor()方法获取操作游标 
+cursor = conn.cursor()
+
+#4. 使用execute方法执行SQL语句
+#创建user表: 
+cursor.execute('create table user (id varchar(20) primary key, name varchar(20))')
+#插入一行记录，注意MySQL的占位符是%s:
+cursor.execute('insert into user (id, name) values (%s, %s)', ['1', 'Michael'])
+cursor.rowcount
+#提交事务:
+conn.commit()
+cursor.close()
+# 执行INSERT等操作后要调用commit()提交事务；
+# MySQL的SQL占位符是%s。
+
+
+
+#5. 运行查询:
+cursor = conn.cursor()
+cursor.execute('select * from user where id = %s', ('1',))
+values = cursor.fetchall()
+values
+#[('1', 'Michael')]
+
+
+##6. 新建表格 EMPLOYEE
+# 使用cursor()方法获取操作游标 
+cursor = conn.cursor()
+
+# 如果数据表已经存在使用 execute() 方法删除表。
+cursor.execute("DROP TABLE IF EXISTS EMPLOYEE")
+
+# 创建数据表SQL语句
+sql = """CREATE TABLE EMPLOYEE (
+         FIRST_NAME  CHAR(20) NOT NULL,
+         LAST_NAME  CHAR(20),
+         AGE INT,  
+         SEX CHAR(1),
+         INCOME FLOAT )"""
+
+cursor.execute(sql)
+
+
+
+#8. 关闭Cursor和Connection:
+cursor.close()
+True
+conn.close()
+
+
+
+
+
+
+
+
+========================================
+15. 多进程实例1:并行统计多个bam文件的行数
+----------------------------------------
+
+Python中常用的几个并发工具：http://mingxinglai.com/cn/2016/09/python-concurrent/
+
+
+################
+# on linux only.
+################ 
+## 任务：从文件读取一行cell id，作为参数传给处理进程们。
+## 一个进程写数据，一个进程池 众多线程读和处理数据。
+## 读、写进程之间用queue通信。
+
+#遇到过的问题：
+#Q: 为什么不能在子进程中完整保存呢？ A: 因为没有flush文件。
+#Q: 为什么把main中的包装成函数，就阻塞了？ A: 没解决 todo
+#v0.3 新增日志时间戳
+
+
+################################
+#part 1 定义路径
+################################
+import os
+os.chdir('/home/wangjl/data/apa/190528L/') #定义工作目录，仅对python有效。对linux命令建议都使用绝对路径。
+os.getcwd()
+
+################################
+#part 2 定义linux命令
+################################
+import subprocess
+
+#目的：需要平行处理的linux命令。if the function can run on one id, it can run on the batch of ids.
+#要点： 使用id拼接linux命令。建议都用绝对路径。
+def doLinuxCMD(id):
+    #构建命令
+    cmd="samtools view /home/wangjl/data/apa/190528L/hg19/"+id+"_Aligned.sortedByCoord.out.bam|wc"
+    #执行linux命令
+    (status, output)=subprocess.getstatusoutput(cmd)
+    #print(output) #查看linux命令输出到屏幕上的文字
+    rs=str(status)+" "+output;
+    return rs #返回状态码status，0表示命令正常执行，其他表示异常，需要查看output推测具体原因
+#test
+#doLinuxCMD('c01_ROW07') #3929403 58941045 1511774483
+
+
+################################
+#part 3 并行执行
+################################
+import time,multiprocessing,os,re #random
+from multiprocessing import Queue
+from multiprocessing import Process
+
+#=====================
+#settings
+id_list="/home/wangjl/data/apa/190515/syncHeLa_13.id"
+#输入文件名关键词列表，一个id一行，用于在doLinuxCMD命令中构建linux命令。表示本脚本要多线程处理这么多文件。
+#一下采用默认值即可
+core=13 #使用的CPU逻辑核心数。该数字 x linux命令使用的线程数 要小于硬件CPU逻辑核心数
+hint_n=5 #默认给出20个进度提示
+log_file_name='logs.txt' #uniq-count-FROM-star.final.207.log
+#输出日志的文件名，内容是： id号 运行状态(0表示正常，否则表示异常) 
+#=====================
+##这个文件名要加上时间戳，防止忘了修改日志文件名而被覆盖掉
+timsString=time.strftime("%Y%m%d-%H%M%S", time.localtime()) 
+log_file_name=log_file_name + timsString
+
+
+#读和处理数据，并行
+def worker(cb):
+    #一个很耗时的计算
+    rs=cb+"\t"+str( doLinuxCMD(cb) ) #part2 中定义的
+    q.put(rs)   #结果输出到管道
+
+#保存的线程1个
+def writer(log_file_name,ID_total,hint_n=20):
+    breaks=int(ID_total/hint_n) #显示20次进度提示
+    i=0
+    with open(log_file_name, 'w') as f: #这里不能是变量名？
+        while True:
+            i+=1
+            if i%breaks==0: #进度条
+                print(i," items processed in ", time.time()-start," seconds",sep="")
+            rs=q.get() #waite while q is empty
+            f.write(rs+"\n") #写入文件
+            f.flush() #刷新缓存，一次性输出到文件
+
+
+#start time
+start=time.time()
+print('='*10, ">Begin of main process[", os.getpid(), "][child pid by parent ppid]", sep="")
+
+# 主进程
+if __name__ == '__main__': 
+    q=Queue(core+10) #创建队列
+    pool = multiprocessing.Pool(processes = core)# 声明进程池对象
+
+    # 向进程池中提交任务，交给并行的worker()来处理
+    fr=open(id_list,'r')#读取id_list文件，分配任务给进程
+    i=0
+    for lineR in fr.readlines():
+        i+=1
+        #if i>100:
+        #    pass;
+            #break; #测试用语句
+
+        line=lineR.strip()
+        arr=re.split(' ',line) ##print("start new process", line) #任务是一次发送完的
+        pool.apply_async( worker,args=(arr[0],) )
+    fr.close() #关闭文件
+
+    #分完任务，开始启动保存进程，由writer()函数来处理
+    pOut = Process(target=writer, args=(log_file_name,i,hint_n,)) # args：元组参数，如果参数就一个，记得加逗号’，’
+    pOut.start()
+
+    #等待读进程worker()全部结束
+    pool.close()
+    pool.join()
+
+    #主线程查看队列，决定是否关掉写writer()循环
+    ##todo 这里有风险，会不会执行不完就被关掉了呢？虽然目前还没有遇到过
+    while not q.empty():
+        time.sleep(1)#每一秒检查一次队列是否为空
+    pOut.terminate(); #终止死循环
+
+print(time.time()-start,'s <', '='*10, "End of main process[", os.getpid(),']', sep="")
+print("#"*40,"\nLog file: "+ os.getcwd()+"/"+log_file_name)
+
+
+
+========================================
+16.subprocess: python调用shell命令，并获取返回值
+----------------------------------------
+https://www.cnblogs.com/huangxm/p/5313560.html
+
+
+1.是调用的shell命令运行结束后才继续下一步的py语句
+# coding: UTF-8
+import sys,os,time
+import subprocess
+
+cmd = 'sleep 2'#"ls" #在shell中睡2秒
+
+#如下两种都可以运行
+#rs1=subprocess.Popen(cmd, shell=True)
+print("begin call shell: ")
+start = time.time()
+rs2=subprocess.call(cmd,shell=True)
+
+#print('rs1=', rs1)
+print('rs2=', rs2)
+print("==end",time.time()-start)
+
+
+
+
+
+
+2.python怎么接收shell的返回数据？
+import subprocess,re
+
+(status, output)=subprocess.getstatusoutput('ls') #能拿到shell的返回值:status是0表示正常执行,output是返回的字符串
+print('status = ', status)
+
+#分割字符串为文件名
+arr=re.split("\n", output)
+print("len=", len(arr))
+arr
+
+
+
+
+
+
+
+
+
+
+========================================
+小结
+----------------------------------------
+
+本教程并未涵盖Python语言的全部内容(甚至连一小部分都称不上)。Python有非常多的库以及很多的功能特点需要学习，所以要想学好Python你必须在此教程之外通过其它方式，例如阅读Dive into Python。我希望这个教程能给你一个很好的入门指导。如果你觉得本文还有什么地方值得改进或添加，或是你希望能够了解Python的哪方面内容，请留言。
+
+本教程适合作一个简短的电子书。电子书后续额外提供的各种Python最佳实践都在一本独立的电子书里，感兴趣的同学可以到 https://leanpub.com/learn-python 购买。购买后可以免费获取更新。
+
+
+
+
+
+
 
 
 ========================================
 ----------------------------------------
 
 
+========================================
+----------------------------------------
+
 
 ========================================
 ----------------------------------------
 
 
+========================================
+----------------------------------------
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+========================================
+----------------------------------------
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+========================================
+----------------------------------------
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+========================================
+----------------------------------------
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+========================================
+----------------------------------------
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+========================================
+----------------------------------------
 
 ========================================
 ----------------------------------------

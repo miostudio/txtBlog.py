@@ -258,6 +258,7 @@ z0.0.8-7 learn html, css, Vue.js
 z0.0.8-8 before update
 最后没有升级，因为主版本不好看。
 z0.0.8-9 web/css02.txt添加菜单实例
+z0.0.9-0 添加python笔记
 #
 
 

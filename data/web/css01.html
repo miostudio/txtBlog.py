@@ -2,6 +2,7 @@
 <h2>css(样式表)是网页的皮肤</h2>
 <p>学习css就是记住常见标签的样式，及其属性值。比如颜色color、背景色background, 字体大小font-size, 边框border, 高度height, 定位方式position等。</p>
 
+<p>细节：<a target="_blank" href="https://www.w3school.com.cn/css/css_reference.asp" title="">css参考手册</a></p>
 
 <h3>优秀作者</h3>
 <p>博客 <a target="_blank" href="https://www.zhangxinxu.com/" title="研究前端10年">张鑫旭</a></p>
@@ -53,6 +54,76 @@
 	<div class=d3>div3</div>
 	<div class=d4>div4</div>
 </div>
+
+
+
+
+<h2>加阴影 box-shadow: 内外阴影；多重阴影</h2>
+<style> 
+div#id1
+{
+	width:300px; height:100px;
+	
+	line-height:50px;/*字体上下居中*/
+	text-align:center;/*字体左右居中*/
+	
+	background-color:#eee;
+	/*border:1px solid black;*/
+	border-radius:10px;
+	box-shadow: 0px 5px 10px 0px black,
+		0px -5px 10px 0px red,
+		10px 0px 10px 2px orange,
+		-10px 0px 10px 2px blue,
+		1px 1px 5px 1px black inset;
+}
+div#id1 span{
+	background:rgba(200,0,0,0.5); 
+	color:white;
+	display:inline-block;
+	padding:0 10px;
+}
+</style>
+<div id='id1'>
+	<span>行高50，是box高的一半</span>
+	<br>
+	<span>另一行</span>
+</div>又一行
+
+<h1 style="text-shadow: 5px 5px 5px #FF0000;">Text-shadow effect!</h1>
+
+
+<p>box-shadow 属性用来可以创建纸质样式卡片:</p>
+<style>
+#id2{width:90%; margin:0 auto;}
+#id2 .card {
+  width: 250px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+
+#id2 .card div.header2 {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    font-size: 40px;
+}
+
+#id2 .card div.container {
+    padding: 10px;
+}
+</style>
+<div id=id2>
+	<div class="card">
+	  <div class="header2">
+		<h1>1</h1>
+	  </div>
+
+	  <div class="container">
+		<p>January 1, 2020</p>
+	  </div>
+	</div>
+</div>
 some text
+
 
 </div>
