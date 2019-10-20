@@ -3,6 +3,368 @@ js 基础
 
 基础js https://wangdoc.com/javascript/
 
+
+========================================
+js运行方式、注释
+----------------------------------------
+1.js写到script标签内，并保存为xx.html文件
+<h1>xx咖啡店</h1>
+<script>
+alert('你的电脑奔溃了！')
+</script>
+
+双击即可运行。
+
+输出语句只有2个:
+弹出框: alert('xx='+xx)
+控制台输出: console.log("xx=",xx)
+
+
+
+2. js写到yy.js文件中，在xx.html中引用：
+<script src="/templets/new/script/jquery1.12.4.min.js"></script>
+
+
+3. chrome浏览器，按下F12，选择console标签，即可输入js语句并回车运行。
+
+
+
+4.注释，两种
+// 单行注释
+
+
+/*
+多行注释1
+多行注释2
+...
+*/
+
+
+
+========================================
+控制结构、变量、运算符
+----------------------------------------
+1.控制结构
+语句结束不需要用分号;，可加可以不加
+(1)
+var item="pen";
+if(item=="pen"){
+	price=20
+}
+
+(2)
+var age=13
+if(age<18){
+	str="不能进"
+}else{
+	str="可以进"
+}
+
+(3)
+var num=30
+if(num==1){
+	str='单挑'
+}else if(num==2){
+	str='一对2'
+}else{
+	str="群殴"
+}
+
+
+(4)for循环，计算1+2+3+...+10
+var sum=0
+for(var i=0;i<=10;i++){
+	sum+=i;
+	console.log(i,sum)
+}
+
+(5)while(){}循环，计算1+2+3+...+10
+var i=10,sum=0
+while(i>0){
+	sum+=i;
+	console.log(i,sum)
+	i--
+}
+
+(6)do...while()循环，计算1+2+3+...+10
+var i=10,sum=0
+do{
+	sum+=i;
+	console.log(i,sum)
+	i--
+}while(i>0)
+
+注意：do...while()至少会执行一次循环体。
+
+
+
+
+
+
+2.变量 
+使用var 变量名 声明变量
+
+
+var j=0 #可以赋初始值
+var i #也可以不赋初始值
+
+#可以一行声明多个变量，用逗号隔开
+var num=2,book="" 
+
+
+
+
+3.表达式
++
+-
+*
+/
+% 取余数 23%7 #2
+** 求幂 10**3 #1000
+
++= #自加  i+=2 就是i=i+2
+-=
+*=
+/=
+
+
+
+
+
+
+
+========================================
+数组 Array
+----------------------------------------
+1. 定义数组
+1)
+arr2=Array(1,2,3)
+
+2)
+arr3=[0,10,20,30,40,50]
+
+
+
+2. 获取数组元素
+arr2[0] #1
+
+
+3. 切片：获取子数组
+比如，只要arr3的后两个元素构成的数字
+arr3.slice(2,4) #[20,30] 左闭右开区间
+
+
+4. 覆盖第一个元素的值 / 重新定义值
+arr3[0]=-1
+arr3 #[-1, 10, 20, 30, 40, 50]
+
+
+5. 获取数组长度
+arr3.length  #6
+
+
+6. 遍历获取每个元素
+for(var i in arr3){
+	console.log(i, arr3[i])
+}
+## 0 -1
+## 1 10
+## 2 20
+## 3 30
+## 4 40
+## 5 50
+
+
+7. 为数组添加元素
+1)在末尾添加元素
+arr3.push(-30) #7 返回新数组长度
+arr3 # (7) [-1, 10, 20, 30, 40, 50, -30]
+
+
+2)在开头添加元素
+arr3.unshift(300) #8 
+arr3 #(8) [300, -1, 10, 20, 30, 40, 50, -30]
+
+3) 在指定位置添加元素
+Array.splice(start,deleteNumber,addItem)
+
+例：在第2个位置(10)开始删除1个元素(10)，添加2个元素0,1
+arr3.splice(2,1,0,1) #[10] 返回被删除的元素
+arr3 #(9) [300, -1, 0, 1, 20, 30, 40, 50, -30]
+
+
+
+
+8. 从头尾获取数组元素
+1)从头部获取元素
+arr3.shift() #300 返回第一个元素，同时数组少了该元素
+arr3 #(8) [-1, 0, 1, 20, 30, 40, 50, -30]
+
+2)从尾部获取元素
+arr3.pop() #-30 返回最后一个元素，同时数组少了该元素
+arr3 #(7) [-1, 0, 1, 20, 30, 40, 50]
+
+
+
+9.对数组排序
+默认是按照ascii码升序排列，直接改变原始数组顺序 Array.sort()
+
+支持自定义排序函数，倒序：
+arr3.sort(function(a,b){return b-a;})
+## (7) [50, 40, 30, 20, 1, 0, -1]
+arr3 #(7) [50, 40, 30, 20, 1, 0, -1]
+
+
+
+
+10. 数组是按地址传递的
+常规按值传递：
+a=1
+b=a
+b=b+2
+a=?  #1
+
+
+对于数组
+a1=[1,2,3]
+b1=a1
+b1.push(100)
+a1=?
+## a1 #(4) [1, 2, 3, 100]
+
+为什么呢？
+因为数组是按地址传递的。
+也就是数组变量保存的是内存的地址，取值时到内存中的地址指向的区域取值的。
+
+
+
+
+11. 二维数组
+
+
+
+
+========================================
+对象 Object
+----------------------------------------
+
+object 对象:就是一系列的键值对(key value pairs)
+
+<script>
+//1.定义，对象 又叫字典(dictionary)，又叫哈希表(hash table)
+//(1)键值对内部用冒号，键值对之间用逗号，
+//(2)键不能重复，否则后一个会覆盖之前的同名键值对；
+//(3)键需要加引号，值如果是字符串则需要加引号，是数字不需要加
+var obj1={'name':'王某某', 'sex':'男', 'height':180}
+
+//2.获取
+console.log('姓名:', obj1.name)
+console.log('身高:', obj1.height)
+
+
+//3.修改
+obj1.name='李某'
+obj1.height*=2
+console.log('(修改后)姓名:', obj1.name)
+console.log('(修改后)身高:', obj1.height)
+
+//或
+obj1['name']='李某2'
+
+//4.增加新键
+obj1.weight=67
+obj1['weight']=67.5 //或
+console.log('体重:', obj1.weight)
+
+//5.删除一个键
+//del obj1.sex
+delete(obj1.sex)
+console.log('==>after delete sex:', obj1)
+
+//6.遍历
+for(var key in obj1){
+	var val=obj1[key]
+	console.log('-->>',key, ':', val)
+}
+</script>
+
+
+
+
+========================================
+DOM: 文档对象模型 document object model
+----------------------------------------
+1.要点:dom的选取、修改、创建
+
+
+
+2.实例：a01.html
+<h1>dom操作</h1>
+
+
+<h2>点餐表</h2>
+<div id=app1>xxx1</div>
+<div id=app2>xxx2</div>
+<div id=app3>xxx3</div>
+
+<script>
+//1.获取dom元素
+var oDiv1=document.getElementById('app1')
+//输出旧的值
+console.log('01-->>>>>>>',oDiv1.innerHTML)
+
+
+//2修改dom
+//修改该元素内的文本
+oDiv1.innerHTML="咖啡"
+oDiv1.innerHTML="绿茶"
+//修改该元素的css属性
+oDiv1.style.color="red";
+oDiv1.style.fontSize="2em";
+oDiv1.style.border="1px dashed #555";
+
+if(oDiv1.innerHTML=="绿茶"){
+	oDiv1.style.color="green";
+}
+console.log('02-->>>>>>>',oDiv1.innerHTML)
+
+
+//3创建dom元素
+var newDiv=document.createElement("div");
+newDiv.innerHTML="肉包子"
+newDiv.style.color='purple'
+//插入文档流
+document.body.append(newDiv)
+</script>
+
+
+
+
+
+3.实例2：输出计算结果
+<div id='app2'></div>
+
+<script>
+//一个复杂的计算
+var a=1,b=299,c
+c=a+b
+
+
+//三种输出方式
+//1.输出到控制台
+console.log('控制台:',c)
+
+//2.输出到弹窗
+alert('弹窗c='+c)
+
+//3.输出到文档流
+document.getElementById('app2').innerHTML="输出到文档流:c="+c
+</script>
+
+
+
+
+
 ========================================
 正则表达式 Regular Expression
 ----------------------------------------

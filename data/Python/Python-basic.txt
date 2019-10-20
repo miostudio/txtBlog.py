@@ -46,6 +46,12 @@ Type "help", "copyright", "credits" or "license" for more information.
 可以输入python语句了。换行符是空格加斜杠 \
 退出输入quit()回车。
 
+>>> a=[1,2,3,4,5]
+>>>
+>>> a
+[1, 2, 3, 4, 5] #不用print()就能输出中间状态
+
+
 
 
 
@@ -72,13 +78,45 @@ hello, from python!~~
 即可看到运行结果。
 
 
-(3)#######黑窗口操作命令:
+
+
+3.直接在notepad++中运行python脚本
+(1)写好python脚本
+(2)按下F5键，填写
+cmd /k python "$(FULL_CURRENT_PATH)" & PAUSE & EXIT
+自定义快捷键：alt+enter
+
+(3)以后运行python脚本，只需要快捷键即可
+alt+enter
+
+就能看到运行结果了。按任意键退出cmd窗口。
+
+
+
+
+========================================
+|-- cmd黑窗口切换 文件夹/目录 的操作命令: cd 目标文件夹名字
+----------------------------------------
 输入盘符加冒号，回车，进入某个硬盘;
 进入该硬盘后输入 
 cd 文件夹名字 #进入该文件夹内;
 cd ..  #进入上一个文件夹
 
+C:\Users\Administrator>G:
+G:\>cd PythonCode
+G:\PythonCode>cd 001
+G:\PythonCode\001>
 
+##如果想进入同一级兄弟文件夹002/呢？先进入上一层，在进入目标文件夹
+G:\PythonCode\001>cd ..
+G:\PythonCode>cd 002
+G:\PythonCode\002>
+
+## 两步合成一步，比如进入003/
+G:\PythonCode\002>cd ../003
+G:\PythonCode\003>
+
+注意：cd后面都要一个空格。
 
 
 ========================================
@@ -155,7 +193,7 @@ a-=9 就是a=a-9的简写
 例子
 sum=0
 for i in range(11):
-	sum+=i; #等价于sum=sum+1
+	sum+=i; #等价于sum=sum+i
 print(sum)#55
 
 同理

@@ -53,7 +53,7 @@ ES6, webpack, vue, vuex
 
 指令
 双向数据绑定
-组件、组建的通信
+组件、组件的通信
 路由和请求
 生命周期
 ========================================
@@ -162,6 +162,48 @@ var app=new Vue({
 </script>
 
 
+
+
+========================================
+v-bind 绑定变量: 简写做 :
+----------------------------------------
+
+<meta charset="UTF-8">
+
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="/static/js/vue.js"></script>
+
+<style>
+.top_title{color:white; background:#ddd; padding:5px 10px;}
+.active{color:red;}
+</style>
+
+
+<div id="app">
+<h1 :class="a_class">{{ name }} <a v-bind:href="url">click me</a></h1>	
+	<a v-bind:class="{active:isActive}" v-bind:href="url">click me</a>
+	<br />
+	<img v-bind:src="img">
+</div>
+<hr>
+在F12控制台，改变数据会立刻更新dom视图:<br>
+app.url="https://music.163.com" <br>
+app.isActive=false;
+
+<script>
+var app=new Vue({
+	el:'#app',
+	data:{
+		name:'v-bind',
+		url:"https://baidu.com",
+		a_class:"top_title",
+		img:"https://www.baidu.com/img/xinshouye_9eb4bafebfa0b5e84dadbde50782d94f.gif",
+		isActive:true,
+	}
+})
+</script>
 
 
 ========================================
