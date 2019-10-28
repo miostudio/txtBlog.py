@@ -91,6 +91,7 @@ $ python index.py
     |- Python001.html
     |- Python-basic.txt
  |- Linux/
+ |- jupyter/ 放python笔记，附带运行结果
 
 (1)json格式的顶部目录 topMenu.json，一行一个顶部链接；
 第一个字符直接显示出来，第二个字符鼠标悬停时显示出来。
