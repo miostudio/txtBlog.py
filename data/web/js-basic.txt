@@ -867,6 +867,189 @@ console.table({
 
 
 ========================================
+实例：背单词拼写
+----------------------------------------
+
+<style>
+div{padding:10px;margin:5px;border:1px solid #eee;}
+#status{color:#ddd;}
+#word{padding:2px 5px;}
+#word2{cursor:pointer; color:blue}
+</style>
+
+<h1>根据意思写单词</h1>
+
+<div><span id=mean></span></div>
+<div>单词: <input type=input id=word autocomplete="off" ></input> (正确答案: <u id=word2>点击查看</u>) </div>
+
+<div><button id='check'>提交答案</button> <span id='rightOrWrong'></span></div>
+
+<div id=status>Status: 正确率0/0(?%)</div>
+
+<script>
+//通过某种方法，选出来10个单词，
+var words=[
+	/*['pendulum','n 钟摆'],
+	['vanity','n 自负;自大;虚荣;虚荣心;'],
+	['vanish','v.(莫名其妙地)突然消失;不复存在;消亡;绝迹'],
+	['foremost', 'adj.最重要的;最著名的;最前的'],
+	['hierarchy', 'n 等级制度(尤指社会或组织);统治集团;层次体系'],
+	['exceedingly', 'adv.极其;非常;特别'],
+	['hypothesis', 'n.(有少量事实依据但未被证实的)假说，假设;(凭空的)猜想，猜测'],
+	*/
+	['inspiration', 'n.灵感;启发灵感的人(或事物);使人产生动机的人(或事物);鼓舞人心的人(或事物)'],
+	['specialize', 'v.专门研究(或从事);专攻'],
+	['jargon', 'n.行话;黑话;行业术语;切口'],
+]
+//随机排列
+words.sort(function(a,b){ return(Math.random()-0.5);})
+
+
+//tools
+function $(s){
+	return document.getElementById(s)
+}
+
+function listWord(){
+	for(w in words){
+		console.log(w, words[w])
+	}
+}
+var Mstatus={'i':0,'right':0,'total':0, 'canGainScore':true}; //全局状态
+
+//根据当前Mstatus刷新测试题
+function refresh(){
+	var info=''
+	//如果答完题了，就计算正确率，提交按钮不可用
+	if(Mstatus.i==Mstatus.total){
+		//console.log('<span style="color:red">任务完成！</span>')
+		//接着干啥？写数据库
+		$('check').disabled=true;
+		info='答完题目了！共'+Mstatus['total']+'个'
+		//输出错误的单词
+		for(var i=0;i<words.length;i++){
+			if(words[i][2]==1){
+				console.log(words[i])
+			}
+		}
+		
+	}else{
+		//显示单词
+		$('mean').innerHTML=words[Mstatus['i']][1]
+		$('word').focus()
+		$('word').value=""
+		$('word2').innerHTML="点击查看"
+		info='第'+ (Mstatus['i']+1) +'/'+Mstatus['total']+'个'
+	}
+	//状态栏刷新
+	var ratio=0
+	if(Mstatus['i']>0){
+		ratio=Math.round(Mstatus['right']/Mstatus['i']*100)
+	}
+	$('status').innerHTML=info+'，正确: '+Mstatus.right+'('+ratio+'%)';
+	$('rightOrWrong').innerHTML='';
+}
+
+
+window.onload=function(){
+	Mstatus.total=words.length
+	//
+	refresh();
+	$('word').focus();
+	$('word2').onclick=function(){
+		if(this.innerHTML=='点击查看'){
+			this.innerHTML=words[Mstatus['i']][0]
+		}else{
+			this.innerHTML='点击查看'
+		}
+	}
+	//按下提交按钮
+	$('check').onclick=checkWord;
+	//按下回车键
+	document.onkeyup=function(){
+		if(event.key=="Enter"){
+			checkWord()
+		}
+	}
+	
+	//检查单词是否正确
+	function checkWord(){
+		var answer=$('word').value
+		if(answer.length==0){
+			alert('不能为空')
+			return false;
+		}
+		//如果答对了
+		if(answer==words[Mstatus['i']][0]){
+			$('rightOrWrong').innerHTML='<span style="color:blue">回答正确</span>'
+			console.log('right')
+			//回答错误过，不能得分！
+			if(Mstatus.canGainScore==true){
+				Mstatus.right++;
+			}
+			if( words[Mstatus['i']].length==2 ){
+				words[Mstatus['i']].push(0)
+			}
+			Mstatus.canGainScore=true;
+			Mstatus.i++;
+			setTimeout(function(){
+				refresh()			
+			},500)
+		}
+		//如果答错了
+		else{
+			$('rightOrWrong').innerHTML='<span style="color:red">回答错误</span>，请查看答案后再试。'
+			console.log('wrong')
+			//设置错误
+			Mstatus.canGainScore=false;
+			if(words[Mstatus['i']].length==2){
+				words[Mstatus['i']].push(1)
+			}
+		}
+		console.log(answer, Mstatus)
+	}
+
+}
+
+</script>
+
+
+========================================
+----------------------------------------
+
+
+
+========================================
+----------------------------------------
+
+
+
+========================================
+----------------------------------------
+
+
+
+========================================
+----------------------------------------
+
+
+
+========================================
+----------------------------------------
+
+
+
+========================================
+----------------------------------------
+
+
+
+========================================
+----------------------------------------
+
+
+
+========================================
 ----------------------------------------
 
 

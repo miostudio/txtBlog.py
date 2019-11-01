@@ -623,7 +623,107 @@ app=new Vue({
 
 
 ========================================
-|-- 组件-配置组件
+|-- 组件-配置组件，组件内变量
+----------------------------------------
+<meta charset="UTF-8"> 
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="/static/js/vue.js"></script>
+vue 组件的配置，点赞实例：
+<hr>
+<style>
+div{border:1px dashed #eee; margin:5px; padding:10px;}
+
+.likedStyle{background:deeppink;}
+</style>
+
+
+<div id="app">
+点赞1:
+	<like></like>
+	{{maxValue}}
+</div>
+
+<div id="app2">
+点赞2:
+	<like2></like2>
+</div>
+
+<hr>
+F12 控制台，输入 app.maxValue=80
+
+
+<template id="like_component_tpl">
+	<button :class="{likedStyle: liked}" @click="toggle_like">点赞2| {{like_count}}</button>
+</template>
+<script>
+Vue.component('like',{
+	template:'<button :class="{likedStyle: liked}" @click="toggle_like">点赞 {{like_count}}</button>',
+	data:function(){//这里和Vue对象中的data不一样，前者返回obj，组件里返回fn
+		return {
+			like_count:10,
+			liked:false,
+			
+		}
+	},
+	methods:{
+		on_click:function(){
+			alert('弹出的js窗口。'+this.like_count)
+		},
+		toggle_like:function(){
+			if(!this.liked){
+				this.like_count++ //规定一个用户只能赞一次
+			}else{
+				this.like_count--
+			}
+			this.liked=!this.liked
+		}
+	}
+})
+//设置组件变量
+app=new Vue({
+	el:'#app',
+	data:{
+		maxValue:100,
+	},
+});
+
+
+
+//组件模板也可以写到html中，再在组件定义中引入id即可
+Vue.component('like2',{
+	template:'#like_component_tpl',
+	data:function(){//这里和Vue对象中的data不一样，前者返回obj，组件里返回fn
+		return {
+			like_count:20,
+			liked:false,
+			
+		}
+	},
+	methods:{
+		on_click:function(){
+			alert('弹出的js窗口。'+this.like_count)
+		},
+		toggle_like:function(){
+			if(!this.liked){
+				this.like_count++ //规定一个用户只能赞一次
+			}else{
+				this.like_count--
+			}
+			this.liked=!this.liked
+		}
+	}
+})
+app2=new Vue({
+	el:'#app2',
+});
+</script>
+
+
+
+========================================
+|-- 组件的通信——父子通信
 ----------------------------------------
 
 
