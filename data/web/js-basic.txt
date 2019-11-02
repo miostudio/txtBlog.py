@@ -114,19 +114,26 @@ var num=2,book=""
 
 
 
-3.表达式
+3.表达式/运算符
 +
 -
 *
 /
 % 取余数 23%7 #2
 ** 求幂 10**3 #1000
+Math.sqrt(x) 求x的开平方
 
 += #自加  i+=2 就是i=i+2
 -=
 *=
 /=
 
+
+
+布尔运算符
+&& 和 
+|| 或 
+! 非
 
 
 
@@ -366,9 +373,242 @@ document.getElementById('app2').innerHTML="输出到文档流:c="+c
 
 
 ========================================
-正则表达式 Regular Expression
+事件 Event
+----------------------------------------
+
+
+
+
+========================================
+正则表达式 RegExp: Regular Expression
 ----------------------------------------
 https://github.com/cucygh/learn-regex
+https://www.w3cschool.cn/jsref/jsref-obj-regexp.html
+
+1.一般用于构建比较复杂的规则。
+
+(1)js正则表达式2种写法：
+字面量写法 
+var patt=/pattern/modifiers;
+如 var reg1=/\s/gi
+
+函数构建法 
+var patt=new RegExp(pattern,modifiers);
+如 var reg2=new RegExp('\\s','gi')
+
+
+(2)修饰符:
+i 表示忽略大小写的区别，默认是不忽略
+g 是全局查找，默认是只找到一个就停下来
+m	执行多行匹配。
+
+方括号
+方括号用于查找某个范围内的字符：
+表达式	描述
+[abc]	查找方括号之间的任何字符。
+[^abc]	查找任何不在方括号之间的字符。
+[0-9]	查找任何从 0 至 9 的数字。
+[a-z]	查找任何从小写 a 到小写 z 的字符。
+[A-Z]	查找任何从大写 A 到大写 Z 的字符。
+[A-z]	查找任何从大写 A 到小写 z 的字符。
+[adgk]	查找给定集合内的任何字符。
+[^adgk]	查找给定集合外的任何字符。
+(red|blue|green)	查找任何指定的选项。
+
+
+元字符
+元字符（Metacharacter）是拥有特殊含义的字符：
+.  单个字符,除了换行和行结束符
+\b 匹配单词边界
+\B 不匹配单词边界
+\w 单词字符,即字母数字下划线
+\d 数字
+\s 空格
+\n 换行
+\f 分页
+
+
+量词
+{m,}
+{m,n}
+* {0,} 
++ {1,}
+? {0,1}
+^ 开头
+$ 结尾
+
+
+
+RegExp 对象方法
+方法	描述
+compile	编译正则表达式。
+exec	检索字符串中指定的值。返回找到的值，并确定其位置。
+test	检索字符串中指定的值。返回 true 或 false。
+
+
+捕获组()
+
+
+贪婪与非贪婪匹配
+
+
+
+
+
+
+2.匹配，查找，分隔，替换等
+
+支持正则表达式的 String 对象的方法
+方法	描述
+search	检索与正则表达式相匹配的值。
+match	找到一个或多个正则表达式的匹配。
+replace	替换与正则表达式匹配的子串。
+split	把字符串分割为字符串数组。
+
+
+(1)匹配出is的位置
+var str1='this is a book'
+
+//匹配成功
+str1.match('is') 
+//["is", index: 2, input: "this is a book", groups: undefined]
+
+//匹配失败
+str1.match('are') //null
+
+(2)查找book的位置
+str1.search('book') //10
+
+
+(3)使用is把字符分隔成数组
+str1.split('is') //(3) ["th", " ", " a book"]
+
+
+当然，更一般的是使用空格分隔成单词
+str1.split(/\s+/) //(4) ["this", "is", "a", "book"]
+这次终于碰到正则表达式了。
+
+
+(4)替换book为dog
+str1.replace('book','dog') //"this is a dog"
+注意：正则替换不改变原始字符串的值，想要修改就要覆盖掉。
+
+
+十分强大：正则替换中的函数
+xxStr=xxStr.replace(/xx/, function(keyWord,index, text){
+	return("||-"+keyWord+"-||")
+})
+
+
+
+
+
+
+
+
+3.综合实例：
+
+(1)查找网页中的手机号码
+规则是11位数字，且第一位是1
+var str2='this is my phone13512345678, what is yours? Mine is 15812345678'
+str2.match(/1\d{10}/g)) //(2) ["13512345678", "15812345678"]
+
+
+
+
+(2)给出一篇英文文章，找到单词最多的前10个句子。高亮显示某个关键词。
+难度：*****
+<style>
+.red{color:red; font-weight:bold;}
+</style>
+
+<script>
+var text=`
+Languages have been coming and going for millennia, but in recent times there has been less coming and a lot more going. When the world was still populated by hunter-gatherers, small, tightly knit groups developed their own patterns of speech independent of each other. Some linguists reckon that 10,000 years ago, when the world had just 5m-10m people, they spoke perhaps 12,000 languages between them.
+
+
+
+Soon afterwards many of those people started settling down to become farmers, and their languages too became more settled and fewer in number. In recent centuries, colonisation, trade, industrialisation, the development of the nation-state and the spread of universal compulsory education, among other things, have helped to extirpate many languages that had previously prospered in isolation. And in the past few decades, thanks to globalisation and better communications, the rate of attrition has greatly accelerated, and dominant languages such as English, Spanish and Chinese are increasingly taking over.
+
+
+
+At present the world has about 6,800 distinct languages (and many more dialects), according to Ethnologue, a database maintained by the Summer Institute of Linguistics in Dallas. The distribution of these languages is hugely uneven. The general rule is that temperate zones have relatively few languages, often spoken by many people, whereas hot, wet zones have lots, often spoken by small numbers. Europe has only around 200 languages; the Americas about 1,000; Africa 2,400; and Asia and the Pacific perhaps 3,200, of which Papua New Guinea alone accounts for well over 800. The median number of speakers is a mere 6,000, which means that half the world's languages are spoken by fewer people than that.
+`
+
+// begin to work
+print=console.log
+
+//1 短文切成句子
+var aLine=text.split(/[\.\?\!\n]+/)
+//var aLine=text.split(/[\.\?\!\n]+\s/)
+//var aLine=text.split('.')
+var j=0
+var arr=[]
+for(var i in aLine){
+	//if(i>6)break;
+	var line=aLine[i]
+	//2.过滤
+	//去掉带汉语的行
+	if(line.match(/[\u4e00-\u9fa5]+/)){
+		continue;
+	}
+	//去掉空行
+	if(line.length<2){
+		continue;
+	}
+	//去掉首尾的空白
+	//line=line.replace(/[^\s+|\s+$]/,'')
+	line=line.replace(/^\s+/,'').replace(/\s+$/,'')
+	
+	//3.句子分成单词
+	var aWord=line.split(/\s+/)
+	
+	//4.记录句子的长度
+	var len=aWord.length;
+	//舍弃10单词以下的句子
+	if(len<7)continue;
+	
+	//5.组装成数组
+	arr.push([line, aWord, len])
+	//print(i,line,aWord)
+	j++
+}
+//6.排序
+arr.sort(function(a,b){
+	return(a[2]-b[2])
+})
+//7.写到控制台
+for(var i=arr.length-1;i>=0;i--){
+	print(arr[i][2], arr[i][0])
+}
+//8.写到正文
+var n=0
+var word='the'
+ reg=new RegExp('\\b'+word+'\\b','ig');
+for(var i=arr.length-1;i>=0;i--){
+	if(++n>10)break;//只显示前10个句子
+	
+	//高亮显示某个单词 new RegExp(word,'ig')
+	arr[i][0]=arr[i][0].replace(reg, function(keyword,index,text){
+		print('keyword=',keyword,
+			//'; capture=',capture,
+			'; index=',index,
+			'; text=',text)
+		return "<span class=red>"+keyword+"</span>"
+	})
+	
+	//print(arr[i][2], arr[i][0])
+	var oP=document.createElement('p')
+	oP.innerHTML=arr[i][2]+' | '+arr[i][0]
+	document.body.append(oP)
+}
+</script>
+
+
+
+
+
+
 
 
 

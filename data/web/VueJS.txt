@@ -725,7 +725,58 @@ app2=new Vue({
 ========================================
 |-- 组件的通信——父子通信
 ----------------------------------------
+1.模板变量，在方法中读取
+<meta charset="UTF-8"> 
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="/static/js/vue.js"></script>
+vue 组件通信 - 父子组件的通信
+<hr>
+<style>
 
+</style>
+
+
+<div id="app">
+	<alert msg="Hmmm"></alert>
+	{{maxValue}}
+</div>
+
+
+<hr>
+F12 控制台，输入 app.maxValue=80
+
+
+<script>
+Vue.component('alert',{
+	template:'<button @click="on_click()">弹弹弹</button>',
+	props:['msg'], //1.组件中；2.props数组中；
+	methods:{
+		on_click:function(){
+			//alert('Yo.')
+			alert(this.msg) //3.方法中可用该属性
+		}
+	}
+})
+//设置组件变量
+app=new Vue({
+	el:'#app',
+	data:{
+		maxValue:100,
+		msg:'Yooooo.' //本例中组件读取不到这里
+	},
+});
+</script>
+
+
+
+
+
+
+
+
+2.
 
 
 
