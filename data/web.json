@@ -17,6 +17,7 @@
 		[
 			["js入门", "js-basic", "txt"],
 			["js高级", "js-adv", "txt" ],
+			["js实例", "js-example", "txt"],
 			["Vue.js", "VueJS", "txt" ]
 		]
 	}

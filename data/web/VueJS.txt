@@ -531,8 +531,11 @@ computed: {
 
 
 ========================================
-vue 全局及局部组件 Vue.component('newTagName',{})
+vue 全局及局部组件 Vue.component('new_tag-name',{})
 ----------------------------------------
+组件的名字只能是小写，大写会报错。但是可以使用下划线和连字符。
+
+
 <meta charset="UTF-8"> 
 
 <!-- 开发环境版本，包含了有帮助的命令行警告 
@@ -776,7 +779,307 @@ app=new Vue({
 
 
 
-2.
+
+
+========================================
+|-- 2.父级组件给子组件传参：通过自定义属性
+----------------------------------------
+
+<meta charset="UTF-8"> 
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="/static/js/vue.js"></script>
+vue 组件通信 - 父子组件的通信，用户系统使用方法:
+父级组件给子组件传参，通过自定义属性，从外向内传(html to js
+<hr>
+<style>
+
+</style>
+
+
+	<!--a href="/usr/wjl">wjl</a-->
+<div id="app">
+	<user username='wangjl'></user> : {{maxValue}}
+</div>
+
+
+<hr>
+F12 控制台，输入 app.maxValue=80
+
+
+<script>
+Vue.component('user',{
+	template:'<a :href="\'/usr/\'+username" @mouseenter="on_enter">@{{username}}</a>',
+	props:['username'], //1.组件中；2.props数组中；
+	methods:{
+		on_enter:function(){
+			console.log(new Date().getTime(),this.username) //3.方法中可用该属性
+		}
+	}
+})
+//设置组件变量
+app=new Vue({
+	el:'#app',
+	data:{
+		maxValue:100,
+		msg:'Yooooo.' //本例中组件读取不到这里
+	},
+});
+</script>
+
+
+
+
+
+
+
+
+
+========================================
+|-- 3.子组件给父组件传参：通过事件
+----------------------------------------
+<meta charset="UTF-8"> 
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="/static/js/vue.js"></script>
+vue 组件通信 - 父子组件的通信，用户系统使用方法:
+子级组件给父组件传参，写法2：通过事件通信，子组件触发父组件事件，同时传参
+<hr>
+<style>
+</style>
+
+<div id="app">
+	<balance></balance>
+</div>
+
+
+<hr>
+F12 控制台，输入 app.maxValue=80
+
+
+<script>
+//设置组件变量
+
+//父组件
+Vue.component('balance',{
+	//1.模板中监听事件 @show-balance，初始值false，所以不显示v-if;
+	//2.单击触发事件后；3.事件内show_balance变为true，则下面v-if执行;
+	template:`
+	<div>
+		<show msg="又该融资了" @show-balance="show_balance"></show>
+		<div v-if="show">您的余额是 0.9 元</div>
+	</div>
+	`,
+	methods:{
+		show_balance:function(data){
+			this.show=true;
+			console.log(data) //4.这里可以接收参数！step2子组件被触发时传入数据
+			//{a: 1, b: 2}
+		}
+	},
+	data:function(){
+		return {show:false}
+	}
+})
+
+//子组件
+Vue.component('show',{
+	template:'<button @click="on_click">显示余额</button>',
+	props:['msg'],
+	methods:{
+		on_click:function(){
+			alert(this.msg);//获取语义标签的msg属性值
+			
+			//2.自定义事件被触发
+			this.$emit('show-balance',{a:1,b:2});
+		}
+	}
+})
+
+
+app=new Vue({
+	'el':"#app",
+	'data':{
+		'maxValue':120,
+	}
+})
+</script>
+
+
+
+========================================
+|-- 4.任意及平行组件的通信: 通过调度器
+----------------------------------------
+<meta charset="UTF-8"> 
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="/static/js/vue.js"></script>
+vue 组件通信 - 任意及平行组件间通信
+<hr>
+<style>
+/*第15课时*/
+</style>
+
+<div id="app">
+	<wangcaidog></wangcaidog>
+	<zhaocaicat></zhaocaicat>
+	{{maxValue}}
+</div>
+
+
+<hr>
+F12 控制台，输入 app.maxValue=80
+
+
+<script>
+//事件调用机制
+var Event=new Vue();//1.调度器
+
+Vue.component('wangcaidog',{
+	template:`<div>
+	我说: <input @keyup="on_change" v-model="i_said" />{{i_said}}
+	</div>`, //1.键抬起的事件函数
+	data:function(){
+		return{
+			i_said:'dogSay',
+		}
+	},
+	methods:{
+		//3.键抬起时，触发自定义事件'dog-said-something'，并传参
+		on_change:function(){
+			//要用调度器 Event 触发事件
+			Event.$emit('dog-said-something', this.i_said);
+		}
+	}
+})
+
+Vue.component('zhaocaicat',{
+	template:`<div>
+		dog说：<input v-model="dog_said" />{{dog_said}}
+	</div>`,
+	data:function(){
+		return{
+			dog_said:'dogSaid22',
+		}
+	},
+	//4.一开始就监听自定义事件'dog-said-something'
+	mounted:function(){
+		var _this=this;
+		//要用调度器 Event 监听事件
+		Event.$on('dog-said-something',function(data){
+			//console.log(data)//能接收到dog组件的信息
+			_this.dog_said=data //5.注意this的指向
+		})
+	}
+	
+})
+
+app=new Vue({
+	'el':"#app",
+	'data':{
+		'maxValue':120,
+	}
+})
+</script>
+
+
+
+
+
+
+
+
+========================================
+Vue 过滤器: filter
+----------------------------------------
+<meta charset="UTF-8"> 
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="/static/js/vue.js"></script>
+vue 过滤器:优化用户体验的最后一步，不改变数字，只改形式。如果过滤器特别复杂，考虑是否写成带缓存的计算属性。
+<hr>
+<style>
+/*第16课时*/
+.box{border:2px dotted #faa;padding:10px;margin:5px;}
+</style>
+
+<div id="app">
+	<div class=box>
+		length: <input type=input v-model=length /> mm<br>
+		默认 {{length|meter}}<br>
+		{{length|meter('mm')}}<br>
+		{{length|meter('cm')}}<br>
+		{{length|meter('dm')}}<br>
+		{{length|meter('m')}}<br>
+	</div>
+	<div class=box>
+		Set Price: <input type=input v-model=price /><br>
+		China: {{price |currency}}<br>
+		USA: {{price |currency2('USD')}}
+	</div>
+</div>
+
+
+<hr>
+F12 控制台，输入 app.price=80
+
+
+<script>
+//定义过滤器
+Vue.filter('currency',function(val){
+	var val=val||0; //设置默认值，防止没数字时刻显示一个空元。
+	return val+'元';
+})
+//过滤器还可以传递参数
+Vue.filter('currency2',function(val, unit){
+	var val=val||0; //防止没数字时刻显示一个空元。
+	var unit=unit||'元'; //国际化货币支持
+	return val+unit;
+})
+
+Vue.filter('meter',function(val,unit){
+	//设置默认值
+	var val=val||0;
+	var unit=unit||'m';	
+	var fc;//换算倍数
+	if('m'==unit){
+		fc=1000
+	}else if('cm'==unit){
+		fc=100
+	}else if('dm'==unit){
+		fc=10
+	}else if('mm'==unit){
+		fc=1
+	}
+	
+	return (val/fc).toFixed(2)+unit;//固定取2位小数
+})
+
+app=new Vue({
+	'el':"#app",
+	'data':{
+		'price':10,
+		'length':1.73891*1000,
+	}
+})
+</script>
+
+
+
+
+
+
+
+
+========================================
+自定义指令 - 基础配置
+----------------------------------------
+
+
 
 
 
