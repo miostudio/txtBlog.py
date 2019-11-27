@@ -380,20 +380,128 @@ document.getElementById('app2').innerHTML="输出到文档流:c="+c
 事件包括事件函数，添加事件，事件代理，自定义事件和事件的触发。
 
 
+1.鼠标事件
+<button id=btn1>按钮1</button>
+
+<script>
+
+var oBtn=document.getElementById('btn1')
+oBtn.onclick=function(event){
+	console.log(event)
+	alert('你点我了')
+}
+</script>
 
 
 
 
-========================================
-|-- 使用原生js手动触发事件
-----------------------------------------
-1.
+2.键盘事件
+键盘事件
+<hr>
+
+<input type=input id=text1>
+
+
+
+<script>
+
+var oInput=document.getElementById('text1')
+oInput.onkeyup=function(event){
+	console.log('key=',event.key, '; keyCode=', event.keyCode)
+}
+</script>
+
+
+
+3.事件冒泡，
+事件冒泡(从子元素向上一直到？)，及其阻止
+父子元素都有单击事件，子元素被单击，谁先响应？
+
+<hr>
+<style>
+#f1{width:1000px; height:300px; background:#eee;}
+#c1{width:500px; height:100px; background:#e00;}
+</style>
+
+<div id=f1>
+	oF
+	<div id=c1>oC	</div>
+</div>
+
+<script>
+var oD=document.body;
+var oF=document.getElementById('f1')
+var oC=document.getElementById('c1')
+oD.onclick=function(event){
+	alert('oDocument.body')
+}
+oF.onclick=function(event){
+	alert('oF')
+}
+oC.onclick=function(event){
+	//阻止事件冒泡
+	event.stopPropagation()
+	alert('oChild')
+}
+</script>
+
+
+
+
+4.阻止默认事件
+比如右击会出现菜单，我们想生成自己的右键菜单，就需要阻止系统的右键菜单。
+
+阻止默认事件
+<hr>
+
+<script>
+document.oncontextmenu=function(e){
+	e.preventDefault();
+	alert('右击不会出现默认菜单了')
+}
+</script>
+
+如何自定义右键菜单？
+https://www.cnblogs.com/zwn-lucky7/p/6926218.html
+
+
+
+
+5.手动触发事件
+比如，我们想通过浏览器的F12控制台，触发单击事件。
+
 IE下使用 fireEvent
 高级浏览器下使用 dispatchEvent
 
 
+手动触发事件
+<hr>
+<div id='obj1' style='height:300px; background:#eee;'>obj1</div>
 
-2.实例
+<script>
+var oDiv1=document.getElementById('obj1');
+oDiv1.onclick=function(){
+	console.log('clicked:',this, event)
+}
+
+//通过代码触发一个单击事件
+function trigger(obj,eventName){ //如click,change，不要on
+    // 手动触发事件
+    if (obj.fireEvent){
+        obj.fireEvent('on'+eventName);
+    }else{
+        ev = document.createEvent("HTMLEvents");  
+        ev.initEvent(eventName, false, true);  
+        obj.dispatchEvent(ev);  
+    }
+}
+trigger(oDiv1,'click') //输入到F12控制台，也会触发单击事件
+</script>
+
+
+
+
+实例2：使用原生js手动触发事件
 <!DOCTYPE html>
 <html>
 <head>
@@ -441,6 +549,540 @@ if(i>1){
 }
 </script>
 </html>
+
+
+
+
+
+6.添加事件，防止互相覆盖
+添加事件
+<hr>
+<div id='obj1' style='height:300px; background:#eee;'>obj1</div>
+
+<script>
+var oDiv1=document.getElementById('obj1');
+oDiv1.onclick=function(){
+	console.log('clicked:01')
+}
+oDiv1.onclick=function(){
+	console.log('clicked:02')
+}
+//如上一个对象上添加多个事件，只有最后一个起作用了。
+
+//添加事件/ 绑定事件
+function addEvent(obj, eventName, fn){ //不加on的click
+    if(obj.addEventListener){
+        obj.addEventListener(eventName, fn);
+    }else{
+        obj.attachEvent('on'+eventName, fn);
+    }
+}
+//这样避免被覆盖
+addEvent(oDiv1,'click',function(){
+	console.log('clicked: addEvent 03')
+})
+addEvent(oDiv1,'click',function(){
+	console.log('clicked: addEvent 04')
+})
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+========================================
+|-- 7.自定义事件
+----------------------------------------
+所谓自定义事件，就是有别于有别于带有浏览器特定行为的事件(类似click, mouseover, submit, keydown等事件)，事件名称可以随意定义，可以通过特定的方法进行添加，触发以及删除。
+
+
+
+1.
+自定义事件有两种方法,一种是使用new Event(),另一种是new customEvent()
+
+(1)
+var myEvent = new Event('event_name');
+
+但是为了能够传递数据，就需要使用 CustomEvent 构造器：
+
+var myEvent = new CustomEvent('event_name', {
+    detail:{
+        // 将需要传递的数据写在detail中，以便在EventListener中获取
+        // 数据将会在event.detail中得到
+    },
+});
+
+
+(2)JS的EventListener是根据事件的名称来进行监听的，比如我们在上文中已经创建了一个名称为‘event_name’ 的事件，那么当某个元素需要监听它的时候，就需要创建相应的监听器：
+
+//假设listener注册在window对象上
+window.addEventListener('event_name', function(event){
+    // 如果是CustomEvent，传入的数据在event.detail中
+    console.log('得到数据为：', event.detail);
+
+    // ...后续相关操作
+});
+
+至此，window对象上就有了对‘event_name’ 这个事件的监听器，当window上触发这个事件的时候，相关的callback就会执行。
+
+
+(3)事件的触发
+
+对于一些内置（built-in）的事件，通常都是有一些操作去做触发，比如鼠标单击对应MouseEvent的click事件，利用鼠标（ctrl+滚轮上下）去放大缩小页面对应WheelEvent的resize事件。
+然而，自定义的事件由于不是JS内置的事件，所以我们需要在JS代码中去显式地触发它。方法是使用 dispatchEvent 去触发（IE8低版本兼容，使用fireEvent）：
+
+
+// 首先需要提前定义好事件，并且注册相关的EventListener
+var myEvent = new CustomEvent('event_name', { 
+    detail: { title: 'This is title!'},
+});
+window.addEventListener('event_name', function(event){
+    console.log('得到标题为：', event.detail.title);
+});
+
+// 随后在对应的元素上触发该事件
+if(window.dispatchEvent) {  
+    window.dispatchEvent(myEvent);
+} else {
+    window.fireEvent(myEvent);
+}
+// 根据listener中的callback函数定义，应当会在console中输出 "得到标题为： This is title!"
+
+
+需要特别注意的是，当一个事件触发的时候，如果相应的element及其上级元素没有对应的EventListener，就不会有任何回调操作。
+对于子元素的监听，可以对父元素添加事件托管，让事件在事件冒泡阶段被监听器捕获并执行。这时候，使用event.target就可以获取到具体触发事件的元素。
+
+
+
+
+
+
+2.代码示例
+自定义事件，并触发
+<hr>
+<pre>
+event.target 触发事件的对象；
+自定义事件默认不会冒泡，除非指定。
+
+</pre>
+<div id='obj1' style='height:100px; background:#eee;'>obj1</div>
+
+<script>
+//原生事件
+var oDiv1=document.getElementById('obj1');
+oDiv1.onclick=function(){
+	console.log('clicked(oDiv1):',event.target)
+	//console.log('clicked(oDiv1):',this, event,event.target)
+	console.log('bubbles=',event.bubbles, '; cancelable=',event.cancelable);
+}
+window.onclick=function(){
+	console.log('clicked(window):',this, event,event.target)
+}
+
+//通过代码触发一个单击事件
+function trigger(obj,eventName){ //如click,change，不要on
+    // 手动触发事件
+    if (obj.fireEvent){
+        obj.fireEvent('on'+eventName);
+    }else{
+        ev = document.createEvent("HTMLEvents");  
+        ev.initEvent(eventName, false, true);  
+        obj.dispatchEvent(ev);  
+    }
+}
+trigger(oDiv1,'click') //输入到F12控制台，也会触发单击事件
+//也不会冒泡
+
+
+
+//============1. 不能传参数
+// 不自定义事件，直接注册事件到对象上，但是拿不到参数了
+window.addEventListener('event_name00', function(event){
+    // 如果是CustomEvent，传入的数据在event.detail中
+    console.log('001==>得到数据为：', event.detail);
+    // ...后续相关操作
+    console.log('event_name00 事件发生了(window)');
+});
+oDiv1.addEventListener('event_name00', function(event){
+    // 如果是CustomEvent，传入的数据在event.detail中
+    console.log('001==>得到数据为：', event.detail);
+    // ...后续相关操作
+    console.log('event_name00 事件发生了(oDiv1)');
+	console.log('bubbles=',event.bubbles, '; cancelable=',event.cancelable);
+});
+trigger(oDiv1,'event_name00') //触发自定义事件，不会冒泡到window？
+//trigger(window,'event_name00') 
+
+
+
+
+//============2. 能传参数
+//自定义事件
+//01 首先需要提前定义好事件，并且注册相关的EventListener
+var myEvent = new CustomEvent('event_name01', { 
+    detail: { title: 'This is title!'},
+});
+
+//02 注册事件到oDiv1对象上
+window.addEventListener('event_name01', function(event){
+    // 如果是CustomEvent，传入的数据在event.detail中
+    console.log('002==>得到数据为：', event.detail);
+    // ...后续相关操作
+    console.log('event_name01 事件发生了(window)');
+});
+oDiv1.addEventListener('event_name01', function(event){
+    // 如果是CustomEvent，传入的数据在event.detail中
+    console.log('002==>得到数据为：', event.detail);
+    // ...后续相关操作
+    console.log('event_name01 事件发生了(oDiv1)');
+	console.log('bubbles=',event.bubbles, '; cancelable=',event.cancelable);
+});
+//03 触发事件
+// 随后在对应的元素上触发该事件
+if(window.dispatchEvent) {  
+    oDiv1.dispatchEvent(myEvent);
+} else {
+    oDiv1.fireEvent(myEvent); //IE8低版本兼容，使用fireEvent
+}
+// 根据listener中的callback函数定义，应当会在console中输出 "得到标题为： This is title!"
+
+
+
+//============3. 如何实现冒泡？
+//var btn = document.querySelector('.button');
+//var ev = new Event('testEvent', {
+var ev = new CustomEvent('testEvent', {
+	bubbles: 'true',
+	cancelable: 'true',
+	detail: 'msg from detail', //只有CustomEvent能传递出去，Event传递不出去
+	'price':200, //总是传不过去
+});
+oDiv1.addEventListener('testEvent', function (event) {
+	console.log('003==>testEvent(oDiv1)');
+	console.log('bubbles=',event.bubbles, '; cancelable=',event.cancelable);
+	console.log('price=',event.price);
+	console.log('detail=',event.detail);
+	console.log('target=',event.target);
+	//阻止冒泡
+	//event.stopPropagation()
+}, false);
+window.addEventListener('testEvent', function (event) {
+	console.log('003==>testEvent(window)');
+	console.log('price=',event.price);
+	console.log('detail=',event.detail);
+	console.log('target=',event.target);
+}, false);
+oDiv1.dispatchEvent(ev);
+
+</script>
+
+
+
+
+
+3.自定义事件的使用场景：
+
+(1)例子一：通知多个对象
+要实现 元素A点击之后，元素B显示鼠标的位置，元素C显示提示，可以这样写：
+
+自定义事件，并触发: 通知多个对象
+<hr>
+我们可以在一个公共对象上监听和触发事件
+<pre>
+event.target 触发事件的对象；
+自定义事件默认不会冒泡，除非指定。
+
+</pre>
+<div id='a' style='height:50px; background:#eee;'>a</div>
+
+<ul>
+	<li id=b></li>
+	<li id=c></li>
+</ul>
+
+<script>
+var a = document.getElementById("a");
+a.addEventListener("click",function(e){
+    var clickA = new Event("clickA");
+    document.dispatchEvent(clickA);
+});
+
+var b = document.getElementById("b");
+document.addEventListener("clickA",function(e){
+    b.innerHTML = "(128,345) "+new Date().getTime();
+})
+
+var c = document.getElementById("c");
+document.addEventListener("clickA",function(e){
+    c.innerHTML = "你点了A "+new Date().getTime();
+})
+
+</script>
+
+三个模块之间完全不用关心对象，也不知道对方存在，耦合度非常的低，完全可以独立编写，不会互相影响。这其实就是一个观察者模式的实现。
+
+
+
+(2)例子二：游戏框架
+要开发一个游戏，启动游戏，加载图片和音乐，加载完后，渲染场景和音效，加载和渲染由不同的人负责。
+
+var start = document.getElementById("start");
+start.addEventListener("click",function(e){
+    console.log("游戏开始！");
+    document.dispatchEvent(new Event("gameStart"));
+})
+
+
+// 加载图片
+document.addEventListener("gameStart",function(){
+    console.log("加载图片...");
+    setTimeout(function(){
+        console.log("加载图片完成");
+        document.dispatchEvent(new Event("loadImageSuccess"));
+    },1000);
+});
+
+/加载音乐
+document.addEventListener("gameStart",function(){
+    console.log("加载音乐...");
+    setTimeout(function(){
+        console.log("加载音乐完成");
+        document.dispatchEvent(new Event("loadMusicSuccess"));
+    },2000);
+});
+
+
+//渲染场景
+document.addEventListener("loadImageSuccess",function(e){
+    console.log("使用图片创建场景...");
+    setTimeout(function(){
+        console.log("创建场景完成");
+    },2000)
+});
+
+//渲染音效
+document.addEventListener("loadMusicSuccess",function(e){
+    console.log("使用音乐创建音效...");
+    setTimeout(function(){
+        console.log("创建音效完成");
+    },500)
+});
+
+加载模块和渲染模块互不影响，易于扩展。
+
+
+
+(3)携带信息
+除此之外，事件还能传递自定义信息：
+//事件还能传递自定义信息
+var event2 = new CustomEvent('myEvent', {
+	'detail':{'price':10.3}, 
+	'dataName': "dataContent002" 
+});
+setTimeout(function(){
+	document.dispatchEvent(event2);//直接放到正文不执行，why?
+},1000)
+
+注意：传递自定义信息需要使用CustomEvent，而不是Event；
+只有detail键的value能被传递！
+
+//然后在监听函数里取出：
+document.addEventListener("myEvent",function(e){
+    console.log('e.dataName=',e.dataName);//undefined
+    console.log('e.detail=',e.detail);
+})
+
+这个功能非常有用！
+
+
+
+(4)使用自定义事件的优缺点
+优点： 各模块之间低耦合
+缺点：不好定位问题，容易导致诡秘的错误。
+
+https://blog.csdn.net/ruangong1203/article/details/52474452
+
+
+
+
+
+
+========================================
+|-- JavaScript事件(createEvent,initEvent,dispatchEvent)
+----------------------------------------
+dispatchEvent()方法用于触发自定义事件，
+自定义事件使用createEvent()创建事件对象，
+使用initEvent()初始化事件对象。
+
+
+
+1.
+
+void initEvent(String eventTypeArg, boolean canBubbleArg, boolean cancelableArg)
+
+下表列出了 eventType 的合法值和每个值创建的事件接口：
+
+参数	事件接口	初始化方法
+HTMLEvents	HTMLEvent	initEvent()
+MouseEvents	MouseEvent	initMouseEvent()
+UIEvents	UIEvent	initUIEvent()
+
+
+
+
+2.示例
+自定义事件和触发
+<script>
+/* 创建一个事件对象，名字为newEvent，类型为HTMLEvent */
+var newEvent = document.createEvent("HTMLEvents");
+
+/* 
+ * 实例化创建好的事件对象
+ * 第一个参数：事件类型（就好像是click还是submit）
+ * 第二个参数：是否冒泡
+ * 第三个参数：是否阻止浏览器默认行为（例如阻止submit事件提交表单）
+ */
+newEvent.initEvent("myEvent",true,true);
+    
+/* 给自定义事件对象的属性赋值。这个属性一开始不存在，我们这里将其实例化了 */
+newEvent.name = "THis is Name";
+    
+/* 
+ * 将自定义事件绑定在document上，你也可以绑定到指定元素上。
+ * 这里要注意：第一个参数要和上面initEvent()的第一个参数一致，否则无法触发这个事件以及获取newEvent中的一些属性（比如这里的newEvent.name）。
+ */
+document.addEventListener("myEvent",function() {
+    //alert("自定义事件的name属性：" + newEvent.name);
+    console.log("自定义事件的name属性：" + newEvent.name);
+},false);
+
+/* 触发自定义事件 */
+document.dispatchEvent(newEvent);
+
+</script>
+
+
+
+
+
+
+ref:
+https://blog.csdn.net/weixin_30294709/article/details/95309029
+https://blog.csdn.net/weixin_34419321/article/details/91714552
+
+
+========================================
+|-- 自定义事件的监听: 观察者模式
+----------------------------------------
+当多个事件以及对应数据处理函数添加后，我们最终会得到一个类似下面数据结构的对象：
+
+_listener = {
+    "click": [func1, func2],
+    "custom": [func3],
+    "defined": [func4, func5, func6]
+}
+因此，如果我们脱离DOM, 纯碎在数据层面自定义事件的话，我们只要以构建、遍历和删除_listener对象为目的即可。
+
+
+
+
+1.函数式实现
+还是那句话，循序渐进，我们先看看函数式的实现（只展示骨干代码）：
+
+var _listener = {};
+var addEvent = function(type, fn) {
+    // 添加
+};
+var fireEvent = function(type) {
+    // 触发
+};
+var removeEvent = function(type, fn) {
+    // 删除
+};
+
+上面的代码虽然显得比较初级，但是目的亦可实现。例如：
+addEvent("alert", function() {
+    alert("弹出！");
+});
+
+// 触发自定义alert事件
+fireEvent("alert");
+但是，函数式写法缺点显而易见，过多暴露在外的全局变量（全局变量是魔鬼），方法无级联等。这也是上面懒得显示完整代码的原因，略知即可。
+
+
+
+
+2.字面量实现
+众所周知，减少全局变量的方法之一就是使用全局变量（其他如闭包）。于是，我们稍作调整
+
+var Event = {
+    _listeners: {},    
+    // 添加
+    addEvent: function(type, fn) {
+        if (typeof this._listeners[type] === "undefined") {
+            this._listeners[type] = [];
+        }
+        if (typeof fn === "function") {
+            this._listeners[type].push(fn);
+        }    
+        return this;
+    },
+    // 触发
+    fireEvent: function(type) {
+        var arrayEvent = this._listeners[type];
+        if (arrayEvent instanceof Array) {
+            for (var i=0, length=arrayEvent.length; i<length; i+=1) {
+                if (typeof arrayEvent[i] === "function") {
+                    arrayEvent[i]({ type: type });    
+                }
+            }
+        }    
+        return this;
+    },
+    // 删除
+    removeEvent: function(type, fn) {
+    	var arrayEvent = this._listeners[type];
+        if (typeof type === "string" && arrayEvent instanceof Array) {
+            if (typeof fn === "function") {
+                // 清除当前type类型事件下对应fn方法
+                for (var i=0, length=arrayEvent.length; i<length; i+=1){
+                    if (arrayEvent[i] === fn){
+                        this._listeners[type].splice(i, 1);
+                        break;
+                    }
+                }
+            } else {
+                // 如果仅仅参数type, 或参数fn邪魔外道，则所有type类型事件清除
+                delete this._listeners[type];
+            }
+        }
+        return this;
+    }
+};
+
+
+
+
+
+ref:
+https://www.zhangxinxu.com/wordpress/2012/04/js-dom%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6/
+
+https://blog.csdn.net/qq_34134278/article/details/81505256
+
+观察者模式: https://blog.csdn.net/csdnxcn/article/details/79692750
+
+
 
 
 ========================================
