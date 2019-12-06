@@ -1,0 +1,683 @@
+
+Ecosystem:
+vue-router
+vuex
+vue-devtools
+vue-loader
+awesome-vue
+
+
+========================================
+Vue深入浅出(从入门到开发) 用到 Vue cli
+----------------------------------------
+https://study.163.com/course/introduction.htm?courseId=1004461012#/courseDetail?tab=1
+https://study.163.com/course/introduction.htm?courseId=1004711010#/courseDetail?tab=1
+简　　介	整个系列课程带领大家可以快速掌握Vue开发的流程,课程从简单到实战,适用于0基础学习.
+
+Vue-CLI脚手架搭建
+Vue-指令
+Vue-条件及循环语句
+Vue-事件及双向绑定
+Vue-模板引擎
+Vue-组件
+Vue-属性传值
+Vue-路由
+Vue-资源请求
+
+
+
+========================================
+安装 Vue cli
+----------------------------------------
+1 要有node和npm。
+$ node --version
+v10.16.3
+
+$ npm --version
+6.9.0
+
+(1)安装失败(不要模仿)
+$ npm install -g vue-cli
++ vue-cli@2.9.6
+added 241 packages from 206 contributors in 76.165s
+
+
+$ vue --version
+2.9.6
+
+$ vue create my-project
+
+  vue create is a Vue CLI 3 only command and you are using Vue CLI 2.9.6.
+  You may want to run the following to upgrade to Vue CLI 3:
+
+  npm uninstall -g vue-cli
+  npm install -g @vue/cli
+
+
+2.执行上面2行卸载，并安装新版本。
+
+(1)
+https://nodejs.org/en/ 下载 node-v12.13.1-x86.msi
+默认安装。
+
+$ node -v
+v12.13.1
+
+$ npm -v
+6.12.1
+
+$ vue -v
+bash: vue: command not found
+
+
+(2)
+npm install -g @vue/cli
+
+Love nodemon? You can now support the project via the open collective:
+ > https://opencollective.com/nodemon/donate
+
++ @vue/cli@4.1.1
+added 1098 packages from 627 contributors in 361.138s
+
+
+临时文件夹: C:\Users\Administrator\AppData\Roaming
+
+
+(3)
+https://cli.vuejs.org/
+$ vue -V
+@vue/cli 4.1.1
+
+
+
+
+
+
+
+
+
+
+========================================
+Vue cli: hello world 项目
+----------------------------------------
+1. Hello world 版
+(1)创建项目 Create a project:
+$ vue create my-project
+# OR
+vue ui
+
+(2)接着，就可以进入文件夹
+$ cd my-project
+
+
+(3)安装依赖
+$ npm install
+安装的就是 该项目内的package.json文件中的
+"dependencies": {}
+和
+"devDependencies": {}
+中的包。
+
+
+(4)运行项目
+$ npm run serve
+App running at:
+  - Local:   http://localhost:8080/
+  - Network: http://192.168.1.102:8080/
+
+  Note that the development build is not optimized.
+  To create a production build, run npm run build.
+# 浏览器输入以上网址，就能看到demo内容了。
+
+
+
+(5)根据建议，最优化项目：
+ctrl+C 暂停运行；
+$ npm run build
+-  Building for production...
+ DONE  Compiled successfully in 38257ms23:46:11
+
+  File                                 Size               Gzipped
+
+  dist\js\chunk-vendors.a54e4318.js    88.83 KiB          31.82 KiB
+  dist\js\app.4c0b8d81.js              4.62 KiB           1.65 KiB
+  dist\css\app.e2713bb0.css            0.33 KiB           0.23 KiB
+
+  Images and other types of assets omitted.
+
+ DONE  Build complete. The dist directory is ready to be deployed.
+ INFO  Check out deployment instructions at https://cli.vuejs.org/guide/deployment.html
+#
+访问/dist/index.html, 就是优化过的版本，可以部署了。
+
+how?
+
+
+
+(6)解析项目结构
+/public/index.html 是整个程序的入口，第一个被加载，
+之后发生注入。
+/src/ 是最重要的文件，需要写东西的地方。
+/src/assets/ 放静态资源文件，css和图片等；
+/src/main.js 是主要逻辑入口，它引入了 import App from './App.vue'
+/src/App.vue 是模板，包含html，script和css三个部分。
+其中html里面放了<HelloWorld></HelloWorld>标签组件，该组件在
+/src/components/HelloWorld.vue 中定义。仍然包含了3个部分。
+
+
+
+
+
+
+2. 在这个基础上，自定义组件，进行开发。
+(1)清空
+在 /src/App.vue 中，
+html里删除2行 
+	<img alt="Vue logo" src="./assets/logo.png">
+	<HelloWorld msg="Welcome to Your Vue.js App"/>
+js里，删除2行
+	import HelloWorld from './components/HelloWorld.vue'
+	以及 components 里的 HelloWorld 行
+#
+保存，刷新，发现没啥东西了，而且F12控制台也没有报错。
+
+
+(2)编写新的组件 VueTest
+1) 新建文件 /src/components/VueTest.vue
+<template>
+  <div class="test01">
+	<h1>Test01-h1</h1>
+  </div>
+</template>
+
+
+
+<script>
+export default{
+	name:'VueTest', //一般是组件名一模一样
+}
+</script>
+
+<!-- 使用scoped，则只会对当前内容起作用 -->
+<style scoped>
+.test01{
+	color:red;
+}
+</style>
+
+2)在 /src/App.vue 中引入
+<script>
+import VueTest from './components/VueTest.vue'
+
+export default {
+  name: 'app',
+  components: {
+    VueTest
+  }
+}
+</script>
+
+在顶部html中加入标签
+<template>
+  <div id="app">
+    <VueTest></VueTest>
+    
+  </div>
+</template>
+
+
+(3)命令行启动项目
+进入g/xampp/htdocs/vue_learn/my-project/
+$ npm run serve
+
+> my-project@0.1.0 serve G:\xampp\htdocs\vue_learn\my-project
+> vue-cli-service serve
+...
+App running at:
+  - Local:   http://localhost:8080/
+  - Network: http://192.168.1.101:8080/
+可以看结果了。
+
+
+
+
+========================================
+|-- 3. v-if, v-for 语法
+----------------------------------------
+1. vue模板
+/src/components/VueTest.vue 文件
+<template>
+  <div class="test01">
+	<h1>Test01-h1 获取数据</h1>
+	
+	<p>Title: {{title}}</p>
+	<p>Auther: {{user.firstName}}(模板绑定), (也可以使用指令)<b v-text="user.lastName"></b></p>
+	
+	<hr>
+	<!-- v-if -->
+	<p v-if="showName">{{user.firstName}}</p>
+	<!-- v-else -->
+	<p v-else>Nobody</p>
+	
+	<hr>
+	<!-- v-for :key=""中的值要是具体的值，不知道啥用？-->
+	<ul>
+		for循环中，绑定的key值不能为对象，而是取一个字符串或数值：
+		<li v-for="book in books" :key="book.title">{{book.title}}: {{book.price}}</li>
+	</ul>
+	
+  </div>
+</template>
+
+
+
+<script>
+export default{
+	name:'VueTest2d', //一般是组件名一模一样, 这个名字貌似没啥用？
+	data:function(){
+		return{
+			title:"Hello, test(from data)",
+			user:{
+				firstName:'Jim',
+				lastName:'Smith',
+			},
+			showName:false,
+			books:[
+				{title:'book1', price:100},
+				{title:'book2', price:200},
+				{title:'book3', price:300},
+				{title:'book10', price:3000},
+			],
+		}
+	},
+}
+</script>
+
+<!-- 使用scoped，则只会对当前内容起作用 -->
+<style scoped>
+.test01 h1{
+	color:red;
+}
+</style>
+
+
+
+
+
+2.引用
+/src/App.vue 中，js引用模块，html引用标签。
+<template>
+  <div id="app">
+    <VueTest3></VueTest3>
+    
+  </div>
+</template>
+
+<script>
+import VueTest3 from './components/VueTest.vue'
+
+export default {
+  name: 'app',
+  components: {
+    VueTest3
+  }
+}
+</script>
+
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
+
+
+
+
+3.启动与查看
+
+$ npm run serve
+浏览器查看 http://localhost:8080/:
+
+Test01-h1 获取数据
+Title: Hello, test(from data)
+
+Auther: Jim(模板绑定), (也可以使用指令)Smith
+
+Nobody
+
+for循环中，绑定的key值不能为对象，而是取一个字符串或数值：
+book1: 100
+book2: 200
+book3: 300
+book10: 3000
+
+
+4.
+在F12想注入一个数据，不知道该怎么做，发现都不成功:
+app.VueTest3.books.push({'title':"BookX",'price':123})
+
+这些都是组件上的东西，不是app直接数据。
+怎么改？
+
+
+========================================
+|-- 事件绑定 v-on:click="fnName" 或 @click="fnName"，事件修饰符，计算属性
+----------------------------------------
+
+vue事件修饰符: https://blog.csdn.net/gao531162436/article/details/79805808
+
+
+1.新建模板 
+/src/components/EventTest1.vue 
+<template>
+	<div class="e1">
+		<h1>event test 1</h1>
+		{{event1}}
+		<p>鼠标事件 v-on:click 或者 @click，与传参:
+			<button v-on:click="say">greetings</button>
+			<button @click="say2('night')">greetings2 传参</button>
+		</p>
+		
+		<p>键盘事件，与参数获取; 事件修饰符.enter :
+		
+			<input type='input' v-on:keydown="pressedKey" @keyup.enter="enterHit(this)"  v-model="userName">{{userName}}<br>
+			多修饰符: <input type='input' @keyup.alt.enter="altEnterHit" value="alt+enter">
+		</p>
+		
+		<p class=greenBg>computed 计算属性，只有变化的时候才计算<br>
+		first Name:<input type='input' v-model="user.firstName"><br>
+		last Name:<input type='input' v-model="user.lastName"><br>
+		full Name: {{fullName}}<br>
+		<button v-on:click="showFullName">showFullName 计算属性不变化不更新</button>
+		<button v-on:click="showFullName_Method">showFullName_Method方法每次单击都更新</button>
+		
+		</p>
+	</div>
+</template>
+
+<script>
+export default{
+	name:'EventTest1fs',
+	data:function(){
+		return{
+			'event1':'click event1 demo',
+			'userName':'wangjl',
+			'user':{
+				'firstName':'George',
+				'lastName':'Smith',
+			}
+		}
+	},
+	computed:{
+		fullName:function(){
+			return this.user.firstName+" "+this.user.lastName+" "+new Date().getTime();
+		}
+	},
+	methods:{
+		say:function(){
+			console.log('Good morning!')
+		},
+		say2:function(xx){
+			alert('Hello, '+xx);
+		},
+		pressedKey:function(e){
+			console.log('pressedKey:', e.key, e.code,e.keyCode)
+		},
+		enterHit:function(obj){ //this接收不到
+			console.log('回车发送这条消息：', this.userName,obj)
+		},
+		pressedShift:function(){
+			console.log('pressedShift')
+		},
+		altEnterHit:function(e){
+			console.log('多修饰符，使用点号连起来。altEnterHit:', e.key)
+		},
+		showFullName:function(){
+			alert( this.fullName );
+		},
+		showFullName_Method:function(){
+			var fname=this.user.firstName+" "+this.user.lastName+" "+new Date().getTime();
+			alert( fname );
+		}
+	}
+}
+</script>
+
+
+<style scoped>
+h1{color:purple;}
+.e1{border:1px dashed purple;}
+.e1 p{border-top:1px dashed #ccc; margin:15px 5px; padding:5px;}
+</style>
+
+
+
+
+2.添加到入口文件中
+/src/App.vue 
+
+<template>
+  <div id="app">
+    <EventTest1></EventTest1>
+    <VueTest3></VueTest3>
+    
+  </div>
+</template>
+
+<script>
+import VueTest3 from './components/VueTest.vue'
+import EventTest1 from './components/EventTest1.vue'
+
+export default {
+  name: 'app',
+  components: {
+    VueTest3, 
+	EventTest1
+  }
+}
+</script>
+
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
+
+
+
+
+
+3.运行项目
+$ npm run serve
+经过几十秒编译后。
+
+
+
+4.并查看结果
+浏览器 http://localhost:8080/
+
+event test 1
+click event1 demo
+鼠标事件 v-on:click 或者 @click，与传参: greetings greetings2 传参
+
+键盘事件，与参数获取; 事件修饰符.enter : 
+wangjl
+wangjl
+多修饰符: 
+alt+enter
+
+computed 计算属性，只有变化的时候才计算
+first Name:
+George
+
+last Name:
+Smith
+
+full Name: George Smith 1575561989205
+showFullName 计算属性不变化不更新showFullName_Method方法每次单击都更新
+
+
+
+
+
+
+========================================
+|-- props 属性：从父组件的属性标签获取值
+----------------------------------------
+1. 写组件模板
+/src/components/PropsTest.vue
+<template>
+	<div>
+		<h1>Props属性：从父组件的属性标签获取值</h1>
+		<p>{{name}}</p>
+		<p>{{msg}}</p>
+		
+	</div>
+</template>
+
+<script>
+export default{
+	'name':"PropsTes3tfsfd",
+	props:{
+		msg:{
+			type:String,
+			default:"默认文字",
+		}
+	},
+	data:function(){
+		return {
+			"name":"BookName2"
+		}
+	},
+}
+</script>
+
+<style scoped>
+div{border:1px solid red;}
+</style>
+
+
+2. 引入到入口组件
+/src/App.vue 
+<template>
+  <div id="app">
+	<PropsTest2 msg="新属性值"></PropsTest2>
+    <EventTest1></EventTest1>
+    <VueTest3></VueTest3>
+    
+  </div>
+</template>
+
+<script>
+import VueTest3 from './components/VueTest.vue'
+import EventTest1 from './components/EventTest1.vue'
+import PropsTest2 from './components/PropsTest.vue'
+
+export default {
+  name: 'app',
+  components: {
+    VueTest3, 
+	EventTest1,
+	PropsTest2
+  }
+}
+</script>
+
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
+
+
+3.运行 $ npm run serve
+并浏览，发现App.vue 的div部分不设置属性时，
+<PropsTest2></PropsTest2> msg 显示的是默认值。
+
+<PropsTest2 msg="新属性值"></PropsTest2> 设置msg属性后，显示的是新设置的值。
+
+
+
+
+
+
+========================================
+小项目 - 用户管理
+----------------------------------------
+
+
+
+========================================
+踩过的坑
+----------------------------------------
+1. v-for 必须有 key? 虽然没啥用，形式上不能少，否则报错。
+key还必须是字符或数字，不能是对象？
+
+
+2.vue文件必须有元素包裹一层，比如<div class="e1">，否则报错。
+<template>
+	<div class="e1">
+		<h1>event test 1</h1>
+		{{event1}}
+	</div>
+</template>
+
+
+3.Vue3.0报错error: Unexpected console statement (no-console) 
+写项目过程中用ESLint遵守代码规范很有必要，但是对于一些规范也很是无语，比如：‘Unexpected console statement (no-console)’，连console都不能用，这就很抓狂了。其实增加一行代码即可。
+
+修改package.json中的eslintConfig:{} 中的 “rules”:{}，增加一行代码: "no-console":"off"
+
+https://www.jianshu.com/p/4f2a6ca1f562
+
+
+
+
+
+4.Consider to use '.exact' modifier (vue/use-v-on-exact)
+
+@keydown.shift="pressedShift"
+
+
+
+
+========================================
+撩课-零基础玩转Vue2.x-基础篇
+----------------------------------------
+https://study.163.com/course/introduction.htm?courseId=1005974007#/courseDetail?tab=1
+课程大纲：
+1.ES6语法基础，包括let/const、解构赋值、set/map、Symbol、Iterator、Class、继承、综合案例；
+2.Vue 2.x语法基础，包括指令、计算属性、set/get、全局组件、父子组件、data、组件间通信、动态绑定、自定义事件、插槽等；
+3.Vue 2.x进阶篇，包括Vue-router、命名路由、嵌套路由、京东商城（购物车）实战；
+
+
+
+========================================
+webpack
+----------------------------------------
+(angular)前端内容的自动化构建 https://www.imooc.com/learn/922
+(node)webpack深入与实战 https://www.imooc.com/learn/802
+
+
+
+
+========================================
+vue实例
+----------------------------------------
+(ES6)使用vue2.0实现购物车和地址选配功能 https://www.imooc.com/learn/796
+

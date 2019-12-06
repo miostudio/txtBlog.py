@@ -216,7 +216,7 @@ $ python index.py build
 
 6.增加
 /data/jupyter/ 文件夹，保存讲解用的jupyter文件。
-
+查看 jupyter 文件: https://nbviewer.jupyter.org/
 
 
 

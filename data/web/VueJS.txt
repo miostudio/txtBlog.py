@@ -56,6 +56,29 @@ ES6, webpack, vue, vuex
 组件、组件的通信
 路由和请求
 生命周期
+
+
+
+
+
+========================================
+Vue.js火速上手
+----------------------------------------
+https://study.163.com/course/introduction.htm?courseId=1004181065#/courseDetail?tab=1
+为什么用Vue？很简单，顺心。 在目前的三大前端框架中（Vue，Angular，React）Vue怕是最好上手的框架了，然而其核心功能和其他两者也竟然不相伯仲，那有什么理由不先学它呢？看不到。 人生如此苦短，Vue会使我们的开发过程变得更像是一种享受。对于中小型项目及个人和小型团队简直是不二之选。
+
+1.简介
+
+前端解析html好还是后端解析html好？
+前端好，节省服务器压力。
+
+
+2. 开始学
+
+
+
+
+
 ========================================
 v-model, v-if, v-show
 ----------------------------------------
@@ -1038,6 +1061,10 @@ Vue.filter('currency',function(val){
 Vue.filter('currency2',function(val, unit){
 	var val=val||0; //防止没数字时刻显示一个空元。
 	var unit=unit||'元'; //国际化货币支持
+	
+	if(unit=="USD"){
+		val=(val/6.9).toFixed(2);//保留2位小数
+	}
 	return val+unit;
 })
 
@@ -1076,56 +1103,479 @@ app=new Vue({
 
 
 ========================================
-自定义指令 - 基础配置
+Vue 自定义指令 - 基础配置
 ----------------------------------------
+
+<meta charset="UTF-8"> 
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="/static/js/vue.js"></script>
+vue 自定义指令 - 基础配置
+<hr>
+<style>
+/*第17课时*/
+.card{
+	background:rgba(255,255,0,0.5);
+	height:60px;border-radius:5px;
+	width:150px;
+	padding:10px;
+	margin:5px;
+}
+</style>
+
+<div id="app">
+	<div v-pin='card1.pinned' class='card'>
+		<button @click='card1.pinned=!card1.pinned'>钉住/取消</button>
+		<br>
+		this is a dog
+	</div>
+	<div v-pin='card2.pinned' class='card'>
+		<button @click='card2.pinned=!card2.pinned'>pin me</button><br>
+		this is a cat
+	</div>
+	
+	<div class='card'>this is a sth1</div>
+	<div class='card'>this is a sth2</div>
+	<div class='card'>this is a sth3</div>
+	<div class='card'>this is a sth4</div>
+	<div class='card'>this is a sth5</div>
+
+	
+	{{price}}
+</div>
+
+
+<hr>
+F12 控制台，输入 app.price=80
+
+
+<script>
+Vue.directive('pin',function(el,binding){
+	//el 该dom元素
+	//binding.value 就是元素v-pin="引号内的值"
+	console.log(el, binding.value, binding)
+
+	var pinned=binding.value;
+	if(pinned){
+		el.style.position='fixed';
+		el.style.top=el.offsetTop+"px"
+		el.style.left=el.offsetLeft+"px"
+	}else{
+		el.style.position='static';
+	}
+})
+
+app=new Vue({
+	'el':"#app",
+	'data':{
+		'price':10,
+		card1:{
+			pinned:false,
+		},
+		card2:{
+			pinned:false,
+		}
+	}
+})
+</script>
+
+
+
+
+========================================
+|-- Vue 自定义指令 - 参数获取
+----------------------------------------
+<meta charset="UTF-8"> 
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="/static/js/vue.js"></script>
+vue 自定义指令 - 修饰符及传参
+<hr>
+<style>
+/*第17课时*/
+.card{
+	background:rgba(255,255,0,0.5);
+	height:60px;border-radius:5px;
+	width:150px;
+	padding:10px;
+	margin:5px;
+}
+</style>
+
+<div id="app">
+	<!--
+		v-pin.bottom.right 指定修饰符，可以用于位置
+		v-pin:true 传递参数，用于表示重要
+	-->
+	<div v-pin:true.bottom.right='card1.pinned' class='card'>
+		<button @click='card1.pinned=!card1.pinned'>钉住/取消</button>
+		<br>
+		this is a dog
+	</div>
+	<div v-pin.right='card2.pinned' class='card'>
+		<button @click='card2.pinned=!card2.pinned'>pin me</button><br>
+		this is a cat
+	</div>
+	
+	<div class='card'>this is a sth1</div>
+	<div class='card'>this is a sth2</div>
+	<div class='card'>this is a sth3</div>
+	<div class='card'>this is a sth4</div>
+	<div class='card'>this is a sth5</div>
+
+	
+	{{price}}
+</div>
+
+
+<hr>
+F12 控制台，输入 app.price=80
+
+
+<script>
+Vue.directive('pin',function(el,binding){
+	//el 该dom元素
+	//binding.value 就是元素v-pin="引号内的值"
+	//console.log(el, binding.value, binding)
+	var pinned=binding.value;
+	
+	//获取pin修饰符
+	var position=binding.modifiers;
+	//console.log(el, binding.value, position)
+	//{bottom: true, right: true}
+	
+	//获取参数 true
+	var warning=binding.arg;
+	//console.log(el, binding.value, warning)
+	//false "true"
+
+	if(pinned){
+		el.style.position='fixed';
+		
+		//设置位置修饰符
+		for(var key in position){
+			if(position[key]){
+				el.style[key]='10px';
+			}
+		}
+		//el.style.top=el.offsetTop+"px"
+		//el.style.left=el.offsetLeft+"px"
+		
+		//参数修饰符
+		if(warning==="true"){
+			el.style.background="red";
+		}
+		
+	}else{
+		el.style.position='static';
+	}
+})
+
+app=new Vue({
+	'el':"#app",
+	'data':{
+		'price':10,
+		card1:{
+			pinned:false,
+		},
+		card2:{
+			pinned:false,
+		}
+	}
+})
+</script>
 
 
 
 
 
 ========================================
-webpack
+mixin: 组件内部可以使用@mouseenter="visible=true" 调用自己的数据visible
 ----------------------------------------
-(angular)前端内容的自动化构建 https://www.imooc.com/learn/922
-(node)webpack深入与实战 https://www.imooc.com/learn/802
+
+<meta charset="UTF-8"> 
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="/static/js/vue.js"></script>
+vue mixins 混合 - 
+<hr>
+<style>
+/*第19课时*/
+.tooltip,
+.popup{background:yellow; width:200px; margin:10px auto;}
+</style>
+
+<div id="app">
+	<popup></popup>
+	<tooltip></tooltip>
+	{{price}}
+</div>
+
+
+<hr>
+F12 控制台，输入 app.price=80
+
+
+<script>
+//version 1,组件内部可以使用@mouseenter="visible=true" 调用自己的数据visible
+Vue.component('tooltip',{
+	//鼠标悬停弹窗
+	template:`
+	<div>
+		<span @mouseenter="visible=true" @mouseleave="visible=false">someTools</span>
+		<div class=tooltip v-if="visible">牛xx的工具集</div>
+	</div>
+	`,
+	data:function(){
+		return {
+			visible:false,
+		}
+	}
+})
+
+Vue.component('popup',{
+	//单击弹窗
+	template:`
+	<div>
+		<button @click="toggle">Popup</button>
+		<div class=popup v-if="visible">
+			<span @click="hide">X</span>
+			<h4>Popup Title</h4>
+			This is a popup
+		</div>
+	</div>
+	`,
+	data:function(){
+		return {
+			visible:false,
+		}
+	},
+	methods:{
+		toggle:function(){
+			this.visible = !this.visible;
+		},
+		hide:function(){
+			this.visible = false;
+		}
+	}
+})
+
+
+var app=new Vue({
+	'el':"#app",
+	'data':{
+		'price':200
+	}
+})
+</script>
+
+
+
+
+
+
 
 
 
 
 ========================================
-vue实例
+|-- mixin: 组件内调用方法@mouseenter="show" 访问数据
 ----------------------------------------
-(ES6)使用vue2.0实现购物车和地址选配功能 https://www.imooc.com/learn/796
+
+<meta charset="UTF-8"> 
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="/static/js/vue.js"></script>
+vue mixins 混合 - 
+<hr>
+<style>
+/*第19课时*/
+.tooltip,
+.popup{background:yellow; width:200px; margin:10px auto;}
+</style>
+
+<div id="app">
+	<popup></popup>
+	<tooltip></tooltip>
+	{{price}}
+</div>
+
+
+<hr>
+F12 控制台，输入 app.price=80
+
+
+<script>
+//version 1,组件内部可以使用@mouseenter="visible=true" 调用自己的数据visible
+//version 2,组件内调用方法@mouseenter="show" 访问数据
+//两个组件，相同的属性和方法，可以定义到mixin中，减少重复代码。
+
+
+Vue.component('tooltip',{
+	//鼠标悬停弹窗
+	template:`
+	<div>
+		<span @mouseenter="show" @mouseleave="hide">someTools</span>
+		<div class=tooltip v-if="visible">牛xx的工具集</div>
+	</div>
+	`,
+	data:function(){
+		return {
+			visible:false,
+		}
+	},
+	methods:{
+		show:function(){
+			this.visible=true;
+		},
+		hide:function(){
+			this.visible=false;
+		}
+	}
+})
+
+Vue.component('popup',{
+	//单击弹窗
+	template:`
+	<div>
+		<button @click="toggle">Popup</button>
+		<div class=popup v-if="visible">
+			<span @click="hide">X</span>
+			<h4>Popup Title</h4>
+			This is a popup
+		</div>
+	</div>
+	`,
+	data:function(){
+		return {
+			visible:false,
+		}
+	},
+	methods:{
+		toggle:function(){
+			this.visible = !this.visible;
+		},
+		hide:function(){
+			this.visible = false;
+		}
+	}
+})
+
+
+var app=new Vue({
+	'el':"#app",
+	'data':{
+		'price':200
+	}
+})
+</script>
+
+
+
+
 
 
 
 
 
 ========================================
-Vue.js火速上手
+|-- mixins 混合 - 使用mixin减少重复代码，优先级(自定义会覆盖掉mixin)
 ----------------------------------------
-https://study.163.com/course/introduction.htm?courseId=1004181065#/courseDetail?tab=1
-为什么用Vue？很简单，顺心。 在目前的三大前端框架中（Vue，Angular，React）Vue怕是最好上手的框架了，然而其核心功能和其他两者也竟然不相伯仲，那有什么理由不先学它呢？看不到。 人生如此苦短，Vue会使我们的开发过程变得更像是一种享受。对于中小型项目及个人和小型团队简直是不二之选。
 
-1.简介
+<meta charset="UTF-8"> 
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="/static/js/vue.js"></script>
+vue mixins 混合 - v3使用mixin减少重复代码，优先级(自定义会覆盖掉mixin)
+<hr>
+<style>
+/*第19课时*/
+.tooltip,
+.popup{background:yellow; width:200px; margin:10px auto;}
+</style>
 
-前端解析html好还是后端解析html好？
-前端好，节省服务器压力。
+<div id="app">
+	<popup></popup>
+	<tooltip></tooltip>
+	{{price}}
+</div>
 
 
-2. 开始学
+<hr>
+F12 控制台，输入 app.price=80
 
 
+<script>
+//version 1,组件内部可以使用@mouseenter="visible=true" 调用自己的数据visible
+//version 2,组件内调用方法@mouseenter="show" 访问数据
+//两个组件，相同的属性和方法，可以定义到mixin中，减少重复代码。
+//version 3, 减少重复
+
+var base={
+	methods:{
+		show:function(){
+			this.visible=true;
+		},
+		hide:function(){
+			this.visible=false;
+		}
+	},
+	data:function(){
+		return {
+			visible:false,
+		}
+	}
+}
+
+Vue.component('tooltip',{
+	//鼠标悬停弹窗
+	template:`
+	<div>
+		<span @mouseenter="show" @mouseleave="hide">someTools</span>
+		<div class=tooltip v-if="visible">牛xx的工具集</div>
+	</div>
+	`,
+	data:function(){
+		return {
+			visible:true, //自定义的会覆盖掉mixins
+		}
+	},
+	mixins:[base],
+})
+
+Vue.component('popup',{
+	//单击弹窗
+	template:`
+	<div>
+		<button @click="toggle">Popup</button>
+		<div class=popup v-if="visible">
+			<span @click="hide">X</span>
+			<h4>Popup Title</h4>
+			This is a popup
+		</div>
+	</div>
+	`,
+	methods:{
+		toggle:function(){
+			this.visible = !this.visible;
+		},
+	},
+	mixins:[base],
+})
 
 
-
-
-
-
-
-
-
-
+var app=new Vue({
+	'el':"#app",
+	'data':{
+		'price':200
+	}
+})
+</script>
 
 
 
@@ -1135,34 +1585,137 @@ https://study.163.com/course/introduction.htm?courseId=1004181065#/courseDetail?
 
 
 ========================================
-Vue深入浅出(从入门到开发) 用到 Vue cli
+slots 插槽 - 基本slot
 ----------------------------------------
-https://study.163.com/course/introduction.htm?courseId=1004461012#/courseDetail?tab=1
-https://study.163.com/course/introduction.htm?courseId=1004711010#/courseDetail?tab=1
-简　　介	整个系列课程带领大家可以快速掌握Vue开发的流程,课程从简单到实战,适用于0基础学习.
 
-Vue-CLI脚手架搭建
-Vue-指令
-Vue-条件及循环语句
-Vue-事件及双向绑定
-Vue-模板引擎
-Vue-组件
-Vue-属性传值
-Vue-路由
-Vue-资源请求
+<meta charset="UTF-8"> 
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="/static/js/vue.js"></script>
+vue slots 插槽 - 基本 slot
+<hr>
+<style>
+/*第20课时*/
+.panel{border:1px solid #aaa; width:200px; margin-bottom:15px;}
+.panel>*{padding:10px;}
+.panel .title{border-bottom:1px solid #aaa;}
+.panel .footer{border-top:1px solid #aaa;}
+
+</style>
+
+<div id="app">
+	<panel>001</panel>
+	<panel>002</panel>
+	<panel>003</panel>
+	{{price}}
+</div>
+
+
+<template id="panel-tpl">
+	<div class="panel">
+		<div class="title">Title here.</div>
+		<div class="content">
+			<slot></slot>
+		</div>
+		<div class="footer">更多信息</div>
+	</div>
+</template>
+
+<hr>
+F12 控制台，输入 app.price=80
+
+
+<script>
+Vue.component('panel', {
+	template:'#panel-tpl',
+})
+
+var app=new Vue({
+	'el':"#app",
+	'data':{
+		'price':100
+	}
+})
+</script>
 
 
 
 
 
 ========================================
-撩课-零基础玩转Vue2.x-基础篇
+|-- slots 插槽 - 带名字的 slot(特别常用，可以把一个组件套到另一个组件中)
 ----------------------------------------
-https://study.163.com/course/introduction.htm?courseId=1005974007#/courseDetail?tab=1
-课程大纲：
-1.ES6语法基础，包括let/const、解构赋值、set/map、Symbol、Iterator、Class、继承、综合案例；
-2.Vue 2.x语法基础，包括指令、计算属性、set/get、全局组件、父子组件、data、组件间通信、动态绑定、自定义事件、插槽等；
-3.Vue 2.x进阶篇，包括Vue-router、命名路由、嵌套路由、京东商城（购物车）实战；
+
+<meta charset="UTF-8"> 
+<!-- 开发环境版本，包含了有帮助的命令行警告 
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+-->
+<script src="/static/js/vue.js"></script>
+vue slots 插槽 - 带名字的 slot(特别常用，可以把一个组件套到另一个组件中)
+甚至，一个组件内套很多组件，即灵活又简洁。非常强大。
+<hr>
+<style>
+/*第20课时*/
+.panel{border:1px solid #aaa; width:200px; margin-bottom:15px;}
+.panel>*{padding:10px;}
+.panel .title{border-bottom:1px solid #aaa;}
+.panel .footer{border-top:1px solid #aaa;}
+</style>
+
+<div id="app">
+	<panel>
+		<div slot="c0">title 001</div>
+		<div slot="c1">001 白日依山尽</div>
+		<div slot="c2">001 more</div>
+	</panel>
+	<panel>
+		<div slot="c0">title 002</div>
+		<div slot="c1">002 黄河入海流</div>
+	</panel>
+	<panel>003
+		<div slot="c2">003 更多</div>
+	</panel>
+	{{price}}
+</div>
+
+
+<template id="panel-tpl">
+	<div class="panel">
+		<div class="title">
+			<slot name="c0">Title here.</slot>
+		</div>
+		
+		<div class="content">
+			<slot name="c1">默认值</slot>
+		</div>
+		
+		<div class="footer">
+			<slot name="c2">更多信息</slot>
+		</div>
+	</div>
+</template>
+
+<hr>
+F12 控制台，输入 app.price=80
+
+
+<script>
+Vue.component('panel', {
+	template:'#panel-tpl',
+})
+
+var app=new Vue({
+	'el':"#app",
+	'data':{
+		'price':100
+	}
+})
+</script>
+
+
+
+
 
 
 ========================================
