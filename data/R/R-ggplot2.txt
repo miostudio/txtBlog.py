@@ -31,6 +31,9 @@ pie(x,labels=x3,clockwise=T, col=col6)
 
 
 2. 使用 ggplot2 做饼图
+大坑：如果想要画的图顺序混乱，多半是因为分类变量必须是因子，而自动转换得到的因子不是期望的顺序。需要手工转换因子，以便保证因子的顺序。
+
+
 library(ggplot2)
 df=data.frame(
 	x=x,

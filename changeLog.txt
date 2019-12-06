@@ -266,7 +266,8 @@ z0.0.9-4 添加js RegExp正则基本和实例; Vue组件通信;
 z0.0.9-5 过单词web页
 z0.0.9-6 新增/data/jupyter/ 目录
 ######### /data/jupyter/ 目录，演示python
-z0.0.9-7 添加ggplot2画饼图
+z0.0.9-7 添加ggplot2画饼图；继续学 vue.js
+z0.0.9-7 ggplot2画饼图，添加大坑提示：手动转因子才保险!
 #
 
 
