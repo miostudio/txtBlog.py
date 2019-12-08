@@ -267,7 +267,8 @@ z0.0.9-5 过单词web页
 z0.0.9-6 新增/data/jupyter/ 目录
 ######### /data/jupyter/ 目录，演示python
 z0.0.9-7 添加ggplot2画饼图；继续学 vue.js
-z0.0.9-7 ggplot2画饼图，添加大坑提示：手动转因子才保险!
+z0.0.9-8 ggplot2画饼图，添加大坑提示：手动转因子才保险!
+z0.0.9-9 Vue cli4.1.1: vue router 入门
 #
 
 
