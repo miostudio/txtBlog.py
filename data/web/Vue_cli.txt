@@ -109,7 +109,7 @@ $ vue -V
 
 
 ========================================
-1.Vue cli: hello world 项目
+一、Vue cli: hello world 项目
 ----------------------------------------
 1. Hello world 版
 (1)创建项目 Create a project:
@@ -628,7 +628,7 @@ export default {
 
 
 ========================================
-2.小项目 - 用户管理
+二、小项目 - 用户管理
 ----------------------------------------
 1.清空内容，搭一个基本的空文件
 (1) /src/components/Users.vue 
@@ -955,33 +955,14 @@ div{border:1px solid red;}
 
 
 ========================================
-用 Vue.js + Vue Router 创建单页应用: 路由(多个组件，该使用哪个？)
+三、用 Vue.js + Vue Router 创建单页应用: 路由(多个组件，该使用哪个？)
 ----------------------------------------
-1.用 Vue.js + Vue Router 创建单页应用，是非常简单的。
+1.
+简介请看左侧专题 vue router。
 
-使用 Vue.js ，我们已经可以通过组合组件来组成应用程序，当你要把 Vue Router 添加进来，我们需要做的是，将组件 (components) 映射到路由 (routes)，然后告诉 Vue Router 在哪里渲染它们。
-https://router.vuejs.org/zh/guide/
-
-
-Vue Router 是 Vue.js 官方的路由管理器。它和 Vue.js 的核心深度集成，让构建单页面应用变得易如反掌。
+官方文档 https://router.vuejs.org/zh/guide/
 
 
-https://router.vuejs.org/zh/
-包含的功能有：
-
-嵌套的路由/视图表
-模块化的、基于组件的路由配置
-路由参数、查询、通配符
-基于 Vue.js 过渡系统的视图过渡效果
-细粒度的导航控制
-带有自动激活的 CSS class 的链接
-HTML5 历史模式或 hash 模式，在 IE9 中自动降级
-自定义的滚动条行为
-
-
-
-【Vue】解决路由切换，页面不更新的实用方法
-https://blog.csdn.net/w390058785/article/details/82813032
 
 
 2. 下载安装
@@ -1123,7 +1104,7 @@ export default{
 
 
 ========================================
-用 vue-resource 插件 使用http请求。Vue.js 2.0 版本推荐使用 axios 来完成 ajax 请求
+四、用 vue-resource 插件 使用http请求。Vue.js 2.0 版本推荐使用 axios 来完成 ajax 请求
 ----------------------------------------
 1. 简介
 
@@ -1161,9 +1142,78 @@ added 34 packages from 13 contributors in 75.249s
 
 
 
-3.
+3. 在 /src/main.js 中添加两行
+import VueResource from 'vue-resource' //1.引用路由
+Vue.use(VueResource) //0.2 中间件，使用该插件
 
 
+4. 在 /src/components/Users.vue中使用
+(1)在控制台测试如下REST服务器示例数据
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then(response => response.json())
+  .then(json => console.log(json))
+# 结果
+{userId: 1, id: 1, title: "delectus aut autem", completed: false}
+
+还有个和本项目很相近的接口: http://jsonplaceholder.typicode.com/users
+[
+  {
+    "id": 1,
+    "name": "Leanne Graham",
+    "username": "Bret",
+    "email": "Sincere@april.biz",
+    "address": {
+      "street": "Kulas Light",
+      "suite": "Apt. 556",
+      "city": "Gwenborough",
+      "zipcode": "92998-3874",
+      "geo": {
+        "lat": "-37.3159",
+        "lng": "81.1496"
+      }
+    },
+    "phone": "1-770-736-8031 x56442",
+    "website": "hildegard.org",
+    "company": {
+      "name": "Romaguera-Crona",
+      "catchPhrase": "Multi-layered client-server neural-net",
+      "bs": "harness real-time e-markets"
+    }
+  },
+...
+
+(2)
+在Users.vue的js部分添加 methods平行方法created:
+	//看vue生命周期
+	created:function(){
+		this.$http.get("http://jsonplaceholder.typicode.com/users")
+			.then(function(res){
+				//console.log('created 002', res.body)
+				//{id: 1, name: "Leanne Graham", username: "Bret", email: "Sincere@april.biz", address: {…}, …}
+				//做形式转换
+				for(var i in res.body){
+					var item=res.body[i];
+					//console.log(item);
+					this.users.push({
+						name:item.name,
+						email:item.email,
+						contacted:false
+					})
+				}//end for
+			})
+	}
+
+
+
+(3) 重新运行项目，即可看到用户新增了10个
+$ npm run serve
+
+
+
+
+========================================
+|-- 使用 axios 做ajax访问
+----------------------------------------
 
 
 

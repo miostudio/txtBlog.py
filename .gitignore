@@ -1,6 +1,14 @@
 #python files
 __pycache__
 
+
+# jypyter tmp files
+.ipynb_checkpoints
+Untitled*.ipynb
+
+
 #my files
 dustbin
 backup
+
+
