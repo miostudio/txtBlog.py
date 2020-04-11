@@ -1,0 +1,139 @@
+python 经典的包
+
+pandas, matplotlib,
+
+
+========================================
+安装
+----------------------------------------
+1.
+python -m pip install --upgrade pip
+python -m pip install jupyter
+
+Requirement already satisfied: more-itertools in c:\users\administrator\appdata\roaming\python\python36\site-packages (from zipp>=0.5->importlib-metadata; python_version < "3.8"->jsonschema!=2.5.0,>=2.4->nbformat>=4.4->nbconvert->jupyter) (8.0.2)
+
+
+
+2，安装了jupyter notebook，但是没有添加到系统path，添加一下：
+
+控制面板-系统和安全-系统-高级系统设置-环境变量-在用户变量和系统变量的path中都添加以下内容：
+
+;C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages
+;c:\users\administrator\appdata\roaming\python\python36\site-packages
+;c:\Users\Administrator\AppData\Roaming\Python\Python36\Scripts  
+#最后这个有效果，需要找到jupyter-notebook.exe 的位置(使用everything输入全称找到)。
+
+
+PATH=C:\ProgramData\Oracle\Java\javapath;
+C:\windows\system32;
+C:\windows;
+C:\windows\System32\Wbem;
+C:\windows\System32\WindowsPowerShell\v1.0\;
+C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;
+C:\Program Files (x86)\HP\IdrsOCR_15.2.10.1114\;
+C:\Strawberry\c\bin;
+C:\Strawberry\perl\site\bin;
+C:\Strawberry\perl\bin;
+D:\Program Files\nodejs\;
+d:\Program Files\Git\cmd;
+C:\Users\Administrator\AppData\Local\Programs\Python\Python36\Scripts\;
+C:\Users\Administrator\AppData\Local\Programs\Python\Python36\;
+C:\Users\Administrator\AppData\Roaming\npm;
+C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages;
+c:\users\administrator\appdata\roaming\python\python36\site-packages
+
+
+jupyter notebook
+jupyter notebook --no-browser
+
+
+
+(2)
+<module 'jupyter' from 'C:\\Users\\Administrator\\AppData\\Roaming\\Python\\Python36\\site-packages\\jupyter.py'>
+
+"""Launch the root jupyter command
+
+Alias to jupyter_core
+"""
+
+__version__ = '1.0.0'
+
+if __name__ == '__main__':
+    from runpy import run_module
+    run_module('jupyter_core')
+#
+
+
+4 安装anaconda试试
+https://www.anaconda.com/distribution/#download-section
+
+可以了，没安装这个。
+
+
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+

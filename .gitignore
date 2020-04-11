@@ -6,6 +6,11 @@ __pycache__
 .ipynb_checkpoints
 Untitled*.ipynb
 
+# jupyter dir, no tracking
+jupyter
+
+
+
 
 #my files
 dustbin

@@ -74,7 +74,7 @@ github 2019.8.16 .markdown-body
 .markdown pre>code {background:transparent;border:0;/*font-size:100%;*/margin:0;padding:0;white-space:pre;word-break:normal}
 .markdown .highlight {margin-bottom:16px}
 .markdown .highlight pre {margin-bottom:0;word-break:normal}
-.markdown .highlight pre,.markdown pre {background-color:#f6f8fa;border-radius:3px;font-size:85%;line-height:1.45;overflow:auto;padding:16px}
+.markdown .highlight pre,.markdown pre {background-color:#f6f8fa;border-radius:3px;font-size:85%;line-height:1.45;overflow:auto;padding:0 16px}
 .markdown pre code,.markdown pre tt {background-color:transparent;border:0;display:inline;line-height:inherit;margin:0;max-width:auto;overflow:visible;padding:0;word-wrap:normal}
 .markdown .csv-data td,.markdown .csv-data th {font-size:12px;line-height:1;overflow:hidden;padding:5px;text-align:left;white-space:nowrap}
 .markdown .csv-data .blob-num {background:#fff;border:0;padding:10px 8px 9px;text-align:right}
@@ -101,4 +101,54 @@ github 2019.8.16 .markdown-body
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 	
+}
+
+
+
+
+
+/*code 行号*/
+.markdown .prettyprint{
+	margin: 0 0 24px 0;
+	/*
+	padding-left: 56px;
+    padding-top: 7px;
+	*/
+    padding: 7px 16px 7px 56px;
+	
+    background-color: #f6f8fa;
+    border: none;
+	
+	position:relative;
+}
+
+.markdown .has-numbering{
+	/**/
+}
+
+.markdown .prettyprint .pre-numbering {
+    position: absolute;
+    width: 48px;
+    background-color: #eef0f4;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 8px 0 6px 0;
+    list-style: none;
+    text-align: right;
+	
+	border-right:1px solid #6ce26c ;
+}
+
+.markdown .prettyprint .pre-numbering ul {
+    padding: 0;
+    font-size: 16px;	
+}
+
+.markdown .prettyprint .pre-numbering li {
+    padding: 0 8px;
+    list-style: none;
+    margin: 0;
+	color: rgb(153, 153, 153);
+	font-family: 'Microsoft YaHei','SF Pro Display',Roboto,Noto,Arial,'PingFang SC',sans-serif;
 }
