@@ -41,6 +41,9 @@
     color:#0593d3; /*#366799;*/
     text-decoration: none;
 }
+.content a:hover {text-decoration: underline;}
+.content pre a:hover {text-decoration: none;}
+
 .content .btn a,
 .content a.button{color:#fff}
 .content li.text_menu:hover {
@@ -99,6 +102,7 @@
 
 /*列表样式
 .content ul{	margin: 20px 50px; border:1px solid #eee; padding-left:30px;}
+border:1px solid #eee;
 */
 .content ul,
 .content ol{padding: 0 35px;}

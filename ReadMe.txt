@@ -2,12 +2,13 @@
 # project name: txtBlog.py is the python3 version of txtBlog 
 # desc: [知识管理]A simple yet powerful blog system for reading and organizing txt files.
 # desc2: Pyhton3编写的、基于文件的文本笔记管理系统，简捷高效，可用于管理知识。
-# version: 0.0.8
-# github: https://github.com/littlePig100/txtBlog.py
-# appearence: https://github.com/littlePig100/txtBlog
+# version: 0.0.9
+# github: https://github.com/MioStudio/txtBlog.py
+# appearence: https://github.com/DawnEve/txtBlog
 #
-# local test url: http://blog2.163.com:8000/index.py
-# local dir:G:\xampp\htdocs\163
+# (local=notebook)
+# local test url: http://127.0.0.1:8000/
+# local dir:D:\xampp\htdocs\
 ################################
 
 
@@ -15,11 +16,26 @@
 ################################
 整体构架:
 # 和记忆作斗争，是“坐家”们毕生的事业，本项目是一个简洁的文本笔记系统，就是为了管理知识，支持插入少量图片。
-# 使用Python3的flask包，尽量简化。https://flask.palletsprojects.com/en/1.1.x/
+# 使用Python3的flask包作为web框架，尽量简化。https://flask.palletsprojects.com/en/1.1.x/
 # 顶部关键词，左侧文件名，都使用json格式的配置文件。
 # 支持html/txt/markdown格式的笔记，未来会支持 ReStructuredText等;
 # 为了应付最危险的情况：python部件不再支持(5-10年内不会发生)，博客系统失灵，建议文件命名时要言简意赅、见名知意！保证human也能读懂。
 #
+
+
+
+
+
+################################
+What's new?
+v0.0.9-1 为markdown代码块添加行号
+
+
+
+
+
+
+
 
 
 
@@ -32,16 +48,19 @@ OS: win10和linux都可以，但是需要有可用的端口号，本项目默认
 $ python -V  
 ## Python 3.6.4
 
-使用pip安装 flask: 
+使用pip安装 flask(web服务器): 
 $ pip install flask
+
+使用pip安装 mistune(markdown解析器): 
+$ pip install mistune
 
 
 
 2.下载该项目
 通过
-$ git clone https://github.com/littlePig100/txtBlog.py.git
+$ git clone https://github.com/MioStudio/txtBlog.py.git
 或者下载压缩包并解压
-$ wget https://github.com/littlePig100/txtBlog.py/archive/master.zip
+$ wget https://github.com/MioStudio/txtBlog.py/archive/master.zip
 
 可以放到硬盘的任意位置，但是路径中不要出现中文字符。
 
@@ -117,7 +136,9 @@ Pyhton对json要求很严格：
 		"title":"前沿与资料",
 		"data":
 		[
-			["项目描述", "Python001", "html"]
+			["项目描述", "Python001", "html"],
+			["常用资源", "Python002", "md"],
+			["入门教程", "Python003", "txt"]
 		]
 	}
 ]
@@ -144,7 +165,8 @@ web based tutorials
 更多html标签的含义和用法请参考网络资源，如 https://www.runoob.com/html/html-tutorial.html
 
 图片建议也放到同关键词的images文件夹下，使用完整路径访问，如
-<img class="banner" src='data/Python/images/SciPy_ecosystem.png'>
+<img class="banner" src='/data/Python/images/SciPy_ecosystem.png'>
+注意目录最前的 / 符号不能省略！
 
 该项目叫做txtBlog，对图片支持程度较低，尽量少用图片！尽量用占用空间较小的瘦身图片！
 否则可能会影响项目的迁移、存储、显示！
@@ -155,8 +177,9 @@ web based tutorials
 3)支持使用GitHub Flavored Markdown 
 - 纯python版的markdown解析器 mistune;
 - css使用github的主要样式，颜色参考 https://segmentfault.com/a/1190000018084098
-- 支持代码高亮(依赖 highlight.js)；
-- 支持LaTex(依赖 MathJax.js, 在线cdn，加载很慢) ，默认不开启；
+- 支持代码高亮(依赖 highlight.js);
+- md中的代码行号由自定义js实现 模仿 模仿 https://blog.csdn.net/hustqb/article/details/80628721
+- 支持LaTex(依赖 MathJax.js, 在线cdn，加载很慢) ，默认不开启，开关在 /config/conf.ini；
 
 
 
@@ -195,7 +218,7 @@ web based tutorials
 /static/css/
 |-- base.css 是基础样式，不建议改动;
 |-- main.css 是html和txt页面的样式，可以尝试更改为自己喜欢的颜色;
-|-- MarkDown.css 是markdown的样式表;
+|-- MarkDown3.css 是markdown的样式表;
 |-- txt.css 是txt文件的样式表，支持在/config/conf.ini中指定皮肤样式
 
 
@@ -212,12 +235,14 @@ web based tutorials
 $ pip install Frozen-Flask
 $ python index.py build
 
+url已经静态化风格了。
 
 
 6.增加
 /data/jupyter/ 文件夹，保存讲解用的jupyter文件。
 查看 jupyter 文件: https://nbviewer.jupyter.org/
 
+最近感觉太繁杂，该文件夹不再track新文件;
 
 
 
@@ -225,11 +250,12 @@ $ python index.py build
 
 
 todo:
-1. 自由切换 data 文件夹的位置，这样一个博客系统，就可以对应多个内容部分了。
-data dir -> shelf;
-top menu -> book;
-left mune -> chapter;
-top contents -> headers;
+1. 自由切换 data 文件夹的位置，这样一个博客笔记系统，就可以对应多个内容部分了。
+data dir -> shelf; 书架子
+top menu -> book; 书
+left mune -> chapter; 章节
+top contents -> headers; 小标题
+
 
 
 2. 全站静态化，这样就可以放到github上；
@@ -237,6 +263,18 @@ top contents -> headers;
 
 
 
+
+
 ################################
 如何升级
-只需要把自己的data/文件夹覆盖新版本中的data/文件夹即可。
+1. 从github使用 git clone 下载新的框架;
+2. 把旧项目中自己的data/文件夹，复制粘贴，覆盖新版本中的data/文件夹；
+3. 其他小的数据文件包括：
+	- 底部友情链接: /footer_urls.py
+	- English 频道的名人名言: 
+	- 自定义风格: /config/conf.ini
+
+
+彩蛋：
+English项目下添加菜单：底部名人名言插件，刷新随机展示一条，会周期性滚动。
+	- 滚动显示的内容在 /static/js/motto.js
