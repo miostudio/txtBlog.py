@@ -16,7 +16,16 @@
 			["ggplot2", "R-ggplot2", "txt" ],
 			["R高级", "R-adv", "txt" ]
 		]
+	},
+
+	{
+		"title":"Math数学",
+		"data":
+		[
+			["数学(线性代数)", "Math", "txt" ]
+		]
 	}
+
 ]
 
 

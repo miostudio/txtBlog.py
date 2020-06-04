@@ -120,6 +120,25 @@ G:\PythonCode\003>
 
 
 ========================================
+|-- pip 安装包
+----------------------------------------
+1. 一般 
+pip install numpy
+
+本地安装
+pip install 包whl的物理路径
+
+pip install /usr/packages/opencv_python-4.1.0.25-cp36-cp36m-manylinux1_x86_64.whl
+指定下载源
+
+也有一种方式是可以指定下载源，
+pip install turtle --trusted-host mirrors.aliyun.com
+
+
+
+
+
+========================================
 变量和数据类型
 ----------------------------------------
 1. 整数
