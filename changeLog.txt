@@ -294,6 +294,7 @@ v0.0.9-4 允许markdown更换css文件
 
 nb0.1.0-2 合并dawnEve在PC的改进后，以后主要在notebook修改;2020-4-11
 nb0.1.0-3 ML 小象学院
+nb0.1.0-4 讲到Beta分布
 
 
 
