@@ -120,7 +120,7 @@ G:\PythonCode\003>
 
 
 ========================================
-|-- pip 安装包
+|-- pip 安装包, 指定国内的源
 ----------------------------------------
 1. 一般 
 pip install numpy
@@ -129,13 +129,68 @@ pip install numpy
 pip install 包whl的物理路径
 
 pip install /usr/packages/opencv_python-4.1.0.25-cp36-cp36m-manylinux1_x86_64.whl
-指定下载源
 
+
+
+
+
+2.指定下载源
+(1)
 也有一种方式是可以指定下载源，
 pip install turtle --trusted-host mirrors.aliyun.com
 
 
+(2)
+# 直接在后面添加 -i "https://pypi.doubanio.com/simple/"
+# 例如安装 keras
+pip install keras
+# 变成
+pip install keras -i "https://pypi.doubanio.com/simple/"
 
+
+
+
+
+========================================
+|-- 打开和显示图片
+----------------------------------------
+1. 安装包
+$ pip install Pillow
+
+
+2. 使用包打开图像
+from PIL import Image
+img=Image.open('d:/dog.png')
+img.show()
+
+
+其实推荐下面的方法：
+from PIL import Image
+# pip install matplotlib
+import matplotlib.pyplot as plt
+
+img=Image.open('d:/dog.png')
+plt.figure("dog")
+
+plt.axis('off') # figure默认是带axis的，如果没有需要，我们可以关掉
+
+plt.imshow(img)
+plt.show()
+
+
+打开图片后，可以使用一些属性来查看图片信息，如
+
+print( img.size )  #图片的尺寸 (558, 450)
+print( img.mode ) #图片的模式 RGBA
+print( img.format)  #图片的格式 PNG
+
+
+
+3.图片的保存
+
+img.save('d:/dog.jpg')
+
+这行代码不仅能保存图片，还是转换格式，如本例中，就由原来的png图片保存为了jpg图片。
 
 
 ========================================
