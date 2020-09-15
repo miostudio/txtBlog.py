@@ -297,6 +297,7 @@ nb0.1.0-3 ML 小象学院
 nb0.1.0-4 讲到Beta分布
 nb0.1.0-5 矩阵SVD
 nb0.1.0-6 特征转移矩阵
+nb0.1.0-7 系数矩阵
 
 ##### commit 
 #----->push to MioStudio
