@@ -13,12 +13,16 @@ motto_Plugin.run([100 ,30], document.getElementsByClassName("motto")[1]);
 	//封装插件
 	var motto_Plugin={
 		'mottos':[
+			//鸡汤和毒鸡汤
 			"及时当勉励，岁月不待人！",
 			"身体是革命的本钱。",
 			"千里之行，始于足下。",
 			"子曰：逝者如斯夫，不舍昼夜。",
 			"如果有一天我好运来临，那一定是我努力所得，并非上天眷顾。",
 			"The future belongs to those who believe in the beauty of their dreams.",
+			"不要习惯用鸡汤、段子、搞笑视频、电子游戏去麻痹自己，暂时忘却现实中的烦恼。",
+			"必须明白，逃避无法解决问题，于是逃避，需要解决的问题就越多，解决起来就越痛苦。",
+			"实现梦想，就要学会放弃和牺牲，放弃所有不重要的事情，牺牲安逸的生活与娱乐，集中全部精力去追求目标，才有一线可能梦想成真。",
 			//"Some 5,000 red-winged blackbirds, European starlings, common grackles and brown-headed cowbirds suffered blunt-force trauma after colliding with cars, trees and buildings, an ornithologist from the Arkansas Game and Fish Commission would tell National Geographic. //[熟词生义] game. 猎物",
 		],
 		'bgColors':['red','#F19C01','#A49B03','green','blue','#18C1C1','purple','black'],
