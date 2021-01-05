@@ -8,6 +8,13 @@ En104-listening
 
 AudioPath: http://scholar.dawneve.com/audio/static.php?file=fry_3_02.mp3
 
+
+
+
+========================================
+|-- HP3 - C2 | fry
+----------------------------------------
+
 Season3,
 > 3.2
 5.8% /23.811%
@@ -47,6 +54,39 @@ glaze
 uncork
 
 75.93% /24.195
+jerk
+clench
+
+80.80% / 24.225
+wastrel
+swig
+snarl
+hiccup
+nasty
+insolent
+ungrateful
+
+90% /24.27
+inexpressible
+bulge
+tweed
+waistband
+salami
+buoy 救生圈
+apoplectic
+sprint 冲刺
+wrench
+floorboard 地板
+pillowcase 枕头套
+wriggle  ?
+trunk 行李箱
+tatter 碎布
+bellow 吼叫
+reckless 鲁莽的
+latch 门闩
+
+100% /24.323
+
 
 
 
@@ -60,7 +100,19 @@ west world S3E6, 41'
 
 
 ========================================
+|-- HP3 - C3 The knight bus | fry
 ----------------------------------------
+init('http://scholar.dawneve.com/audio/static.php?file=fry_3_03.mp3')
+
+0% /24.323
+Magnolia 木兰
+frantic 狂乱的
+thump 怦怦直跳
+
+1.1% /24.327
+
+
+
 
 
 ========================================
