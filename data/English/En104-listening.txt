@@ -110,13 +110,128 @@ frantic 狂乱的
 thump 怦怦直跳
 
 1.1% /24.327
+swoop
+outlaw
+outcast
+squint
+
+13.8% /24.391
+rummage
+
+30%|24.496;
+contemptuously
+unfurl
+infamous
+fortress
+elude
+44%|24.582;
+pimple
+jerk
+
+61%|24.695
+wizened
+slump
+100%|24.942
+
+
+
 
 
 
 
 
 ========================================
+|-- HP3 - C4 THE LEAKY CAULDRON | Jim
 ----------------------------------------
+http://scholar.dawneve.com/audio/static.php?file=Chapter04-TheLeakyCauldron.mp3
+
+begin: 2021.2.9
+squirt
+sorely
+tempt
+resolution
+
+edge
+squeeze
+
+podium
+squeak
+proprietor
+
+
+# 14%|24.993;
+replenish
+potions
+emboss
+
+# 27.8%|25.082;
+ogle
+formidable
+bulging
+innocently
+composedly
+whisker
+encrust
+oozing
+custard
+sleek
+
+# 48.69%| 25.235
+# 62.5% | 25.338
+spiffing
+# "Mum!" said Fred as though he'd only just spotted her and seizing her hand too. "How really corking to see you --"
+loftily
+parlor
+sumptuous
+
+# 73.47% | 25.422
+scowl
+ajar
+heatedly
+shrilly
+
+# 84.98% | 25.507
+brood
+wearily
+crouch
+dismantle
+lenient
+muffle
+remote
+# Black's chances of getting inside seemed very remote.
+
+# 100% | 25.607
+
+
+
+========================================
+|-- HP3 - C5 THE DEMENTOR | Jim
+----------------------------------------
+init(`http://scholar.dawneve.com/audio/static.php?file=Chapter05-TheDementor.mp3`)
+
+disgruntled
+irritable
+grimace
+blotchy
+infuriate
+furrow
+screech
+wickerwork 
+
+furtive adj. 鬼鬼祟祟的，秘密的
+a stretch of 一段
+pavement 人行道 [英国英语]
+emerald adj. 翠绿色的；鲜绿色的
+velvet n. 天鹅绒，丝绒；天鹅绒似的东西
+
+uneventful adj. 平凡的；平静无事的
+
+
+# 6.8% | 25.682;
+
+
+
+
 
 
 ========================================
