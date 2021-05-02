@@ -228,6 +228,142 @@ uneventful adj. 平凡的；平静无事的
 
 
 # 6.8% | 25.682;
+sideway
+scarlet adj. 深红的；鲜红色的；罪孽深重的；淫荡的
+puff  v. 喷出
+stow vt. 装载；收藏；
+rack n. [机] 齿条；架子；拷问台
+jerk v. 使…猝然一动; 猝然一动
+pillar n. 柱子，柱形物；栋梁；墩
+
+tense adj. 紧张的；拉紧的
+
+# 12.16% | 25.745
+flinch  v 畏缩
+blankly adv. 茫然地；毫无表情地；茫然若失
+billow vi. 翻腾
+huffily adv. 发怒地；暴躁的
+stalk vi. 高视阔步地走；潜近，偷偷接近
+cart n. 二轮运货马车
+shabby adj. 破旧的；卑鄙的；吝啬的；低劣的
+darn v. 织补；缝补
+fleck vt. 使起斑点；使有斑驳
+reckon vt. 测算，估计；认为；计算
+hiss vi. 发出嘘声；发嘘声
+battered adj. 破旧的；磨损的；弄垮的；受到虐待的
+pallid adj. 苍白的；暗淡的；无生气的
+profile n. 侧面；轮廓；外形；剖面；简况
+jinxed adj. 倒霉的
+
+# 21.7% | 25.868
+nettle
+haywire
+shrewdly
+piercingly
+offhand
+
+# 29.2% | 25.943
+sherbert n. 果汁牛奶冻
+levitate [ˈlevɪteɪt] vt. 使轻轻浮起；使飘浮空中
+hollow  虚伪的
+spiritedly adv 活泼的
+fumble v. 笨手笨脚地做；笨嘴拙舌地说话；漏球；摸索；用手笨拙地移动（某物
+strap n. 带子，皮带，金属带；鞭打
+shove vt. 挤；强使；撞；猛推
+apprehensively adv. 担心地
+
+# 34.80% | 26.027
+plump adj. 饱满的；胖乎乎的
+sneer 
+massage 按摩
+knuckle 关节
+shimmer 闪烁
+rattle 发出卡嗒卡嗒声
+jolt n. 颠簸，摇晃；一阵强烈的感情（如震惊）；一份（烈酒）
+squeak  vi. 告密；吱吱叫；侥幸成功 n. 吱吱声；机会
+crumple vt. 弄皱；使一蹶不振
+
+# 57.2% | 26.247
+fit n.痉挛
+rigid 
+twitch v. 抽搐；猛拉；扯绳勒（马）
+shivery adj. 颤抖的；寒冷的；令人毛骨悚然的
+scramble n. 混乱，混乱的一团
+beckon vt. 召唤；吸引
+trundle v. （车）缓慢地移动；（人）沉重缓慢地走
+
+# 66.71 | 26.353
+engulf vt. 吞没；吞食，狼吞虎咽
+lumpy adj. 粗笨的；波浪起伏的；多块状物的
+turret n. 炮塔；角楼；小塔；攻城用的冲车
+drawling adj. 有气无力的；慢吞吞的
+gleeful adj. 愉快的，欢快的，幸灾乐祸的
+glint v. 闪烁；（光线）反射；闪闪发光；使发光；（眼睛）发亮（表达不友善的感情）
+maliciously adv. 有敌意地，恶意地
+clench vt. 紧握；（因生气、沮丧等）咬牙切齿，咬紧牙关；把……敲弯
+insolent adj. 无礼的；傲慢的；粗野的；无耻的
+sarcasm 
+smirk
+prod
+swarming v. 蜂拥
+cavernous adj. （房间或空间）大而空的，像洞穴的；大而深陷的
+forbode v 预示
+usher 
+
+# 72.9% | 26.409
+cluck 
+disapprovingly adv. 不以为然地；非难地；不赞成地
+clammy 
+collapse
+delicate adj. 微妙的；精美的，雅致的；柔和的；易碎的；纤弱的；清淡可口的
+crisply adv. 清楚地；易碎地
+torture n. 折磨；拷问；歪曲
+stool 凳子
+crook vt. 使弯曲；欺骗，诈骗
+
+# 84.07% | 26.52
+befuddle v. 使糊涂，使迷惑；使昏沉，使昏迷
+prefect n. 长官，地方行政长官；级长
+afoul adv. （与法律等）相抵触，有冲突，卷入纠缠地
+puff 
+impressively 
+sallow adj. 气色不好的；灰黄色的
+loathing adj. 厌恶的
+lukewarm  adj. 冷淡的；微温的；不够热心的
+
+# 91.3% | 26.574
+limb 
+stun vt. 使震惊；
+tumultuous adj. 吵闹的；骚乱的；狂暴的
+tangle n. 缠结；混乱，纷乱；争吵；打架
+goblet n. 酒杯；高脚杯
+ravenous adj. 贪婪的；渴望的；狼吞虎咽的
+clatter n. 哗啦声；嘈杂的谈笑声；咔嗒声
+morsel n. 一口；（食物）少量
+tart n. 果馅饼；妓女
+squeal v. 告密；长声尖叫
+shoo v. 发出嘘声将……赶走
+spiral adj. 螺旋形的；盘旋的
+# four-poster bed 四帷柱大床，四柱床
+
+# 100% | 26.649
+
+
+========================================
+|-- HP3 - C6 TALONS AND TEA LEAVES | Jim
+----------------------------------------
+init("http://scholar.dawneve.com/audio/static.php?file=Chapter06-TalonsAndTeaLeaves.mp3")
+
+swooning n. 昏晕；狂喜；假死状态
+shriek v 尖叫
+cocky adj. 自大的；骄傲的；过于自信的
+contemptuous adj. 轻蔑的；侮辱的
+sausage n. 香肠；腊肠；装香肠的碎肉
+
+更新 git pull 
+5.4% |26.704
+
+
 
 
 
@@ -235,19 +371,646 @@ uneventful adj. 平凡的；平静无事的
 
 
 ========================================
+经济学人 20210313
 ----------------------------------------
+1.pdf地址:
+file:///D:/xampp/htdocs/DawnScholar/audio/20210313.pdf
+
+
+2. mp3文件
+D:\xampp\htdocs\DawnScholar\audio\20210313\
+
+加载方式:
+http://scholar.dawneve.com/audio/static.php?file=20210313/文件名
+
+注意:
+1) 注意文件名前的序号不能漏掉
+002 The world this week - Politics this week.mp3
+2) 在url中 把 空格 替换成 %20
+
+init("http://scholar.dawneve.com/audio/static.php?file=20210313/002 The world this week - Politics this week.mp3")
+
+init("http://scholar.dawneve.com/audio/static.php?file=20210313/002%20The%20world%20this%20week%20-%20Politics%20this%20week.mp3")
+
+
+文件名列表: 
+file:///D:/xampp/htdocs/DawnScholar/audio/20210313/filenames.txt
+
+  514,086 001 Introduction.mp3
+3,198,721 002 The world this week - Politics this week.mp3
+2,606,995 003 The world this week - Business this week.mp3
+  502,008 004 Leaders.mp3
+3,775,061 005 Leaders - The world economy.mp3
+3,857,694 006 Leaders - Politics.mp3
+2,470,924 007 Leaders - Vaccine passports.mp3
+2,841,382 008 Leaders - Human rights.mp3
+2,897,740 009 Leaders - The transformation of retailing.mp3
+2,773,380 010 Leaders - Benefiting from Brexit.mp3
+4,234,407 011 Letters - Letters to the editor.mp3
+  448,434 012 Briefing.mp3
+5,977,938 013 Briefing - The filibuster.mp3
+3,122,850 014 Briefing - The use of supermajorities elsewhere.mp3
+  505,312 015 United States.mp3
+5,259,711 016 United States - The battle over voting laws.mp3
+2,785,079 017 United States - Gerrymandering.mp3
+2,412,231 018 United States - Press freedom.mp3
+1,990,018 019 United States - Plane expensive.mp3
+1,749,027 020 United States - Tribes of the Hamptons.mp3
+2,027,331 021 United States - Economic experiments.mp3
+3,023,698 022 United States - Lexington.mp3
+  505,493 023 The Americas.mp3
+2,891,870 024 The Americas - Canada and China.mp3
+1,843,336 025 The Americas - Mexico_s pampered pets.mp3
+2,719,257 026 The Americas - Brazilian politics.mp3
+2,855,642 027 The Americas - Bello.mp3
+  505,294 028 Asia.mp3
+3,525,821 029 Asia - Covid-19 in India.mp3
+1,962,423 030 Asia - Beauty treatments in Afghanistan.mp3
+2,631,845 031 Asia - American forces in Asia.mp3
+1,945,224 032 Asia - Human rights in North Korea.mp3
+2,609,868 033 Asia - Banyan.mp3
+  476,588 034 China.mp3
+3,051,669 035 China - Five-year plan.mp3
+2,375,288 036 China - Hong Kong politics.mp3
+2,977,049 037 China - Chaguan.mp3
+  507,707 038 Middle East and Africa.mp3
+3,590,382 039 Middle East and Africa - Syria.mp3
+2,316,067 040 Middle East and Africa - The oil trade.mp3
+2,498,912 041 Middle East and Africa - Senegal.mp3
+2,490,155 042 Middle East and Africa - The Ibrahim prize.mp3
+2,718,862 043 Middle East and Africa - Somalia_s politics.mp3
+1,889,125 044 Middle East and Africa - Working from the beach house.mp3
+  503,835 045 Europe.mp3
+3,497,465 046 Europe - Covid-19.mp3
+1,966,579 047 Europe - Italy.mp3
+2,606,615 048 Europe - Rent controls in Berlin.mp3
+1,453,515 049 Europe - German state elections.mp3
+2,758,191 050 Europe - European censuses.mp3
+3,651,253 051 Europe - Charlemagne.mp3
+  503,289 052 Britain.mp3
+3,326,507 053 Britain - That interview.mp3
+1,271,354 054 Britain - How racist is Britain_.mp3
+4,388,891 055 Britain - Brexit.mp3
+1,730,148 056 Britain - Brexit.mp3
+2,571,108 057 Britain - Northern Ireland_s loyalists.mp3
+2,755,446 058 Britain - Television news.mp3
+2,589,967 059 Britain - Farming and eating.mp3
+  452,101 060 International.mp3
+7,382,855 061 International - Violence against women.mp3
+2,248,728 062 International - Nicaragua_s success.mp3
+  507,874 063 Special report.mp3
+6,132,297 064 Special report - The future of shopping.mp3
+5,092,557 065 Special report - The marketplace.mp3
+4,032,531 066 Special report - The merchants.mp3
+2,320,825 067 Special report - The travelling salesmen.mp3
+4,922,315 068 Special report - The food stall.mp3
+3,130,689 069 Special report - Mass craftsmanship.mp3
+4,111,694 070 Special report - People.mp3
+3,338,582 071 Special report - The future.mp3
+  501,828 072 Business.mp3
+5,385,310 073 Business - Rupert Murdoch at 90.mp3
+2,899,355 074 Business - Computer games.mp3
+2,154,755 075 Business - Jet engines.mp3
+2,663,823 076 Business - Bartleby.mp3
+1,682,252 077 Business - Film-making.mp3
+2,409,324 078 Business - Corporate climate reporting.mp3
+3,003,589 079 Business - Japanese business.mp3
+3,712,695 080 Business - Schumpeter.mp3
+  510,265 081 Finance and economics.mp3
+3,405,718 082 Finance and economics - The world economy.mp3
+2,486,481 083 Finance and economics - Oil prices.mp3
+2,611,007 084 Finance and economics - Buttonwood.mp3
+2,642,266 085 Finance and economics - Trade.mp3
+  923,037 086 Finance and economics - Lies_ damned lies and implied lies.mp3
+2,762,983 087 Finance and economics - Liquefied natural gas.mp3
+3,519,088 088 Finance and economics - Fintech in China.mp3
+3,439,356 089 Finance and economics - Free exchange.mp3
+  431,273 090 Science and technology.mp3
+8,726,686 091 Science and technology - Easing the lockdowns.mp3
+  507,874 092 Books and arts.mp3
+3,688,954 093 Books and arts - Democracy in Turkey.mp3
+1,854,889 094 Books and arts - Russian fiction.mp3
+2,650,868 095 Books and arts - Ballroom dancing.mp3
+2,466,550 096 Books and arts - Women in New York.mp3
+2,858,941 097 Books and arts - Johnson.mp3
+  425,406 098 Graphic detail.mp3
+4,376,851 099 Graphic detail - Covid-19 risk.mp3
+3,739,954 100 Obituary - Mourid Barghouti.mp3
+
+
+
+
+$ git clone git@github.com:DawnEve/webPan.py.git
+
+## G:/webPan.py/
+G:\webPan.py>python index.py 
+http://127.0.0.1:8005/
+
+
+
+
+========================================
+|-- The world this week( 002, 003 )
+----------------------------------------
+
+|--> 002 The world this week - Politics this week.mp3
+
+init("http://scholar.dawneve.com/audio/static.php?file=20210313/002%20The%20world%20this%20week%20-%20Politics%20this%20week.mp3")
+
+# 25%,
+quell
+
+# 37%
+monarchy n. 君主政体；君主国；君主政治
+recollection n. 回忆；回忆起的事物
+plaintiff 原告
+infuriate vt. 激怒；使大怒
+
+%78%
+mandatory adj. 强制的；托管的；命令的
+
+# 100% 
+
+
+
+
+
+|--> 003 The world this week - Business this week.mp3 [335s]
+
+init("http://scholar.dawneve.com/audio/static.php?file=20210313/003%20The%20world%20this%20week%20-%20Business%20this%20week.mp3")
+
+ballot n. 投票；投票用纸；投票总数
+oversight n. 监督，照管；疏忽
+dent vt. 削弱；使产生凹痕
+
+# 13%
+breach vt. 违反，破坏；打破
+transaction[trænˈzækʃn] n. 交易；事务；办理；会报，学报
+proceed n. 收入，获利
+conglomerate n. 企业集团；聚合物；砾岩
+payroll n. 工资单；在册职工人数；工资名单；工资
+emerge  显露 (事实、结果)
+compromised vt. 妥协；连累（compromise的过去分词）
+
+# 50%
+contraction n. 收缩，紧缩；缩写式；害病
+impose [ɪmˈpəʊz] vt. 强制实行；征税；以…欺骗
+impose on 把 ; 利用 ; 欺骗
+curb n. 抑制；路边；勒马绳
+goodwill n. [贸易] 商誉；友好；好意
+
+# 73%, P9
+allegedly adv. 依其申述；据说，据称
+tax-evasion 漏税，逃税
+extradition n. 引渡；亡命者送还本国
+
+100%
+
+
+
+
+
+========================================
+|-- Leaders(004 - 010), letters(011)
+----------------------------------------
+
+004 Leaders.mp3 [34s]
+init("http://scholar.dawneve.com/audio/static.php?file=20210313/004%20Leaders.mp3")
+
+bd's big gamble
+vaccine passports, needle to know
+the transformation of retailing 
+21ct consumers
+
+
+
+
+
+
+|--> 005 Leaders - The world economy.mp3 [501s](1325Repeats)
+
+init("http://scholar.dawneve.com/audio/static.php?file=20210313/005%20Leaders%20-%20The%20world%20economy.mp3")
+
+doldrums n. 忧郁；赤道无风带
+defy vt. 藐视；公然反抗；挑衅；使落空
+pessimism 
+fiery adj. 热烈的，炽烈的；暴躁的；燃烧般的
+outrun vt. 超过；跑得比…快；从…逃脱
+
+poise vt. 使平衡；保持……姿势
+# be poised to 信誓旦旦；准备就绪；随时准备着
+
+timid adj. 胆小的；羞怯的
+rip vi. 裂开，被撕裂
+# they are letting rip. 他们在肆意发泄。
+
+# 30%, P10
+breakneck [ˈbreɪknek] adj. 非常危险的；极快的
+# 听力: than it had been predicting before the pandemic.
+# 听力: Surging out【】 of a crisis that ...
+puny adj. 弱小的；微不足道的；微小的
+upend vt. 倒放，颠倒；竖立
+prong [prɒŋ] n. 尖齿；方向；
+feature vt. 特写；以…为特色；由…主演
+hoard n. 贮存（品），秘藏（品）；古代宝库；情报（库）
+pivotal adj. 关键的；中枢的；枢轴的
+denominate 以(某种货币)为单位;将…命名为;称…为
+adamant [ˈædəmənt] adj. 固执的，坚强的；坚定不移的；坚硬无比的
+
+# 70%， P10
+regime n. 政权，政体；社会制度；管理体制
+shortfall [ˈʃɔːtfɔːl] n. 差额；缺少
+precipitate v. 使（坏事等）突然发生；使突然陷入（某种状态）；使沉淀；猛抛，猛地落下；冷凝成为雨或雪等
+# adj. 鲁莽的，仓促的；突如其来的；猛地落下的
+# n. 沉淀物
+
+# 91%, P10 
+#100%, P10
+
+
+
+
+
+|--> 006 Leaders - Politics.mp3 [513s] (724  Repeats)
+
+init("http://scholar.dawneve.com/audio/static.php?file=20210313/006%20Leaders%20-%20Politics.mp3")
+
+budgetary adj. 预算的
+reconciliation n. 和解；调和；和谐；甘愿
+filibuster n. 海盗；暴兵，掠夺兵；阻挠议事的议员；阻挠议事的行动
+
+# the plan smuggled in pet priorities. 该计划偷偷地加入了宠物优先事项。
+scrutiny n. 详细审查；监视；细看；选票复查
+
+# 18%, P11
+baseless adj. 无根据的；无基础的
+conviction n. 定罪；确信；证明有罪；确信，坚定的信仰
+enact vt. 颁布；制定法律；扮演；发生
+filibuster n. 阻挠议事的议员；阻挠议事的行动
+enmesh vt. 使绊住；使陷入
+# at large 详尽的；未被捕的；整个的；一般的；普遍的
+illegitimate adj. 私生的；非法的；不合理的
+assault n. 攻击；袭击
+cog n. 齿轮，轮齿；（木工）凸榫；小人物；中世纪海船
+
+# 47%, P12
+hasty adj. 轻率的；匆忙的；草率的；懈怠的
+bipartisanship n. 两党合作；两党制
+scrapping v废弃，取消
+seesaw n. 跷跷板；秋千
+reconciliation n. 和解；调和；和谐；甘愿
+stasis n. 静止状态（或时期）；郁积；内乱
+legislative  adj. 立法的；有立法权的
+divisive adj. 分裂的；区分的；造成不和的
+# hare-brained adj. 轻率的，浮躁的
+disproportionately adv. 不成比例地
+beacon n. 灯塔，信号浮标；烽火；指路明灯
+
+#100%
+
+
+
+
+
+|--> 007 Leaders - Vaccine passports.mp3 [315s]( Repeats)
+
+# cast some light on sth  对...有着重要的启示作用。
+# 使显得非常清楚， 阐明， 使人了解；映照；
+
+# 25%, P12
+comorbidity n. 疾病，伴随疾病
+
+# 43%, 
+inoculate vt. [医] 接种；嫁接；灌输
+
+#100%
+
+
+
+
+
+
+
+
+|--> 008 Leaders - Human rights.mp3 (368s)[261 Repeats]
+
+init("http://scholar.dawneve.com/audio/static.php?file=20210313/008%20Leaders%20-%20Human%20rights.mp3")
+
+stigmatise [ˈstɪɡmətaɪz]  v. 使背负恶名，侮辱（等于 stigmatize）
+severed adj. 切断的；隔断的
+
+# 10%, P12
+dire adj. 可怕的；悲惨的；极端的
+
+#30%, P15
+assailant n. 攻击者
+abusive adj. 辱骂的；滥用的；虐待的
+staggeringly adv. 摇晃地；蹒跚地;惊人地
+deplore vt. 谴责；悲悼；哀叹；对…深感遗憾
+inculcate vt. 教育；谆谆教诲；教授；反复灌输
+
+# 64%, P15
+enlist vi. 支持；从军；应募；赞助
+credible [ˈkredəbl] adj. 可靠的，可信的
+futile [ˈfjuːtaɪl] adj. 无用的；无效的；没有出息的；琐细的；不重要的
+handout n. 施舍物
+downplay v. 对……轻描淡写；轻视，贬低
+
+#100%
+
+
+
+
+
+|--> 009 Leaders - The transformation of retailing.mp3 (376s) [600Repeats]
+init("http://127.0.0.1:8005/file/009%20Leaders%20-%20The%20transformation%20of%20retailing.mp3")
+
+# 7%, P15
+tut vi. 发啧啧声
+clout n. 破布；敲打；影响力；势力
+dexterous [ˈdekstrəs] adj. 灵巧的；敏捷的；惯用右手的
+incarnation [ˌɪnkɑːˈneɪʃn] n. 化身；道成肉身；典型
+epitomise [ɪ'pɪtəmaɪz] vt. 象征；体现；代表（等于epitomize）
+boot n. 汽车行李箱
+monolithic [ˌmɒnəˈlɪθɪk] adj. 整体的；巨石的，庞大的；完全统一的
+Asian adj. （Asian）亚洲的；亚洲人的
+juggernaut [ˈdʒʌɡənɔːt] n. 巨头；世界主宰；强大的破坏力
+popularise ['pɒpjʊləraɪz] vi. 推广，普及；使…通俗化（等于popularize）；使…受欢迎
+conscious 
+credential n. 证书；凭据；国书
+
+# 40%, P15
+ketchup 
+fad n. 时尚；一时的爱好；一时流行的狂热
+voluminous [vəˈluːmɪnəs] adj. 大量的；多卷的，长篇的；著书多的
+
+#100%, P16
+
+
+
+
+
+|-- 010 Leaders - Benefiting from Brexit.mp3 (358s, )
+
+# 24%, P16 
+nimble [ˈnɪmbl] adj. 敏捷的；聪明的；敏感的
+inflict [ɪnˈflɪkt] vt. 造成；使遭受（损伤、痛苦等）；给予（打击等）
+burble [ˈbɜːbl] v. 汩汩作响；语无伦次地说
+platitude [ˈplætɪtjuːd] n. 陈词滥调；平凡；陈腐
+divergence [daɪˈvɜːdʒəns] n. 差异；分歧；分散，发散；（气流或海洋的）分开处
+diverge [daɪˈvɜːdʒ] vi. 分歧；偏离；分叉；离题
+wary [ˈweəri] adj. 谨慎的；机警的；惟恐的；考虑周到的
+pernickety adj. 麻烦的；爱挑剔的；难以取悦的
+shovel vt. 铲除；用铲挖；把…胡乱塞入
+
+# 73%, P16
+overhaul v. 彻底检修；全面改革（制度、方法等）；赶上（赛跑对手）
+antiquated adj. 过时的；陈旧的；年老的
+inflicted  把…强加给; 使承受
+
+# 100%, P16
+
+
+
+
+
+-->011 Letters - Letters to the editor.mp3 (567s)
+# 6.79%, P17
+payout n. 支出；花费
+clotting n. 凝血；结块
+horseshoe n. 马蹄铁；U形物
+crab n. 螃蟹；蟹肉；脾气乖戾的人；起重机；
+# horseshoe crab 鲎,俗称马蹄蟹(horseshoe crabs)
+preoccupation n. 全神贯注，入神；当务之急
+sever [ˈsevə(r)] vt. 割断，断绝；分开；使分离
+
+
+# 38%, P17
+centenary adj. 一百周年的
+vocational adj. 职业的，行业的
+sovereign adj 具有独立主权的
+intellect n. 智力，理解力；思维逻辑领悟力；智力高的人
+raging adj. 狂怒的；（自然事物）狂暴的，凶猛的；失控的
+feat n. 功绩，壮举；技艺表演
+derisively [dɪˈraɪsɪvli]adv. 嘲弄地；嘲笑地
+decadent adj.堕落的;颓废的;贪图享乐的
+pod n. 蚕茧；豆荚
+
+# 65%, P17
+heady [ˈhedi] adj. 兴奋的；任性的；性急的；顽固的；使人头晕的；令人陶醉的
+exuberance [ɪɡˈzjuːbərəns] n. 丰富，茂盛；健康；感情洋溢(或慷慨激昂)的言行；(感情等的)过度(或极度)表现
+gaiety [ˈɡeɪəti]n. 快乐；庆祝活动
+ambivalent [æmˈbɪvələnt] adj. 矛盾的；好恶相克的
+
+virtue [ˈvɜːtʃuː] n. 美德；优点；贞操；功效
+panacea [ˌpænəˈsiːə] n. 灵丹妙药；万能药
+ail [eɪl] v. （在身体和精神上）使苦恼，使烦恼；折磨
+
+cannibal [ˈkænɪbl] n. 食人者；吃同类的动物
+paedophile [ˈpiːdəfaɪl,ˈpedəfaɪl] n. 恋童癖者 
+pervade [pəˈveɪd] vt. 遍及；弥漫
+crusade [kruːˈseɪd] n. 改革运动；十字军东侵
+purge [pɜːdʒ]v. 清除（不愿有的情感）；消除（回忆、心情等）；清除（一群不受欢迎的人）；
+
+
+========================================
+|-- Briefing (012 - 014)
+----------------------------------------
+--> 012 Briefing.mp3 (26s)
+# March 13th - March 19th, 2021
+
+--> 013 Briefing - The filibuster.mp3 (816s)
+motion n. 动作；移动；手势；请求；意向；议案
+dismiss vt. 解散；解雇；开除；让...离开；不予理会、不予考虑
+# motion to dismiss 罢免动议
+oddity [ˈɒdəti] n. 奇异；古怪；怪癖
+
+frame vt. 给 (图画或照片) 配框；设计；建造；陷害；使…适合；制订；拟订
+bulwark n. 壁垒；保障；防波堤
+tyranny n. 暴政；专横；严酷；残暴的行为（需用复数）
+
+manoeuvre [məˈnuːvə(r)]n. 特技动作，熟练动作；（尤指以欺骗为目的）策略，手段；欺诈性操作；军事演习（等于 maneuver）
+onerous adj. 繁重的；麻烦的；负有义务的；负有法律责任的
+sparingly adv. 节俭地；保守地；爱惜地
+
+ubiquitous [juːˈbɪkwɪtəs] adj. 普遍存在的；无所不在的
+enact vt. 颁布；制定法律；扮演；发生
+
+#15%, P20
+caprice [kəˈpriːs] n. 任性，反复无常；随想曲，怪想
+artifice [ˈɑːtɪfɪs]n. 诡计；欺骗；巧妙的办法
+junto [ˈdʒʊntəʊ] n. 政治集团；秘密结社；团体
+convict vt. 证明…有罪；宣告…有罪
+impeach t. 弹劾；归咎；怀疑
+ratify vt. 批准；认可
+
+
+# 26%, P20
+## jump 政治话题，太难听懂了。
+
+
+
+
+--> 014 Briefing - The use of supermajorities elsewhere.mp3
+## jump! 纯政治话题，听不懂。
+
+
+
+
+========================================
+United States (015 - 022)
+----------------------------------------
+--> 015 United States.mp3
+
+--> 016 United States - The battle over voting laws.mp3 (713s, 语速很快)
+introspection [ˌɪntrəˈspekʃn] n. 内省；反省
+excoriate [ɪkˈskɔːrieɪt] vt. 严厉的责难；擦破……的皮肤
+culprit n. 犯人，罪犯；被控犯罪的人
+fraud n. 欺骗；骗子；诡计
+autopsy n. 验尸；[病理][特医] 尸体解剖；[病理][特医] 尸体剖检
+integrity [ɪnˈteɡrəti] n. 完整；正直；诚实；廉正
+
+# 7%, P24
+vanishingly [ˈvænɪʃɪŋli] adv. 难以察觉地；消遁似地；趋于零地
+constitute [ˈkɒnstɪtjuːt] vt. 组成，构成；建立；任命
+revive vi. 复兴；复活；苏醒；恢复精神
+
+#22%, P25
+proposal  [prəˈpəʊzl] n. 提议，建议；求婚
+disallow [ˌdɪsəˈlaʊ] vt. 驳回，不接受；不准许
+turnout [ˈtɜːnaʊt] n. 产量；出席者；参加人数；出动
+ballot [ˈbælət] n. 投票；投票用纸；投票总数
+
+#$ en masse （法）全体地；一同地
+notarise ['nəutəraiz] v. 证明；给……公证（等于 notarize）
+absentee [ˌæbsənˈtiː] n. 缺席者
+consecutive [kənˈsekjətɪv] adj. 连贯的；连续不断的
+redundantly [rɪˈdʌndəntli] adv. 多余地
+neatly [ˈniːtli] adv. 整洁地；熟练地；灵巧地
+
+# 40%, P25 
+volatile [ˈvɒlətaɪl] adj. [化学] 挥发性的；不稳定的；爆炸性的；反复无常的
+
+# 016 跳过 选举
+
+
+
+
+--> 017 United States - Gerrymandering.mp3
+divvy vi. 分摊
+apportionment [əˈpɔːʃnmənt] n. 分摊；分配；分派
+complicate [ˈkɒmplɪkeɪt] vt. 使复杂化；使恶化；使卷入
+poise vt. 使平衡；保持……姿势
+tilt v. 倾斜，翘起
+
+# 27%, P26 
+# 017 跳过，人口普查与选取划分
+
+
+
+
+|--> 018 United States - Press freedom.mp3
+tally n. 计数器；标签；记账
+
+# 36%, P27
+detain vt. 拘留；留住；耽搁
+dispersing n. 分配，分散
+handcuff n. 手铐
+shackle [ˈʃækl] n. 束缚；桎梏；脚镣
+prosecution n. 起诉，检举；进行；经营
+detention n. 拘留；延迟；挽留
+attorney n. 律师；代理人；检察官
+dock 被告席
+deliberation 审议
+verdict [ˈvɜːdɪkt] n. 结论；裁定
+harass v. 骚扰，（使）困扰（或烦恼）；反复袭击
+deliberate adj. 故意的
+prosecute vt. 检举；贯彻；从事；依法进行
+bizarrely adv. 奇形怪状地；怪诞地
+feed 
+pew n. 座位；会众；教堂内的靠背长凳
+
+#100%,P28;
+
+
+
+
+
+
+
+
+--> 019 United States - Plane expensive.mp3 //good//repeat
+
+# The sky-high cost of drones 无人机的成本极高
+rakish [ˈreɪkɪʃ] adj. 潇洒的；放荡的；轻快的；俏皮的
+sequel [ˈsiːkwəl] n. 续集；结局；继续；后果
+maverick [ˈmævərɪk] adj. 特立独行的
+geriatric [ˌdʒeriˈætrɪk]adj. 老人的；老年医学的
+trilogy n. 三部曲；三部剧
+stealthy adj. 鬼鬼祟祟的；秘密的
+runaway adj. 逃亡的；逃走的
+prune vt. 修剪；删除；剪去
+personnel [ˌpɜːsəˈnel] n. 人事部门；全体人员
+reconnaissance [rɪˈkɒnɪsns] n. [军] 侦察；勘测（等于reconnoissance）；搜索；事先考查
+sortie n. 出击；突围
+insatiable [ɪnˈseɪʃəbl] adj. 贪得无厌的；不知足的
+mavericks n. 独来独往的人
+#100%, P27;
+
+
+
+
+
+
+--> 020 United States - Tribes of the Hamptons.mp3, 212s, //good//repeat
+http://127.0.0.1:8005/file/020%20United%20States%20-%20Tribes%20of%20the%20Hamptons.mp3
+#10%, P28 
+tribal [ˈtraɪbl] adj. 部落的；种族的
+casino [kəˈsiːnəʊ] n. 俱乐部，赌场；娱乐场
+affluent [ˈæfluənt] adj. 富裕的；丰富的；流畅的
+panjandrum [pænˈdʒændrəm] n. 首领；自命不凡的人；架子十足的官吏
+well-heeled [ˌwel ˈhiːld] adj. 富有的；穿着考究的
+string n. 线，弦，细绳；一串，一行
+congestion n. 拥挤；拥塞；淤血
+assemblyman n. 议员；装配工
+sovereign [ˈsɒvrɪn] adj. 至高无上的；有主权的；拥有最高统治权的；不折不扣的；有效的
+nonetheless [ˌnʌnðəˈles] adv. 尽管如此，但是
+glide vi. 滑翔；滑行；悄悄地走；消逝
+gilded adj. 镀金的，装饰的；富有的
+landscaper n. 庭园设计家
+household adj. 家庭的，家用的；家喻户晓的
+# household income [经] 家庭收入；家庭总入息；住户收入
+wake 
+shellfish n. 甲壳类动物；贝类等有壳的水生动物
+
+# 100%,P28
+
+
+
+
+
+--> 021 United States - Economic experiments.mp3
+# 4%,P28
+
+
+
+
+
+
+
+
+
+
+========================================
+--> cur: 021
+----------------------------------------
+
 
 
 ========================================
 ----------------------------------------
 
 
-========================================
-----------------------------------------
-
-
-========================================
-----------------------------------------
 
 
 ========================================
