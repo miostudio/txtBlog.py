@@ -858,7 +858,7 @@ ratify vt. 批准；认可
 
 
 ========================================
-United States (015 - 022)
+|-- United States (015 - 022)
 ----------------------------------------
 --> 015 United States.mp3
 
@@ -991,7 +991,23 @@ shellfish n. 甲壳类动物；贝类等有壳的水生动物
 
 --> 021 United States - Economic experiments.mp3
 # 4%,P28
+sparse [spɑːs] adj. 稀疏的；稀少的
+myriad adj. 无数的；种种的
 
+# 40%, P28 
+quantify vt. 量化；为…定量；确定数量
+
+# 100%, P29
+
+
+
+
+
+--> 022 United States - Lexington.mp3
+# 2%, P29 
+garrulous [ˈɡærələs; ˈɡærjʊləs] adj. 唠叨的；喋喋不休的；多嘴的
+# 45%, P29
+# 23:35 - 23:46 跳过: 022 美国政治
 
 
 
@@ -1002,7 +1018,222 @@ shellfish n. 甲壳类动物；贝类等有壳的水生动物
 
 
 ========================================
---> cur: 021
+|-- The Americas(023 - 027)
+----------------------------------------
+
+--> 023 
+# Mar 13 - Mar 19, 2021
+
+
+
+
+--> 024 The Americas - Canada and China.mp3
+hostage [ˈhɒstɪdʒ] n. 人质；抵押品
+incarceration [ɪnˌkɑːsəˈreɪʃn] n. 监禁；下狱；禁闭
+# 6%, P30
+ordeal n. 折磨；严酷的考验；痛苦的经验
+detention n. 拘留；延迟；挽留
+custody n. 保管；监护；拘留；抚养权
+extradite [ˈekstrədaɪt] vt. 引渡；获取…的引渡
+cushy [ˈkʊʃi] adj. 轻松的；容易的；轻松又容易赚钱的
+conundrum [kəˈnʌndrəm] n. 难题；谜语
+scruple n. 微量；顾虑；踌躇
+repercussion n. 反响；弹回；反射；浮动诊胎法；令人不满意的后果
+persecution n. 迫害；烦扰
+pragmatically adv. 讲究实效地；实用主义地
+atrocity n. 暴行；凶恶，残暴
+despicable adj. 卑劣的；可鄙的
+err vi. 犯错；做错；犯罪；走上歧途
+flicker v. 闪烁，摇曳；颤动；
+hefty adj. 重的；肌肉发达的；异常大的
+fizzle [ˈfɪzl] vi. 失败；发嘶嘶声；萎靡
+barter vi. 进行易货贸易；[贸易] 作物物交换；讨价还价
+
+# 100%, P31
+
+
+
+
+
+
+--> 025 The Americas - Mexico_s pampered pets.mp3[The dogs are all
+right] //good/repeat
+
+pamper vt. 纵容；使…过量；给…吃得过多
+
+# 4%, P31, 6:40->
+pooch [puːtʃ] n. 杂种狗
+gush v. 涌出；迸出
+overmighty adj. 超强的
+doggy adj. 像狗的，与狗有关的；爱狗的；时髦的；低人一等的；装阔气的
+canine adj. 犬的；犬齿的；犬科的；似犬的
+frolic v. 嬉戏；调情
+stroke vt. （用笔等）画；轻抚；轻挪；敲击；划尾桨；划掉；（打字时）击打键盘
+mutt n. 杂种狗；笨蛋
+sprog [sprɒɡ] n. 新飞行员；新手; (淘气孩儿)
+furry [ˈfɜːri] adj. 毛皮的；盖着毛皮的；似毛皮的
+portmanteau [pɔːtˈmæntəʊ] n. 旅行皮箱；混成词
+infantilization 婴儿化
+Caribbean [ˌkærɪˈbiːən; kəˈrɪbiən]  n. 加勒比海；加勒比地区；加勒比人
+respite [ˈrespaɪt] n. 缓解；暂缓；暂时的休息；缓期执行
+drudgery [ˈdrʌdʒəri] n. 苦工，苦差事
+leash n. 皮带；束缚
+
+# 100%,P31, 7:38<--; 
+jurisdiction n. 司法权，审判权，管辖权；权限，权力
+quash vt. 撤销；镇压；宣布无效；捣碎
+oversaw vt. 看管，管理；视察；监视
+
+
+--> 026 The Americas - Brazilian politics.mp3
+#34%,P31 巴西政治，跳过
+
+
+
+
+--> 027 The Americas - Bello.mp3 墨西哥电力立法 //good
+# Forward into the darkness
+slump [slʌmp] v. （价格、数量等）骤降；重重地坐下（或倒下）；惨败；（肩或脑袋）耷拉着
+behest [bɪˈhest] n. 命令；邀请；请求
+
+# 11%, P33
+# set so much store 太重视
+monopoly n. 垄断；垄断者；专卖权
+moribund [ˈmɒrɪbʌnd] adj. 垂死的；停滞不前的
+
+# The CFE can’t meet peak energy demand alone, so blackouts are likely. 
+# CFE 无法单独满足峰值能源需求，因此很可能出现停电。
+blackout [ˈblækaʊt]  n. 灯火管制；灯火熄灭；暂时的意识丧失
+
+# Amlo says the price Mexicans pay for their electricity will not go up, so the government will presumably subsidise the increased cost.
+subsidise [ˈsʌbsɪdaɪz] vt. 资助（等于subsidize）；给...补助金
+
+
+# 54%, P33
+gunge [ɡʌndʒ] n. 油腻物；脏得让人讨厌的黏性物
+lax [læks] adj. 不严格的，松懈的；粗心的；（肌肉）放松的；腹泻的；（语音）松（弛）的
+forge [fɔːdʒ] v. 锻造，铸造；缔造，艰苦做成；伪造；稳步前进，匀速移动
+quasi [ˈkweɪzaɪ] adj. 准的；类似的；外表的
+religious
+crusader [kruːˈseɪdə(r)] n. 改革者；十字军战士
+pillaging [ˈpɪlɪdʒɪŋ]v. （尤指在战争中）掠夺，掠夺
+rhetoric [ˈretərɪk] n. 修辞，修辞学；华丽的词藻
+retain [rɪˈteɪn] vt. 保持；雇；记住
+congressional [kənˈɡreʃənl] adj. 国会的；会议的；议会的
+
+
+# 87%, P33
+depress [dɪˈpres]  美 [dɪˈpres] vt. 压抑；使沮丧；使萧条
+
+# “Mexico is no longer an interesting place for private investment in anything,” says Andrés Rozental, a former diplomat. 
+# Eventually Mexicans will come to regret that
+investment in 对……的投资；在……方面投资
+
+# 100,P33
+
+
+
+
+========================================
+|-- Asia (028 --> 033)
+----------------------------------------
+
+--> 028 概论
+
+--> 029 Asia - Covid-19 in India.mp3
+Covid-19 in India: Getting off lightly
+
+
+#==> 0, P34, (2021/7/1 23:51 --to--> 0:16 )
+grubby [ˈɡrʌbi] adj. 肮脏的；生蛆的；卑鄙的；矮小的
+hyperbole [haɪˈpɜːbəli] n. 夸张的语句；夸张法
+elicit [ɪˈlɪsɪt] vt. 抽出，引出；引起
+glibness [ɡlɪbnɪs] n. 花言巧语；口若悬河
+ominous [ˈɒmɪnəs] adj. 预兆的；不吉利的
+cusp [kʌsp] n. 尖头；尖端
+tally [ˈtæli] n. 计数器；标签；记账
+fatality [fəˈtæləti] n. 死亡；宿命；致命性；不幸；灾祸
+frail [freɪl] adj. 脆弱的；虚弱的
+labourer [ˈleɪbərə(r)] n. 劳动者；劳工
+sniffle [ˈsnɪfl] v. （尤指因哭泣或患感冒）抽鼻子
+
+# Across the country, tales of such resilience abound
+# 在全国各地，这种韧性的故事比比皆是
+abound [əˈbaʊnd] v. 大量存在，有许多；富于，充满
+
+
+
+
+
+
+
+# 25.9%, P34, (2021/7/3 23:00-->23:46) 45min;
+
+# Politicians have been quick to grab credit, ascribing the low numbers to their wisdom in decreeing strict lockdowns or boosting hospital capacity
+grab credit  争功劳
+ascribe [əˈskraɪb] vt. 归因于；归咎于
+sceptical adj. 怀疑的；怀疑论的；习惯怀疑的
+coop [kuːp] v. 把……关进笼子里；拘禁
+
+
+# Since the initial tally was published, the addition of unreported deaths has narrowed the gap to a still impressive 8%.
+# 自从最初的统计公布以来，未报告的死亡人数的增加使差距缩小到8%，这一数字仍然令人印象深刻。
+tally [ˈtæli] n. 计数器；标签；记账
+
+# Even with the downward estimate, Kerala appears to have weathered the pandemic remarkably well
+# 即使是下调了估计，喀拉拉邦似乎也很好地经受住了这场大流行
+weather [ˈweðə(r)] vt. 经受住；使风化；侵蚀；使受风吹雨打
+
+
+# But a fierce government-led campaign, mobilising more than 300,000 volunteers to trace and look after patients, nearly eradicated the virus.
+# 但政府发起了一场激烈的运动，动员了30多万志愿者追踪和照顾病人，几乎根除了这种病毒。
+eradicate [ɪˈrædɪkeɪt] vt. 根除，根绝；消灭
+
+
+# The subsequent lifting of India s national lockdown and the return of some 500,000 expatriate workers from the Gulf fed a surge in cases that was harder to control.
+# 随后印度解除了国家封锁，约50万名外籍工人从海湾地区返回，导致病例激增，难以控制。
+expatriate [ˌeksˈpætriət] v. 移居国外，定居国外；流放，放逐
+
+
+# But the state’s stronger curbs seem to have delayed the peak of its first wave, which came in October, a month after the rest of India’s.
+
+
+
+
+
+
+# 64%, P35
+
+
+
+#
+
+
+
+#
+#
+
+
+
+
+#
+
+
+
+#
+
+
+
+#
+
+
+
+
+
+
+
+========================================
+--> cur: 029
 ----------------------------------------
 
 
