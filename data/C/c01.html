@@ -1,0 +1,61 @@
+<div class=content>
+	<h2>基本描述</h2>
+	<p>C经历了几个主要的版本 C89(又叫ANSI C), C99, C11。</p>
+	<p>主要的参考资料包括：
+		<a target="_blank" href="https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html">GNU C reference Manual</a> | 
+		<a target="_blank" href="https://docs.microsoft.com/en-us/cpp/c-language/?view=msvc-160">C语言文档(微软) </a> | 
+		<a target="_blank" href="http://www.cs.columbia.edu/~sedwards/papers/sgi1999c.pdf">C语言pdf</a> |   
+		<a target="_blank" href="https://devdocs.io/c/">C语言索引 devdocs.io</a> | 
+	</p>
+	<!--
+	<p><a target="_blank" href="xx/">xx</a></p>
+	-->
+
+
+
+
+	
+	<h2>运行方法</h2>
+
+	<h3>在 win7 下运行C</h3>
+<pre>
+目录结构
+|- makeC.sh
+|- day01/
+  |- c01.c
+  |- dist/
+|- day02/ 
+
+
+预编译写成shell命令
+$ cat makeC.sh
+d=$1;
+f=$2;
+gcc ${d}/${f}.c -o  ${d}/dist/${f}.exe
+## bash makeC.sh day02 01
+
+
+# step1: 文本编辑器写代码
+# 如果打印有中文，要使用 ANSI 编码，否则 cmd 显示乱码。
+$ cat day02/01.c
+#include&lt;stdio.h&gt;
+int main(){
+	printf("hello, from C");
+	return 0;
+}
+
+
+# step2: 编译
+# 在根目录下 git bash 编译
+$ bash makeC.sh day02 01
+
+# step3: 运行
+# 在 day01/dist/下 cmd 运行 
+G:\learn_C\day02\dist>01.exe
+hello, from C
+</pre>
+
+
+
+
+</div>

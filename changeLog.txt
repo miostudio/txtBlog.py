@@ -306,6 +306,7 @@ nb0.1.1-2 英语听力 HP3C2 done
 nb0.1.1-3 英语听力 HP3C4 done
 nb0.1.1-4 英语听力 经济学人 020
 nb0.1.1-5 英语听力 经济学人 029 64%
+nb0.1.1-6 c 语言 - 指针
 ##### commit 
 #------------------------->push to MioStudio
 $ git remote add origin https://github.com/miostudio/txtBlog.py.git
