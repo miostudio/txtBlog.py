@@ -1555,8 +1555,324 @@ struct coord topleft,bottomright;
 
 
 ========================================
-day10/ 数据结构 //todo
+day10/ 数据结构
 ----------------------------------------
+
+1. 算法就是解决问题的办法
+编程时用到的算法也有其特性，概括地说来，有四个特性：
+1） 有穷性：一个算法必须在执行一定的步骤之后结束，而且不存在哪一个步骤的执行时间无穷。简单的说，一个算法就应该有它执行完的时刻。
+2） 确定性：一个算法不能有歧义，即算法中的每一个步骤必须有确切的含义。在任何时候算法都有一条而且仅有一条执行路径。换句话说，对于相同的输入只能得到相同的输出。
+3） 可行性：一个算法必须是能行的，即算法中描述的操作都是可以通过已经实现的基本运算执行有限次来实现的。
+4） 具有输入和输出：一个算法必须有一定的输入和输出。一个算法可以没有输入，也可以没有输出，但不可能同时没有输入和输出。否则无法体现这个算法的存在，
+
+
+
+(2) 设计一个好的算法往往需要很多的编程经验以及技巧。
+(3) 正确性和健壮性都是可以拿到满分的，而算法的效率则是程序员永久的追求。
+
+
+
+
+2. 线性表
+一个线性表就是由n个数据元素的有限序列。线性表的每一个元素的具体含义不做具体要求，在不同的情况下一个线性表的元素是不同的。
+
+常见的线性表有数组、链表、队列、堆栈等.
+
+
+(1) 数组 
+C自带的，已经学过了。
+数据在内存中是连续的。
+
+
+
+(2) 链表 
+数据域 + 指针域
+
+链表是基础的数据结构：根据需求有单链表，双链表，循环链表和块状链表等（链表的出现弥补了数组的先天不足）
+
+struct Link
+{
+	int nData; // 数据域，用来存储数据
+	struct Link *pNext; // 指针域，用来存储下一个元素的地址
+};
+
+头指针 -> 第一个元素 -> 第二个元素 -> NULL
+
+通常，链表的第一个元素是没有直接前驱的，我们要制作一个链表，就必须使用一个额外的指针来指向链表的第一个元素，这个指针就被称作“头指针”。如果不提供头指针，那么就无法找到链表的第一个元素，那么这个链表的后面所有元素就无法找到。
+
+
+(3) 静态链表
+三个元素都是实现定义好的（Stu1、Stu2、Stu3）。这样的链表被称作静态链表
+
+//建立链表，并输出
+#include<stdio.h>
+
+//定义类型
+struct Student{
+	int sid;
+	struct Student *next;
+};
+
+int main(){
+	struct Student head, stu1, stu2, stu3;
+	struct Student *p;
+	
+	stu1.sid=123;
+	stu2.sid=125;
+	stu3.sid=129;
+	
+	head.next=&stu1;
+	stu1.next=&stu2;
+	stu2.next=&stu3;
+	stu3.next=NULL;
+	
+	//头指针，指向第一个元素的指针
+	p=&head; //单字母是为了方便书写
+	while(p->next != NULL){
+		p=p->next;
+		//显示学生信息
+		printf("student ID: %d\n", p->sid);
+	}
+	return 0;
+}
+
+输出:
+student ID: 123
+student ID: 125
+student ID: 129
+
+
+
+(4) 动态链表
+链表的长度在运行时决定，即需要一种动态链表。
+
+//动态链表
+#include<stdio.h>
+#include<stdlib.h>
+
+//定义类型
+struct Student{
+	int sid;
+	char name[20];
+	struct Student *next;
+};
+
+//动态创建链表
+struct Student* CreateLink(int );
+
+int main(){
+	struct Student *head, *h;
+	int N=3;
+	head=CreateLink(N);
+	h=head;
+	while(h->next != NULL){
+		h=h->next;
+		printf("stu: id=%d, name=%s, next=%p\n", 
+			h->sid, h->name, h->next);
+	}
+	return 0;
+}
+
+struct Student* CreateLink(int N){
+	int i;
+	struct Student *head, *tmp, *pre;
+	head=(struct Student*)malloc(sizeof(struct Student)); //头结点是空的
+	pre=head;
+	printf("input %d student info: id name\n", N);
+	for(i=0; i<N; i++){
+		tmp=(struct Student*)malloc(sizeof(struct Student));
+		scanf("%d %s", &(tmp->sid), tmp->name );
+		pre->next=tmp;
+		pre=tmp;
+	}
+	pre->next=NULL; //最后一个节点没有后继
+	return head;
+}
+
+输出：
+input 3 student info: id name
+101 Tom
+204 Jim
+404 Tomcat
+stu: id=101, name=Tom, next=00000000007556D0
+stu: id=204, name=Jim, next=0000000000755700
+stu: id=404, name=Tomcat, next=0000000000000000
+
+
+
+(5) 更简洁的是使用 typedef 对命名简化
+
+//定义类型，重命名类型后，以后就不需要写 struct 前缀了
+typedef struct node{ //一定要有名字，用于后续的指针声明
+	int sid;
+	char name[20];
+	struct node *next; //内部指针还是要使用 struct
+} Student; //后面定义用最后这个名字
+
+//以后定义使用
+Student stu1, *p;
+
+
+
+
+(6) 链表中节点的删除与插入
+数组删除元素，需要移动其后面的所有元素。
+链表则不需要，链表只需要改变相临元素的指针的指向。
+
+//动态链表: 插入和删除元素
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+//定义类型，重命名类型后，以后就不需要写 struct 前缀了
+typedef struct node{ //一定要有名字，用于后续的指针声明
+	int sid;
+	char name[20];
+	struct node *next; //内部指针还是要使用 struct
+} Student; //后面定义用最后这个名字
+
+
+Student* CreateLink(int );//动态创建链表
+void print(Student *h);
+void InsertNode(Student*, Student*, int );
+void DeleteNode(Student*, int );
+
+
+int main(){
+	Student *head;
+	int N=3;
+	head=CreateLink(N);
+	print(head);
+	
+	// 插入元素
+	Student *node2=(Student*)malloc(sizeof(Student));
+	node2->sid=10086;
+	strcpy(node2->name, "Cmcc");
+	printf("input the index you want to insert, 0-based:");
+	int nth;
+	scanf("%d", &nth);
+	InsertNode(head, node2,nth);
+	print(head);
+	
+	// 删除元素
+	printf("input delete index, 0-based:");
+	scanf("%d", &nth);
+	DeleteNode(head, nth);
+	print(head);
+	
+	return 0;
+}
+
+
+
+Student* CreateLink(int N){
+	int i;
+	Student *head, *tmp, *pre;
+	head=(Student*)malloc(sizeof(Student)); //头结点是空的
+	pre=head;
+	printf("input %d student info: id name\n", N);
+	for(i=0; i<N; i++){
+		tmp=(Student*)malloc(sizeof(Student));
+		scanf("%d %s", &(tmp->sid), tmp->name );
+		pre->next=tmp;
+		pre=tmp;
+	}
+	pre->next=NULL; //最后一个节点没有后继
+	return head;
+}
+
+// 打印函数
+void print(Student *h){
+	printf("stu linked list:\n");
+	while(h->next != NULL){
+		h=h->next;
+		printf("  %d %s ->%p\n", 
+			h->sid, h->name, h->next);
+	}
+}
+
+
+// 插入元素,n表示第几个位置插入元素，0-based
+void InsertNode(Student *h, Student *newNode, int nth){
+	int i=0;
+	while(h->next != NULL){
+		if(i==nth){
+			newNode->next = h->next;
+			h->next = newNode;
+		}
+		i++;
+		h=h->next;
+	}
+	// 如果是最后一个元素
+	if(i==nth){
+		newNode->next = h->next;
+		h->next = newNode;
+	}else if(i<nth){
+		printf("Warning: Insert failed!\n");
+	}
+}
+
+// 删除第nth个元素
+void DeleteNode(Student *h, int nth){
+	int i=0, flag=0;
+	Student *pre;
+	while(h->next != NULL){
+		pre=h;
+		h=h->next;
+		if(i==nth){
+			pre->next = h->next;
+			free(h); //释放当前节点的内存
+			h=pre->next;
+			
+			flag=1;
+			break;
+		}
+		i++;
+	}
+	if(0==flag){
+		printf("warning: delete failed!\n");
+	}
+}
+
+测试：
+G:\learn_C\day10\dist>04.exe
+input 3 student info: id name
+0 Tom
+1 Jim
+2 Lilei
+stu linked list:
+  0 Tom ->00000000005356D0
+  1 Jim ->0000000000535700
+  2 Lilei ->0000000000000000
+input the index you want to insert, 0-based:2
+stu linked list:
+  0 Tom ->00000000005356D0
+  1 Jim ->0000000000535730
+  10086 Cmcc ->0000000000535700
+  2 Lilei ->0000000000000000
+input delete index, 0-based:0
+stu linked list:
+  1 Jim ->0000000000535730
+  10086 Cmcc ->0000000000535700
+  2 Lilei ->0000000000000000
+#
+
+
+
+ref:https://www.cnblogs.com/TianLiang-2000/p/12699224.html
+
+
+
+
+
+
+
+3. 队列和堆栈
+
+
+
+
+
 
 
 ========================================
@@ -1579,8 +1895,27 @@ G:/learn_C/day10/01.c
 
 
 
+
+
 ========================================
+好的博客等资源
 ----------------------------------------
+1. 关于指针
+https://www.cnblogs.com/TianLiang-2000/p/12699224.html
+
+
+
+2. git 两个电脑之间的同步
+https://www.jianshu.com/p/5adc552323ca
+
+查看所有分支 git branch -a
+git fetch 将本地分支与远程保持同步
+git checkout -b 本地分支名x origin/远程分支名x 拉取远程分支并同时创建对应的本地分支
+
+将本地所有分支与远程保持同步 git fetch --all
+最后拉取所有分支代码 git pull --all
+
+https://www.git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF
 
 
 
