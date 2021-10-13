@@ -13,7 +13,6 @@
 		"data":
 		[
 			["入门日常命令", "Linux-basic", "txt"],
-			["网络", "Linux-web", "txt" ],
 			["shell编程", "Linux-shell", "txt" ]
 		]
 	},
@@ -22,7 +21,8 @@
 		"data":
 		[
 			["nginx简介", "nginx001", "md"],
-			["docker笔记", "docker001", "markdown"]
+			["docker笔记", "docker001", "markdown"],
+			["K8S", "k8s_note", "txt" ]
 		]
 	}
 ]

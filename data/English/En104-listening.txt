@@ -1143,9 +1143,13 @@ investment in 对……的投资；在……方面投资
 --> 029 Asia - Covid-19 in India.mp3
 Covid-19 in India: Getting off lightly
 
-
 #==> 0, P34, (2021/7/1 23:51 --to--> 0:16 )
+drawl [drɔːl] v. （拉长调子）慢吞吞地说
+hairdresser [ˈheədresə(r)] n. 美发师
+
 grubby [ˈɡrʌbi] adj. 肮脏的；生蛆的；卑鄙的；矮小的
+# roll over 翻滚；转存；延缓付款
+
 hyperbole [haɪˈpɜːbəli] n. 夸张的语句；夸张法
 elicit [ɪˈlɪsɪt] vt. 抽出，引出；引起
 glibness [ɡlɪbnɪs] n. 花言巧语；口若悬河
@@ -1157,10 +1161,10 @@ frail [freɪl] adj. 脆弱的；虚弱的
 labourer [ˈleɪbərə(r)] n. 劳动者；劳工
 sniffle [ˈsnɪfl] v. （尤指因哭泣或患感冒）抽鼻子
 
-# Across the country, tales of such resilience abound
+# Across the country, tales of such resilience abound.
 # 在全国各地，这种韧性的故事比比皆是
 abound [əˈbaʊnd] v. 大量存在，有许多；富于，充满
-
+resilience [rɪˈzɪliəns] n. 恢复力；弹力；顺应力
 
 
 
@@ -1172,8 +1176,11 @@ abound [əˈbaʊnd] v. 大量存在，有许多；富于，充满
 # Politicians have been quick to grab credit, ascribing the low numbers to their wisdom in decreeing strict lockdowns or boosting hospital capacity
 grab credit  争功劳
 ascribe [əˈskraɪb] vt. 归因于；归咎于
+decree [dɪˈkriː] n. 法令，政令；裁定，判决 v. 裁定，判决，颁布 vi. 注定；发布命令
+
 sceptical adj. 怀疑的；怀疑论的；习惯怀疑的
 coop [kuːp] v. 把……关进笼子里；拘禁
+rack [ræk] n. [机] 齿条；架子；拷问台 vi. 变形；随风飘；小步跑 vt. 折磨；榨取
 
 
 # Since the initial tally was published, the addition of unreported deaths has narrowed the gap to a still impressive 8%.
@@ -1194,24 +1201,61 @@ eradicate [ɪˈrædɪkeɪt] vt. 根除，根绝；消灭
 # 随后印度解除了国家封锁，约50万名外籍工人从海湾地区返回，导致病例激增，难以控制。
 expatriate [ˌeksˈpætriət] v. 移居国外，定居国外；流放，放逐
 
-
 # But the state’s stronger curbs seem to have delayed the peak of its first wave, which came in October, a month after the rest of India’s.
 
 
 
 
+# 64%, P35 (2021/10/3 10:43 --> )
+# 复习前 40%
+# Yet in January, when the state released its vital statistics for 2020, the number for deaths from all causes revealed a surprise.
+# 然而，今年1月，当该州公布2020年的重要统计数据时，各种原因造成的死亡人数令人吃惊。
+
+reveal [rɪˈviːl] v. 揭示，透露；展示，显示；（通过神或超自然手段）启示 n. （电视节目最后的）揭示；门侧，窗侧
+
+tally [ˈtæli] n. 计数器；标签；记账
+shrink [ʃrɪŋk] v. （使）缩小，减少；（通常指布料、衣服等洗后）缩水
 
 
-# 64%, P35
 
+# Even with the downward estimate, Kerala appears to have weathered the pandemic remarkably well.
+# 尽管估计数字下降，但喀拉拉邦似乎很好地抵御了疫情
+weather n. 天气，气象 v. 平安度过（难关）;（船）航行到（海角）的上风，安全绕过（海角）；
+
+expatriate [ˌeksˈpætriət] v. 移居国外，定居国外；流放，放逐
 
 
 #
+The most recent national survey of blood samples showed Kerala’s rate of exposure to the virus was half the national average, a sign of success in containing its spread.
+# 最近的全国血液样本调查显示，喀拉拉邦的病毒暴露率是全国平均水平的一半，标志着遏制病毒传播的成功。
+# 主句是: The survey showed K's rate was half the average.
+contain [kənˈteɪn] v. 包含，容纳；【遏制，防止……蔓延】；抑制（感情）vi. 含有；自制
+
+
+# Official figures also suggest that Kerala’s fatality rate has been substantially lower, at just 0.4% of confirmed cases, than the rate of 1.4% for India as a whole.
+# 官方数据还显示，喀拉拉邦的病死率大大低于整个印度的1.4%，确诊病例仅占0.4%。
+
+# 主句是：figures suggest (K's) rate has been lower (than the rate of 1.4%.)
+figure [ˈfɪɡə(r)] n. 【数字；】人物；图形；价格；（人的）体形；画像
+fatality [fəˈtæləti] n. 【（灾难、事故中的）死亡】；致命性；宿命
 
 
 
-#
-#
+
+
+# 64%, P35 (2021/10/11 7:35 -->8:30 ) 25min
+obituary [əˈbɪtʃuəri] n. （报纸上的）讣告，讣文 adj. 讣告的
+
+
+# 73%, P35 (2021/10/13 7:57--> 8:10 )
+concur [kənˈkɜː(r)] vi. 同意；一致；互助
+comorbidity [ˌkəʊmɔːˈbɪdɪti] n. 疾病，伴随疾病
+
+# Even if Kerala has suffered far more than the official 4,300 fatalities from the disease, however, its overall death rate remains strikingly low.
+
+
+
+# 77%, 
 
 
 
@@ -1238,8 +1282,25 @@ expatriate [ˌeksˈpætriət] v. 移居国外，定居国外；流放，放逐
 
 
 
+
+
+
 ========================================
+audition3 内录方法
 ----------------------------------------
+1. 右击win左下角托盘的喇叭图标，选择录音设备。
+2. 选择立体声混音，点击底部 “设为默认值”，确定。
+3. 打开audition 3.0，菜单 编辑 - 音频硬件设置
+编辑查看 - 控制面板，点击 立体声混音，让前面变成叉号。
+4. 回到 音频硬件设置，编辑查看页，底部 默认输入 选择 “02S 立体声混音”，确定。
+
+5. 进入主界面，编辑/多轨 选前者，
+使用win开始播放音乐。
+点击底部红色录音键，开始录音，等录制结束，点击第一个方块结束。
+可以试听，截掉不需要的前后片段，或中间片段。
+6.保存到硬盘 
+菜单 文件 - 另存为，xx.wav，推荐mp3，比较通用。
+
 
 
 

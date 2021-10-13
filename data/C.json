@@ -13,7 +13,8 @@
 		"title":"C语言",
 		"data":
 		[
-			["C语言基础", "c11-basic", "txt" ]
+			["C语言基础", "c11-basic", "txt" ],
+			["C语言基础2", "c12-basic", "txt" ]
 		]
 	}
 

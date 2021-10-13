@@ -15,7 +15,7 @@ C具有整型、浮点型、字符型、数组类型、指针类型、结构体�
 (2) 结构化的控制语句 
 C语言的控制结构语句符合结构化程序设计要求如if...else语句、whi1e语句、do…whi1e语句、for语句，并且用函数作为程序模块，使得程序结构清晰、可读性好、易于调试。
 (3) 高效率的目标代码 
-能进行位（ｂｉｔ）操作，能实现汇编语言的大部分功能，可以直接对硬件进行操作，因此Ｃ既具有高级语言的功能，又具有低级语言的许多功能，可用来写系统软件。Ｃ语言的这种双重性，使它既是成功的系统描述语言，又是通用的程序设计语言。有人把Ｃ称为“高级语言中的低级语言”，也有人称它为“中级语言”意为兼有高级和低级语言的特点。
+能进行位(bit)操作，能实现汇编语言的大部分功能，可以直接对硬件进行操作，因此Ｃ既具有高级语言的功能，又具有低级语言的许多功能，可用来写系统软件。Ｃ语言的这种双重性，使它既是成功的系统描述语言，又是通用的程序设计语言。有人把Ｃ称为“高级语言中的低级语言”，也有人称它为“中级语言”意为兼有高级和低级语言的特点。
 (4) 用Ｃ语言写的程序可移植性好（与汇编语言比） 
 
 
@@ -1868,6 +1868,25 @@ ref:https://www.cnblogs.com/TianLiang-2000/p/12699224.html
 
 
 3. 队列和堆栈
+(1) 队列
+如果对线性表作一个限定，只允许对其一端插入节点、从另一端删除节点，那么这就是队列了。
+
+队列在日常生活中很常见，比如常见的排队购物，后来的人只能插在队伍的最后面，而先来的则最先买到物品离开，绝对不允许中间有人插队的现象产生。
+
+概括地说，队列就是一个先进先出的线性表。
+
+只允许head添加元素 -->ele 1-->ele 2--> 只允许end删除元素
+
+(2) 什么是堆栈？
+如果对线性表作一种限定，指定插入和删除节点都只允许在其一端进行，那么就是堆栈结构。
+
+堆栈总是一个先进后出的线性表。
+
+这边不允许操作--> ele 1-->ele 2--> 只允许一端添加/删除元素
+
+堆栈和队列在日常应用中非常广泛，它们一般都既可以采取顺序结构、也可以使用链式结构来描述，具体使用方式为程序员人为规定，换句话说，规定了特定的插入、删除位置的线性表就是堆栈和队列。
+
+
 
 
 
@@ -1876,18 +1895,440 @@ ref:https://www.cnblogs.com/TianLiang-2000/p/12699224.html
 
 
 ========================================
-cur 
+day11/ 文件
+----------------------------------------
+从广义上讲，许多外部设备也可以看作是文件，因为也可给它们取一个唯一的名字。对它们的操作也可用对磁盘文件相同的操作来实现，
+
+
+“文件”是指存储在计算机外部存储器中的数据的集合。计算机在处理文件时，只要知道文件的名字，就可以自动完成对文件的查找、存取、删除等各种操作。
+
+C语言将文件看作是字符构成的序列，即字符流。其基本的存储单位是字节。C语言中的文件，按照数据存放的形式分为两类：一类是将数据当作一个一个字符，按照它的ASCII代码存放，称为ASCII文件或文本（text）文件。第二类是按照数据值的二进制代码存放，称为二进制文件中。
+
+
+1. 文件的打开与关闭
+(1) 文件类型指针
+当在C程序中操作一个实际的磁盘文件时，一样需要一个流指针来代表这个文件。流指针其实是一个结构体类型的指针，这个结构体被定义在头文件stdio.h定义，它详细描述了一个流的性质，形式如下：
+
+typedef struct{
+	short level; /* 缓冲区“满”或者“空”的程度 */
+	unsigned flags; /* 文件状态标志 */
+	char fd; /* 文件描述符 */
+	unsigned char hold; /* 如果无缓冲区则不读取字符 */
+	short bsize; /* 缓冲区的大小 */
+	unsigned char *buffer; /* 数据缓冲区的位置 */
+	unsigned char *curp; /* 指针，当前的指向 */
+	unsigned istemp; /* 临时文件指示器 */
+	short token; /* 用于有效性检查 */
+}FILE;
+
+这是ANSI标准中定义的，在不同的C语言编译平台下面可能有些不同，但区别不大，功能都是一样的，基本含义也没有什么变化。
+
+我们通常使用FILE结构来定义一个流指针：
+	FILE *fp;
+而且，对于流指针，我们习惯给它起个顾名思义的名称，叫“文件指针”，就好像它指向某一个文件一样。
+
+文件指针变量的赋值操作是由打开文件函数fopen()实现的。
+
+
+
+(2) 文件的打开
+
+C语言文件的打开是通过stdio.h函数库的fopen()函数实现的。它的调用方式一般为： 
+	文件指针变量=fopen(文件名，处理文件方式)
+
+在使用时要注意：
+1)“文件名”是要打开的文件的文件名字，但在书写时要符合C语言的规定。例如文件名“a:\exam1.c”，由于’\’是转义字符的标志，所以在该函数中的文件名应写成“a:\\exam1.c”。 
+
+2)打开文件时“处理文件方式”决定了系统可以对文件进行的操作。C语言提供的“ASCII文件处理方式”及作用见下表。
+
+
+表14.1 ASCII文件处理方式的作用与影响
+mode /处理方式  /当文件不存在时  /当文件存在时  /向文件输入  /从文件输出
+“r”	/读取	/出错	/打开文件	/不能	/可以	
+“w”	/写入	/建立新文件	/覆盖原有文件	/可以	不能
+“a”	/追加	/建立新文件	/在原有文件后追加	/可以	/不能
+“r+”	/读取/写入	/出错	/打开文件	可以	可以
+“w+”	写入/读取	建立新文件	覆盖原有文件	可以	可以
+“a+”	读取/追加	建立新文件	在原有文件后追加	可以	可以
+
+
+注：如果是二进制文件，在使用时只要在模式后添加字符b即可，如“rb”、“rb+”分别表示读取二进制文件和以读取/写入打开二进制文件。
+
+如果由于文件不存在等原因造成不能打开文件，则调用fopen()后将返回一个空指针NULL。
+
+
+
+(3) 文件的关闭
+文件的关闭通过stdio.h中的fclose()函数实现。具体用法是： fclose(文件指针);
+例如： fclose(fp);
+则程序将文件类型指针fp所指向的文件关闭。fp不再指向该文件。
+
+
+// 文件的打开、关闭
+#include<stdio.h>
+int main(){
+	FILE *fp;
+	char ch, filename[]="../01.c", mode[]="r";
+	
+	if( (fp=fopen(filename, mode)) == NULL ){
+		fprintf(stderr, "Error in opening file %s in mode %s", 
+			filename, mode);
+		return 1;
+	}
+	
+	printf("File open success! \n");
+	fclose(fp);
+	return 0;
+}
+
+
+
+
+
+
+
+2. 文件的读写操作
+
+(1) 按字符读写的函数fgetc()、fputc()
+
+函数fputc()的作用是向文件写入一个字符。其调用形式为： fputc(字符，文件型指针变量)
+例： fputc('A',fp);
+如果写入操作成功，返回值是该字符，否则返回EOF。
+
+
+fgetc()函数
+函数fgetc()的作用是从一个文件中读取一个字符。其调用形式为： fgetc(文件型指针变量)
+例： a=fgetc(fp);
+fp为一个文件类型指针变量，函数fgetc(fp)不仅返回文件当前位置的字符，并且使文件位置指针下移一个字符。如果遇到文件结束，则返回值为文件结束标志EOF。
+
+
+//按字符读写的函数fgetc()、fputc()
+//从键盘输入字符，逐个存到磁盘文件中，直到输入‘#“为止
+#include<stdio.h>
+int main(){
+	char ch;
+	//写入文件
+	FILE *fp=fopen("dustbin/test1.txt", "w");
+	while( (ch=getchar())!= '#' ){
+		fputc(ch, fp);
+	}
+	fclose(fp);
+	
+	//读出文件
+	fp=fopen("dustbin/test1.txt","r");
+	while( (ch=fgetc(fp))!=EOF ){
+		printf("%c", ch);
+	}
+	printf("\n");
+	fclose(fp);
+	return 0;
+}
+
+
+
+
+(2) 按字符串读写的函数fgets()、fputs()
+fputs()函数
+函数fputc()的作用是向文件写入一个字符串。其调用形式为： fputs(字符串，文件型指针变量) 
+
+其中字符串可以是字符串常量、指向字符串的指针变量、存放字符串数组的数组名。写入文件成功函数返回值为0，否则为EOF。注意：字符串的结束标志’\0’不写入文件。例如： fputs(“Hello”,fp); 
+fp为一个文件类型指针变量，上式将字符串中的字符H、e、l、l、o写入文件指针的当前位置。
+
+
+fgets()函数
+函数fgets()的作用是从一个文件中读取一个字符串。其调用形式为： fgets(字符数组，字符数，文件型指针变量)
+例： fgets(str,n,fp); 
+其作用是从fp指向的文件的当前位置开始读取n-1个字符，并加上字符串结束标志’\0’一起放入字符数组str中。如果从文件读取字符时遇到换行符或文件结束标志EOF，读取结束。函数返回值为字符数组str的首地址。
+
+
+char *gets(char *str) 从标准输入 stdin 读取一行,并把它存储在 str 所指向的字符串中。
+
+
+
+//按字符串读写的函数fgets()、fputs()
+//从键盘读入字符串存入文件，再从文件读回显示
+#include<stdio.h>
+#include<string.h>
+int main(){
+	char string[100];
+	//写入文件
+	FILE *fp=fopen("dustbin/test2.txt", "w");
+	if( fp== NULL ){
+		printf("Error: open file failed as w\n");
+		return -1;
+	}
+	printf("Please input some text\n");
+	while (strlen(gets(string)) >0){
+		fputs(string, fp);
+		fputs("\n", fp);
+	}
+	fclose(fp);
+	
+	//读出文件
+	if( (fp=fopen("dustbin/test2.txt","r")) == NULL){
+		printf("Error: open file failed as r\n");
+		return -1;
+	}
+	while( fgets(string, 64, fp)!=NULL ){
+		fputs(string, stdout); //写到标准输出
+	}
+	fclose(fp);
+	printf("\n");
+	return 0;
+}
+
+
+
+
+
+
+(3) 按格式要求读写的函数fprintf()、fscanf()
+
+1)
+函数fprintf()的作用与printf()相似，只是输出对象不是标准输出设备而是文件，即按照格式要求将数据写入文件。
+
+它调用的一般形式为： fprintf(文件型指针变量，格式控制，输出表列)；
+
+例如： fprintf(fp,”%ld,%s,%5.1f”,num,name,score); 
+它的作用是将变量num、name、score按照%ld、%s、%5.1f的格式写入fp指向的文件的当前位置。
+
+2)
+fscanf()函数
+函数scanf()从通过标准输入设备读取数据，同样函数fscanf()按照格式要求从文件中读取数据。
+
+它调用的一般形式为： fscanf(文件型指针变量，格式控制，输入表列)；
+
+例如： fscanf(fp,”%ld,%s,%5.1f”,&num,&name,&score); 它的作用是从fp指向的文件的当前位置开始，按照%ld、%s、%5.1f的格式取出数据，赋给变量num、name和score。
+
+函数fprintf()和fscanf()主要用于数据文件的读写，既可以使用ASCII文件也可以使用二进制文件。
+
+//按格式要求读写的函数fprintf()、fscanf()
+#include<stdio.h>
+int main(){
+	char str1[80], str2[80];
+	int len1, len2;
+	FILE *fp;
+	if( (fp=fopen("dustbin/test3.txt", "w"))==NULL ){
+		puts("Error: open file failed AS w\n");
+		return -1;
+	}
+	//写入文件
+	printf("input 1 word and 1 number: rose 512\n");
+	fscanf(stdin, "%s %d", str1, &len1 ); //read from keyboard
+	fprintf(fp, "%s %d", str1, len1); //write to file
+	fclose(fp);
+	
+	//读入文件
+	if( (fp=fopen("dustbin/test3.txt", "r"))==NULL ){
+		puts("Error: open file failed as r\n");
+		return -1;
+	}
+	fscanf(fp, "%s %d", str2, &len2); //read from file
+	fprintf(stdout, "%s %d", str2, len2);//to screen
+	fclose(fp);
+	return 0;
+}
+
+
+
+
+
+(4) 按数据块读写的函数fread()、fwrite()
+1)fwrite()函数
+函数fwrite()的作用是将成批的数据块写入文件。它调用的一般形式为： 
+	fwrite(写入文件的数据块的存放地址，一个数据块的字节 数，数据块的个数，文件型指针变量)；
+如果函数fwrite()操作成功，则返回值为实际写入文件的数据块的个数。
+
+例如：已知一个struct student 类型的数组stu[20]，则语句 
+	fwrite(&stu[1], sizeof(struct student ), 2, fp); 
+是从结构体数组元素stu[1]存放的地址开始，以一个结构体struct student类型变量所占字节数为一个数据块，共写入文件类型指针fp指向的文件2个数据块，即stu[1]、stu[2]的内容写入文件。如果操作成功，函数的返回值为2。
+
+
+2) fread()函数
+函数fread()的作用是从文件中读出成批的数据块。它调用的一般形式为： 
+	fread(从文件读取的数据块的存放地址，一个数据块的字节 数，数据块的个数，文件型指针变量)；
+
+同样，如果函数fread()操作成功，则返回值为实际从文件中读取数据块的个数。
+
+例如：已知stu1是一个结构体struct student变量，则 
+	fread(&stu1, sizeof(struct student ), 1, fp); 
+是从文件类型指针fp指向的文件的当前位置开始，读取1个数据块，该数据块为结构体struct student类型变量所占字节数，然后将读取的内容放入变量stu1中。
+
+注意：fwrite()和fread()函数读写文件时，只有使用二进制方式，才可以读写任何类型的数据。最常用于读写数组和结构体类型数据。
+
+
+//按数据块读写的函数fread()、fwrite()
+//从键盘输入4个学生数据，把他们转存到磁盘文件中去
+#include<stdio.h>
+#define SIZE 2
+
+struct student_type{
+	char name[10];
+	int num;
+	int age;
+	char addr[15];
+} stud[SIZE];
+
+// 读取文件
+int display(){
+	FILE *fp;
+	int i;
+	if( (fp=fopen("dustbin/001.dat", "rb"))==NULL ){
+		printf("Error: failed open file as rb\n");
+		return -1;
+	}
+	for(i=0; i<SIZE; i++){
+		fread( &stud[i], sizeof(struct student_type),1, fp);
+		printf("%-10s %4d %4d %-15s\n", 
+			stud[i].name, stud[i].num, 
+			stud[i].age, stud[i].addr);
+	}
+	fclose(fp);
+	return 0;
+}
+
+//写文件 dustbin
+int save(){
+	FILE *fp;
+	int i;
+	if( (fp=fopen("dustbin/001.dat","wb"))==NULL ){
+		printf("Error: failed open file as wb\n");
+		return -1;
+	}
+	for(i=0; i<SIZE; i++){
+		if( fwrite(&stud[i], sizeof(struct student_type), 1, fp)!=1 ){
+			printf("Error: file write error\n");
+			return -1;
+		}
+	}
+	fclose(fp);
+	return 0;
+}
+
+// 主程序
+int main(){
+	int i;
+	printf("input %d student info: name num age addr\n", SIZE);
+	for(i=0; i<SIZE; i++){
+		scanf("%s %d %d %s", stud[i].name, &stud[i].num,
+			&stud[i].age, stud[i].addr);
+	}
+	save();
+	display();
+	return 0;
+}
+
+
+输出：
+input 2 student info: name num age addr
+Lily 180 18 Room01
+Hanmeimei 182 18 Room02
+Lily        180   18 Room01
+Hanmeimei   182   18 Room02
+
+
+
+
+
+
+
+3. 文件的其它常用函数
+文件指针的定位非常重要。下面我们介绍一些文件操作中常用的函数，这些库函数在C语言的stdio.h头文件中定义的。
+
+(1) 函数feof()
+
+函数feof()用来检测一个指向文件的指针是否已经指到了文件最后的结束标志EOF。
+
+调用的一般形式为： feof(文件型指针变量)； 
+
+如果文件型指针指向的文件的当前位置为结束标志EOF，则函数返回一个非零值，否则返回0值。
+
+
+之前是
+	//读取文件并显示
+	char ch=getc(fp1);
+	while( ch != EOF ){
+		putchar( ch );
+		ch = getc(fp1);
+	}
+	if(feof(fp1)){
+		printf("\nThe end of file1\n");
+	}
+
+win7 gcc 测试表明，换成如下会多读一个特殊字符xFF，不知道是什么东西？
+	//读取文件并显示
+	while( !feof(fp1) ){
+		putchar( getc(fp1) );
+	}
+	printf("====\n");
+#
+
+有人发现类似问题：
+while ((c = getc(file)) != EOF) loop won't stop executing.
+https://stackoverflow.com/questions/44690922/getcfp-strange-character-%c3%bf-at-the-very-bottom
+
+
+
+(2) 函数rewind()
+函数rewind()将令指向文件的指针重新指向文件的开始位置。函数无返回值。
+
+其调用形式为： rewind(文件型指针变量)；
+例如： rewind(fp); 
+
+fp是一个指向文件的指针，执行该语句后，fp指向文件的开始位置，即文件的第一个数据。
+
+
+
+(3) 函数fseek()
+函数fseek()可以将使得指向文件的指针变量指向文件的任何一个位置，实现随机读写文件。
+
+它调用的形式为： fseek(文件型指针变量，偏移量，起始位置)；
+
+函数fseek()将以文件的起始位置为基准，根据偏移量往前或往后移动指针。
+其中偏移量是一个长整型数，表示从起始位置移动的字节数，正数表示指针往后移、负数表示指针往前移。
+起始位置用数字0、1、2或者用名字SEEK_SET、SEEK_CUR、SEEK_END代表文件开始、文件当前位置和文件结束位置。
+如果指针设置成功，返回值为0，否则为非0值。
+
+
+(4) 函数ftell()
+
+函数ftell()用于测试指向文件的指针的当前位置。
+它的调用方式为： ftell(文件型指针变量)； 
+
+函数的返回值是一个常整型数，如果测试成功，则返回指向文件的指针当前指向的位置距离文件开头的字节数，否则返回-1L。
+
+
+
+
+
+
+
+========================================
+cur: 习题集  ？/100
 ----------------------------------------
 
+中兴讲义: 180页
 P55
 P61
 P64 2021/7/27
 P71 2021/8/1
 P82 2021/8/4
+P95 2021/8/10
+P97 2021/8/11
+P102/180 2021/8/30 文件最后部分
+
+
+中兴习题集 100 页
+
+
+
+
+
 
 
 
 编译的格式：
+dir: G:\learn_C\day11
 less day05/15.c
 bash makeC.sh day08 04
 
