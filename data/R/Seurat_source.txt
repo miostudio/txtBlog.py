@@ -1,0 +1,658 @@
+Seurat 包源码解析 - 首发 知乎
+
+
+1. 我的合集 https://www.zhihu.com/column/c_1431016570223468544
+	Seurat 4 源码解析 1 Seurat 类怎么定义的？ https://zhuanlan.zhihu.com/p/463532779
+	Seurat 4 源码解析 2：Seurat 对象怎么实例化的？ https://zhuanlan.zhihu.com/p/463602480
+	Seurat 4 源码解析 3：Seurat 对象的方法是怎么定义的？ https://zhuanlan.zhihu.com/p/463617297
+
+
+
+
+========================================
+todo list: 接下来的话题是啥？
+----------------------------------------
+	todo: 
+		Idents<- 干了啥？
+		AverageExpression 的实现？
+		DoHeatmap 
+		
+		细胞周期的计算：
+pbmc3k.final <- CellCycleScoring(
+  object = pbmc3k.final,
+  g2m.features = cc.genes$g2m.genes,
+  s.features = cc.genes$s.genes
+)
+		
+		如何取子集？ https://www.jianshu.com/p/50e2b6ff10d8
+		如何 merge?
+		如何 FindAllMarkers?
+		整合？标签转换？ Integration and Label Transfer https://www.jianshu.com/p/980be19a6512
+		
+		
+		多线程采用 future 框架？https://www.jianshu.com/p/6f556b1a0b38
+			https://cran.r-project.org/web/packages/future/index.html
+		
+		Seurat 4.0 ||单细胞多模态数据整合算法WNN https://www.jianshu.com/p/623a8027971c
+
+
+2. 发现其他 Seurat 源码解析：简书 搜 “seurat 源码”
+	seurat-NormalizeData()源码解析 https://www.jianshu.com/p/2203a20cb369
+	seurat-FindAllMarkers()源码解析 https://www.jianshu.com/p/f5c8f9ea84af
+	https://www.jianshu.com/p/fb2e43905559
+	
+	(周运来)Seurat Weekly NO.14 || 读源码解决实际问题 https://www.jianshu.com/p/53036dcae5a0
+		为什么Seurat的函数运行完返回的还是Seurat对象，它读入的和输出的都一样，好奇怪。
+		为什么Seurat的聚类结果中编号是从零开始的，而且，细胞数量依次递减
+	Seurat对象中NicheNet分析以及circos可视化 https://www.jianshu.com/p/46f487f58a9c
+	Seurat Weekly NO.3|| 直接用Seurat画fig2 https://www.jianshu.com/p/4f81b65abd8b
+
+
+========================================
+Learn Seurat 4.0 源码学习 (2022.1.31)
+----------------------------------------
+Seurat单细胞分析常见代码-02 https://www.jianshu.com/p/7a02b4f063e6
+
+
+1. 整体结构
+源码 https://github.com/satijalab/seurat
+
+阅读 Seurat 源码： https://www.jianshu.com/p/ab245eda9974
+
+
+主要是用 R 和 C++ 写的。
+
+下载到本地 F:\R\R_Seurat\seurat-4.1.0
+
+
+(1) 主要一级文件
+/seurat.Rproj 项目文件，自动定义 自己的路径。
+/DESCRIPTION 项目描述，依赖包及版本
+/NAMESPACE 该包暴漏出去的函数：export("Index<-")
+	很多是S3类的方法：S3method(FindClusters,Seurat)
+	暴漏出去的类: exportClasses(Seurat), exportClasses(AnchorSet)
+	从其他包引入的方法：importFrom(cowplot,get_legend), importFrom(ggplot2,GeomViolin)
+	最后2个不熟悉:
+		importMethodsFrom(Matrix,t)
+		useDynLib(Seurat)
+
+
+(2) 主要的文件夹
+R/ 主函数 .R
+src/ 主函数 .cpp, .h 文件
+man/ 帮助文件 .Rd
+
+data/ 数据文件 主要是2个cell cycle 基因集合
+inst/extdata/ pbmc_small 数据
+
+tests/ 测试文件
+vignettes/ 各种示例教程，官方网站源码 .Rmd
+
+
+
+
+
+2. Seurat 类定义在哪里？
+/R/objects.R 下没有，只有引用
+
+$ find . | xargs grep "Seurat" | grep class --color=auto
+
+./objects.R:# Get the names of objects within a Seurat object that are of a certain class
+./objects.R:# @return A vector with the names of objects within the Seurat object that are of class \code{classes.keep}
+
+
+搜索发现一个函数，
+$ find . | xargs grep "CreateSeuratObject" --color=auto
+
+./objects.R:    object <- CreateSeuratObject(
+./objects.R:      object <- CreateSeuratObject(
+./preprocessing.R:#' @inheritParams SeuratObject::CreateSeuratObject
+明显还有一个包叫 SeuratObject，专门定义这类的。
+
+
+
+(2) 在 SeuratObject 包中查找Seurat的定义
+library(SeuratObject) 按F1可以看到网址 https://github.com/mojaveazure/seurat-object
+
+SeuratObject 简介：https://mojaveazure.github.io/seurat-object/reference/Seurat-class.html
+
+定义S4类，用于单细胞基因组数据及相关信息，比如降维嵌入，最近邻图，空间分辨率坐标。
+Defines S4 classes for single-cell genomic data and associated information, such as dimensionality reduction embeddings, nearest-neighbor graphs, and spatially-resolved coordinates. 
+
+提供数据访问方法和R原生钩子，保证其他R 用户熟悉 Seurat 类。
+Provides data access methods and R-native hooks to ensure the Seurat object is familiar to other R users.
+
+我们继续克隆代码到本地 F:\R\R_Seurat\seurat-object-4.0.4
+
+R/ 
+man/ 
+src/ 
+data/ 
+tests/ 
+NAMESPACE 看看都定义了哪些方法
+	S3method("$",Seurat)
+	S3method("$<-",Seurat)
+	S3method("Idents<-",Seurat)
+	S3method(AddMetaData,Seurat)
+	S3method(dim,Seurat)
+	S3method(WhichCells,Seurat)
+	
+	export("%||%")
+	export(AddMetaData)
+	export(CreateSeuratObject)
+	export(FetchData)
+	
+	exportClasses(Seurat) #确实是这里定义的
+	exportMethods(colSums) 
+	
+	importFrom(rlang,"%||%") #rlang 包提供了什么？
+	importFrom(utils,tail)
+	
+	最后一个不懂
+	useDynLib(SeuratObject)
+
+
+
+(3) 看定义的文件 R/seurat.R
+
+第 50 行有一个定义
+#' @exportClass Seurat #是对外暴漏的类
+
+Seurat <- setClass(
+  Class = 'Seurat',
+  slots = c(
+    assays = 'list',
+    meta.data = 'data.frame',
+    active.assay = 'character',
+    active.ident = 'factor',
+    graphs = 'list',
+    neighbors = 'list',
+    reductions = 'list',
+    images = 'list',
+    project.name = 'character',
+    misc = 'list',
+    version = 'package_version',
+    commands = 'list',
+    tools = 'list'
+  )
+)
+
+
+第 119 行还有一个小写版本（没对外暴漏。可能是老版本，少用点换行符）
+seurat <- setClass(
+  Class = "seurat",
+  slots = c(
+    raw.data = "ANY",    data = "ANY",    scale.data = "ANY",    var.genes = "vector",
+    is.expr = "numeric",    ident = "factor",    meta.data = "data.frame",    project.name = "character",
+    dr = "list",    assay = "list",    hvg.info = "data.frame",    imputed = "data.frame",
+    cell.names = "vector",    cluster.tree = "list",    snn = "dgCMatrix",    calc.params = "list",
+    kmeans = "ANY",    spatial = "ANY",    misc = "ANY",    version = "ANY"
+  )
+)
+
+
+
+
+(4) 如何实例化 Seurat 对象？
+构建对象的函数 R/Seurat.R 中的 CreateSeuratObject.default
+
+#' @param row.names When \code{counts} is a \code{data.frame} or
+#' \code{data.frame}-derived object: an optional vector of feature names to be used
+#'
+#' @rdname CreateSeuratObject
+#' @method CreateSeuratObject default
+#' @export
+#'
+CreateSeuratObject.default <- function(
+  counts,
+  project = 'SeuratProject',
+  assay = 'RNA',
+  names.field = 1,
+  names.delim = '_',
+  meta.data = NULL,
+  min.cells = 0,
+  min.features = 0,
+  row.names = NULL,
+  ...
+) {
+  #如果提供 meta.data
+  if (!is.null(x = meta.data)) {
+    # 如果 meta.data 的行名(cid)不全在 counts 的列名(cid)中，则警告
+    if (!all(rownames(x = meta.data) %in% colnames(x = counts))) {
+      warning("Some cells in meta.data not present in provided counts matrix")
+    }
+  }
+  
+  # 创建 assay 对象，并按照 min.cells, min.features 过滤
+  assay.data <- CreateAssayObject(
+    counts = counts,
+    min.cells = min.cells,
+    min.features = min.features,
+    row.names = row.names
+  )
+  
+  #如果提供 meta.data, 取 meta.data 行名(cid) 和 assay 列名(cid)的交集
+  if (!is.null(x = meta.data)) {
+    common.cells <- intersect(
+      x = rownames(x = meta.data), y = colnames(x = assay.data)
+    )
+	# 只保留共有cid的 meta.data。
+    meta.data <- meta.data[common.cells, , drop = FALSE] #这个 drop=F 啥意思？
+  }
+  
+  # 没看懂这一句
+  Key(object = assay.data) <- suppressWarnings(expr = UpdateKey(key = tolower(
+    x = assay
+  )))
+  
+  # 返回一个 CreateSeuratObject.Assay()
+  return(CreateSeuratObject(
+    counts = assay.data,
+    project = project,
+    assay = assay,
+    names.field = names.field,
+    names.delim = names.delim,
+    meta.data = meta.data,
+    ...
+  ))
+}
+
+
+
+$ find . | xargs grep  -i "UseMethod" --color=auto
+grep: .: Is a directory
+./generics.R:  UseMethod(generic = 'AnnotateAnchors', object = anchors)
+./generics.R:  UseMethod(generic = 'as.CellDataSet', object = x)
+
+./generics.R:  UseMethod(generic = 'FindMarkers', object = object)
+
+./generics.R:  UseMethod(generic = 'GetAssay', object = object)
+
+./generics.R:  UseMethod(generic = 'RunPCA', object = object)
+
+./generics.R:  UseMethod(generic = 'RunTSNE', object = object)
+./generics.R:  UseMethod(generic = 'RunUMAP', object = object)
+...
+
+
+
+
+
+(5) 如何实例化　Seurat 对象？ new()
+
+构建对象的函数 R/Seurat.R 中的 CreateSeuratObject.Assay
+
+#' @rdname CreateSeuratObject
+#' @method CreateSeuratObject Assay
+#' @export
+#'
+CreateSeuratObject.Assay <- function(
+  counts,
+  project = 'SeuratProject',
+  assay = 'RNA',
+  names.field = 1,
+  names.delim = '_',
+  meta.data = NULL,
+  ...
+) {
+  if (!is.null(x = meta.data)) {
+    if (is.null(x = rownames(x = meta.data))) {
+      stop("Row names not set in metadata. Please ensure that rownames of metadata match column names of data matrix")
+    }
+    if (length(x = setdiff(x = rownames(x = meta.data), y = colnames(x = counts)))) {
+      warning("Some cells in meta.data not present in provided counts matrix.")
+      meta.data <- meta.data[intersect(x = rownames(x = meta.data), y = colnames(x = counts)), , drop = FALSE]
+    }
+    if (is.data.frame(x = meta.data)) {
+      new.meta.data <- data.frame(row.names = colnames(x = counts))
+      for (ii in 1:ncol(x = meta.data)) {
+        new.meta.data[rownames(x = meta.data), colnames(x = meta.data)[ii]] <- meta.data[, ii, drop = FALSE]
+      }
+      meta.data <- new.meta.data
+    }
+  }
+  # Check assay key
+  if (!length(x = Key(object = counts)) || !nchar(x = Key(object = counts))) {
+    Key(object = counts) <- UpdateKey(key = tolower(x = assay))
+  }
+  assay.list <- list(counts)
+  names(x = assay.list) <- assay
+  # Set idents
+  idents <- factor(x = unlist(x = lapply(
+    X = colnames(x = counts),
+    FUN = ExtractField,
+    field = names.field,
+    delim = names.delim
+  )))
+  if (any(is.na(x = idents))) {
+    warning(
+      "Input parameters result in NA values for initial cell identities. Setting all initial idents to the project name",
+      call. = FALSE,
+      immediate. = TRUE
+    )
+  }
+  # if there are more than 100 idents, set all idents to ... name
+  ident.levels <- length(x = unique(x = idents))
+  if (ident.levels > 100 || ident.levels == 0 || ident.levels == length(x = idents)) {
+    idents <- rep.int(x = factor(x = project), times = ncol(x = counts))
+  }
+  names(x = idents) <- colnames(x = counts)
+  object <- new(  #这里终于见到 new() 实例化方法了
+    Class = 'Seurat',
+    assays = assay.list,
+    meta.data = data.frame(row.names = colnames(x = counts)),
+    active.assay = assay,
+    active.ident = idents,
+    project.name = project,
+    version = packageVersion(pkg = 'SeuratObject')
+  )
+  object[['orig.ident']] <- idents
+  # Calculate nCount and nFeature
+  n.calc <- CalcN(object = counts)
+  if (!is.null(x = n.calc)) {
+    names(x = n.calc) <- paste(names(x = n.calc), assay, sep = '_')
+    object[[names(x = n.calc)]] <- n.calc
+  }
+  # Add metadata
+  if (!is.null(x = meta.data)) {
+    object <- AddMetaData(object = object, metadata = meta.data)
+  }
+  return(object)
+}
+
+
+
+
+
+
+
+========================================
+|-- Seurat 方法的定义
+----------------------------------------
+
+6). S4类方法的定义 setGeneric(), setMethod()
+
+setClass("Student", slots=c(name="character", age="numeric"))
+s1=new("Student", name="Tom", age=20)
+
+正常定义方法需要先定义泛型函数，再实现该函数。
+分别对应着如下2个函数。
+setGeneric("getAge", function(x) standardGeneric("getAge"))
+setMethod("getAge", "Student", function(x) x@age )
+getAge(s1) #20
+
+如果是已有函数，则引入该R包后只需要写出函数实现。
+Seurat Object 就只使用已有泛型方法，以为迎合R用户的使用习惯，所以该包只有实现 setMethod，没有 看到泛型定义 setGeneric。
+
+
+例子1: 简单获取每个行的总和，默认是用 slot='data' (log-normalize 之后的数据)。
+#' @describeIn Seurat-methods Calculate \code{\link[base]{rowSums}} on a
+#' \code{Seurat} object
+#'
+#' @importFrom Matrix rowSums
+#'
+#' @export
+#'
+#' @examples
+#' head(rowSums(pbmc_small))
+#'
+setMethod(
+  f = 'rowSums',
+  signature = c('x' = 'Seurat'),
+  definition = function(x, na.rm = FALSE, dims = 1, ..., slot = 'data') {
+    return(Matrix::rowSums(
+      x = GetAssayData(object = x, slot = slot),
+      na.rm = na.rm,
+      dims = dims,
+      ...
+    ))
+  }
+)
+
+
+
+
+例子2：这个是直接输入 Seurat 对象并回车时显示的内容
+
+#' @describeIn Seurat-methods Overview of a \code{Seurat} object
+#'
+#' @return \code{show}: Prints summary to \code{\link[base]{stdout}} and
+#' invisibly returns \code{NULL}
+#'
+#' @importFrom methods show
+#'
+#' @export
+#'
+setMethod(
+  f = "show",
+  signature = "Seurat",
+  definition = function(object) {
+    object <- UpdateSlots(object = object)
+    assays <- FilterObjects(object = object, classes.keep = 'Assay')
+    nfeatures <- sum(vapply(
+      X = assays,
+      FUN = function(x) {
+        return(nrow(x = object[[x]]))
+      },
+      FUN.VALUE = integer(length = 1L)
+    ))
+    num.assays <- length(x = assays)
+    cat("An object of class", class(x = object), "\n")
+    cat(
+      nfeatures,
+      'features across',
+      ncol(x = object),
+      'samples within',
+      num.assays,
+      ifelse(test = num.assays == 1, yes = 'assay', no = 'assays'),
+      "\n"
+    )
+    cat(
+      "Active assay:",
+      DefaultAssay(object = object),
+      paste0('(', nrow(x = object), ' features, ', length(x = VariableFeatures(object = object)), ' variable features)')
+    )
+    other.assays <- assays[assays != DefaultAssay(object = object)]
+    if (length(x = other.assays) > 0) {
+      cat(
+        '\n',
+        length(x = other.assays),
+        'other',
+        ifelse(test = length(x = other.assays) == 1, yes = 'assay', no = 'assays'),
+        'present:',
+        strwrap(x = paste(other.assays, collapse = ', '))
+      )
+    }
+    reductions <- FilterObjects(object = object, classes.keep = 'DimReduc')
+    if (length(x = reductions) > 0) {
+      cat(
+        '\n',
+        length(x = reductions),
+        'dimensional',
+        ifelse(test = length(x = reductions) == 1, yes = 'reduction', no = 'reductions'),
+        'calculated:',
+        strwrap(x = paste(reductions, collapse = ', '))
+      )
+    }
+    cat('\n')
+  }
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+========================================
+|-- 自定义函数 
+----------------------------------------
+1. FetchData() 
+未定义其泛型函数: 
+> getGeneric("FetchData")
+NULL
+
+ 函数定义在 R/seurat.R:292行：
+$ find R/. | xargs grep -n "FetchData" --color=auto
+...
+R/./seurat.R:292:FetchData <- function(object, vars, cells = NULL, slot = 'data') {
+
+太长了，先跳过吧。
+
+
+
+
+
+2. FilterObjects
+
+#' Find Sub-objects of a Certain Class
+#'
+#' Get the names of objects within a \code{Seurat} object that are of a
+#' certain class 获取Seurat对象中某个子类的对象名字
+#'
+#' @param object A \code{\link{Seurat}} object
+#' @param classes.keep A vector of names of classes to get
+#'
+#' @return A vector with the names of objects within the \code{Seurat} object
+#' that are of class \code{classes.keep} 
+#' 返回值是 Seurat 对象中 classes.keep 指定的子类中的对象名字
+#'
+#' @export
+#'
+#' @examples
+#' FilterObjects(pbmc_small)
+#'
+FilterObjects <- function(object, classes.keep = c('Assay', 'DimReduc')) {
+  object <- UpdateSlots(object = object)
+  # 获取slot对应值为list的slots名字
+  slots <- na.omit(object = Filter(
+    f = function(x) {
+      sobj <- slot(object = object, name = x)
+	  # 是list，且 不是df，且不是包版本号
+      return(is.list(x = sobj) && !is.data.frame(x = sobj) && !is.package_version(x = sobj))
+    },
+    x = slotNames(x = object)
+  ))
+  # 不要 tools 和 misc 两个 slot
+  slots <- grep(pattern = 'tools', x = slots, value = TRUE, invert = TRUE)
+  slots <- grep(pattern = 'misc', x = slots, value = TRUE, invert = TRUE)
+
+  # 对这些slot名字，获取其对应的值list，获取该list 的name属性返回。
+  # 再解list，最后就是: "pca"  "umap"
+  slots.objects <- unlist(
+    x = lapply(
+      X = slots,
+      FUN = function(x) {
+        return(names(x = slot(object = object, name = x)))
+      }
+    ),
+    use.names = FALSE
+  )
+  
+  # 再核验一下是不是所需要的类 
+  object.classes <- sapply(
+    X = slots.objects,
+    FUN = function(i) {
+      return(inherits(x = object[[i]], what = classes.keep))
+    }
+  )
+  # 输出
+  # pca umap 
+  # TRUE TRUE
+  
+  # 给出TRUE值的位置编号
+  object.classes <- which(x = object.classes, useNames = TRUE)
+  # pca umap 
+  # 1    2 
+  
+  # 返回这些位置编号的name
+  return(names(x = object.classes))
+}
+
+
+
+
+
+
+========================================
+|-- 内部函数，不暴漏在 NAMESPACE 文件中
+----------------------------------------
+1. UpdateSlots()干了什么(内部函数)？
+$ find R/. | xargs grep -n "UpdateSlots" --color=auto
+R/./utils.R:976:UpdateSlots <- function(object) {
+
+
+
+#' Update slots in an object 更新对象内的slots
+#'
+#' @param object An object to update
+#'
+#' @return \code{object} with the latest slot definitions
+#'
+#' @importFrom methods slotNames slot
+#'
+#' @keywords internal #这个函数是该包的内部函数
+#'
+#' @noRd #不生成文档
+#'
+UpdateSlots <- function(object) {
+  # obj 变 list
+  object.list <- sapply(
+    X = slotNames(x = object), #获取该对象的slot名字
+    FUN = function(x) {
+      return(tryCatch( #tryCatch 的使用方法？
+        expr = slot(object = object, name = x), #获取该对象这个slot对应的值
+        error = function(...) { #如果出错就返回NULL
+          return(NULL)
+        }
+      ))
+    },
+    simplify = FALSE, #T or F 啥区别？
+    USE.NAMES = TRUE #干啥用？
+  )
+  
+  object.list <- Filter(f = Negate(f = is.null), x = object.list) #高阶函数Filter
+  
+  object.list <- c('Class' = class(x = object)[1], object.list) # 在list中加入新键值对
+  
+  object <- do.call(what = 'new', args = object.list) #新建对象
+  
+  # 对于新对象有而老对象没有的slot name，进入循环
+  for (x in setdiff(x = slotNames(x = object), y = names(x = object.list))) {
+    # 取出新对象的这个slot对应的值
+    xobj <- slot(object = object, name = x)
+
+    # 如果 该值 是vector，且不是list，且长度等于0
+    if (is.vector(x = xobj) && !is.list(x = xobj) && length(x = xobj) == 0) {
+      # 给该slot赋值 vector，仅1个元素
+      slot(object = object, name = x) <- vector(
+        mode = class(x = xobj),
+        length = 1L
+      )
+    }
+  }
+  return(object)
+}
+
+
+
+
+
+
+
+
+========================================
+|-- BMMC 数据集
+----------------------------------------
+1. hubmap 计划
+https://azimuth.hubmapconsortium.org/references/#Human%20-%20Bone%20Marrow
+
+该计划也是用到了 snakemake 
+https://github.com/satijalab/azimuth-references/blob/master/human_pbmc/Snakefile
+

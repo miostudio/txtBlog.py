@@ -1,4 +1,107 @@
-统计学
+R语言与统计学
+
+
+========================================
+R 初始化函数
+----------------------------------------
+
+rm(list=ls())
+Sys.setenv(language='en')
+options(stringsAsFactors = F)
+
+
+
+
+
+
+
+========================================
+R 高阶函数: Reduce、Filter、Find、Map、Negate、Position
+----------------------------------------
+高阶函数：顶头的都是写过的。
+
+Reduce(f, x, init, right = FALSE, accumulate = FALSE)
+Filter(f, x)
+ Find(f, x, right = FALSE, nomatch = NULL)
+ Map(f, ...)
+Negate(f)
+ Position(f, x, right = FALSE, nomatch = NA_integer_)
+
+
+
+1. Reduce(f, x, init, right = FALSE, accumulate = FALSE)
+
+这是 map/reduce 模型中的后者。能依次对一系列元素使用只能处理2个参数的函数。
+
+(1) 比如对2个数累加的函数，可以应用到一系列数字上：
+> num=c(2,4,8,10,200)
+> sum(num)
+[1] 224
+
+add=function(a,b){
+  cat( "a=", a, "; b=",b, "\n", sep="" )
+  return(a+b)
+}
+Reduce(add, num) #224
+通过输出，可以知道计算过程，就是前2个元素的和作为a，再读入下一个作为b，相加后再作为a,...
+a=2; b=4
+a=6; b=8
+a=14; b=10
+a=24; b=200
+[1] 224
+
+
+(2) 求几个集合的交集
+a1=1:10
+a2=-10:8
+a3=5:50
+a4=2:7
+Reduce(intersect, list(a1, a2, a3, a4) )
+# [1] 5 6 7
+
+
+
+
+
+2. Filter(f, x) 把函数f使用到x的每个元素，如果返回值为TRUE，则返回x中对应位置的元素
+
+例子：
+> # 高阶函数 Filter(f, x) ====
+> Filter(f=function(x)x>0, c(-10:4)) #正数
+[1] 1 2 3 4
+> Filter(f=function(x) 0==x%%2, c(-10:4)) #偶数
+[1] -10  -8  -6  -4  -2   0   2   4
+
+
+
+
+
+5. Negate(f) 返回给定函数的反面函数。
+Negate creates the negation of a given function.
+
+negation [nɪˈɡeɪʃn] n. 否认，拒绝；否定，对立面；取消，无效；反演
+
+例子：
+> x=list(a=1, b=2, c=NULL, d=3)
+> Filter(f = is.null, x)
+$c
+NULL
+
+> Filter(f = Negate(f = is.null), x)
+$a
+[1] 1
+
+$b
+[1] 2
+
+$d
+[1] 3
+
+
+
+
+
+
 
 
 ========================================
@@ -44,7 +147,88 @@ text(x2,-0.0005,labels=x, x,
 
 
 ========================================
+Future - R的多进程异步框架
 ----------------------------------------
+1. 文档
+https://cran.r-project.org/web/packages/future/vignettes/future-1-overview.html
+https://future.futureverse.org/
+
+
+
+2. 入门教程
+(1) 基本概念
+future 是一个抽象概念，指的是一个未来某个时间点可用的值。
+future 的状态有2类：
+	未解析 unresolved
+	解析 resolved
+一旦解析过，该值就会立刻可用。
+如果没有解析过，而且需要这个值，当前进程就会阻塞blocked，直到该 future 解析好。
+可以毫无阻塞的查询一个future是否被解析过。
+具体怎么解析、何时解析取决于取值的策略。
+	一个 future 可以用于顺序策略(sequential)，就是在当前R进程中解析。
+	或者 异步解析(asynchronously)，就是在当前机器上并行(parallel)，或者集群上并发(concurrently)。
+
+
+
+(2) 简单例子
+
+版本1) 比如这个例子，使用普通R代码执行：
+> v <- {
+   cat("Hello world!\n")
+   3.14
+}
+# Hello world!
+> v
+[1] 3.14
+
+内容就是解析表达式v，并打印出v的值。同时在解析v时我们打印一条消息。
+
+
+版本2) 使用 future 时
+> library("future")
+> v %<-% {
+   cat("Hello world!\n")
+   3.14
+}
+> v #到调用时才计算，之前只是存储未解析
+Hello world!
+[1] 3.14
+> v #再次打印，就只有值了
+[1] 3.14
+
+两个版本的定义不同：
+	普通R使用 <-
+	future 版本使用 %<-%
+后者的输出在第一次调用时，而不是定义时立刻执行。
+
+
+为什么 future 有用呢？因为我们可以通过简单的设置实现异步执行
+
+> library("future")
+> plan(multisession)
+> v %<-% {
+   cat("Hello world!\n")
+   3.14
+}
+> v
+Hello world!
+[1] 3.14
+
+异步时，当前进程不阻塞，意味着future是在独立的后台进程中运行的。
+也就是说 future 为R提供了一个并行/分布式的处理。
+
+现在，如果你不想阅读文档，直接看最后部分，怎么使用并发或非并发模式。
+
+
+
+
+3.
+
+
+
+
+
+
 
 
 ========================================

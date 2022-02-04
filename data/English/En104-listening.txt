@@ -1255,20 +1255,49 @@ comorbidity [ˌkəʊmɔːˈbɪdɪti] n. 疾病，伴随疾病
 
 
 
-# 77%, 
+
+# 77%, (2021/10/20 -->8:30)
+# Health experts cite a range of other reasons for the low death rate, such as reduced traffic accidents, less stress­related illness and an almost total absence of other infectious diseases.
+# 健康专家列举了死亡率低的一系列其他原因，如交通事故减少、与压力有关的疾病减少以及几乎没有其他传染病。
+cite [saɪt] v. 引用，援引；引证，引以为例；<法律>传唤，传讯；嘉奖，表彰
+
+# to mention something as proof for a theory or as a reason why something has happened 举例，引证
+# She cited three reasons why people get into debt.
+# 她举出了人们为何负债的3个原因。
 
 
 
 
-#
+# 83%, P35/100 (2021/10/24 21:45-->21:59) 15min
+monsoon [ˌmɒnˈsuːn] n. 季风；（印度等地的）雨季；季候风
+lethal [ˈliːθl] adj. 致命的，致死的
+fatality [fəˈtæləti] n. （灾难、事故中的）死亡；致命性；宿命
+salon [ˈsælɒn] n. 美发厅，美容院；高级服装店，时装店
+bluster [ˈblʌstə(r)] v. 咆哮，气势汹汹地说（但效果不大）；（风暴）呼啸；（雨）倾泻 n. 气势汹汹的话
 
 
 
-#
+#100%
 
 
 
-#
+
+
+
+
+
+
+--> 030 Asia - Beauty treatments in Afghanistan.mp3 (242s=4.03 min)
+vanity [ˈvænəti] n. 虚荣（心），自负
+
+unassuming [ˌʌnəˈsjuːmɪŋ] adj. 谦逊的；不装腔作势的；不出风头的
+
+#7%, P35/100
+unassuming ?
+
+
+
+
 
 
 
@@ -1277,7 +1306,7 @@ comorbidity [ˌkəʊmɔːˈbɪdɪti] n. 疾病，伴随疾病
 
 
 ========================================
---> cur: 029
+--> cur: 030
 ----------------------------------------
 
 

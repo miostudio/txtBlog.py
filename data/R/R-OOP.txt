@@ -1,0 +1,790 @@
+R高级部分: OOP, hook 钩子
+
+
+
+电子书：https://dataxujing.github.io/R_oop/index.html
+	作者： https://dataxujing.github.io/about/
+
+
+========================================
+****** R OOP 概述 ******
+----------------------------------------
+R语言有两种不同的OOP机制，分别是从其前身S语言继承而来的S3 Object和S4 Object，其中S4 Object更加的正式、也是现在用于开发的主力军，所以本文就从S4 Object谈起，并在最后讨论一下古老的S3
+
+
+参考资料：
+
+1. is.primitive()，查看一个函数是否是元函数（Primitive functions）——直接用C写的函数，速度比R编写的函数快得多
+https://www.jianshu.com/p/d4d772383fc9
+
+2. 写的都懂，主要是记录这个人
+https://www.jianshu.com/p/ec7399dc67fa
+
+
+
+
+
+
+
+========================================
+R语言基于S3的面向对象编程
+----------------------------------------
+1. UseMethod(generic, object)
+
+(1) R 文档
+UseMethod 使用传入 generic 的参数创建一个新的函数调用。
+UseMethod creates a new function call with arguments matched as they came in to the generic. 
+
+
+所有定义在 UseMethod 之前的本地变量都保留（不像S），而之后的语句都忽略，因为 UseMethod 不返回。
+Any local variables defined before the call to UseMethod are retained (unlike S). 
+Any statements after the call to UseMethod will not be evaluated as UseMethod does not return. 
+
+UseMethod 可以接收超过2个参数：会警告并忽略其余参数（而S并不是全部忽略）
+UseMethod can be called with more than two arguments: a warning will be given and additional arguments ignored. (They are not completely ignored in S.) 
+如果只传入1个参数，则第1个参数的类将会用于作为第二个参数object：不像S，这是传递的第一个实际参数，而不是该名称对象的当前值。(?)
+If it is called with just one argument, the class of the first argument of the enclosing function is used as object: unlike S this is the first actual argument passed and not the current value of the object of that name.
+
+
+(2) 方法分发
+
+UseMethod 是一个原始函数，但是使用标准的参数匹配规则。
+UseMethod is a primitive function but uses standard argument matching. 
+
+UseMethod 不是唯一的方法分发方式，还有 internal generic 和 group generic 函数。
+It is not the only means of dispatch of methods, for there are internal generic and group generic functions. 
+
+UseMethod 当前可以分发模糊的类，甚至不是对象的参数，但其他分发方式不行。
+UseMethod currently dispatches on the implicit class even for arguments that are not objects, but the other means of dispatch do not.
+
+
+
+
+
+2. NextMethod(generic = NULL, object = NULL, ...)
+
+(1) R 文档
+
+NextMethod 为下一个方法创建一个特殊的调用。
+NextMethod works by creating a special call frame for the next method. 
+
+如果不提供更多参数，参数将会和当前方法一样的数量、顺序、命名，除了他们的值竟会在当前方法和环境中重新评估。
+If no new arguments are supplied, the arguments will be the same in number, order and name as those to the current method but their values will be promises to evaluate their name in the current method and environment. 
+
+任何和 ... 匹配的命名参数都被特殊处理：它们要么替代同名已有参数，要么新增到到参数列表。
+Any named arguments matched to ... are handled specially: they either replace existing arguments of the same name or are appended to the argument list. 
+
+像传入当前环境的一个参数一样，它们会作为 promise 传递下去。（S不这么做）
+They are passed on as the promise that was supplied as an argument to the current environment. (S does this differently!) 
+
+如果它们在当前(或之前环境)评估过，它们保持评估状态。（这是一个复杂话题，可能会变，看"R 语言定义"草案）
+If they have been evaluated in the current (or a previous environment) they remain evaluated. (This is a complex area, and subject to change: see the draft ‘R Language Definition’.)
+
+
+
+(2) 简单实现继承
+S3类基本不存在什么继承性，使用 NextMethod 可以勉强拟合一下简单继承。
+
+node = function(x, ...)UseMethod("node") #定义泛型函数
+
+node.father=function(x) c("|-father")
+node.default=function(x) "default node"
+node.son=function(x) c("|--son", NextMethod()) #通过 NextMethod 指向上一个类的方法
+
+n1=structure(1, class=c("son", "father"))
+node(n1)
+# [1] "|--son"   "|-father"
+# 在 node 函数中传入 n1，执行 node.son() 和 node.father() 函数。
+
+
+
+
+
+
+
+
+========================================
+R语言基于S4的面向对象编程
+----------------------------------------
+S4对象系统具有明显的结构化特征，更适合面向对象的程序设计。Bioconductor社区，以S4对象系统做为基础架构，只接受符合S4定义的R包。
+
+
+
+S4对象介绍:
+S4对象系统是一种标准的R语言面向对象实现方式，S4对象有明确的类定义，参数定义，参数检查，继承关系，实例化等的面向对象系统的特征。
+
+
+
+ref:
+http://www.itkeyword.com/doc/8259476531414986968
+https://www.cnblogs.com/awishfullyway/p/6485240.html
+
+
+
+
+
+
+
+========================================
+|-- 创建S4对象
+----------------------------------------
+1. 创建S4类和实例化出对象
+
+由于S4对象是标准的面向对象实现方式， 有专门的类定义函数 setClass() 和类的实例化函数new() ，我们看一下setClass()和new()是如何动作的。
+
+(1)setClass()
+Create a class definition and return a generator function to create objects from the class. Typical usage will be of the style:
+
+函数定义
+myClass <- setClass("myClass", slots= ...., contains =....)
+参数解释: 
+	- slots= and contains= 指定新类的slots插槽，以及新类需要继承的类。
+	- 
+
+
+
+setClass(Class, representation, prototype, contains=character(),
+          validity, access, where, version, sealed, package,
+          S3methods = FALSE, slots)
+
+参数列表：
+	Class: 定义类名
+	slots: 定义属性和属性类型
+	contains=character(): 定义父类，继承关系
+	
+	prototype: 定义属性的默认值
+	where: 定义存储空间
+	validity: 定义属性的类型检查
+	sealed: 如果设置TRUE，则同名类不能被再次定义
+	package: 定义所属的包
+	
+	S3methods: R3.0.0以后不建议使用
+	representation R3.0.0以后不建议使用
+	access R3.0.0以后不建议使用
+	version R3.0.0以后不建议使用
+#
+
+
+
+
+
+========================================
+|-- S4 类更多细节
+----------------------------------------
+
+访问对象的属性
+S4的泛型函数
+查看S4对象的函数
+S4对象的使用
+
+
+
+1. 2个参数时，is 和 inherits 表现相同，都是判断第一个x是否是第二个what的实例。
+is(e1, "Person")
+is(e1, "Employee")
+is(e1, "Student") #F
+
+inherits(e1, what="Person")
+inherits(e1, what="Employee")
+inherits(e1, what="Student") #F
+
+
+
+
+
+
+========================================
+RC(Reference Class)对象系统(R5)
+----------------------------------------
+1. RC 类资料
+https://dataxujing.github.io/R_oop/RC.html
+http://adv-r.had.co.nz/R5.html
+
+最新的还是R自带的帮助系统 > ?ReferenceClasses
+
+
+
+
+2. 类与实例 Classes and instances
+
+(1) 类的定义 setRefClass
+和 S4的 setClass不同，必须记录返回值，并用它实例化对象：
+
+# Or keep reference to class around.
+Person <- setRefClass("Person")
+Person$new()
+
+定义好如果没有记录返回值，则可以再获取
+getRefClass("Person")
+
+
+(2) 一个RC类必须设置3个参数：
+
+1) contains 指定继承的父类。
+
+setRefClass("Polygon")
+setRefClass("Regular")
+
+# Specify parent classes
+setRefClass("Triangle", contains = "Polygon")
+setRefClass("EquilateralTriangle", 
+  contains = c("Triangle", "Regular"))
+
+我们查看，发现他们本质上和S4类类似，在内存中存在一个.__C__开头的类定义：
+> ls(all=T)
+ [1] ".__C__Employee"            ".__C__EquilateralTriangle"
+ [3] ".__C__Person"              ".__C__Polygon"            
+ [5] ".__C__Regular"             ".__C__Triangle"
+
+2) fields 相当于S4的slots。可以是vector或者list形式。
+setRefClass("Polygon", fields = c("sides"))
+setRefClass("Polygon", fields = list(sides = "numeric"))
+
+RC类最重要的特性是他们是可变的，或者他们有引用的语法：
+
+Polygon <- setRefClass("Polygon", fields = c("sides"))
+square <- Polygon$new(sides = 4)
+square
+square$sides #4
+
+triangle <- square
+triangle$sides <- 3
+triangle
+
+square$sides #3
+
+
+==> 而S4类的对象修改属性后，原对象的属性不变
+# for S4
+Man=setClass("Man", slots=c(name="character"))
+m1=new("Man", name="Tom")
+m1@name # "Tom"
+m2=m1
+m2@name="David"
+m1@name #Tom
+
+
+
+
+3) methods 是可以修改上下文内的函数，可以修改它的 fields。
+也可以在对象创建后添加。
+
+setRefClass("Dist")
+setRefClass("DistUniform", c("a", "b"), "Dist", methods = list(
+  mean <- function() {
+    (a + b) / 2
+  }
+))
+
+
+#2) Instead of creating a class all at once:
+Person <- setRefClass("Person", methods = list(
+  say_hello = function() message("Hi!")
+))
+
+# You can build it up piece-by-piece
+Person <- setRefClass("Person")
+Person$methods(say_hello = function() message("Hi!"))
+
+
+(3)
+目前还不能修改 fields，因为添加 fields 将会使已经存在且没有新增fields的对象变得非法。
+
+
+(4) 类的自带方法 / 辅助函数
+setRefClass 创建后(后面可以通过 getRefClass获取)返回的是一个生成器对象。
+它有的方法:
+
+- new for creating new objects of that class. The new method takes named arguments specifying initial values for the fields. 实例化类的方法。使用命名参数作为初始值。
+
+- help用于查询类中定义的所有方法
+- methods for modifying existing or adding new methods 用于修改已有方法或添加新方法。
+- fields列出类中定义的所有属性
+
+- lock locks the named fields so that their value can only be set once 
+	lock给属性加锁，实例化的对象的属性只允许赋值依次，即赋值变量不可修改
+	
+	User$lock("level") # 锁定level属性
+	User$lock() # 查看User类中被锁定的属性
+
+- trace 跟踪方法
+- accessors a convenience method that automatically sets up accessors of the form getXXX and setXXX. 访问器。
+	User$accessors("level")
+	User$methods() # "getLevel" "setLevel"
+
+
+
+
+
+
+3. 方法 Methods
+
+(1) 方法的调用是和对象挂钩的，而不是函数。
+obj$method2(arg1, arg2, ...)
+
+我们之前见过这种结构，那时我们用闭包创建可变状态。
+
+# 闭包: 根据x的值，返回状态 第几步
+fn1=function(keyword="status", x=1){
+  status=sprintf("%s%s", keyword, x)
+  
+  return(list(
+    getStatus=function(){
+      status=
+        return(status)
+    },
+    getX=function(){return(X)},
+    setX=function(v){
+      x<<-v #函数内修改外界变量，使用这个特殊赋值符
+      # 更新x后要更新状态
+      status<<-sprintf("%s%s", keyword, x) #函数内可以直接使用它所在环境内的变量
+    }
+  ))
+}
+status=fn1("status", 7)
+status$getStatus() #"status7"
+
+# 换一个关键词
+status=fn1("step")
+status$getStatus() #"step1"
+
+status$setX(30)
+status$getStatus() #"step30"
+
+status$setX(-5)
+status$getStatus() #"step-5"
+
+
+
+
+
+RC也是这么工作的，但是给了我们额外的功能：
+- 继承 
+- 生成文档的方法
+- 指定 fields 和它们的类型
+
+使用 <<- 修改 fields，如果定义过 accessor 将会被触发。
+
+特殊 fields: .self. 注意，不要使用.开头的fields, 未来版本中它们可能用于其他地方。
+
+
+
+
+(2) Common methods 一般方法 / 内置方法
+所有RC类都有一个共同的超类 envRefClass，所以他们有一些共有方法。
+
+obj$callSuper 调用父类的同名方法，只能在类定义的方法中使用
+obj$copy: 复制自己的所有属性。大多R对象，在赋值或修改时自动复制。而RC则不会。
+obj$field: 查看field属性或给属性赋值，等价于S4的slots。
+	obj$field("xxx") the same as obj$xxx. 
+	obj$field("xxx", 5) the same as obj$xxx <- 5
+obj$import(x) 强制转为该类型，obj$export(Class) 强制复制并转为那个类，需要是超类。
+	export 查看属性值以类为作用域
+	import 把一个对象的属性值赋值给另一个对象
+
+initFields 给对象的属性赋值
+
+initialize 类的初始化函数，用于设置属性的默认值，只有在类定义的方法中使用。
+
+getClass 查看对象的类定义
+getRefClass()同getClass()
+show 查看当前对象
+trace 跟踪对象中方法调用，用于程序debug
+untrace 取消跟踪
+usingMethods 用于实现方法调用，只能在类定义的方法中使用，这个方法不利于程序的健壮性，所以不建议使用。
+
+
+
+
+(3) 自定义方法
+S3和S4对象系统中，通过泛型函数实现对象行为的分发。
+	缺点是函数和对象的代码是分离的，仅逻辑上欧联；在运行时，通过判断对象类型调用对应方法。
+	补救措施就是，一个对象的定义及其方法的实现放到同一个R文件内，而全局的泛型放到独立文件中定义。
+RC 对象系统则把方法定义到类的内部，和Java等主流语言更接近。
+
+Person <- setRefClass("Person",
+                      fields=list(name="character", favorite='vector'),
+                    # 方法属性
+                    methods= list(
+                      # 增加一个兴趣
+                      addFavorite = function(x){
+                        favorite <<- c(favorite,x)
+                      },
+                      # 删除一个兴趣
+                      delFavorite = function(x){
+                        favorite <<- favorite[-which(favorite==x)]
+                      },
+                      # 重新定义兴趣列表
+                      setFavorite = function(x){
+                        favorite <<- x
+                      }
+                    ))
+# 实例化
+p1 <- Person$new(name="p1",favorite=c('movie','football'))
+p1$favorite #"movie"    "football"
+
+# 新增一个
+p1$addFavorite("run")
+p1$favorite #"movie"    "football" "run"
+
+# 删除一个兴趣
+p1$delFavorite("football")
+p1$favorite #"movie" "run"
+
+
+
+
+
+
+
+
+
+
+4. 文档 
+Python style doc-strings. obj$help().
+
+
+
+
+5. 创建一个有继承关系的RC类
+
+# 创建RC类 Person
+Person <- setRefClass("Person",fields=list(name="character"))
+
+# 创建 Person 的子类 Worker
+Worker <- setRefClass("Worker",contains="Person",fields=list(boss="Person"))
+
+# 实例化 Person
+boss2 <- Person$new(name="boss2") #如果报错，清空环境并重启R
+
+# 实例化一个 Worker 对象
+worker10 <- Worker$new(name="Worker10", boss=boss2)
+
+# 查看 worker10 对象
+worker10 #略
+
+
+查看其他属性
+> worker10$name
+[1] "Worker10"
+> worker10$boss
+Reference class object of class "Person"
+Field "name":
+[1] "boss2"
+
+
+> typeof(worker10)
+[1] "S4"
+> isS4(worker10) #确实是一个S4对象
+[1] TRUE
+
+
+> is(worker10)
+[1] "Worker"       "Person"       "envRefClass"  ".environment" "refClass"    
+[6] "environment"  "refObject"   
+
+继承关系 
+> inherits(boss2, "Person")
+[1] TRUE
+> inherits(boss2, "Worker")
+[1] FALSE
+
+
+
+
+
+6. RC对象的默认值 
+
+RC类有一个指定构造器方法$initialize(),这个构造器方法在实例化对象时，会自动被运行一次，通过这个构造方法可以设置属性的默认值。
+
+
+# 定义一个RC类
+Worker <- setRefClass("Worker",
+                    # 定义两个属性
+                    fields=list(name="character", level="numeric"),
+                    methods = list(
+                      initialize=function(name="Tom",level=1){ # 给属性增加默认值
+                        print("User::initialize")
+                        
+                        name <<- name #必须使用这个赋值符号，是因为需要在函数内穿透到函数外
+                        level <<- level
+                    }))
+
+# 实例化
+w1 <- Worker$new() #"User::initialize"
+w1$name #Tom
+
+w2=Worker$new(name="Robin", level=100) #"User::initialize"
+w2$name #"Robin"
+
+
+
+
+
+
+
+7. RC对象在复制后修改时，复制前的对象也受影响
+# 打工人统计更多信息
+Worker <- setRefClass("Worker", 
+                      fields=list(
+                        name='character',
+                        age='numeric',
+                        gender='factor'))
+
+# 定义一个factor类型
+genderFactor <- factor(c('F','M'))
+
+# 实例化
+w1 <- Worker$new(name="w1",age=20,gender=genderFactor[1])
+w1$age #20
+
+w2=w1 #普通复制
+w2$age=80 #修改打工人2的age
+w1$age #80 #打工人1的age也变了
+
+# 这不符合我们的预期，怎么能让复制后的修改不影响复制前的对象呢？
+w3=w1$copy() #这样复制后2个对象相对独立
+w3$age=100
+w1$age #80 并没有变成100
+
+
+没有好坏，灵活使用是关键。
+按引用传递可以减少值传递过程中的内存复制过程，使程序更高效。
+C语言的数组参数就是按引用传递。
+
+
+
+
+
+8. 内置属性
+RC对象实例化后，有两个内置属性
+
+(1) .self 实例化对象自身
+Person = setRefClass("Person", fields = list(name="character",age="numeric"))
+p1=Person$new(name="Tom")
+p1
+p1$.self
+
+identical(p1, p1$.self) #T
+
+
+(2) .refClassDef 类的定义类型
+p1$.refClassDef
+
+#与 $getClass()相同
+p1$getClass()
+
+identical(p1$.refClassDef, p1$getClass()) #T
+
+
+getClass(p1) #这个很奇怪，返回值和它自己等同
+identical(getClass(p1), p1) #T //todo
+
+
+
+
+
+
+9. RC 对象系统的实例：动物叫声
+https://dataxujing.github.io/R_oop/RC.html
+
+我们用RC面向对象的系统做一个例子，定义一套动物叫声模型
+
+任务1：定义动物的数据结构和发声方法
+定义animal为动物的基类，包括：猫，狗，鸭
+
+# 创建Animal类，包括name属性,构造方法initialize（），叫声方法bark()
+Animal <- setRefClass("Animal",
+                      fields = list(name="character"),
+                      methods=list(
+                        initialize = function(name="Animal"){
+                          name <<- name
+                        },
+                        bark = function()print("Animal::bark")
+                      ))
+
+# 创建Cat类，继承Animal类，并重写（overwrite)了initialize()和bark()
+Cat <- setRefClass("Cat",contains="Animal",
+                   methods=list(
+                     initialize = function(name='cat') name <<- name,
+                     bark = function() print(paste(name,"is miao miao"))
+                   ))
+
+# 创建Dog类
+Dog <- setRefClass("Dog",contains="Animal",
+                   methods=list(
+                     initialize = function(name='Dog') name <<- name,
+                     bark = function() print(paste(name,"is wang wang"))
+                   ))
+
+# 创建Duck类
+Duck<- setRefClass("Duck",contains="Animal",
+                   methods=list(
+                     initialize = function(name='Duck') name <<- name,
+                     bark = function() print(paste(name,"is ga ga"))
+                   ))
+
+# 实例化并查看叫声
+
+# 创建cat实例
+cat <- Cat$new()
+cat$name
+# cat叫声
+cat$bark() #"cat is miao miao"
+
+
+
+
+任务2：定义动物的体貌特征
+动物的体貌特征包括头，身体，肢，翅膀,我们只增加肢，只是在Animal中添加limbs属性
+
+任务3：定义动物的行动方式
+Animal中定义action方法，每一个子类使用callSuper()重写该方法。
+
+通过这个例子，我们应该可以全面的理解R语言中基于RC对象系统的面向对象的程序设计，我本人推荐大家使用RC面向对象，因为这更像是传统语言的面向对象方式。
+
+
+
+
+
+
+
+========================================
+R 语言的钩子 hook //todo
+----------------------------------------
+1. 简介
+userhooks {base}	R Documentation
+
+Functions to Get and Set Hooks for Load, Attach, Detach and Unload
+
+Description
+These functions allow users to set actions to be taken before packages are attached/detached and namespaces are (un)loaded.
+主要是包的载入、命名空间的载入。
+
+
+函数名和参数：
+getHook(hookName)
+setHook(hookName, value, #第一个参数是钩子名（盯着的事件），第二个参数是事件发生后触发的函数名
+        action = c("append", "prepend", "replace"))
+
+packageEvent(pkgname,
+             event = c("onLoad", "attach", "detach", "onUnload"))
+#
+
+
+2. 例子: 每次画图时，执行某个自定义函数。
+https://stackoverflow.com/questions/55837653/running-a-hook-when-ggplot-creates-a-plot
+
+(1) 普通绘图函数
+my_function = function(){ print("You are drawing now.") }
+setHook('plot.new', my_function)
+
+# From them on, every time a plot was created my_function was executed.
+
+> plot.new()
+[1] "You are drawing now."
+
+
+(2) ggplot2
+library(ggplot2)
+my_function = function() cat('function ran\n')
+setHook('grid.newpage', my_function)
+ggplot(mtcars, aes(mpg,cyl)) + geom_point()
+
+
+(3) 清空已经设置的钩子: 第二个参数设置为NULL，第三个参数设置为 replace 
+To remove a hook completely, call setHook(hookName, NULL, "replace").
+getHook('plot.new')
+setHook("plot.new", NULL, action="replace")
+
+getHook("plot.new") #再查询，已经没有这个钩子了
+
+
+(4) 自定义的函数能触发钩子吗？ //todo 失败
+setHook("myfn1", function(...) {
+  cat("Chair: Welcome to our conference.\n")
+})
+
+myfn1=function(x){
+	plot(x)
+}
+
+myfn1(1:10)
+getHook("myfn1") # 能查到，但是触发不了
+
+
+
+
+(5) 如果再自定义一个触发函数，这个钩子系统就完善了。 //todo 基于(4)
+
+callHooks=function(x, ...){ 
+  if(class(x)=="function"){
+    x()
+  }else if(class(x)=="character"){
+    #eval(parse(text=paste0(x,"()") ))
+	fn1=get(x, mode="function")
+	fn1(...)
+  }else{
+    stop("Error")
+  }
+  #invisible()
+}
+myFunction.onEnter=function(){}
+myFunction.onExit=function(){}
+
+
+# First, clean up if called more than once
+setHook("myFunction.onEnter", NULL, action="replace")
+setHook("myFunction.onExit", NULL, action="replace")
+
+runConference <- function(...) {
+  callHooks("myFunction.onEnter")
+  cat("Speaker A: Hello there...\n")
+  callHooks("myFunction.onExit")
+}
+
+setHook("myFunction.onEnter", function(...) {
+  cat("Chair: Welcome to our conference.\n")
+})
+
+setHook("myFunction.onEnter", function(...) {
+  cat("Chair: Please welcome Speaker A!\n")
+})
+
+setHook("myFunction.onExit", function(...) {
+  cat("Chair: Please thanks Speaker A!\n")
+})
+
+runConference()
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+========================================
+----------------------------------------
+
+
+========================================
+----------------------------------------
+
+
+
+========================================
+----------------------------------------
+
+
+
+========================================
+----------------------------------------
+

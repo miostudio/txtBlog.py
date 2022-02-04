@@ -309,6 +309,10 @@ nb0.1.1-5 英语听力 经济学人 029 64%
 nb0.1.1-6 c 语言 - 指针
 nb0.1.1-7 c 语言 - 结构体
 nb0.1.1-8 c 语言 - 链表
+nb0.1.1-9 En L 029 77%
+nb0.1.2-0 学习 Seurat 包源代码: S3, S4, pkg, Rcpp, 
+nb0.1.2-1 学习 RC(R5), future 
+	更新系统年份 2022
 ##### commit 
 #------------------------->push to MioStudio
 $ git remote add origin https://github.com/miostudio/txtBlog.py.git

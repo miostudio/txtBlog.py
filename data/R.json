@@ -13,8 +13,10 @@
 		"data":
 		[
 			["入门", "R002", "txt"],
+			["R OOP", "R-OOP", "txt" ],
+			["Seurat源码学习", "Seurat_source", "txt" ],
 			["ggplot2", "R-ggplot2", "txt" ],
-			["R高级", "R-adv", "txt" ]
+			["grid绘图系统", "R-grid", "txt" ]
 		]
 	},
 
