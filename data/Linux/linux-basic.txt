@@ -1,0 +1,165 @@
+Linux 命令和工具的使用
+
+
+========================================
+git 与 github 
+----------------------------------------
+
+
+========================================
+|-- 如何在一个 win7 上允许多个github账号push
+----------------------------------------
+1. 假设第一个github账号已经配备好
+都使用了默认位置。
+
+
+
+
+2. 开始配置第二个
+
+不能使用已经用过的ssh key，否则报错。
+
+(1)生成 ssh key
+$ ssh-keygen -t rsa -C "MioStudio@163.com" 
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/Administrator/.ssh/id_rsa): /c/Users/Administrator/.ssh/mio_id_rsa
+
+文件名要新建一个，使用绝对地址，防止被覆盖。
+另两个是密码，直接 enter 跳过设置。
+
+Your identification has been saved in /c/Users/Administrator/.ssh/mio_id_rsa.
+Your public key has been saved in /c/Users/Administrator/.ssh/mio_id_rsa.pub.
+
+
+(2) cat ~/.ssh/mio_id_rsa.pub 的内容添加到账号 github B的公钥中。
+
+(3) 配置文件
+第一个的host设置为默认值 github.com，第二个是人工指定的，比如 mio。
+
+$ vim ~/.ssh/config
+# github 1: dawneve
+Host github.com
+    HostName github.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+
+# github 2: miostudio
+Host mio
+    HostName github.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/mio_id_rsa
+
+ESC+:wq保存退出.
+
+(4) 测试
+注意： @符号后是设置的 host。
+
+$ ssh -T git@github.com
+Hi DawnEve! You've successfully authenticated, but GitHub does not provide shell access.
+
+$ ssh -T git@mio
+Hi miostudio! You've successfully authenticated, but GitHub does not provide shell access.
+
+
+(5) 把代码 push 到github仓库：必须调整 git remote 的url了。
+旧的地址:
+$ git remote -v
+origin  git@github.com:miostudio/txtBlog.py.git (fetch)
+origin  git@github.com:miostudio/txtBlog.py.git (push)
+
+
+测试通的新地址:
+$ ssh -T git@mio
+Hi miostudio! You've successfully authenticated, but GitHub does not provide shell access.
+
+修改新地址:
+$ git remote set-url origin git@mio:miostudio/txtBlog.py.git 
+
+查询新地址
+$ git remote -v
+origin  git@mio:miostudio/txtBlog.py.git (fetch)
+origin  git@mio:miostudio/txtBlog.py.git (push)
+
+推送代码
+$ git push origin master
+
+
+
+
+========================================
+|-- github账号提交人和账号名字不一致
+----------------------------------------
+1. 主要是设置git邮箱时，选择了全局设置
+
+$ git config user.email
+jimmyMall@live.com  #github识别就是按照这个邮箱。
+
+
+或者 git log 第二行 Author 也有邮箱。
+$ git log -n 2
+commit a37bf38da3c752c94ec2639b83b92a5526378dc9 (HEAD -> master, origin/master, origin/HEAD)
+Author: jimmymall Note <jimmyMall@live.com>
+Date:   Fri Feb 4 23:35:59 2022 +0800
+
+    nb0.1.2-1 学习 RC(R5), future
+
+
+
+
+2. 修改本地git的邮箱，要和github账号使用的邮箱一致。
+
+设置有户名和邮箱 （这个错误！不要用 --global）
+git config --global user.name "jimmy" //给自己起个用户名
+git config --global user.email  "JimmyMall@live.com" //填写自己的邮箱
+
+
+正确的是不要使用全局设置选项
+git config user.name "ms" //给自己起个用户名
+git config user.email "miostudio@163.com" //填写自己的邮箱
+
+
+再查询
+$ git config user.email
+miostudio@163.com
+
+
+
+3. 重新commit, push 的就是和github一致了。
+
+
+
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+
+========================================
+----------------------------------------
+
+
+
+========================================
+----------------------------------------
+
+
+
+========================================
+----------------------------------------
+
+
+
+

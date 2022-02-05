@@ -313,6 +313,7 @@ nb0.1.1-9 En L 029 77%
 nb0.1.2-0 学习 Seurat 包源代码: S3, S4, pkg, Rcpp, 
 nb0.1.2-1 学习 RC(R5), future 
 	更新系统年份 2022
+nb0.1.2-2 怎么设置一台机器2个github账号; github的提交显示用户名不是自己
 ##### commit 
 #------------------------->push to MioStudio
 $ git remote add origin https://github.com/miostudio/txtBlog.py.git
