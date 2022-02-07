@@ -124,7 +124,7 @@ miostudio@163.com
 
 
 
-3. 重新commit, push 的就是和github一致了。
+3. 重新commit, push 的就是和github用户名一致了。
 
 
 
