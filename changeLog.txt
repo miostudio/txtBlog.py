@@ -316,6 +316,7 @@ nb0.1.2-1 学习 RC(R5), future
 nb0.1.2-2 怎么设置一台机器2个github账号; github的提交显示用户名不是自己
 nb0.1.2-3 英语听力 经济学人 030: 30% [2022.2.8 Tue]
 nb0.1.2-4 英语听力 经济学人 030: 65% [2022.2.9 Wed]
+nb0.1.2-5 英语听力 经济学人 030: 100% [2022.2.9 Wed]
 ##### commit 
 #------------------------->push to MioStudio
 $ git remote add origin https://github.com/miostudio/txtBlog.py.git

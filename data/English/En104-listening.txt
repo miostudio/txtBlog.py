@@ -1365,6 +1365,8 @@ surgery [ˈsɜːdʒəri] n. 外科手术；
 
 # Even now, the main shortage is not of demand but of expertise. 
 # 即使是现在，主要的短缺也不是需求，而是专业知识。
+expertise [ˌekspɜːˈtiːz] n. 专长，专门技能（知识）；专家的意见
+
 
 # Mr Abdi trained in Thailand and practised in India before coming back to Afghanistan to open his clinic. 
 # 阿卜迪在泰国接受培训，在印度行医，之后回到阿富汗开办了自己的诊所。
@@ -1375,7 +1377,72 @@ practise [ˈpræktɪs] v. 练习，实践；（尤指）形成……的习惯（
 
 
 
-#65%, P35/100
+#65%, P35/100(2022.2.9 23:31-->23:52) 21min
+# Sadly, there are risks to doctors joining the profession that do not exist elsewhere.
+# 可悲的是，医生加入这个行业的风险在其他地方是不存在的。
+profession [prəˈfeʃn] n. （尤指需要长期训练和正规资格的）职业；（某）职业界同行，同业
+
+# Security is our main concern. 安全是我们主要关心的问题
+
+# Doctors are thought to be rich, and so are often targeted for kidnapping. 
+# 医生被认为很富有，因此经常成为绑架的目标。
+
+# But religious extremists are a problem too. 
+# 但宗教极端分子也是一个问题。
+
+meddle [ˈmedl] v. 干涉，管闲事，干预他人之事；瞎搞，乱弄
+
+
+# Mr Abdi himself was once shot in what he suspects was a failed kidnapping attempt
+shot [ʃɒt] n. 射击，开枪（或炮） adj. 杂色的，闪色的；v. 开（枪），射击；射出（弓箭等）；狩猎（shoot 的过去式和过去分词形式）
+
+
+# He pulls up his trouser leg to show a scar from the attack which, even with access to the country’s best surgeons, will never be fully concealed.
+# 他拉起裤腿，露出了在这次袭击中留下的伤疤，即使是国内最好的外科医生也无法完全掩盖这一伤疤。
+trouser [ˈtraʊzə(r)] n. （主要用作商业用语）裤子；裤腿
+
+
+# Such incidents are another reason for the boom in plastic surgery.
+# 这些事件也是整形手术盛行的另一个原因。
+
+
+# Thousands of soldiers and civilians suff er disfi guring injuries every year.
+# 每年有成千上万的士兵和平民遭受毁容伤害。
+civilian [səˈvɪliən] n. 平民，百姓（区别于军、警） adj. 平民的，民用的
+disfigure [dɪsˈfɪɡə(r)] vt. 使变丑；损毁……的外形；使大为减色
+
+
+# Although the clinicians at the Arvin hospital make their money from nose jobs, they also patch up bullet wounds and treat burns, often charging far less than for procedures motivated by vanity. 
+# patch up bullet wounds 修补枪伤
+# treat burns 治疗烧伤
+procedure [prəˈsiːdʒə(r)] n. 手续，步骤；（商业、法律或政治上的）程序；外科手术；（电脑的）应用程式
+vanity [ˈvænəti] n. 虚荣（心），自负；
+
+
+# Even the most puritanical zealot should fi nd it hard to quibble with that.
+# 即使是最清教徒式的狂热分子也会发现很难对此吹毛求疵。
+puritanical [ˌpjʊərɪˈtænɪk(ə)l] adj. 清教徒的；极端拘谨的
+zealot [ˈzelət] n. 狂热者；犹太教狂热信徒
+quibble [ˈkwɪb(ə)l] n. 谬论；双关语；遁辞 vi. 诡辩；挑剔；说模棱两可的话 vt. 对……诡辩
+
+100%
+
+
+
+
+
+
+
+
+
+|-- 031 Asia - American forces in Asia.mp3 (5.6min)
+file:///D://xampp//htdocs//DawnScholar//audio//20210313.pdf
+10%, P36/100
+
+
+
+
+
 
 
 
@@ -1384,7 +1451,7 @@ practise [ˈpræktɪs] v. 练习，实践；（尤指）形成……的习惯（
 
 
 ========================================
---> cur: 030
+--> cur: 031
 ----------------------------------------
 
 
