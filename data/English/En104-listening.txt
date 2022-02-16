@@ -1394,6 +1394,7 @@ meddle [ˈmedl] v. 干涉，管闲事，干预他人之事；瞎搞，乱弄
 
 
 # Mr Abdi himself was once shot in what he suspects was a failed kidnapping attempt
+# 阿卜迪本人曾在一次他怀疑是失败的绑架企图中中枪
 shot [ʃɒt] n. 射击，开枪（或炮） adj. 杂色的，闪色的；v. 开（枪），射击；射出（弓箭等）；狩猎（shoot 的过去式和过去分词形式）
 
 
@@ -1437,12 +1438,136 @@ quibble [ˈkwɪb(ə)l] n. 谬论；双关语；遁辞 vi. 诡辩；挑剔；说�
 
 |-- 031 Asia - American forces in Asia.mp3 (5.6min)
 file:///D://xampp//htdocs//DawnScholar//audio//20210313.pdf
-10%, P36/100
+10%, P36/100 (2022.2.13 11:00--> 11:39)
+
+# Dispersal orders 疏散命令
+dispersal [dɪˈspɜːsl] n. 分散；传播；散布；疏散；消失
+
+
+# America rethinks its bases in response to the threat of China.
+# 美国重新考虑其基地以应对中国的威胁。
+
+commission [kəˈmɪʃn] n. 考察团，委员会；佣金，回扣
+decisive [dɪˈsaɪsɪv] adj. 果断的，决断的；决定性的，关键的；确定的，明确的
+
+overmatch [ˌəʊvəˈmætʃ] v. 比……强；与更强的对手比赛 n. 劲敌，高手
+
+# That prospect has roused Congress.
+# 这一前景振奋了国会。
+
+# In December it authorised a $2.2bn fund, the Pacific Deterrence Initiative (PDI), to shore up INDOPACOM.
+# 12月，它授权了一个22亿美元的基金——太平洋威慑倡议(pdi)来支持INDOPACOM。
+# shore up 支持，支撑；加固
+deterrence [dɪˈterəns] n. 威慑；妨碍物；挽留的事物
+# Indo­Pacific Command (INDOPACOM) 印度太平洋司令部
+initiative [ɪˈnɪʃətɪv] n. 措施，倡议；主动性，积极性；主动权；（美国某些州的）公民立法提案程序
+
+# In a report published on March 1st they explained how they would spend such a windfall.
+# 在3月1日发表的一份报告中，他们解释了他们将如何花费这笔意外之财。
+windfall [ˈwɪndfɔːl] n. 意外之财；被风吹落的果子；意外的收获
+
+arsenal [ˈɑːsənl] n. 兵工厂；军械库；武器；军火库；武器和军用储备；（设备、方法等）宝库，珍藏
+
+# American commanders want to use the  PDI to harden their defences, spread their forces out and develop new ways of putting China on the back foot. 
+# 美国指挥官希望利用PDI来加强他们的防御，分散他们的军队，并开发新的方法来让中国处于不利地位。
+harden [ˈhɑːdn] v. （使）变硬，坚固；（使）更坚定，更强硬；
+defence [dɪˈfens] n. 防御，防御物；
+# on the back foot 处于不利境地
+
+centrepiece [ˈsentəpiːs] n. 中心装饰品
+
+
+# It is close enough to China to use as a springboard for bombers and other weapons, yet distant enough—some 3,000km from the Chinese mainland—to be out of range of China’s most numerous missiles.
+# 虽然距离中国很近，可以作为轰炸机和其他武器的跳板，但距离中国大陆约3000公里，在中国最多的导弹射程之外。
+springboard [ˈsprɪŋbɔːd] n. 跳板；出发点 vi. 利用跳板跃进
+numerous [ˈnjuːmərəs] adj. 众多的，许多的
+
+
+# Conveniently, it is also American territory, so commanders could use it without haggling with allies.
+# 方便的是，它也是美国的领土，所以指挥官可以在不与盟友讨价还价的情况下使用它。
+Guam [ɡwɑːm] n. 关岛（属于美国，位于西太平洋）
+haggling [ˈhæɡ(ə)lɪŋ] n. 讨价还价；争论 v. 争辩，争论；讨价还价（haggle 的现在分词）
+territory [ˈterətri] n. 领土，版图，领地
 
 
 
 
 
+
+
+
+
+37%, P36/100 (2022.2.13 11:53-->12:36)
+# A new Marine Corps base on Guam that opened in October is the corps first in Asia since 1952.
+# 今年10月在关岛新建的海军陆战队基地是自1952年以来海军陆战队在亚洲的第一个基地。
+corps [kɔːz] n. 特种部队；（从事某工作或活动的）一群人；（美国）海军陆战队；（由两个或两个以上师组成的）军，兵团
+
+# The problem is that Guam, despite its relative safety, can still be struck by some of China’s newer ballistic missiles, though these are fewer in number, as well as lowflying cruise missiles launched from ships, subs and bombers.
+# 问题是，虽然关岛相对安全，但中国的一些新型弹道导弹(虽然数量较少)和从舰艇、潜艇、轰炸机上发射的低空巡航导弹仍有可能击中关岛。
+
+strike [straɪk] v. 打，撞；（用手或武器等）打；（使）碰撞；罢工；突然想到，突然意识到；【突然袭击】
+ballistic [bəˈlɪstɪk] adj. 弹道的；射击的
+cruise [kruːz] n. 巡游，乘船游览
+
+
+archipelago [ˌɑːkɪˈpeləɡəʊ] n. 群岛，列岛；多岛的海区
+pepper [ˈpepə(r)] n. 胡椒粉；辣椒；v. （在食物上）撒胡椒粉；在……上撒，【使布满】； （演讲、文章等）充满……
+suffice [səˈfaɪs] v. 足够，足以；满足……的需求；有能力
+
+
+
+# To that end, he wants to spend $9bn over six years building and upgrading runways, fuel stores and arms depots, among other infrastructure, all across the region.
+# 为此，他希望在6年内斥资90亿美元，在整个亚太地区修建和升级跑道、燃料库和军火库等基础设施。
+
+depot [ˈdepəʊ] n. 仓库，库房；<美>公共汽车站，火车站，航空站；车库，修车厂
+
+
+
+# The point of this dispersal is not simply to hunker down and wait for an onslaught, but also to give China a taste of its own medicine.
+# 这种分散的目的不只是坐等冲击，而是要让中国尝尝自己的药.
+dispersal [dɪˈspɜːsl] n. 分散；传播；散布；疏散；消失
+hunker [ˈhʌŋkə(r)] vi. 蹲下，盘坐 n. 守旧者
+onslaught [ˈɒnslɔːt] n. 攻击，猛攻；（常指难以应付的）大批，大量；猛烈抨击
+
+
+
+
+
+
+
+
+
+62%, P36/100 (2022.2.16 23:56-->0:17) 20min;
+
+# The catch is that not many countries are enthused by the prospect of hosting American missiles in peacetime or becoming a refuge for American troops in the middle of a war.
+# 问题是，没有多少国家对在和平时期拥有美国导弹或在战争期间成为美国军队的避难所的前景充满热情。
+# The catch is that 问题是
+catch [kætʃ] v. 接住；抓住; n. 接住，截住（某物，尤指球）；（鱼的）捕获量，捕获物
+refuge [ˈrefjuːdʒ] n. 庇护，避难；（行为和想法的）逃避，躲避；避难所，
+enthuse [ɪnˈθjuːz] v. 热烈地说，兴奋地讨论；使热心，使充满热情
+
+
+
+# Singapore,forinstance, is a strategic maritime hub, but would come under intense Chinese pressure to deny use of its territory to America in a conflict.
+# 例如，新加坡是一个战略海上枢纽，但会受到中国的强大压力，在冲突中拒绝美国使用其领土。
+maritime [ˈmærɪtaɪm] adj. 海上的，海事的；近海的，沿海的；
+
+
+plug a gap 填补缺口
+mercurial [mɜːˈkjʊəriəl] adj. 水银的；水星的；墨丘利神的；雄辩机智的；活泼善变的
+
+# Pentagon insiders argue that China's aggressive behaviour will eventually persuade Asian countries to open up to American forces.
+# 五角大楼内部人士认为，中国的挑衅行为最终会说服亚洲国家向美军开放。
+pentagon [ˈpentəɡən] n. 五边形，五角形；五角大楼（指美国国防部）（the Pentagon）；美国军队的领导人（the Pentagon）
+aggressive [əˈɡresɪv] adj. 好斗的，挑衅的；积极进取的；非常严重的；强烈的
+
+foe [fəʊ] n. 敌人，对头
+
+
+
+
+
+88%, P36/100
 
 
 
