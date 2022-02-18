@@ -1608,7 +1608,6 @@ plaintively [ˈpleɪntɪvli] adv. 哀怨地；伤心地
 
 
 |-- 032 Asia - Human rights in North Korea.mp3 (4min)
-file:///D://xampp//htdocs//DawnScholar//audio//20210313.pdf
 0%, P36/100 (2022.2.27 23:59--> 0:12) 12min;
 
 detain [dɪˈteɪn] v. 拘留，扣押；耽搁，阻留
@@ -1620,7 +1619,37 @@ whereupon [ˌweərəˈpɒn] conj. 于是；随之，接着；马上；因此 adv
 trickle [ˈtrɪk(ə)l] v. （使）滴，淌；（小批地）慢慢移动；（球）缓慢滚动
 
 
-31%, P36/100
+
+
+
+31%, P36/100 (2022.2.18 23:24-->23:51) 27min;
+mountainous [ˈmaʊntənəs] adj. 多山的；巨大的，山一般的；波涛汹涌的，万丈波涛的
+inmate [ˈɪnmeɪt] n. （监狱或精神病院里的）居住者；<古>（房屋的）同住者
+fugitive [ˈfjuːdʒətɪv] adj. 逃亡的；无常的；易变的 n. 逃亡者；难捕捉之物
+consulate [ˈkɒnsjələt] n. 领事馆；领事职位；〈史〉古罗马执政官任期
+defect [ˈdiːfekt] n. 缺点，缺陷，毛病 v. 背叛，叛变
+indoctrination [ɪnˌdɒktrɪˈneɪʃn] n. 教化；教导
+
+# Instead, they are total control zones, where people are imprisoned for life.
+# 相反，它们是完全的控制区，在那里人们会被终身监禁。
+imprison [ɪmˈprɪzn] v. 关押，监禁；束缚，限制
+
+crackdown [ˈkrækdaʊn] n. 打击，镇压
+wayward [ˈweɪwəd] adj. 任性的；不规则的；刚愎的
+
+stretch [stretʃ] v. （使）变大，拉长；【耗尽，竭尽（财力或物力）】
+quarantine [ˈkwɒrəntiːn] n. 隔离期，检疫期；隔离，检疫
+
+
+100%
+
+
+
+
+
+
+
+|--> 033 Asia - Banyan.mp3 (5.5min)
 
 
 
@@ -1629,9 +1658,9 @@ trickle [ˈtrɪk(ə)l] v. （使）滴，淌；（小批地）慢慢移动；（
 
 
 ========================================
---> cur: 032
+--> cur: 033
 ----------------------------------------
-
+file:///D://xampp//htdocs//DawnScholar//audio//20210313.pdf
 
 
 
