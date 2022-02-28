@@ -1703,7 +1703,9 @@ mess [mes] n. 肮脏，杂乱；不整洁或邋遢的人（或物）v. 弄脏，
 
 
 
-25%, P37/100 (2022.2.25 12:32 -->12:47(44%),   13:20-->13:30(56%)  )
+
+
+25%, P37/100 (2022.2.25 12:32 -->12:47(44%),   13:20-->13:30(56%)  ) 15+10=25min;
 proclaim [prəˈkleɪm] v. （正式）宣告，（公开）声明；强调，声称
 
 # Soon after she was dead from a sniper s bullet to the head.
@@ -1731,13 +1733,99 @@ uncompromising [ʌnˈkɒmprəmaɪzɪŋ] adj. 不妥协的，不让步的；坚�
 
 
 
+56%, P37/100 (2022.2.27 21:26--> )
+sequester [sɪˈkwestə(r)] vt. 使隔绝；使隐退；没收，扣押
+cantonment [kænˈtuːnmənt] n. 宿营地；兵营
+caste [kɑːst] n. （印度社会中的）种姓；（具有严格等级差别的）社会地位；（排他的）社会团体
+hostile [ˈhɒstaɪl] adj. 敌对的，怀敌意的；强烈反对的；敌人的，敌方的；艰苦的，不利的；不受（被购公司）欢迎的
+
+Myanmar [ˈmjænmɑː(r)] n. 缅甸（东南亚国家）
+Burma [ˈbɜːmə] n. 缅甸（东南亚国家）
+
+uprise [ˈʌpˌraɪz; ʌpˈraɪz] v. （古或诗、文）升起；起立；起床；出现；（声音）响起，升高；起义，反抗
+rumble [ˈrʌmb(ə)l] v. 发出隆隆声；轰鸣着缓慢行进；（肚子因饥饿而）咕噜作响；低沉地说
+rank [ræŋk] n. 军衔，军阶；
+haze [heɪz] n. 霾，烟雾；懵懂，迷糊 v. 变朦胧；<美>戏弄（大学新生，作为入学或入会仪式的一部分）；变糊涂；使劳累，使劳役折磨
+
+# Battlefield techniques include the rape of women and girls, and the use of civilians as human shields. 
+# These same brutalised infantrymen are now patrolling Myanmar s streets.
+# 在缅甸的街道上，这些被残忍杀害的步兵正在巡逻。 ???
+patrol [pəˈtrəʊl] n. 巡逻，巡查；巡逻队，巡逻车；童子军小队；<英> （儿童穿越马路处的）交通管理员
+
+
+# Just as with earlier coups, the press has been muzzled: five media organisations were banned this week.
+coup [kuː] n. 政变；成功之举，妙计；突然的一击，漂亮的一击；
+muzzle [ˈmʌzl] n. 枪口，炮口；口套，口络；动物的鼻口 vt. 使……缄默；给……戴口套；封锁……的言论
+
+autarky [ˈɔːtɑːki] n. 自给自足
+obsession [əbˈseʃn] n. 痴迷，困扰；令人着迷的人（或事物）
+prerogative [prɪˈrɒɡətɪv] n. 权利，特权；君权，王室特权；特质，特性
+
+formal [ˈfɔːm(ə)l] adj. 庄重的，合乎礼仪的；（语言）正式的，规范的；合法的；整齐的，布置井然的；正统的，拘谨的；（教育或培训）正规的；
+
+jade [dʒeɪd] n. 玉，翡翠；玉制品；翡翠色（=jade green）；泼妇，荡妇；劣马，衰老的马 v. 疲倦
+racket [ˈrækɪt] n. 球拍（=racquet）；<非正式>敲诈勒索，非法勾当；行当，生计
+
+wind [wɪnd] n. 风，气流；风向 v. 弯曲前进; 给（钟、表）上发条
+pariah [pəˈraɪə] n. 贱民（印度的最下阶级）
+
+isolationist [ˌaɪsəˈleɪʃənɪst] n. 孤立主义者 adj. 孤立主义的；孤立主义者的
+precede [prɪˈsiːd] v. 处在……之前，先于；在……之前做（或说）；比……更重要，比……（级别）更高
+
+# given the Tatmadaw s behaviour in recent weeks, any civilian government would sweep away the prerogatives it intervened to uphold.
+# 考虑到缅甸军队最近几周的行为，任何一个文官政府都会剥夺其干预时所维护的特权。
+uphold [ʌpˈhəʊld] v. 支持，维护（法规、制度或原则）；认可，维持（法院原判）；鼓励；举起
+
+
 
 
 
 
 
 ========================================
---> cur: 033
+|-- China (034->037)
+----------------------------------------
+
+034 30s;
+|--> 035 China - Five-year plan.mp3 (6.6min)
+
+0%, P38/100 (2022.2.28 8:55--> 9:14) 19min
+# Flush with confidence, China wants to insulate itself from the world
+# 充满自信的中国希望将自己与世界隔离开来
+
+# He leaves nothing to chance
+# 他做事从不碰运气
+
+immaculately [ɪˈmækjələtli] adv. 完美地；干净地；纯洁地；毫无过失地
+choreograph [ˈkɒriəɡrɑːf; ˈkɒriəɡræf] v. 给……设计舞蹈动作， 给……编舞；设计，筹划（活动，工作）
+
+unscripted [ʌnˈskrɪptɪd] adj. 不用稿子的；不用剧本的
+memorable [ˈmemərəbl] adj. 难忘的，值得纪念的
+
+sideline [ˈsaɪdlaɪn] n. 副业；球场边线；局外人的观点
+bumpkin [ˈbʌmpkɪn] n. 土包子，乡巴佬
+
+unvarnished [ˌʌnˈvɑːnɪʃt] adj. 未涂漆的；无装饰的；无掩饰的
+ratification [ˌrætɪfɪˈkeɪʃn] n. 批准，认可
+rival [ˈraɪv(ə)l] n. 竞争对手，敌手；可与之匹敌者，可与之相比的人（或物）
+
+# The new plan—the 14th, running from 2021 to 2025—confirms just how serious the leadership is about trying to insulate the country from the hostile foreign forces that it believes are arrayed against it.
+# 第14规划，从2021年到2025年，证实了领导层是多么严肃地试图将该国从敌对外国势力中隔离出来，因为他们认为这些外国势力是针对该国的。
+# that it believes are arrayed against it. 这个英国人不清楚？把 it believes 去掉更符合实际。
+arrayed [əˈreɪd] adj. 排列的；摆好的；准备就序的 v. 排列（array 的过去分词）
+
+
+
+
+20%, P38/100
+
+
+
+
+
+
+========================================
+--> cur: 035
 ----------------------------------------
 file:///D://xampp//htdocs//DawnScholar//audio//20210313.pdf
 
