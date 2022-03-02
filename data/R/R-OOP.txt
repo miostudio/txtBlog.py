@@ -931,6 +931,303 @@ Animal中定义action方法，每一个子类使用callSuper()重写该方法。
 环境 environment
 ----------------------------------------
 
+https://dataxujing.github.io/R_oop/env.html
+
+
+
+1. 环境基础
+环境和list很像，可以看做一系列键值对。
+
+(1) 定义环境，及内部的变量和值
+e <- new.env()
+e$a <- FALSE
+e$b <- "a"
+e$c <- 2.3
+e$d <- 1:3
+
+(2) 对象并不生存在环境中，所以多个名字可指向同一个对象
+
+e$a <- e$d
+
+> e$a
+[1] 1 2 3
+> e$d
+[1] 1 2 3
+
+但是修改就复制：
+> e$d=c(100,200)
+> e$a
+[1] 1 2 3
+
+(3) 当然，他们还可以指向具有相同值得不同对象
+e$a <- 2:3
+
+(4) 如果对象没有指向它的名字，那么这个对象就会被垃圾回收器自动删除。
+
+
+
+
+2. 父环境，及环境相关函数
+
+(1) 每个环境都有父环境，他是另外一个环境。
+每个环境都有指向父环境的指针，父环境用于实现词法作用域:
+如果一个名字在一个环境中没有找到，R就会到他的父环境去找（直到找到或遍历所有环境），只有空（empty）环境没有父环境
+
+我们基本上不会说一个环境的子环境，因为他们之间没有反向链接，给定一个环境我们没有办法找到它的子环境。
+
+
+通常环境与列表相似，除一下4点外：
+	环境中的每个对象都有唯一的名字
+	环境中的对象没有顺序
+	环境有父环境
+	环境具有引用语义
+
+更专业一点，环境是有两部分构成：
+	对象框，它包含名称-对象的绑定关系（行为上更像一个命名列表);
+	它的父环境。
+
+> parent.env(globalenv()) #查询一个环境的父环境
+<environment: 0x000000000ab81f70>
+attr(,"name")
+[1] "tools:rstudio"
+
+
+
+
+
+# ==> 列出当前环境的父对象，直到遇到空环境报错。
+e0=environment()  #globalenv()
+i=0
+while( 1 ){
+  message( ">>  layer ", i)
+  print(e0)
+  
+  i=i+1
+  e0=parent.env(e0)
+}
+
+
+
+
+
+
+(2) 还有4个特殊的环境：
+	globalenv()或者全局环境，他是一个交互式的工作环境，通常情况下我们就是在这个环境工作。全局环境的父环境就是libtary()或require()添加的最后一个包
+	baseenv(),基础环境，他是R基础软件包的环境，他的父环境是空环境
+	emptyenv(),空环境，他是所有环境的祖先，也是唯一一个没有父环境的环境
+	environment(),他是当前环境
+
+
+(3) 列出全局环境的所有父环境 
+> search()
+ [1] ".GlobalEnv"        "tools:rstudio"     "package:stats"     "package:graphics" 
+ [5] "package:grDevices" "package:utils"     "package:datasets"  "package:methods"  
+ [9] "Autoloads"         "package:base"  
+
+
+(4) as.environment()
+访问搜索列表中的任何环境
+
+> e1=as.environment("package:stats"); e1
+<environment: package:stats>
+attr(,"name")
+[1] "package:stats"
+attr(,"path")
+[1] "D:/Program Files/R/R-4.1.2/library/stats"
+
+该包定义的函数：
+> e1$df
+function (x, df1, df2, ncp, log = FALSE) 
+{
+    if (missing(ncp)) 
+        .Call(C_df, x, df1, df2, log)
+    else .Call(C_dnf, x, df1, df2, ncp, log)
+}
+<bytecode: 0x0000000009c6f598>
+<environment: namespace:stats>
+
+
+
+(5) new.env()
+手动创建一个环境，ls()可以列出将此环境的对象框中的所有绑定关系列出来，可以使用parent.env()查看他的父环境。
+
+e <- new.env()
+parent.env(e)
+
+
+(6) ls(e) # 查看该环境的变量名
+
+对一个环境中的绑定关系进行修改的最简单的方法就是将其看做列表
+e$a <- 1
+e$b <- 2
+ls(e)
+# [1] "a" "b"
+
+e$a
+# [1] 1
+
+
+(7) 默认情况下，ls()只能列出不是一 "." 开始的名字，可以通过设置参数 all.names=TRUE 来显示一个环境中的所有绑定关系：
+
+e$.a <- 2
+ls(e)
+## [1] "a" "b"
+ls(e,all.names=TRUE)
+## [1] ".a" "a"  "b"
+
+
+
+(8) ls.str()
+它可以将环境中的所有对象都显示出来，比str()更有用
+
+str(e)
+## <environment: 0x000000001b57e9e8>
+ls.str(e)
+## a :  num 1
+## b :  num 2
+
+
+(9) 获取绑定值的3种方法
+e$c <- 3
+e$c
+## [1] 3
+
+e[["c"]]
+## [1] 3
+
+get("c",envir=e)
+## [1] 3
+
+
+(10) 从环境中删除对象 rm("objName", envir=e1)
+
+e <- new.env()
+e$a <- 1
+
+e$a <- NULL #这样相当于创建了一个新的对象
+ls(e)
+## [1] "a"
+
+rm("a",envir=e)
+ls(e)
+## character(0)
+
+
+
+(11) exists() 确定一个绑定是否存在
+x <- 10
+exists("x",envir=e) #查找父环境
+
+## [1] TRUE
+exists("x",envir=e, inherits=FALSE) #不希望在父环境中查找
+## [1] FALSE
+
+
+(12) identical() 
+identical()与==是不同的，是对两个环境进行比较
+
+identical(globalenv(),environment())
+## [1] TRUE
+
+> globalenv()==environment()
+Error in globalenv() == environment() : 
+  comparison (1) is possible only for atomic and list types
+
+
+
+(13) 环境递归
+
+where <- function(name, env=parent.frame()){
+  if(identical(env,emptyenv())){
+    # Base case
+    stop("Can't find '",name, "'",call.=FALSE)
+  }else if(exists(name, envir=env, inherits=FALSE)){
+    #Success case
+    env
+  }else{
+    #Recursive case
+    where(name, parent.env(env))
+  }
+}
+
+有三种情况：
+	基本情况：已经到达空环境，但没有找到绑定，抛出一个错误
+	成功情况：在这个环境中存在该对象，返回该环境
+	递归情况：在这个环境中没有找到该环境的对象，所以尝试在父环境中继续查找
+
+
+
+
+========================================
+|-- 函数环境
+----------------------------------------
+
+大对数环境并不是通过new.env()函数创建的，而是使用函数的结果。
+本节将讨论4种和函数相关的环境：封闭，绑定，执行和调用。
+	封闭环境：创建函数的环境，每个函数有且仅有一个封闭环境
+	使用<-将一个函数和一个名字进行绑定，就可以定义一个绑定环境
+	调用函数创建一个临时的执行环境，用来存储执行期间创建的各种变量
+	每个执行环境都与一个调用环境关联，他说明函数在哪调用
+
+
+1. 封闭环境
+当创建一个函数，他就获得对创建他的函数的引用，这就是封闭环境，他用作词法作用域。
+为了确定一个函数的封闭空间，只需调用environment()并将函数名作为第一个参数
+
+y <- 1
+f <- function(x) x+y
+
+environment(f)
+## <environment: R_GlobalEnv>
+
+下图中，圆角矩形代表函数，黑色菱形代表一个函数的封闭环境
+
+
+
+
+
+2. 绑定环境
+上图太简单，因为函数没有名字，函数的名字可以通过绑定来定义，一个函数的绑定环境就是与其绑定的所有环境，下图更好的反映这种关系，因为封闭环境包含一个从f到环境的绑定
+
+这种情况封闭环境和绑定环境是相同的，当将一个函数分配给另一个不同的环境，那么他们就同了
+
+e <- new.env()
+e$g <- function() 1
+
+封闭函数属于该环境，永远也不会发生改变，甚至将该函数移动到其他环境中，封闭环境决定了这个函数该如何找到值，而绑定环境空间决定如何找到该函数。
+
+
+绑定空间与封闭空间的区别在于软件包命名空间是非常重要的，
+例如如果软件包中A使用基础包中的mean()函数，
+那么如果软件包B也创建了自己的mean()函数会有什么后果呢？
+命名空间确保软件包A使用基础包中的mean(),而不受软件包B的影响（除非显式的调用）
+
+命名空间使用环境来实现，利用函数不一定存在于他们的封闭环境中的事实，例如基础包中的sd()函数，它的封闭环境与绑定环境是不同的
+
+> environment(sd)
+## <environment: namespace:stats>
+
+> where("sd")
+<environment: package:stats>
+attr(,"name")
+[1] "package:stats"
+attr(,"path")
+[1] "D:/Program Files/R/R-4.1.2/library/stats"
+
+
+
+函数sd()的定义使用var()，但是如果创建自己的var()函数，那么他也不会影响sd()
+
+x <- 1:10
+sd(x)
+## [1] 3.02765
+
+var <- function(x,na.rm=TRUE) 100
+sd(x)
+## [1] 3.02765
+
+
+
 
 
 

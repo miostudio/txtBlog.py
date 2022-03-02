@@ -16,6 +16,337 @@ options(stringsAsFactors = F)
 
 
 ========================================
+R list 增删改查及apply批量操作
+----------------------------------------
+
+列表是 R 语言的对象集合，可以用来保存不同类型的数据，可以是数字、字符串、向量、另一个列表等，当然还可以包含矩阵和函数。
+基本结构就是键值对，没有指定键的，默认使用数字下标。
+
+
+1. R 语言创建列表使用 list() 函数。
+(1) 不带名字的list
+list_data <- list("apple", c(1,20,3), 500, iris[1:2,])
+
+> print(list_data)
+[[1]]
+[1] "apple"
+
+[[2]]
+[1]  1 20  3
+
+[[3]]
+[1] 500
+
+[[4]]
+  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+
+
+(2) 也可以定义时指定名字
+list2=list(
+	city=c("A", "B", "C"),
+	people=c(1,2,3,4,5,6)
+)
+
+> list2
+$city
+[1] "A" "B" "C"
+
+$people
+[1] 1 2 3 4 5 6
+
+检查是不是list:
+> is.list(list2)
+[1] TRUE
+
+
+
+(3) names() 函数给列表的元素命名，也可以获取元素键名。
+
+# 定义列表包含向量、矩阵、数据框
+list_2 <- list(
+	c("boss","worker"), 
+	matrix(c(1,2,3,4,5,6), nrow = 2),
+	iris[1:2,]
+)
+
+#1) 给列表元素设置名字
+names(list_2) <- c("title", "pay", "info")
+
+# 显示列表
+> print(list_2)
+$title
+[1] "boss"   "worker"
+
+$pay
+     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6
+
+$info
+  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+
+
+
+#2) 获取名字
+> names(list_data)
+NULL
+> names(list_2)
+[1] "title" "pay"   "info" 
+
+
+
+#3) 还可以只设置某一个下标的名字
+> names(list_2)[2]="wage"
+> names(list_2)
+[1] "title" "wage"  "info" 
+
+
+
+
+
+
+2. 访问列表
+(1)命名list: 使用 listName[[ 下标或者键名]]，或者 listName$键名 访问。
+
+list_2 <- list(
+	title=c("boss","worker"), 
+	pay=matrix(c(1,2,3,4,5,6), nrow = 2),
+	info=iris[1:2,]
+)
+
+> list_2[[1]]
+[1] "boss"   "worker"
+
+> list_2[["title"]]
+[1] "boss"   "worker"
+
+> list_2$title
+[1] "boss"   "worker"
+
+
+
+如果坚持用单个方框号呢？
+> list_2["title"]
+$title
+[1] "boss"   "worker"
+
+> list_2[1]
+$title
+[1] "boss"   "worker"
+
+有什么区别呢？
+> class(list_2[[1]]) #2个方括号输出的是值
+[1] "character"
+
+> class(list_2[1]) #而单个方括号输出的是键值对，还是一个list
+[1] "list"
+
+
+
+(2)非命名list: 则只能使用[[下标]] 访问。
+
+> list_data <- list("apple", c(1,20,3), 500, iris[1:2,])
+> list_data[[2]]
+[1]  1 20  3
+
+
+
+
+3. 增删改
+只能把无名元素添加到列表的末尾。但是可以通过下标或名字更新任何元素。
+
+list_3 <- list(
+	title=c("boss","worker")
+)
+
+(1) 增加元素
+> list_3[[2]]=c("buildingXX", "roomXX")
+
+或者 
+> list_3$year=c(20, 1)
+
+查看 
+> list_3  #输出略
+$title
+[1] "boss"   "worker"
+
+[[2]]
+[1] "buildingXX" "roomXX"    
+
+$year
+[1] 20  1
+
+
+(2) 删除元素
+> list_3$year=NULL
+
+查看
+> list_3
+$title
+[1] "boss"   "worker"
+
+[[2]]
+[1] "buildingXX" "roomXX"  
+
+
+(3) 更新/修改
+> list_3$title=c("employer", "employee")
+
+查看
+> list_3
+$title
+[1] "employer" "employee"
+
+[[2]]
+[1] "buildingXX" "roomXX"  
+
+
+
+
+4. 合并列表
+list1=list(1,3)
+list2=list(10,20, c(100,200) )
+list3=c(list1, list2)
+
+> list3
+[[1]]
+[1] 1
+
+[[2]]
+[1] 3
+
+[[3]]
+[1] 10
+
+[[4]]
+[1] 20
+
+[[5]]
+[1] 100 200
+
+
+
+
+
+
+5. 列表展开为向量 unlist
+> list1=list(
+   A=1:3,
+   B=2:5
+)
+
+> list1
+$A
+[1] 1 2 3
+
+$B
+[1] 2 3 4 5
+
+> unlist(list1) #默认是要名字，有多个元素的name是加数字后缀
+A1 A2 A3 B1 B2 B3 B4 
+ 1  2  3  2  3  4  5 
+
+> unlist(list1, use.names = F) #不要名字
+[1] 1 2 3 2 3 4 5
+
+
+
+
+
+
+6. 使用 apply 对list进行循环
+
+list是大规模数据操作非常优秀的方式，能够存放非结构化的文本数据。
+
+
+(1) 例1：统计list中每个键值对中值的数量。
+list1=list(
+  A=1:3,
+  B=2:5,
+  C=8:20
+)
+list1
+
+# 方式1：传入每个键值对
+lapply(list1, function(x){
+  length(x)
+})
+
+输出：
+$A
+[1] 3
+
+$B
+[1] 4
+
+$C
+[1] 13
+
+
+# 2) 优化输出形式
+sapply(list1, function(x){
+  length(x)
+})
+
+输出:
+ A  B  C 
+ 3  4 13
+
+
+# 2) 方式2: 传入每个键
+sapply(
+  X=names(list1),
+  FUN=function(x){
+    length(list1[[x]])
+  },
+  simplify = F, #这个比直接用 lapply 的好处是：返回的list可以带有name
+  USE.NAMES = T
+)
+
+输出:
+$A
+[1] 3
+
+$B
+[1] 4
+
+$C
+[1] 13
+
+
+
+(2) 例2: 提取长度大于某个值的list元素
+
+x=list(
+  A=1:3,
+  B=2:5,
+  C=8:20
+)
+
+> x[lapply(x, length)>3]
+$B
+[1] 2 3 4 5
+
+$C
+ [1]  8  9 10 11 12 13 14 15 16 17 18 19 20
+
+
+
+
+
+
+
+
+
+
+
+
+
+========================================
 R 高阶函数: Reduce、Filter、Find、Map、Negate、Position
 ----------------------------------------
 高阶函数：顶头的都是写过的。

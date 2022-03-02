@@ -1290,6 +1290,188 @@ Levels: 1 2
 
 
 
+========================================
+|-- 源码解析 12: FeatureScatter()
+----------------------------------------
+
+1. 
+QC 指控
+
+
+(1) 如果看着可疑，可以试试参数 jitter=F
+不jitter才是本来的面目，有可能很多点重合在原点(x和y都是0)。
+FeatureScatter(pbmc, feature1 = "S100A9", feature2 = "DUSP1", jitter=F)
+
+
+group.by=可以输入一个值，也可以输入一个数组
+FeatureScatter(pbmc, feature1 = "TMSB4X", feature2 = "B2M",
+               group.by = c("seurat_clusters", 'ident', "orig.ident"),
+               jitter=F)
+
+
+
+
+
+(2) 列名替换'-'为'.'，以及 ':' 为 '.'
+也即是基因名不要有-或者:，否则会被替换为点号。
+names.plot <- colnames(x = data) <- gsub(
+	pattern = '-',
+	replacement = '.',
+	x = colnames(x = data),
+	fixed = TRUE
+)
+
+
+
+
+(3) 该图顶部的相关系数怎么计算的？
+
+# (A7) 如果需要相关系数，就计算；否则空字符串
+# 直接使用的 cor(x,y)，默认的 pearson 相关系数
+plot.cor <- if (isTRUE(x = plot.cor)) {
+	round(x = cor(x = data[, 1], y = data[, 2]), digits = 2)
+}
+else(
+	""
+)
+
+就是默认的 cor(x,y).
+
+
+(4) 添加LOESS 局部拟合曲线
+FeatureScatter(pbmc, feature1 = "TMSB4X", feature2 = "B2M", 
+               cols=c(1:9), #每个类的颜色
+               span=0.1, #越大越平滑，也越失去细节
+               jitter=F)
+
+
+
+
+
+
+
+
+2. 源码解析
+见 gitee 
+
+
+==>
+seurat-4.1.0/R/visualization.R:5320:Bandwidth <- function(data) {
+
+
+
+
+
+
+
+
+
+
+
+
+3. R tips
+
+(1) shuffle 打乱样品顺序
+> sample(1:10)
+ [1]  2  8  9 10  4  5  1  3  6  7
+> sample(1:10)
+ [1]  9  7  1  3  4  8  5 10  6  2
+
+如果想固定顺序，则需要设定随机数种子
+> set.seed(1)
+> sample(1:10)
+ [1]  9  4  7  1  2  5  3 10  6  8
+
+
+
+
+(2) globalVariables() 函数干啥呢？//todo
+源码：
+globalVariables(names = '..density..', package = 'Seurat')
+
+
+
+
+(3) aes() 与 aes_string() 的用法区别？
+后者可以使用变量。例子如下:
+
+library(ggplot2)
+head(mtcars)
+ggplot(mtcars, aes(mpg, cyl))+geom_point()
+
+params=c("mpg", "cyl")
+ggplot(mtcars, aes_string(x=params[1], y=params[2]))+geom_point()
+
+
+
+(4) 栅格化以降低pdf文件大小： scattermore::geom_scattermore 
+ggplot2::ggplot() integration. This cooperates with the rest of ggplot (so you can use it to e.g. add rasterized scatterplots to vector output in order to reduce PDF size). 
+
+> scattermore::geom_scattermore
+function (mapping = NULL, data = NULL, stat = "identity", 
+    position = "identity", ..., na.rm = FALSE, show.legend = NA, 
+    inherit.aes = TRUE, interpolate = FALSE, pointsize = 0, pixels = c(512, 
+        512)) 
+{
+    ggplot2::layer(data = data, mapping = mapping, stat = stat, 
+        position = position, geom = GeomScattermore, show.legend = show.legend, 
+        inherit.aes = inherit.aes, params = list(na.rm = na.rm, 
+            interpolate = interpolate, pointsize = pointsize, 
+            pixels = pixels, ...))
+}
+<bytecode: 0x000000003346b238>
+<environment: namespace:scattermore>
+
+源码:
+    if (raster) {
+      plot <- plot + geom_scattermore(
+        mapping = aes_string(color = 'colors'),
+        position = position,
+        pointsize = pt.size, #这一行参数名不同
+        pixels = raster.dpi #多了这一行
+      )
+    # 如果不栅格化
+    } else {
+      plot <- plot + geom_point(
+        mapping = aes_string(color = 'colors'),
+        position = position,
+        size = pt.size
+      )
+    }
+
+
+例：使用钻石数据集画散点图pdf，尝试降低pdf磁盘占用。
+
+head(diamonds)
+pt.size=min(1583 / nrow(x = diamonds), 1); pt.size #0.02934
+
+pdf(file="01.pdf", width=4, height=4, useDingbats = F)
+ggplot(diamonds, aes(carat, price, color=cut))+
+  geom_point(size = pt.size)+
+  theme_classic()
+dev.off()
+
+pdf(file="01.raster.pdf", width=4, height=4, useDingbats = F)
+raster.dpi=c(512, 512)
+ggplot(diamonds, aes(carat, price, color=cut))+
+  scattermore::geom_scattermore(
+    pixels = raster.dpi,
+    pointsize = pt.size*50
+  )+
+  theme_classic()
+dev.off()
+
+文件大小对比: 是原来的 1/16
+栅格前后: 1427k vs 88k
+
+
+
+(5) 
+
+
+
+
+
 
 
 

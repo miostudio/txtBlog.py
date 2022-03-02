@@ -1789,7 +1789,7 @@ uphold [ʌpˈhəʊld] v. 支持，维护（法规、制度或原则）；认可�
 034 30s;
 |--> 035 China - Five-year plan.mp3 (6.6min)
 
-0%, P38/100 (2022.2.28 8:55--> 9:14) 19min
+0%, P38/100 (2022.2.28 8:55--> 9:14(20%), ) 19min
 # Flush with confidence, China wants to insulate itself from the world
 # 充满自信的中国希望将自己与世界隔离开来
 
@@ -1817,7 +1817,52 @@ arrayed [əˈreɪd] adj. 排列的；摆好的；准备就序的 v. 排列（arr
 
 
 
-20%, P38/100
+20%, P38/100 (2022.3.2 9:53--> 10:13) 20min;
+
+# The document does not mention America by name, but it does not need to: 
+# every official knows that competition with America looms large in China’s strategies.
+# 每一个官员都知道，与美国的竞争在中国的战略中是非常重要的。
+loom [luːm] v. （尤指阴森森地）隐约出现，赫然耸现；逼近，临近
+# loom large 显得突出；赫然耸现
+# Intellectual property issues also loom large. 
+# 知识产权也是一个突出的问题。
+
+
+# The previous fi ve year plan described how a peaceful multilateral world would benefi t China
+# 之前的五年计划描述了一个和平的多边世界将如何使中国受益
+multilateral [ˌmʌltiˈlætərəl] adj. 多国的，多边的；有多条边的，有多个部份的
+
+hegemonism [hiːˈɡemənɪzəm] n. 霸权主义
+omission [əˈmɪʃ(ə)n] n. 省略，遗漏；被省略（或排除）的人（或物）；（尤指道德上或法律义务的）疏忽
+
+# China is wary of committing itself when it does not know whether America will choke off its supply of high­end semiconductors, among other things.
+# 在不知道美国是否会切断其高端半导体等产品的供应的情况下，中国对自己的承诺很谨慎。
+wary [ˈweəri] adj. 小心翼翼的，谨慎的，警戒的
+choke [tʃəʊk] v. 窒息，噎住，卡住；说不出话，哽咽；掐死，扼死；堵塞，塞满；（管子、渠道等）被阻塞，被塞满；失败；阻止，抑制；闷住，扑灭（火等）；窒息，噎住
+
+V-T To choke someone means to squeeze their neck until they are dead. (卡住喉咙) 使停止呼吸
+# The men pushed him into the entrance of a nearby building, where they choked him with his tie.
+# 那些男人把他推进了附近一座大楼的入口处，然后在那里用他的领带将他勒死了。
+# 这个就是 卡脖子 对应的英文了。
+
+high­end 高端
+
+among other things 除了别的之外
+# Among other things, the findings demonstrate that dramatic climate change is nothing new for planet Earth. 
+# 在其它事情中，这些发现表明，剧烈的气候变化对地球来说并不是什么新鲜事。
+
+
+# But the plan does pledge that China will be a “mid­tier developed country” by 2035. 
+# 但该计划确实承诺，到2035年，中国将成为中等发达国家。
+pledge [pledʒ] n. 誓言，保证，承诺；v. 保证，发誓；使保证，使许诺；承诺给予，承诺提供
+mid tier 中档；中间层
+
+
+34%, P38/100 
+
+
+
+
 
 
 
