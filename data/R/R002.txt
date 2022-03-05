@@ -562,18 +562,70 @@ Hello world!
 
 
 
-========================================
-----------------------------------------
-
 
 
 ========================================
+Dash R User Guide
 ----------------------------------------
+https://dash.plotly.com/r
+
+1.简介
+https://zhuanlan.zhihu.com/p/354078627
+本来Dash是 python的，不过也开始向R扩展了。
+
+Dash 是建立在 Flask 基础上的。
+
+
+
+码R的一般用RStudio shiny
+Python的世界有 dash 和 bokeh, dash的R版本也快release了
+
+
+
+2. 
+
 
 
 
 ========================================
+R 全局变量 
 ----------------------------------------
+1. 全局变量
+# https://www.r-bloggers.com/2017/09/global-variables-in-r-packages/
+
+
+
+(1) 方法1: Naive Implementation
+data_path = "data"
+
+set_data_path <- function(path) {
+  data_path <<- path
+}
+
+set_data_path("/path/to/data/")
+data_path
+
+# 包内使用则会报错。
+However, building the package and giving a try yielded an error.
+
+> set_data_path("/tmp")
+Error in set_data_path("/tmp") : 
+  cannot change value of locked binding for 'data_path'
+
+While investigating the problem I learned about unlockBinding(), which is good to know.
+
+
+(2) 方法2: Improved Implementation
+pkg.globals <- new.env()
+
+pkg.globals$data_path <- "data"
+
+set_data_path <- function(path) {
+  pkg.globals$data_path <- path
+}
+
+set_data_path("path/to/your/data/2/")
+pkg.globals$data_path
 
 
 

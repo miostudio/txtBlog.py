@@ -1858,8 +1858,89 @@ pledge [pledʒ] n. 誓言，保证，承诺；v. 保证，发誓；使保证，�
 mid tier 中档；中间层
 
 
-34%, P38/100 
 
+
+34%, P38/100 (2022.3.3 17:49-->18:11) 20min;
+
+# It also sets out numerous other goals.
+# These include an increase in spending on research and development of at least 7% annually over the next five years.
+
+# The plan says 65% of the population should be urban by 2025, up from nearly 61% at the end of 2019. 
+
+# And it vows to reduce the amount of carbon dioxide emitted for each unit of GDP by 18% between 2021 and 2025.
+vow [vaʊ] n. 誓约，诺言；（婚礼等上的）誓言 v. 立誓，发誓
+
+# These targets, however, are slightly underwhelming. 
+underwhelm [ˌʌndəˈwelm] v. 未给……留下好印象，令……失望
+
+# If China were to continue on its trajectory of the past five years, it would handily outperform them all.
+# 如果中国在过去5年的轨道上继续运行，它的表现将轻而易举地超过所有这些（目标）。
+trajectory [trəˈdʒektəri] n. （物体射向或抛向空中形成的）轨道，轨迹；（事业等的）发展轨迹，起落
+handily [ˈhændɪli] adv. 方便地；敏捷地；灵巧地
+outperform [ˌaʊtpəˈfɔːm] v. 胜过，做得比……好
+
+# More telling in this plan is the kind of growth it describes.
+# 该计划中更能说明问题的是它所描述的增长方式。
+
+# dual-circulation strategy 双循环策略
+dual [ˈdjuːəl] adj. 双的，双重的；双数的；（飞机）双重控制的，复式操纵的；（定理、表达式等）对偶的
+
+
+# But it emphasises the improvement of “domestic circulation”—ie, the building of a vibrant economy at home while reducing dependence on others.
+domestic [dəˈmestɪk] adj. 国内的，本国的；家用的，家庭的；喜爱家庭生活的，乐于操持家务的；非野生的，驯养的
+vibrant [ˈvaɪbrənt] adj. 充满活力的，充满生机的，生气勃勃的；鲜艳的，醒目的；洪亮的，强劲的；颤抖的，震动的
+
+
+
+
+50%, P38/100 (2022.3.4 23:23-->23:31(60%), )
+# diktat [ˈdɪktæt] n. （德）勒令；绝对命令；单方面的苛刻解决条件
+
+# The plan does not mention the “Made in China 2025” programme that has been roundly criticised by American officials as an industrial policy on steroids.
+# 该计划没有提及中国制造2025计划，该计划曾被美国官员严厉批评为一项过度刺激的产业政策。
+roundly [ˈraʊndli] adv. 全面地；严厉地；直率地；圆圆地
+steroid [ˈsterɔɪd; ˈstɪərɔɪd] n. 类固醇；[有化] 甾族化合物
+
+
+
+
+60%, P39/100 (2022.3.5 9:44-->10:08) 20min;
+sector [ˈsektə(r)] n. 区域，部分；（尤指商业、贸易等的）部门，行业；小群体
+
+# In setting out priorities for manufacturing, the plan urges investment in the very same sectors, from robotics to electric vehicles.
+# 在制定制造业的优先事项时，该计划敦促对从机器人到电动汽车等相同领域的投资。
+sector [ˈsektə(r)] n. 区域，部分；（尤指商业、贸易等的）部门
+robotics [rəʊˈbɒtɪks] n. 机器人学；机器人（robotic的复数）
+
+# It also identifies seven frontier technologies that are deemed vital to development and national security.
+# 它还确定了七项被认为对发展和国家安全至关重要的前沿技术。
+identify [aɪˈdentɪfaɪ] v. 认出，识别；查明，确认；发现；证明（身份），表明；认同，理解；认为……和……一致；和（某人）打成一片
+
+# These include quantum computing, semiconductors and artificial intelligence.
+# 其中包括量子计算、半导体和人工智能。
+quantum [ˈkwɒntəm] n. 量子；量子论；额（特指定额、定量） adj. 量子的；(大小、数量的) 猛然剧增，(质量的) 突飞猛进
+
+patchy [ˈpætʃi] adj. 零散的；分布不匀的；不完整的；参差不齐的；局部地区的；不很可靠的，不很令人满意的
+
+# Its years­long drive to catch up with world leaders in the making of semiconductors has so far fallen well short of the government’s ambitions.
+# 政府多年来在半导体制造领域追赶世界领先者的努力，迄今仍远未达到其雄心
+
+fallen well short of 远远达不到
+# All predictions made over the past decade about the use of personal robots have fallen well short. 
+# 过去10年关于私家机器人的种种预言没有成为现实。
+
+# The country is the world’s biggest maker of goods. 
+# Its share of global manufacturing is nearly 30% — about the same as the combined shares of America, Japan and Germany.
+# 中国在全球制造业中所占份额接近30%，相当于美国、日本和德国的总和。
+
+# Many foreign firms wonder whether to move some operations away from XX, because of climbing costs and political risks arising from tensions with America. 
+# 由于不断攀升的成本和与美国关系紧张所带来的政治风险，许多外国公司都在考虑是否要将部分业务从xx转移出去。
+climbing costs 生产成本攀升
+
+
+
+
+73%, P39/100
 
 
 
