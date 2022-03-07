@@ -1794,7 +1794,46 @@ new1[na.omit(index1)]
 
 
 
-(5) 
+(5) inherits(x, what=c())第二个参数可以是多个字符串
+源码：
+  if (!inherits(x = value, what = c('SeuratCommand', 'NULL', 'SpatialImage', 'Neighbor')) && !all(Cells(x = value) == Cells(x = x))) {
+	stop("All cells in the object being added must match the cells in this object", call. = FALSE)
+  }
+
+例: 如果x是df或矩阵
+> inherits(iris, what=c("matrix"))
+[1] FALSE
+> inherits(iris, what=c("matrix", "data.frame"))
+[1] TRUE
+
+
+
+(6) 判断2个向量 不是逐一相等
+源码见上文: !all(Cells(x = value) == Cells(x = x))
+
+> !all( c(1,2,3) == c(1,2,3) )
+[1] FALSE
+> !all( c(1,2,3) == c(1,2,4) )
+[1] TRUE
+
+
+
+(7) 2个元素不能是同类，怎么判断？
+互相不继承
+
+isSameClass=function(x,y){
+  inherits(x = x, what = class(x = y)) ||
+    inherits(x = y, what = class(x = x))
+}
+isSameClass(1,2) #T
+isSameClass(1,"2") #F
+isSameClass(mtcars, data.frame()) #T
+
+
+
+
+(8) 
+
 
 
 
@@ -1808,6 +1847,23 @@ new1[na.omit(index1)]
 2. 
 > Assays(pbmc)
 [1] "RNA"
+
+> UpdateKey()
+
+
+查 S3 风格的方法的代码 
+> getAnywhere("Key.Seurat") #用到了 vapply 
+
+
+查 S4 风格的方法的代码 
+> getMethod("show", signature="Seurat")
+Method Definition:
+function (object) 
+{
+    object <- UpdateSlots(object = object)
+...
+
+
 
 
 

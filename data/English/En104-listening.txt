@@ -1940,7 +1940,97 @@ climbing costs 生产成本攀升
 
 
 
-73%, P39/100
+73%, P39/100 (2022.3.6 10:17-->10:31) 15min
+# The plan calls for China to keep critical parts of supply chains in the country. To foreign executives, that may sound threatening.
+# 该计划要求中国将供应链的关键部分留在国内。对于外国高管来说，这听起来可能是一种威胁。
+
+# More positively, one way that China hopes to maintain its industrial advantage is with its tried-and-tested approach of building top­notch infrastructure.
+# 更积极的是，中国希望保持其工业优势的一种方式是建设一流的基础设施。
+# tried and tested 经过反复考验的
+# top-notch infrastructure 顶级的设施
+notch [nɒtʃ] n. （表面或边缘的）V形刻痕，圆形切口；等级，档次；
+infrastructure [ˈɪnfrəstrʌktʃə(r)] n. 下面结构；永久性军事设施；基础设施，基础建设
+
+
+# The transport ministry has plans to nearly double the length of China’s high-speed rail network to 70,000km within 15 years. 
+# That would make it almost five times as long as all other high-speed rail networks in the world combined.
+# rail network 铁路网络
+
+
+
+==> 长难句解析:
+That would make it almost five times as long as all other high-speed rail networks in the world combined.
+主句: That would make it five times as long as that.
+添加that的内容：That would make it five times as long as [(that of) all other high-speed rail networks in the world combined.]
+
+(4) 
+That would make it almost five times as long as all other high-speed rail networks in the world combined.
+（中国交通运输部门计划在未来15年扩建近一半长度的高铁，达到70 000 km。)
+那个长度将是其他国家高铁总和的近5倍。
+
+#这里是as …as引导比较状语从句。第一个as为程度副词，第二个as为从属连词，引导从句。
+
+精简
+That would make it as long as all other rail networks combined.
+
+主句 That would make it long.
+从句 [All other rail networks combined] are long.
+
+合起来 That would make it as long as 
+all other rail networks combined (are long).#省略as...as中间的adj，一般省略从句系动词
+
+从句 [All other rail networks (that are) combined] are long.
+这个combined是过去分词做后置定语，表达的是被动，意思是合起来的，相当于that are combined.
+## The total mass of farmed chickens exceeds that of all other birds on the planet combined.
+
+
+
+## 另一个例子: This tree is three times as tall as that one.  这棵树是那棵树的三倍高。 
+This tree is three times tall. 
+That one is tall.
+合并: This tree is three times as tall as that one (is tall).#省略as...as中间的adj，一般省略从句的动词
+
+
+类似的之前讨论过的
+你可以把它判定为as引导限制性定语从句也可以是比较状语从句
+因为目前第二个as界限不明确 //todo ?? 不懂
+
+
+
+
+
+
+82%, P39/100 (2022.3.7 9:53-->10:12) 20min
+# But cutting debt will be tricky when pouring cash into infrastructure and sponsoring high-tech.
+# 但是，当大量资金投入基础设施和支持高科技时，削减债务将是一件棘手的事情。
+
+# The environment is another thorny issue. China has vowed that its carbon emissions will peak by 2030, and the country will be carbon neutral by 2060.
+# 环境问题是另一个棘手的问题。XX承诺其碳排放将在2030年达到峰值，国家将在2060年达到碳中和。
+thorny [ˈθɔːni] adj. 多刺的，带刺的；棘手的，麻烦的
+
+
+# It vows to promote the “clean use of coal”, but does not promise to phase it out. 
+# 它承诺促进煤炭的清洁使用，但没有承诺逐步淘汰煤炭。
+phase out 使逐步淘汰；逐渐停止
+
+# State media hail five year plans as evidence that China has far sighted leaders, who bravely chart new paths for the future.
+# 国家媒体称赞五年计划是XX领导人有远见的证据，他们勇敢地为未来规划新的道路。
+hail [heɪl] v. 赞扬，欢呼；呼喊，招呼；下冰雹；
+
+really [ˈriːəli] adv. 真正地，事实上；确实的，的确（用于加强语气）；很，十分
+
+# The pursuit of self­sufficiency is well under way, however costly it may prove.
+# 无论代价多么高昂，自给自足的追求已经开始了。
+sufficiency [səˈfɪʃ(ə)nsi] n. 足量，充足；自满
+
+
+100%, P39
+
+
+
+
+|--> 036 China - Hong Kong politics.mp3 (5min)
+0%, P39/100
 
 
 
@@ -1951,7 +2041,7 @@ climbing costs 生产成本攀升
 
 
 ========================================
---> cur: 035
+--> cur: 036
 ----------------------------------------
 file:///D://xampp//htdocs//DawnScholar//audio//20210313.pdf
 
@@ -1980,7 +2070,94 @@ audition3 内录方法
 
 
 ========================================
+主谓宾
 ----------------------------------------
+1. 
+I really admire how devoted she is to defending the rights and dignity of women. 
+这里的devote和defend怎么分析
+主句是： I really admire that;
+分句: (how devoted she is to defending the rights and dignity of women.)
+
+how + adj/adv 强调句，强调这个 adj/adv.
+正常句 She is devoted to defending the rights and dignity of women.
+be devoted to doing sth; (固定搭配) 献身于...，致力于...
+  to是介词，这是被动形式，主动形式是 devote sb to sb /(doing sth)
+  She (devotes) herself [to defending the rights and dignity of women].
+  主 + 谓 + 间接宾语 + 直接宾语
+  He passed the book to me.
+
+
+
+
+
+
+2.
+Everyone in our class is 
+working hard and 
+doing what we could 
+to enter a good college. 
+主句是 Everyone is working hard and doing (what we could).
+后面跟原因状语从句 (in order) to enter a good college. 
+
+
+
+3.
+# as ..as做引导条件状语从句，后面接条件主谓宾句子。
+You can take my car as long as you drive carefully. 你可以用我的汽车，只要你小心点儿开。
+
+
+4. 比如 as adj as 的作用:
+He is as tall as me. 这里就是表语
+He jumps as high as me. 这里就是状语。
+I find him as clever as me. 就是宾语补足语。
+
+
+You are as tall as the buildings.
+
+
+5.
+
+(1) He makes me as rich as Tom. 
+拆开是2句
+He makes me rich.
+Tom is rich.
+
+as ... as 公用一个 rich 则合并为
+He makes me as rich as Tom (is rich). 
+He makes me as rich as Tom (is).
+
+第一个as修饰rich，表示程度的副词。
+第二个连词，连接从句。
+# 一般省略第二个句子的 系动词/谓语动词，公用的形容词rich也省略。
+He makes me as rich as Tom.
+
+第二个as有介词性质，如果省略的只剩下一个词，一般变成宾格
+He makes me as rich as he is.
+He makes me as rich as him.
+
+
+(2) 比较状语从句有时许多词省略，只剩下一个词：
+She is four years younger than me．
+她比我小四岁。
+
+
+(3)另一个例子，第一个as改为用so修饰形容词
+It is not so difficult as you think.
+它没有你想的那么困难。
+
+It is not so difficult.
+You think it is difficult.
+合并: It is not so difficult as you think (it is difficult).
+省略第二个句子的 从句的主系表:
+It is not so difficult as you think.
+
+
+
+6. 
+
+
+
+
 
 
 ========================================
