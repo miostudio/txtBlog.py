@@ -12,6 +12,20 @@ R高级部分: OOP, hook 钩子
 R语言有两种不同的OOP机制，分别是从其前身S语言继承而来的S3 Object和S4 Object，其中S4 Object更加的正式、也是现在用于开发的主力军，所以本文就从S4 Object谈起，并在最后讨论一下古老的S3
 
 
+
+1. 官方资料
+https://bioconductor.org/help/course-materials/2017/Zurich/S4-classes-and-methods.html
+
+
+
+2. 其他资料
+
+R的环境 https://dataxujing.github.io/R_oop/env.html
+
+
+
+
+
 参考资料：
 
 1. is.primitive()，查看一个函数是否是元函数（Primitive functions）——直接用C写的函数，速度比R编写的函数快得多
@@ -930,7 +944,7 @@ Animal中定义action方法，每一个子类使用callSuper()重写该方法。
 ========================================
 环境 environment
 ----------------------------------------
-
+环境不仅是作用域的描述，更是一种非常好用的数据结构。
 https://dataxujing.github.io/R_oop/env.html
 
 
