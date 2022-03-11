@@ -2122,13 +2122,36 @@ scramble [ˈskræmb(ə)l] v. （迅速而吃力地）爬，攀登；不规则地
 
 
 
-23%, P40/100 
+
+
+23%, P40/100 (2022.3.11 22:58-->23:21) 20min
+staid [steɪd] adj. 固定的；沉着的；沉静的；古板的，保守的
+subsidiary [səbˈsɪdiəri] n. 子公司，附属公司；辅助者
+reprimand [ˈreprɪmɑːnd] n. 谴责，训斥 v. 谴责
+
+# For this they are routinely reprimanded, sacked from jobs, detained or jailed. 
+# 为此，他们经常遭到斥责、解雇、拘留或监禁。
+routinely [ruːˈtiːnli] adv. 例行公事地，常规地；惯常地，毫不意外地
+
+awry [əˈraɪ] adj. 脱离既定路线的；歪的 adv. 迷途地；歪
+pirate [ˈpaɪrət] n. 海盗，海上劫掠者；盗版者 v. 盗印，窃用；adj. 盗版的
+blare [bleə(r)] v. 发出响而刺耳的声音 n. 刺耳的鸣响；绚丽
+
+# But elsewhere, in every train carriage, canteen or dormitory, individual Chinese will be found gazing at smartphones. 
+carriage [ˈkærɪdʒ] n. （旧时的）马车；（火车）车厢
+canteen [kænˈtiːn] n. 食堂，餐厅；水壶；餐具盒
+gazing [ˈɡeɪzɪŋ] v. 凝望，凝视
+
+
+# They may be watching a drama, a talent contest or short videos by amateurs with big online followings: a dancing farmer, perhaps, or a lorry driver singing on some lonely road.
+amateur [ˈæmətə(r)] n. 业余爱好者；生手，外行 adj. 非专业的，业余爱好的；不熟练的
+
+livestreamer n. 主播（同 live streamer ）
 
 
 
 
-
-
+44%, P40/100
 
 
 
