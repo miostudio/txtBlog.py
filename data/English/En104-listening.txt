@@ -2146,12 +2146,51 @@ gazing [ˈɡeɪzɪŋ] v. 凝望，凝视
 # They may be watching a drama, a talent contest or short videos by amateurs with big online followings: a dancing farmer, perhaps, or a lorry driver singing on some lonely road.
 amateur [ˈæmətə(r)] n. 业余爱好者；生手，外行 adj. 非专业的，业余爱好的；不熟练的
 
+
+
+
+
+
+
+44%, P40/100 (2022.3.12 9:22-->9:46) 20min;
+# A teenage boy, half asleep on the bus, may be following a livestreamer playing a video game.
+# 一个十几岁的男孩，在公交车上半睡半醒，可能在看一个玩视频游戏的主播。
 livestreamer n. 主播（同 live streamer ）
 
 
+# The young women in the row behind may be watching a social­media influencer with 40m followers peddling lipstick, for China boasts the world’s largest and most developed e­commerce market.
+# 坐在后排的年轻女性可能正在看一位拥有4000万粉丝的社交媒体影响力人物在兜售口红，因为中国号称拥有世界上最大、最发达的电子商务市场。
+influencer [ˈɪnfluənsə(r)] n. 有影响力者；有影响力的人
+peddle [ˈped(ə)l] v. 挨户销售，巡回销售；贩卖（非法毒品，偷窃的赃物）；宣传，散布
+boast [bəʊst] v. 有（值得自豪的东西）；吹嘘，夸耀 n. 夸耀，自吹自擂，感到自豪的事
+
+#缩句: The (young) women (in the row behind) may be watching a (social­media) influencer (with 40m followers) peddling lipstick.
+# The women may be watching a influencer peddling lipstick.
+# 这些女性可能在看一位网红兜售口红.
 
 
-44%, P40/100
+# All this inclines officials to vigilance.
+# 所有这些都促使官员们提高警惕。
+incline [ɪnˈklaɪn] v. （使）倾向于；点头；（使）倾斜；赞同（某人，某事） n. 斜坡，倾斜
+vigilance [ˈvɪdʒɪləns] n. 警戒，警觉；失眠症
+
+civility [səˈvɪləti] n. 礼貌；礼仪；端庄
+incur [ɪnˈkɜː(r)] v. 带来（成本、花费等）；招致，遭受
+
+#  The guidelines build on earlier moves by industry associations to defend social stability, including rules forbidding depictions of gay love, extramarital affairs, smoking or witchcraft.
+# 该指导方针建立在行业协会为维护社会稳定而采取的早期行动的基础上，包括禁止描述同性恋爱情、婚外情、吸烟或巫术的规定。
+
+
+
+
+
+
+
+60%, , P40/100
+
+
+
+
 
 
 
