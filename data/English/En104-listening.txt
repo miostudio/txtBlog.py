@@ -2177,7 +2177,7 @@ vigilance [ˈvɪdʒɪləns] n. 警戒，警觉；失眠症
 civility [səˈvɪləti] n. 礼貌；礼仪；端庄
 incur [ɪnˈkɜː(r)] v. 带来（成本、花费等）；招致，遭受
 
-#  The guidelines build on earlier moves by industry associations to defend social stability, including rules forbidding depictions of gay love, extramarital affairs, smoking or witchcraft.
+# The guidelines build on earlier moves by industry associations to defend social stability, including rules forbidding depictions of gay love, extramarital affairs, smoking or witchcraft.
 # 该指导方针建立在行业协会为维护社会稳定而采取的早期行动的基础上，包括禁止描述同性恋爱情、婚外情、吸烟或巫术的规定。
 
 
@@ -2186,9 +2186,42 @@ incur [ɪnˈkɜː(r)] v. 带来（成本、花费等）；招致，遭受
 
 
 
-60%, , P40/100
+60%, , P40/100 (2022.3.13 8:25-->9:58)30min;
+# In today’s XX, a painfully unequal society, film and television regulators have tried to limit displays of
+wealth or inherited privilege.
+# 在今天的XX，一个痛苦的不平等的社会，电影和电视监管机构试图限制展示财富或继承特权。
+inherit [ɪnˈherɪt] v. 继承（遗产）；经遗传获得（品质、身体特征等）；接手，承担
+
+# To that end they have criticised reality television shows featuring the children of famous people.
+# 为此，他们批评了以名人子女为主角的电视真人秀节目。
+
+# Censors have not only kept their grip on entertainers with rules.
+# 审查者们不仅用规则来控制艺人。
+entertainer [ˌentəˈteɪnə(r)] n. 演艺人员，表演者
+
+perilous [ˈperələs] adj. 危险的，艰险的；濒临灾难（或毁灭）的
+rebuke [rɪˈbjuːk] v. <正式>斥责，指责
+item [ˈaɪtəm] n. 项目，条款；一件商品（或物品）；【一则，一条（新闻）】
+
+surrogacy [ˈsʌrəɡəsi] n. 替身代孕；代孕行为
+comedian [kəˈmiːdiən] n. 喜剧演员，滑稽演员；剧作家；有趣的人，滑稽的人；
+
+cardigan [ˈkɑːdɪɡən] n. 羊毛衫，开襟羊毛衫（等于 cardigan sweater）
+snare [sneə(r)] n. （捕鸟、兽的）陷阱；圈套，骗局；（绷在小鼓下鼓皮的）响弦；（勒除息肉和增生）勒除器
+gear [ɡɪə(r)] n. 排挡，齿轮；（用于特定目的的）装备，服装；（做事的）速度，努力；（特定用途的）器械，装置
 
 
+# Months earlier his good looks and shy smile had shot him to fame and helped him into a job as a goodwill ambassador for his hometown.
+# 几个月前，他英俊的外表和害羞的微笑让他一举成名，并帮助他成为家乡的亲善大使。
+# 连读 goodwill~ambassador
+# shot him to fame 让他一举成名
+goodwill [ˌɡʊdˈwɪl] n. 友善，善意；（公司的）信誉
+ambassador [æmˈbæsədə(r)] n. 大使，使节；（体育项目、行业等的）代表人物
+
+
+
+
+80%, P40/100
 
 
 
