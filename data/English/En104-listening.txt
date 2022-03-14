@@ -2221,7 +2221,54 @@ ambassador [æmˈbæsədə(r)] n. 大使，使节；（体育项目、行业等�
 
 
 
-80%, P40/100
+80%, P40/100 (2022.3.14 7:28-->8:01) 30min
+# Chaguan spoke recently to entertainment­industry veterans. 
+# They described famous friends on medication for depression, and explained why. 
+# 他们描述了名人朋友服用药物治疗抑郁症的情况，并解释了原因。
+veteran [ˈvetərən] n. 老兵，退伍军人；经验丰富的人，老手
+
+scrutinise [ˈskruːtɪnaɪz] vi. 作仔细检查；细致观察 vt. 细看；仔细观察或检查；核对（等于 scrutinize）
+
+# Established artists see hundreds of new rivals being created annually by talent contests.
+# 著名艺术家看到，每年的才艺大赛都会产生数百个新的竞争对手。
+rival [ˈraɪv(ə)l] n. 竞争对手，敌手；可与之匹敌者，可与之相比的人（或物）
+# 主句 Established artists see that.
+# 从句: hundreds of new rivals (are) being created annually by talent contests.
+#   简化 rivals are being created.
+
+# In a country whose rulers may not be criticised, letting the public pillory the famous is a useful safety valve, especially when stars cause real anger by dodging taxes or otherwise abusing their privilege.
+# 在一个统治者不会受到批评的国家，让公众嘲弄名人是一个有用的安全阀，特别是当明星逃税或滥用特权而引起真正的愤怒时。
+pillory [ˈpɪləri] v. 抨击；（当众）嘲笑；将……夹于颈手枷中；（使）受公众批评 n. （古刑具）木枷，颈手枷
+dodge [dɒdʒ] v. 闪开，躲开；巧妙躲避，施计回避；按变换序列鸣钟；（冲洗或放大时）局部遮光
+
+# Cut-throat competition has raised production values.
+# 激烈的竞争提高了产品价值。
+# cut-throat competition 残酷竞争
+
+# With so many patriotic war films or slick dramas out there, what counts is profitability, not art. Skittish sponsors are quick to flee at the first sign of trouble.
+# 现在有这么多爱国战争片或漂亮的剧情片，重要的是盈利能力，而不是艺术。一有麻烦的迹象，胆小的赞助商就会迅速逃离。
+patriotic [ˌpætriˈɒtɪk] adj. 爱国的，有爱国心的
+slick [slɪk] adj. 熟练的，灵巧的；光滑的，滑溜的；花言巧语的；华而不实的；很棒的，最好的；聪明的
+skittish [ˈskɪtɪʃ] adj. （人或动物）不安的，易受惊的；难驾驭的 adj. （人）轻佻的，善变的
+sponsor [ˈspɒnsə(r)] n. 赞助者，赞助商；（培训或教育的）资助者；
+
+monopolise [məˈnɒpəlaɪz] vt. 垄断，获得专卖权（等于 monopolize）
+cartel [kɑːˈtel] n. 卡特尔；企业联合；垄断联盟；俘虏交换条约
+biddable [ˈbɪdəbl] adj. 顺从的；可叫牌的
+
+
+100%
+
+
+
+========================================
+|-- Middle East and Africa (038 --044)
+----------------------------------------
+|-- 038
+
+
+
+
 
 
 
@@ -2232,7 +2279,7 @@ ambassador [æmˈbæsədə(r)] n. 大使，使节；（体育项目、行业等�
 
 
 ========================================
---> cur: 037
+--> cur: 038
 ----------------------------------------
 file:///D://xampp//htdocs//DawnScholar//audio//20210313.pdf
 
