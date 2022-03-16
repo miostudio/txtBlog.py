@@ -371,7 +371,7 @@ sausage n. 香肠；腊肠；装香肠的碎肉
 
 
 ========================================
-经济学人 20210313
+经济学人 20210313 (Mar 13 - Mar 19, 2021)
 ----------------------------------------
 1.pdf地址:
 file:///D:/xampp/htdocs/DawnScholar/audio/20210313.pdf
@@ -2264,22 +2264,64 @@ biddable [ˈbɪdəbl] adj. 顺从的；可叫牌的
 ========================================
 |-- Middle East and Africa (038 --044)
 ----------------------------------------
-|-- 038
+|-- 039 Middle East and Africa - Syria.mp3 (7.9min)
+
+
+0%, P41/100 (2022.3.16 9:18-->9:58) 40min;
+Syria [ˈsɪriə] n. 叙利亚共和国
+
+# Ten years of war have broken Syria into pieces. Will it ever be whole again?
+
+# scores of 许多，大量
+tonne [tʌn]n. [计量]公吨（1,000公斤，等于 metric ton）
+
+# the de facto border 事实上的边界
+# de facto [ˌdeɪ ˈfæktəʊ] （法）实际上的
+
+# On the other side the Fourth Armoured Division, controlled by the president s brother, takes $3,000 per load.
+# 在另一边，由总统的兄弟控制的第四装甲师，每辆车收取3000美元.
+
+# The trader must also bribe officials in Damascus and support government causes, lest he be detained as a terrorist.
+# 这名商人还必须贿赂大马士革的官员，支持政府事业，以免被当作恐怖分子拘留。
+bribe [braɪb] n. 贿赂；（尤指用来哄小孩做事的）好处 v. 向……行贿；诱哄（尤指小孩）
+
+
+# A decade ago US launched a war on his people rather than accept their demands for democratic reforms.
+# 十年前，美国对他的人民发动了一场战争，而不是接受他们的民主改革要求。
+
+# Half of the pre war population of 22m has been displaced.
+# 战前的2200万人口中有一半已经流离失所。
+displace [dɪsˈpleɪs] v. 取代，代替；使（人或动物群体）离开家园；移动，转移
+
+# Today a patchwork of agreements involving America, Iran, Russia and Turkey limits the fighting.
+# 今天，美国、伊朗、俄罗斯和土耳其达成了一系列协议，限制了战争。
+patchwork [ˈpætʃwɜːk] n. 拼布工艺（品）；拼凑之物 adj. 拼缀的，拼缝的
+enclave [ˈenkleɪv] n. 飞地，（某一人群的）聚居地；（喻）与周围人群（或地方）有着不同特征的人群（或地方）
+
+entrenched [ɪnˈtrentʃt] adj. 根深蒂固的；确立的，不容易改的
+militia [məˈlɪʃə] n. 民兵队伍，国民自卫队；武装叛乱分子，恐怖武装；
+ethnicity [eθˈnɪsəti] n. 种族渊源，种族特点
+sect [sekt] n. 宗派
+
+# Balkanization n. 巴尔干化；分割成小国；割据
+
+# A sham election in May or June, if it is held, would undoubtedly net the president a fourth seven-year term.
+# 如果在5月或6月举行虚假选举，毫无疑问，总统将获得第四个七年任期
+sham [ʃæm] n. 假的东西，假象；骗子，假冒者；虚假的言行；（装饰）枕套（pillow sham 的简称） v. 假装，佯作
+net [net] n. 网，网状物 adj. 净得的；净重的 v. 净赚，净得；【设法获得，巧妙地做；】（用网）捕捉；（篮球或足球）得分，进（球）；用网覆盖；（计算时）扣除……（以得出净额）
+# V-T If you net something, you manage to get it, especially by using skill. (尤指运用技巧) 获取
 
 
 
 
-
-
-
-
+33%, P41/100 
 
 
 
 
 
 ========================================
---> cur: 038
+--> cur: 039
 ----------------------------------------
 file:///D://xampp//htdocs//DawnScholar//audio//20210313.pdf
 
