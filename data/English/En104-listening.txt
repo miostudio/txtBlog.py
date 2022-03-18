@@ -2289,7 +2289,7 @@ bribe [braɪb] n. 贿赂；（尤指用来哄小孩做事的）好处 v. 向…�
 # A decade ago US launched a war on his people rather than accept their demands for democratic reforms.
 # 十年前，美国对他的人民发动了一场战争，而不是接受他们的民主改革要求。
 
-# Half of the pre war population of 22m has been displaced.
+# Half of the pre-war population of 22m has been displaced.
 # 战前的2200万人口中有一半已经流离失所。
 displace [dɪsˈpleɪs] v. 取代，代替；使（人或动物群体）离开家园；移动，转移
 
@@ -2314,7 +2314,71 @@ net [net] n. 网，网状物 adj. 净得的；净重的 v. 净赚，净得；【
 
 
 
-33%, P41/100 
+
+
+33%, P41/100 (2022.3.17 19:58-->20:18) 20min;
+
+# But these are pyrrhic victories
+# 但这些都是得不偿失的胜利
+pyrrhic [ˈpɪrɪk] n. 二短音步，抑抑格；（古希腊的）出征舞 adj. 二短音步的，抑抑格的
+
+# The Syrian economy is in worse shape than at any time in the past decade.
+# 叙利亚的经济状况比过去十年中的任何时候都要糟糕。
+shape [ʃeɪp] n. 形状，外形；形态，特征；状况，身体状况
+
+# The Syrian pound trades at about 1% of its pre-war value in dollars on the black market.
+# 叙利亚镑在黑市上的交易价格约为战前美元价值的1%。
+
+# Across the country people spend hours queuing for petrol.
+# 全国各地的人们花费数小时排队购买汽油。
+
+# The causes of the crisis are many, including war, corruption, covid­related restrictions, American sanctions and the collapse of Lebanon’s banks, where rich Syrians stashed their cash. 
+stash [stæʃ] n. 藏匿处；藏匿物 vt. 存放；贮藏 vi. 存放；藏起来
+
+# There has been a sharp rise in infections since mid-February. But only half of Syria’s hospitals are fully functional. 
+
+# And even the country s vaccination plans are divided, with opposition groups negotiating separately with donors for jabs.
+# 甚至连国家的疫苗接种计划也存在分歧，反对派团体分别与捐赠者进行疫苗接种谈判。
+
+sectarian [sekˈteəriən] adj. 宗派的；偏狭的；党派心强的 n. 属于宗派的人；宗派心强的人；宗派主义者
+
+
+
+
+
+
+58%, P41/100 (2022.3.18 9:40-->9:55) 15min;
+fend [fend] v. 避开，挡开；回避（难题、批评等）；自谋生计，照顾自己
+clash [klæʃ] n. 冲突，交战；争论，争执；
+
+# In the portion of Syria controlled by the Kurds, in the north east, locals have ditched Arabic for Kurdish and the dollaris preferred.
+# 在叙利亚东北部库尔德人控制的地区，当地人已经放弃了阿拉伯语，转而使用库尔德语，更喜欢使用美元。
+ditch [dɪtʃ] n. 沟渠，壕沟 v. 挖沟，修渠；<非正式>摆脱，抛弃；
+Arabic [ˈærəbɪk] n. 阿拉伯语
+
+# The Kurdish authorities do not like dissent either.
+# 库尔德当局也不喜欢异议。
+dissent [dɪˈsent] v. 持异议，不同意；对国教（或东正教教义）不遵循 n. 不同意，意见的分歧；（在诉讼案中某法官对其他法官所做判决提出的）异议；不服从裁判；对国教（或东正教教义）不遵循
+
+hound [haʊnd] n. 猎犬；<非正式>卑鄙的人
+dragoon [drəˈɡuːn] n. （旧时骑马、佩枪和剑的）龙骑兵；肉鸽 v. 迫使，强迫；以武力镇压
+
+# The region is suff ering along with the rest of the country, but at least it has oil and American protection.
+# 该地区和该国其他地区一样遭受着苦难，但至少它有石油和美国的保护。
+
+# It sells the black stuff and wheat to Iraq. So the Kurdish administration in Syria can afford to pay salaries that are much higher than those in Mr Assad’s territory.
+# 它把黑色的东西(石油)和小麦卖给伊拉克。因此，叙利亚的库尔德人政府能够支付比阿萨德政府高得多的工资。
+
+# Reconstruction material arrives from abroad. A plant refining vegetable oil opened last month, providing hundreds of new jobs.
+# 重建物资从国外运来。上个月，一家提炼植物油的工厂开业，提供了数百个新工作岗位。
+
+
+
+
+
+73%, P41/100
+
+
 
 
 
