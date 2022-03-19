@@ -2363,7 +2363,7 @@ dissent [dɪˈsent] v. 持异议，不同意；对国教（或东正教教义）
 hound [haʊnd] n. 猎犬；<非正式>卑鄙的人
 dragoon [drəˈɡuːn] n. （旧时骑马、佩枪和剑的）龙骑兵；肉鸽 v. 迫使，强迫；以武力镇压
 
-# The region is suff ering along with the rest of the country, but at least it has oil and American protection.
+# The region is suffering along with the rest of the country, but at least it has oil and American protection.
 # 该地区和该国其他地区一样遭受着苦难，但至少它有石油和美国的保护。
 
 # It sells the black stuff and wheat to Iraq. So the Kurdish administration in Syria can afford to pay salaries that are much higher than those in Mr Assad’s territory.
@@ -2376,7 +2376,46 @@ dragoon [drəˈɡuːn] n. （旧时骑马、佩枪和剑的）龙骑兵；肉鸽
 
 
 
-73%, P41/100
+
+73%, P41/100 (2022.3.19 9:09-->9:36) 25min
+separatist [ˈseprətɪst] n. 分裂主义者，独立主义者 adj. 分裂主义的，独立主义的
+offensive [əˈfensɪv] adj. 无礼的，冒犯的；令人不快（讨厌）的；攻击的 n. （军事）进攻，攻势； 
+
+
+# The territories use the Turkish lira and have been hooked up to the electricity grid that serves southern Turkey.
+# 这些地区使用土耳其里拉，并已接入土耳其南部的电网。
+# hook up [ˈhʊk ʌp] 勾搭某人；与某人来往；搭档工作
+
+pragmatic [præɡˈmætɪk] adj. 讲求实际的，务实的；实用主义的；（语言学）语用的
+devolve [dɪˈvɒlv] vi. 被移交；转让 vt. 转移；移交；使滚下；退化；衰落
+
+# But Mr Assad fears compromise will be taken as a sign of weakness, so instead he threatens more war.
+# 但是阿萨德担心妥协会被视为软弱的表现，所以他反而威胁要发动更多战争。
+
+# In speeches he has revived his father s old tropes about the glories of Arab and Islamic civilisations to the consternation of minority groups.
+# 在演讲中，他恢复了他父亲关于阿拉伯和伊斯兰文明荣耀的古老比喻，让少数群体感到惊愕
+revive [rɪˈvaɪv] v. （使）复原，（使）复苏；重新唤起，重新记起；重新使用，使复兴；重新上演
+trope [trəʊp] n. 比喻；修辞；转义
+Islamic [ɪzˈlæmɪk; ɪzˈlɑːmɪk] adj. 伊斯兰教的；伊斯兰世界的
+consternation [ˌkɒnstəˈneɪʃn] n. 惊愕；惊惶失措；恐怖
+
+denounce [dɪˈnaʊns] v. 谴责，痛斥；检举，告发
+
+# On March 1st the parliament in Damascus ratified a law stripping citizenship from anyone who fails to renew their identity card after ten years.
+# 3月1日，大马士革议会通过了一项法律，剥夺了任何在10年后未能更新身份证的人的公民身份。
+parliament [ˈpɑːləmənt] n. 议会，国会；英国议会（包括下议院和上议院）
+ratify [ˈrætɪfaɪ] v. 批准，正式签署
+
+
+100%
+
+
+
+
+|-- 040 
+
+
+
 
 
 
@@ -2385,7 +2424,7 @@ dragoon [drəˈɡuːn] n. （旧时骑马、佩枪和剑的）龙骑兵；肉鸽
 
 
 ========================================
---> cur: 039
+--> cur: 040
 ----------------------------------------
 file:///D://xampp//htdocs//DawnScholar//audio//20210313.pdf
 
