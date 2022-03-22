@@ -2455,7 +2455,33 @@ ferry [ˈferi] n. 渡船，摆渡；渡口 v. 摆渡，渡运；空运
 
 
 
-39%,P42/100
+
+
+39%,P42/100 (2022.3.22 21:14-->21:39) 25min
+# Oil commands attention like no other commodity, for good reason.
+# 没有其他商品那样能像石油那样吸引人们的注意，这是有充分理由的。
+
+# National fortunes do not rise and fall on orange juice futures.
+# 国家的命运不会因橙汁期货而起伏。
+
+#  As onshore storage filled with unsold oil, some of Iran’s tankers were pressed into service as floating storage units.
+# 由于未出售的石油堆积在陆地储油库中，部分伊朗油轮作为浮动储油库投入了使用。
+onshore [ˈɒnʃɔː(r)] adj. 向岸上的，向陆地的；陆上的；（风）吹向陆地的 adv. 在陆地上；向着海岸
+
+# The waters off its main oil port turned into a maritime parking lot.
+# 它的主要油港附近的水域变成了一个海上停车场。
+maritime [ˈmærɪtaɪm] adj. 海上的，海事的；近海的，沿海的；海生的，在海里发现的；海洋性气候的
+
+# Other tankers load cargo in Iran and transfer it to smaller vessels at sea to obscure its origins.
+# 其他油轮在*朗装载货物，然后将其转移到海上的较小船只上，以掩盖其来源。
+obscure [əbˈskjʊə(r)] adj. 难以说清楚的，模糊的；鲜为人知的，默默无闻的 v. 遮掩，遮蔽；使费解 n. 某种模糊的或不清楚的东西
+
+
+64%,P43/100
+
+
+
+
 
 
 
