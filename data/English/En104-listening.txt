@@ -2511,8 +2511,44 @@ barter [ˈbɑːtə(r)] v. 以物易物，物物交换；讨价还价
 
 
 
-|-- 041 Middle East and Africa - Senegal.mp3 
-0%, 43/100 
+|-- 041 Middle East and Africa - Senegal.mp3 (5.3min)
+0%, 43/100 (2022.3.25 16:23-->16:41) 15min
+botch [bɒtʃ] vt. 糟蹋；拙笨地修补；拙劣地拼凑 vi. 拙笨地修补；弄坏某事物
+beacon [ˈbiːkən] n. 灯塔，灯标；（无线电）信标；引路人，指路明灯；（旧时的）烽火；<英>适宜点烽火的山
+
+# The arrest of an opposition leader sparks protests and dents democracy.
+dent [dent] v. 使产生凹痕；损害，削弱
+opposition [ˌɒpəˈzɪʃn] n. （强烈的） 反对，反抗；对手，竞争者（the opposition）；反对党，在野党（ the Opposition）；对立，对立的事物；（天文，占星）冲
+
+# 跳过，不关心小国政治。
+
+
+
+|-- 042 Middle East and Africa - The Ibrahim prize.mp3 (5.3min)
+0%, P44/100
+# 跳过，不关心小国政治/宗教。
+
+
+|-- 043 Middle East and Africa - Somalia_s politics.mp3 (5.8min)
+0%, P44/100
+# 跳过，不关心小国政治/宗教。
+
+
+
+
+
+
+
+
+|-- 044 Middle East and Africa - Working from the beach house.mp3
+0%, P44/100
+
+# Remote working is a lifeline for Kenya's beach resorts.
+# 远程工作是肯尼亚海滩度假胜地的生命线
+Kenya [ˈkenjə] n. 肯尼亚（东非国家）
+resort [rɪˈzɔːt] n. 旅游胜地，度假胜地；求助的方法，采用的手段；采用，诉诸，求助
+
+
 
 
 
@@ -2521,7 +2557,7 @@ barter [ˈbɑːtə(r)] v. 以物易物，物物交换；讨价还价
 
 
 ========================================
---> cur: 041
+--> cur: 044
 ----------------------------------------
 file:///D://xampp//htdocs//DawnScholar//audio//20210313.pdf
 
