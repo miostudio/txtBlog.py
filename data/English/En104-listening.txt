@@ -2540,13 +2540,86 @@ opposition [ˌɒpəˈzɪʃn] n. （强烈的） 反对，反抗；对手，竞�
 
 
 
-|-- 044 Middle East and Africa - Working from the beach house.mp3
+
+
+|-- 044 Middle East and Africa - Working from the beach house.mp3 (3.8min) [Good]
 0%, P44/100
 
 # Remote working is a lifeline for Kenya's beach resorts.
 # 远程工作是肯尼亚海滩度假胜地的生命线
 Kenya [ˈkenjə] n. 肯尼亚（东非国家）
 resort [rɪˈzɔːt] n. 旅游胜地，度假胜地；求助的方法，采用的手段；采用，诉诸，求助
+
+8%, P45/100 (2022.3.27 15:05-->16:19) 停歇。
+throng [θrɒŋ] n. 一大群，众多 v. 蜂拥，群集
+
+swimsuit [ˈswɪmsuːt] n. 游泳衣（女式）
+clad [klæd] adj. 穿衣的；覆盖的 vt. 在金属外覆以另一种金属 v. 穿衣（clothe 的过去式和过去分词）
+
+industrious [ɪnˈdʌstriəs] adj. 勤劳的，勤奋的
+basher [bæʃə(r)] n. 手灯；怒殴者；痛击者，破坏者
+
+murmur [ˈmɜːmə(r)] n. 低语声，轻柔的谈话声；持续轻柔的声音 v. 低语，轻声地说
+gurgle [ˈɡɜːɡl] v. 作汩汩声；汩汩地流；作咯咯声；用咯咯声表示 n. 汩汩声；咯咯声
+
+colobus [ˈkɒləbəs] n. 疣猴，髯猴（产于非洲）
+
+reverberate [rɪˈvɜːbəreɪt] vt. 使回响；使反射；使弹回 vi. 回响；反响；弹回；不断发生后效 adj. 回响的；反射的
+anguished [ˈæŋɡwɪʃt] adj. 极度痛苦的 v. 使极度痛苦（anguish 的过去式）
+
+circle n. 圆，圆形物 v. 盘旋，环行；围绕，圈起
+grievous [ˈɡriːvəs] adj. 极其严重的，使人痛苦的
+dealt [delt] v. 处理（deal 的过去式和过去分词）
+
+traveller [ˈtrævələ(r)] n. 旅行者
+slump [slʌmp] v. （价格、价值、数量等）骤降，猛跌；惨败，猛跌；n. （价格、销售额、利润等的）突然下跌；（经济的）不景气，萧条
+
+collapse [kəˈlæps] v. 倒塌，塌下；崩溃，瓦解 n. 倒塌，塌陷；突然失败，崩溃；病倒，垮掉；突然贬值，暴跌
+
+unexpected [ˌʌnɪkˈspektɪd] adj. 想不到的，意外的
+urban [ˈɜːbən] adj. 城市的，城镇的；黑人音乐的；住在都市的
+
+chaotic [keɪˈɒtɪk] adj. 混乱的，无秩序的；（与）……混沌（有关）的
+minibus [ˈmɪnibʌs] n. 面包车（等于 microbus）；小型公共汽车；中客车
+
+villa [ˈvɪlə] n. 度假别墅；（城内的）豪宅；（附有土地的）乡间宅第，庄园
+clientele [ˌkliːənˈtel] n. 顾客群，客户群；（总称）委托人
+
+escape [ɪˈskeɪp] v. 逃跑，逃脱 n. 逃跑，逃离；逃避现实，暂时解脱
+# sit out [sɪt aʊt] 坐在户外；袖手旁观；耐着性子看完或听完
+
+scramble [ˈskræmb(ə)l] v. （迅速而吃力地）爬，攀登；争夺，抢夺 n. 攀爬，爬行；（互相推撞的）争夺，争抢
+
+yoga [ˈjəʊɡə] n. 瑜伽，瑜伽术； 瑜伽派（印度哲学派别）
+occasional [əˈkeɪʒən(ə)l] adj. 偶尔的，不经常的；非定时的，临时的
+
+cottage [ˈkɒtɪdʒ] n. 小屋，村舍，乡间别墅；<非正式>（同性恋者聚集的）公共厕所
+oscillate [ˈɒsɪleɪt] vt. 使振荡；使振动；使动摇 vi. 振荡；摆动；犹豫
+
+ancestral [ænˈsestrəl] adj. 祖先的；祖传的
+
+
+
+100%, P45/100 (2022.3.29) 听写完，背单词，练句子。
+
+
+
+
+
+
+========================================
+|-- Europe (045-051)
+----------------------------------------
+045 Europe.mp3
+046 Europe - Covid-19.mp3
+047 Europe - Italy.mp3
+048 Europe - Rent controls in Berlin.mp3
+049 Europe - German state elections.mp3
+050 Europe - European censuses.mp3
+051 Europe - Charlemagne.mp3 
+
+
+|--> 045
 
 
 
@@ -2557,7 +2630,7 @@ resort [rɪˈzɔːt] n. 旅游胜地，度假胜地；求助的方法，采用�
 
 
 ========================================
---> cur: 044
+--> cur: 045
 ----------------------------------------
 file:///D://xampp//htdocs//DawnScholar//audio//20210313.pdf
 
