@@ -2608,7 +2608,84 @@ ancestral [ænˈsestrəl] adj. 祖先的；祖传的
 
 
 ========================================
-|-- Europe (045-051)
+|-- Special report 商业 (063-071)
+----------------------------------------
+
+063 Special report.mp3
+064 Special report - The future of shopping.mp3
+065 Special report - The marketplace.mp3
+066 Special report - The merchants.mp3
+067 Special report - The travelling salesmen.mp3
+068 Special report - The food stall.mp3
+069 Special report - Mass craftsmanship.mp3
+070 Special report - People.mp3
+071 Special report - The future.mp3
+
+
+|-- 063 Special report.mp3
+0%, P48/100
+
+
+|-- 064 Special report - The future of shopping.mp3 (13.9min) [Good]
+0%, P48/100 (2022.3.29 21:25-->) 
+49%, P49/100 
+74%, P49/100 (2022.3.31 9:25--> )
+100% P49/100
+
+
+
+|-- 065 Special report - The marketplace.mp3 (11.5min) [Good]
+2022.4.2 22:36-->22:48 第一遍
+
+impregnable [ɪmˈpreɡnəb(ə)l] adj. （要塞）坚固的，无法攻取的；不受影响的，难以改变的；可受孕的，可生育的
+
+pregnable [ˈpreɡnəb(ə)l] adj. 可受孕的；易受攻击的；弱的；可攻克的
+trustbuster [ˈtrʌstˌbʌstə(r)] n. （主美）反托拉斯法的执行人（或机构）
+
+juggernaut [ˈdʒʌɡənɔːt] n. 世界主宰；强大的破坏力
+
+convulse [kənˈvʌls] vt. 震撼；使剧烈震动；使抽搐
+
+# Ms Leung wrote in January that the chance of a forced break-up of Chinese internet platforms is remote, because of its impact on industry, the economy and consumers. But she expects more regulation, especially over customer data.
+# 梁凤英今年1月写道，中国互联网平台被迫解体的可能性很小
+remote [rɪˈməʊt] adj. 边远的，偏僻的；（距离或空间上）遥远的；（时间上）久远的；（机会或可能性）渺茫的
+
+jostle [ˈdʒɒs(ə)l] vt. 推挤，撞；争夺 vi. 竞争，争夺；推挤
+
+
+
+
+
+57%, P51/100 (2022.4.4 10:05-->10:45)
+100%, P51/100
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+========================================
+--> cur: 065
+----------------------------------------
+file:///D://xampp//htdocs//DawnScholar//audio//20210313.pdf
+
+
+
+
+
+
+========================================
+|-- Europe (045-051) //todo
 ----------------------------------------
 045 Europe.mp3
 046 Europe - Covid-19.mp3
@@ -2620,20 +2697,6 @@ ancestral [ænˈsestrəl] adj. 祖先的；祖传的
 
 
 |--> 045
-
-
-
-
-
-
-
-
-
-========================================
---> cur: 045
-----------------------------------------
-file:///D://xampp//htdocs//DawnScholar//audio//20210313.pdf
-
 
 
 
@@ -2653,6 +2716,67 @@ audition3 内录方法
 可以试听，截掉不需要的前后片段，或中间片段。
 6.保存到硬盘 
 菜单 文件 - 另存为，xx.wav，推荐mp3，比较通用。
+
+
+
+========================================
+截屏视频录制 SOP
+----------------------------------------
+
+
+- 内容要合规
+- 一般10分钟+-1min;
+- 代码加到chrome F12控制台中运行;
+
+
+1. 打开网页加载好音乐
+
+2. 准备好 web文本，比如 pdf, txt 等，调出来标尺
+var s=document.createElement("script");s.src="http://ielts.biomooc.com/static/js/dragBar.js";document.body.append(s);
+
+//第一行出来效果后，其余的可以批量执行
+dragBar.obj.style.width="600px"; 
+dragBar.obj.style.height="250px";
+dragBar.obj.style.background="grey" /*可变颜色*/
+
+//添加阴影、圆边
+dragBar.obj.style.border=""
+dragBar.obj.style.borderRadius="20px"
+dragBar.obj.style.boxShadow="5px 5px 5px #000"
+
+//文字样式
+dragBar.obj.style.fontSize='5em'
+dragBar.obj.style.color='#000'
+
+
+
+3. 打开 oCam，选 屏幕录制 - 录制区域 - 640x360
+调整 /播放页 /文字页 /词典页，适合录制区域
+大概上边缘露出有道词典logo即可。
+
+
+
+4. 开始听力练习，适当影读。录制 10min 时，添加字幕
+//最后添加文字
+dragBar.obj.innerText="end"
+
+
+5. 先暂停，再按结束，否则容易报错
+检查视频声音、图像是否正常，特别是开头和结尾。
+
+
+
+6. 上传视频到b站
+https://member.bilibili.com/platform/upload/video/frame?spm_id_from=333.1007.0.0
+使用ppt做的封面图(我的图片/logo/)
+
+标题: 英语听力 | 听力王 - 20分钟录屏002
+简介: 陌生材料，逐句盲听，然后看文字；第二遍影子跟读，同步模仿语调、语气。
+
+查看上传的稿件: https://member.bilibili.com/platform/upload-manager/article
+
+
+
 
 
 
