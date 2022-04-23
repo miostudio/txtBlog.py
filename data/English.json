@@ -16,7 +16,8 @@
 			["语法知识", "En101", "txt"],
 			["句子列表", "En102", "html" ],
 			["学术英语写作", "En103-academic", "txt" ],
-			["英语听力", "En104-listening", "txt" ]
+			["英语听力", "En104-listening", "txt" ],
+			["英语口语", "En105-speaking", "txt" ]
 		]
 	}
 ]

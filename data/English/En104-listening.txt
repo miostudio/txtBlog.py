@@ -2644,7 +2644,21 @@ trustbuster [ˈtrʌstˌbʌstə(r)] n. （主美）反托拉斯法的执行人（
 
 juggernaut [ˈdʒʌɡənɔːt] n. 世界主宰；强大的破坏力
 
+
+# David Liu, vice­president of strategy, explains that it has ridden the rise of smartphone penetration in China to create an e­commerce experience in which people club together to buy products from robot vacuum­cleaners to bananas.
+# 主句: Liu explains that.
+# 从句的主句: it has ridden the rise() to create an e­commerce experience ();
+# 修饰 rise 的是: the rise of smartphone penetration in China
+# 修饰 experience 的是: experience in which people club together to buy products from robot vacuum­cleaners to bananas.
+
+vacuum [ˈvækjuːm] n. 真空，真空容器；真空吸尘器；空白，空虚；（用真空吸尘器所做的）清洁，清扫
+
+
+
 convulse [kənˈvʌls] vt. 震撼；使剧烈震动；使抽搐
+
+
+
 
 # Ms Leung wrote in January that the chance of a forced break-up of Chinese internet platforms is remote, because of its impact on industry, the economy and consumers. But she expects more regulation, especially over customer data.
 # 梁凤英今年1月写道，中国互联网平台被迫解体的可能性很小
@@ -2654,10 +2668,58 @@ jostle [ˈdʒɒs(ə)l] vt. 推挤，撞；争夺 vi. 竞争，争夺；推挤
 
 
 
-
-
 57%, P51/100 (2022.4.4 10:05-->10:45)
 100%, P51/100
+
+
+
+
+
+|-- 066 Special report - The merchants.mp3 (8.9min)
+0%, P51/100 (2022.4.12 23:08-->23:18) 10min;
+woolly [ˈwʊli] adj. 羊毛的；模糊的；似羊毛的 n. 羊；毛织衣服
+
+grumble [ˈɡrʌmb(ə)l] v. 抱怨，嘟囔；咕隆，发轰隆声；
+
+
+
+9%, P51/100 (2022.4.23 23:44-->0:10) 25min;
+# That strategy is revolutionary in the global shoe industry, with revenues of $80bn in America alone.
+# 这一战略在全球制鞋业是革命性的，仅在美国就实现了800亿美元的收入。
+revolutionary [ˌrevəˈluːʃənəri] adj. 革命的；革命性的，突破性的 n. 革命者，革命家
+revenue [ˈrevənjuː] n. （企业、组织的）收入，收益；（政府的）税收；税务局
+
+# The rationale is that by avoiding middlemen, whether online or offline, Allbirds can invest in more sustainable materials that go down well with its rich, techie clientele. 
+# 其理由是，通过避开在线或线下的中间商，Allbirds可以投资于更可持续的材料，这些材料可以很好地满足其富有的技术客户。
+
+rationale [ˌræʃəˈnɑːl] n. <正式>根本原因，逻辑依据
+techie [ˈteki] n. 高科技专家；热衷电子学的电子迷；技师；科技通，科技迷；技术人员，技术爱好者；计算机专业人员
+clientele [ˌkliːənˈtel] n. 顾客群，客户群；（总称）委托人
+
+# It also helps it keep tabs on its customers.
+# 这也有助于它密切关注客户。
+keep tabs on 监视，密切注意
+
+# Mr Zwillinger is not starry-eyed about the ability of direct to consumer (dtc) retailers
+# 茨威林格先生对直接面向消费者(dtc)零售商的能力并不乐观
+be starry-eyed about 保持乐观
+
+gravitational [ˌɡrævɪˈteɪʃən(ə)l] adj. [力] 重力的，[力] 引力的
+
+# Digital advertising needed to start a brand and maintain its popularity is mostly in the hands of a powerful triumvirate of Google, Facebook and Amazon, and its costs are rising.
+# 开创一个品牌并维持其人气所需的数字广告，主要掌握在强大的三巨头——谷歌、Facebook和亚马逊手中，而且其成本正在上升。
+
+triumvirate [traɪˈʌmvərət] n. 三人领导小组；三人统治集团；三方执政集团
+
+
+
+
+# 24%, P51/100 
+
+
+
+
+
 
 
 
@@ -2675,7 +2737,7 @@ jostle [ˈdʒɒs(ə)l] vt. 推挤，撞；争夺 vi. 竞争，争夺；推挤
 
 
 ========================================
---> cur: 065
+--> cur: 066
 ----------------------------------------
 file:///D://xampp//htdocs//DawnScholar//audio//20210313.pdf
 
