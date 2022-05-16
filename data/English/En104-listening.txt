@@ -2757,12 +2757,57 @@ fulfilment [fʊlˈfɪlmənt] n. 满足感，成就感；履行，实现；发生
 
 
 
-# 50%, P52/100
+# 50%, P52/100 (2022.4.26 23:47-->0:23) 15min; 中间洗澡刷牙了2次;
+# Some online fashion retailers are creating portfolios of brands out of failed physical retailers, on the assumption that, if brands are well known, it is easy to attract customers.
+# 一些在线时尚零售商正在从失败的实体零售商那里创建品牌组合，他们认为，如果品牌广为人知，就很容易吸引顾客。
+
+
+# For digitally native retailers such as Allbirds, one way to expand the business is to open shops as well as selling online.
+# 对于Allbirds这样的数字本土零售商来说，拓展业务的方法之一是在网上销售的同时开设商店。
+
+insurgent [ɪnˈsɜːdʒənt] adj. 叛乱的；起义的 n. 叛乱者；起义者
+eyewear [ˈaɪweə(r)] n. 眼镜；眼镜防护；护目镜
+mattress [ˈmætrəs] n. 床垫，褥垫；（工程）垫层，沉排，钢筋网
 
 
 
 
+#64%, P52/100 (2022.5.17 0:08-->0:48) 40min;
+artfully [ˈɑːtfəli] adv. 巧妙地；狡诈地
+mattresses [ˈmætrəsɪz] n. 床垫，底垫
+swanky [ˈswæŋki] adj. 炫耀的；时髦的；爱出风头的
+curate [ˈkjʊərət; ˌkjʊˈreɪt] n. （某教区的）助理牧师；堂区牧师 v. 操持（收藏品或展品的）展出；组织（音乐节的）演出
 
+# This approach may not work for all income brackets.
+# 这种方法可能并不适用于所有收入阶层。
+bracket [ˈbrækɪt] n. （固定在墙上的）托架，支架；（收入、年龄等的）等级段，组级；括号；夹叉射击
+
+quip [kwɪp] n. 妙语；嘲弄；讽刺语 vi. 嘲弄；讥讽
+
+# Nonetheless, the more impersonally goods are sold online, the more urgent it is that shops stand out for customer service.
+# 尽管如此，网上销售的商品越客观，商店就越迫切需要客户服务。
+
+
+# One drawback in avoiding Amazon is that it is tiresome for shoppers to toggle between apps belonging to different marques.
+#　避开亚马逊的一个缺点是，购物者在属于不同品牌的应用程序之间切换很烦人。
+tiresome [ˈtaɪəsəm] adj. 烦人的，令人厌烦的
+toggle [ˈtɒɡl] n. 套索扣，栓扣钉；转换键，切换键； v. （计算机）切换，转换；
+marque [mɑːk] n. 知名品牌（尤指汽车）；（汽车或其他高档品的）牌子，商标；捕拿特许证
+
+storefront　[ˈstɔːfrʌnt] n. [贸易] 店面；店头
+ware　[weə(r)] n. 陶器，器皿；（某种）物品，器皿；（尤指在市场或街上出售的）商品，货物
+
+＃ Not everyone believes independent brands are fi ghting an uphill battle against the tech giants.
+＃ 并非所有人都认为，独立品牌正在与科技巨头展开一场艰苦的战斗。
+uphill　[ˌʌpˈhɪl] adj. 上坡的，向上的　adv. 向上地；往上坡　n. 上升；登高
+
+vehemently [ˈviːəməntli] adv. 激烈地；暴烈地；竭尽全力地 (strongly)
+
+vegan [ˈviːɡən] n. 纯素食者，严格的素食主义者 adj. 严格素食的，不吃肉的
+
+
+
+# 82%, 53/100
 
 
 
@@ -2772,6 +2817,21 @@ fulfilment [fʊlˈfɪlmənt] n. 满足感，成就感；履行，实现；发生
 --> cur: 066
 ----------------------------------------
 file:///D://xampp//htdocs//DawnScholar//audio//20210313.pdf
+
+
+
+
+static/js/main.js
+	oTable.append(arr[i]);
+	oTable.appendChild(arr[i]);
+
+
+webPanLib.py
+rootPath="D://xampp//htdocs//DawnScholar//audio//20210313//" #win7
+
+
+
+
 
 
 
