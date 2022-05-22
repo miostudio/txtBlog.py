@@ -2807,14 +2807,78 @@ vegan [ˈviːɡən] n. 纯素食者，严格的素食主义者 adj. 严格素食
 
 
 
-# 82%, 53/100
+# 82%, 53/100 (2022.5.22 23:24-->)
+# He says their desire to keep close to their customers, to champion sustainability, and to offer inspiring examples of entrepreneurship all support them. 
+# 他说，他们希望与客户保持密切联系，支持可持续发展，并树立鼓舞人心的创业榜样，这些都支持了他们。
+champion [ˈtʃæmpiən] n. 冠军，第一名；拥护者，斗士 v. 捍卫，拥护，【支持】
+主句是啥？ //todo
+He says 
+	their desire 
+		(to keep close to their customers), 
+		(to champion sustainability), and 
+		(to offer inspiring examples of entrepreneurship) all support them. 
+
+# That view is shared by Sebastian Siemiatkowski, founder of Klarna, an online­payments platform that works with many DTC brands. 
+# 与许多DTC品牌合作的在线支付平台Klarna的创始人塞巴斯蒂安·西米亚特科夫斯基(Sebastian Siemiatkowski)也认同这一观点。
+disdain [dɪsˈdeɪn] n. 鄙视，蔑视 v. 鄙视，蔑视；不屑（做某事）
+
+
+# But as digitalisation removes friction between buyers and sellers it will create a more perfect economy with almost limitless scope for growth.
+# 但随着数字化消除了买家和卖家之间的摩擦，它将创造一个更完美的经济，具有几乎无限的增长空间。
+digitalisation [ˌdɪdʒɪtəlaɪˈzeɪʃən]  n. 取样频率；数字化
+friction [ˈfrɪkʃ(ə)n] n. 不和，分歧；摩擦；摩擦力
+scope [skəʊp] n. 范围，领域；（发挥能力的）机会，施展余地；视野，眼界；观测仪器（如望远镜、显微镜等）；（船抛锚时的）缆绳长度；特定论点的数量
+limitless scope 无限的范围
+
+主句 it will create a economy.
+it will create a (more perfect) economy.
+it will create a (more perfect) economy (with almost limitless scope for growth).
+加上原因:
+(But as digitalisation removes friction between buyers and sellers,) it will create a more perfect economy (with almost limitless scope for growth).
+
+# Even Netflix movies could be a sales channel for shoppers keen to buy what they see on screen.
+# 就连Netflix的电影也可以成为购物者购买他们在屏幕上看到的东西的销售渠道。
+
+# Strangely, the pandemic has given part of the retail industry least known for innovation, grocery selling, a crash course in reinvention.
+# 奇怪的是，这场大流行给了零售业的一部分 -- 最缺少创新的杂货销售 -- 一次重塑的速成课程。
+least known 最不为人所知
+crash course 速成课（等于 cram course）
+crash [kræʃ] v. 撞车，坠毁；猛撞，发出巨响；破产 n. 撞车事故，失事；巨响，碰撞声 adj. 应急的，速成的
+
+# As one of the fastest growing online categories around the world in 2020, it has become the next frontier of e-commerce.
+# 作为2020年全球增长最快的在线类别之一，它已经成为电子商务的下一个前沿。
+
+# But do not get your hopes up
+# 但别抱太大希望
+
+# The weekly trip to the supermarket will not become a thing of the past.
+# 每周去一次超市不会成为过去。
+
+
+# 100%, P53/100
+
+
+
+
+
+|-- 067 
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 
 ========================================
---> cur: 066
+--> cur: 067
 ----------------------------------------
 file:///D://xampp//htdocs//DawnScholar//audio//20210313.pdf
 
