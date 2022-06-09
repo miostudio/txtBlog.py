@@ -16,6 +16,14 @@
 			["C语言基础", "c11-basic", "txt" ],
 			["C语言基础2", "c12-basic", "txt" ]
 		]
+	},
+	
+	{
+		"title":"C++",
+		"data":
+		[
+			["C++基础", "cpp21-basic", "txt" ]
+		]
 	}
 
 ]

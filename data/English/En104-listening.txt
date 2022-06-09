@@ -2675,7 +2675,7 @@ jostle [ˈdʒɒs(ə)l] vt. 推挤，撞；争夺 vi. 竞争，争夺；推挤
 
 
 
-|-- 066 Special report - The merchants.mp3 (8.9min)
+|-- 066 Special report - The merchants.mp3 (8.9min) [Good]
 0%, P51/100 (2022.4.12 23:08-->23:18) 10min;
 woolly [ˈwʊli] adj. 羊毛的；模糊的；似羊毛的 n. 羊；毛织衣服
 
@@ -2792,12 +2792,19 @@ curate [ˈkjʊərət; ˌkjʊˈreɪt] n. （某教区的）助理牧师；堂区�
 
 # This approach may not work for all income brackets.
 # 这种方法可能并不适用于所有收入阶层。
-bracket [ˈbrækɪt] n. （固定在墙上的）托架，支架；（收入、年龄等的）等级段，组级；括号；夹叉射击
+bracket [ˈbrækɪt] n. （固定在墙上的）托架，支架；【（收入、年龄等的）等级段，组级】；括号；夹叉射击
 
 quip [kwɪp] n. 妙语；嘲弄；讽刺语 vi. 嘲弄；讥讽
 
 # Nonetheless, the more impersonally goods are sold online, the more urgent it is that shops stand out for customer service.
 # 尽管如此，网上销售的商品越客观，商店就越迫切需要客户服务。
+impersonally [ɪmˈpɜːsənəli] adv. 与个人无关地
+stand out for 坚决要求
+# Will you still have the brave to stand out for justice? 
+# 你还有勇气为正义站出来吗？
+# 句型 Nonetheless, the more ..., the more urgent it is that ....
+
+
 
 
 # One drawback in avoiding Amazon is that it is tiresome for shoppers to toggle between apps belonging to different marques.
@@ -2806,8 +2813,16 @@ tiresome [ˈtaɪəsəm] adj. 烦人的，令人厌烦的
 toggle [ˈtɒɡl] n. 套索扣，栓扣钉；转换键，切换键； v. （计算机）切换，转换；
 marque [mɑːk] n. 知名品牌（尤指汽车）；（汽车或其他高档品的）牌子，商标；捕拿特许证
 
+
+
+
+
+# Mr Zwillinger hopes Shopify may provide an answer by building a virtual storefront where brands can display their wares, as Alibaba’s TMALL does in China.
+# 茨威林格希望Shopify可以提供一个答案，通过建立一个虚拟店面，品牌可以在这里展示自己的商品，就像阿里巴巴的天猫在中国所做的那样。
 storefront　[ˈstɔːfrʌnt] n. [贸易] 店面；店头
-ware　[weə(r)] n. 陶器，器皿；（某种）物品，器皿；（尤指在市场或街上出售的）商品，货物
+ware　[weə(r)] n. 陶器，器皿；（某种）物品，器皿；（尤指在市场或街上出售的）【商品，货物】
+
+
 
 ＃ Not everyone believes independent brands are fi ghting an uphill battle against the tech giants.
 ＃ 并非所有人都认为，独立品牌正在与科技巨头展开一场艰苦的战斗。
@@ -2871,6 +2886,7 @@ crash [kræʃ] v. 撞车，坠毁；猛撞，发出巨响；破产 n. 撞车事�
 # 全文再听一遍: 2022.5.26 23:50-->0:08 (25.9%),
 #	2022.5.29 10:21--> 
 # 2022.5.30 23:36(51%)-->0:05(67%)
+# 2022.6.9 7:59-->8:39(77%)
 
 
 
@@ -2954,7 +2970,7 @@ audition3 内录方法
 
 
 ========================================
-截屏视频录制 SOP
+录屏视频制作 SOP
 ----------------------------------------
 
 
@@ -3108,7 +3124,31 @@ It is not so difficult as you think.
 
 
 ========================================
+HP5: 哈利波特与凤凰令
 ----------------------------------------
+我们怕输，也就产生了因为害怕不好结局，而宁愿不开始的拖延。
+
+
+好看电影丨哈利波特4：火杯的考验
+http://mp.weixin.qq.com/s?__biz=MzIyNTA4NzYxNw==&mid=2649619140&idx=1&sn=b960d3719193dc172caa7e973d3b8827&chksm=f01c432ac76bca3c2f12bbc7bc7113f932999016a60b05dd0dd66f7231f5cb725fb0e0883961&scene=21#wechat_redirect
+
+
+好看电影丨哈利波特5：凤凰会的密令
+http://mp.weixin.qq.com/s?__biz=MzIyNTA4NzYxNw==&mid=2649619143&idx=1&sn=e0646013168764b40f2e399d855a0793&chksm=f01c4329c76bca3ff68d0833eca75360d437483257f1c9b11243213424122785b69a591caa23&scene=21#wechat_redirect
+好看电影丨哈利波特6：混血王子的背叛
+http://mp.weixin.qq.com/s?__biz=MzIyNTA4NzYxNw==&mid=2649619146&idx=1&sn=671edd60cc1ec9f737c42286f3b88fdb&chksm=f01c4324c76bca321ee5b1edce0f0829f6650bfec9ff100315c485c45353a8dcc983358340ee&scene=21#wechat_redirect
+好看电影丨哈利波特7：死神的圣物1
+http://mp.weixin.qq.com/s?__biz=MzIyNTA4NzYxNw==&mid=2649619150&idx=1&sn=299abf191776754cc07aa4cfd8488a53&chksm=f01c4320c76bca36bcc91488d4067a99309d3d485e8209c30f7f9066dfe33d92746a8a7925cd&scene=21#wechat_redirect
+好看电影丨哈利波特7：死神的圣物2
+http://mp.weixin.qq.com/s?__biz=MzIyNTA4NzYxNw==&mid=2649619155&idx=1&sn=e63223ccb10504cfa44e01aaae72bde5&chksm=f01c433dc76bca2bad731de6060a5a7a1ace0724592e486ae5c9aa7d7903d7e3b4a24c81db7a&scene=21#wechat_redirect
+
+
+36min;
+
+
+
+
+
 
 
 ========================================

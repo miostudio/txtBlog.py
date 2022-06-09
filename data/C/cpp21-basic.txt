@@ -1,0 +1,142 @@
+C++ 基础
+
+
+
+========================================
+主要参考书
+----------------------------------------
+
+1. 从网页开始
+https://www.runoob.com/cplusplus/cpp-intro.html
+
+
+
+
+
+
+========================================
+C++ 简介
+----------------------------------------
+
+1. C++ 被认为是一种中级语言，它综合了高级语言和低级语言的特点。
+
+2. C++ 完全支持面向对象的程序设计，包括面向对象开发的四大特性：
+
+封装
+抽象
+继承
+多态
+
+
+3. 标准库
+标准的 C++ 由三个重要部分组成：
+
+核心语言，提供了所有构件块，包括变量、数据类型和常量，等等。
+C++ 标准库，提供了大量的函数，用于操作文件、字符串等。
+标准模板库（STL），提供了大量的方法，用于操作数据结构等。
+
+
+
+
+
+4.编译器
+$ g++ -v
+Using built-in specs.
+COLLECT_GCC=C:\Strawberry\c\bin\g++.exe
+COLLECT_LTO_WRAPPER=C:/Strawberry/c/bin/../libexec/gcc/x86_64-w64-mingw32/7.1.0/lto-wrapper.exe
+Target: x86_64-w64-mingw32
+Configured with: ../../../src/gcc-7.1.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64-w64-mingw32 --prefix=/mingw64 --enable-shared --enable-static --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-libstdcxx-pch --disable-libstdcxx-debug --disable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --with-gmp=/opt/build/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/opt/build/prerequisites/x86_64-w64-mingw32-static --with-mpc=/opt/build/prerequisites/x86_64-w64-mingw32-static --with-isl=/opt/build/prerequisites/x86_64-w64-mingw32-static --with-pkgversion='x86_64-posix-seh, Built by strawberryperl.com project' CFLAGS='-O2 -pipe -fno-ident -I/opt/build/x86_64-710-posix-seh-rt_v502/mingw64/opt/include -I/opt/build/prerequisites/x86_64-zlib-static/include -I/opt/build/prerequisites/x86_64-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -fno-ident -I/opt/build/x86_64-710-posix-seh-rt_v502/mingw64/opt/include -I/opt/build/prerequisites/x86_64-zlib-static/include -I/opt/build/prerequisites/x86_64-w64-mingw32-static/include' CPPFLAGS=' -I/opt/build/x86_64-710-posix-seh-rt_v502/mingw64/opt/include -I/opt/build/prerequisites/x86_64-zlib-static/include -I/opt/build/prerequisites/x86_64-w64-mingw32-static/include' LDFLAGS='-pipe -fno-ident -L/opt/build/x86_64-710-posix-seh-rt_v502/mingw64/opt/lib -L/opt/build/prerequisites/x86_64-zlib-static/lib -L/opt/build/prerequisites/x86_64-w64-mingw32-static/lib '
+Thread model: posix
+gcc version 7.1.0 (x86_64-posix-seh, Built by strawberryperl.com project)
+
+
+
+(1) 源码 hello.cpp
+
+#include<iostream>
+using namespace std;
+int main(){
+	cout << "Hello, world!" << endl;
+	return 0;
+}
+
+
+编译:
+$ g++ hello.cpp
+$ ./a.exe
+Hello, world!
+
+
+
+
+
+
+
+
+
+
+========================================
+// todo 
+----------------------------------------
+https://www.runoob.com/cplusplus/cpp-environment-setup.html
+
+
+
+
+
+
+========================================
+----------------------------------------
+
+
+========================================
+----------------------------------------
+
+
+========================================
+----------------------------------------
+
+
+
+
+
+========================================
+----------------------------------------
+
+
+========================================
+----------------------------------------
+
+
+========================================
+----------------------------------------
+
+
+
+
+
+========================================
+----------------------------------------
+
+
+========================================
+----------------------------------------
+
+
+========================================
+----------------------------------------
+
+
+
+
+
+========================================
+----------------------------------------
+
+
+========================================
+----------------------------------------
+
+
+========================================
+----------------------------------------
