@@ -24,6 +24,17 @@
 		[
 			["C++基础", "cpp21-basic", "txt" ]
 		]
+	},
+	
+	{
+		"title":"计算机基础",
+		"data":
+		[
+			["汇编", "com30-Assembly_lang", "txt" ],
+			["计算机组成原理", "com31-comPrinciple", "txt" ],
+			["计算机网络", "com33-network", "txt" ],
+			["操作系统", "com32-OS", "txt" ]
+		]
 	}
 
 ]
