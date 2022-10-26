@@ -22,7 +22,8 @@
 		"title":"C++",
 		"data":
 		[
-			["C++基础", "cpp21-basic", "txt" ]
+			["C++基础", "cpp21-basic", "txt" ],
+			["Qt", "cpp22-Qt", "txt" ]
 		]
 	},
 	
