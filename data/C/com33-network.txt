@@ -699,6 +699,96 @@ email   smtp        TCP
 ========================================
 |-- web 应用
 ----------------------------------------
+1.  web 与 http
+
+word wide web: Tim Berners-Lee
+	网页
+	网页互相链接
+
+网页 (web page) 包含多个对象(objects)
+	对象: html 文件, jpg 图片, 视频文件, 动态脚本
+	基本 html 文件: 包含对其他对象引用的链接
+
+对象的寻址(addressing)
+	URL(Uniform Resource Locator): 统一资源定位器 RFC1738
+	scheme://host:port/path
+
+
+
+2. http 协议 
+
+超文本传输协议(HyperText Transfre Protocol)
+C/S结构
+传输层：TCP
+	- 服务器在80端口等待客户端的请求
+	- browser 发起到服务器TCP连接(创建套接字socket)
+	- 服务器接收来自 browser 的TCP连接
+	- 浏览器(http客户端)与web服务器(http服务器)交换http消息
+	- 关闭TCP连接
+http 无状态(stateless)
+
+
+
+
+
+3. http 连接的两种类型
+
+非持久性连接(nonpersistent http)
+	- 每个TCP连接最多允许传输一个对象
+	- http 1.0版本使用非持久性连接
+
+持久性连接(persistent http)
+	- 每个TCP连接允许传输多个对象
+	- http 1.1 版本默认使用持久性连接
+
+
+(1) 非持久连接，时间序列
+1a 客户端请求访问 ss.edu 的80端口
+	1b.http服务器在端口80等待TCP连接请求，接收连接并通知客户端
+2a 客户端通过TCP连接的套接字，发送请求访问路径 xx/index.html 
+	3.http服务器接收请求消息，解析，产生包含所需要对象的响应消息，通过套接字发送给客户端
+	4.http服务器关闭tcp连接
+5.解析 xx/index.html，显示html文件，发现有10个jpg图片
+6. 为每个jpg对象重复步骤1-5
+
+
+分析一下时间:
+
+
+2) 响应时间分析与建模
+RTT(Round Trip Time)
+	客户端发送一个很小的数据包到服务器，并返回所经历的时间。
+
+响应时间(Response time)
+	- 发起、建立TCP连接：1个 RTT
+	- 发送http请求消息到http响应消息的前几个字节到达：1个RTT
+	- 响应消息中所包含的文件/对象传输时间
+
+Total = 2RTT + 文件发送时间
+
+
+3) 非持久http的问题 
+每个对象需要2个RTT
+OS为每个TCP连接开销资源(overhead)
+浏览器会怎么做？
+	打开多个并行的TCP连接以获取网页所需对象
+	给服务器造成什么影响？
+
+
+
+
+(2) 持久性连接 http 
+发送响应后，服务器保持TCP连接的打开
+后续的http消息可以通过这个连接发送。
+
+
+
+
+
+
+
+
+
 
 
 
@@ -722,6 +812,8 @@ https://www.bilibili.com/video/BV1FS4y1Y7Qe?p=2
 2022.10.28 4,5(3')
 2022.11.6 5, 6 网络接入-前面讲过;
 2022.11.8 7,8, 9
+2022.11.12 9,
+
 
 
 
