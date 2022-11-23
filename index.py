@@ -1,6 +1,6 @@
 from flask import Flask, escape,request, url_for,render_template,send_from_directory,redirect
 from txtBloglib import *
-from footer_urls import *
+from data._config.footer_urls import *
 
 app = Flask(__name__)
 
@@ -31,12 +31,12 @@ def hello(k,id="0_0"):
 		return render_template('page_not_found.html',info=rs[1])
 
 	#bottom links html, defined in footer_urls.py
-	footer='友情链接[IT Tools]: '+get_links(footer_urls["links_IT_tools"]);
-	footer+='<br />生物信息学: '+get_links(footer_urls["bio_info"]);
+	footer='<b>友情链接[IT Tools]</b>: '+get_links(footer_urls["links_IT_tools"]);
+	footer+='<br /><b>生物信息学</b>: '+get_links(footer_urls["bio_info"]);
 
 	#render template
 	return render_template('hello.html', topMenu=topMenu, leftMenu=rs[0], filepath=rs[2],  \
-		content=rs[1], lastModified=rs[3],suffix=rs[4], footer=footer)
+		content=rs[1], lastModified=rs[3],suffix=rs[4], footer=footer, version=getConf('version', 'version') )
 # http://127.0.0.1:8000/index/Python/0_0.html
 
 

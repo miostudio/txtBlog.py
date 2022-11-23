@@ -1,36 +1,57 @@
 import json,re,time,os
 from flask import escape, url_for
-#import mistune
 import configparser
 # version 0.0.7-8
+# version 0.0.7-9 部分支持行内Math
 
 
 
+# 在控制台打印彩色文字
+import colorama
+from colorama import Fore
+from colorama import Style
+colorama.init()
+
+def print_yellow(str):
+    print(Fore.YELLOW + Style.BRIGHT + str + Style.RESET_ALL)
+def print_red(str):
+    print(Fore.RED + Style.BRIGHT + str + Style.RESET_ALL)
 
 
 
 #import re
 from mistune import Renderer, Markdown, InlineLexer
-# todo 单引号括起来的还没有处理？
+# todo 单引号括起来的还没有处理好？ //------> todo
 # define new sub class
 #让mistune不后台处理$$和$$之间的LaTex代码，交给前台的js处理成数学公式
 class LaTexRenderer(Renderer):
     #def LaTex(self, alt, link):
     def LaTex(self, text):
         return '$$%s$$' % (text)
+    def LaTex_inline(self, text):
+        return '$%s$' % (text)
+
 
 class LaTexInlineLexer(InlineLexer):
     def enable_LaTex(self):
         # add LaTex rules
         self.rules.LaTex = re.compile(
-            r'\$\$'                   # $$ 头
+            r'\$$'                   # $$ 头
             r'([\s\S]+?)'   # *** 中间
-            r'\$\$(?!\])'             # $$ 尾
+            r'\$$(?!\])'             # $$ 尾
         )
         # Add LaTex parser to default rules
         # you can insert it some place you like
         # but place matters, maybe 3 is not good
         self.default_rules.insert(3, 'LaTex')
+        #
+        self.rules.LaTex_inline = re.compile(
+            r'\$'                   # $$ 头
+            r'([\s\S]+?)'   # *** 中间
+            r'\$(?!\])'             # $$ 尾
+        )
+        self.default_rules.insert(0, 'LaTex_inline')
+
 
     def output_LaTex(self, m):
         text = m.group(1)
@@ -39,7 +60,18 @@ class LaTexInlineLexer(InlineLexer):
         # you can also return the html if you like
         #return self.renderer.LaTex(alt, link)
         return self.renderer.LaTex(text)
+    def output_LaTex_inline(self, m):
+        text = m.group(1)
+        #alt, link = text.split('|')
+        # you can create an custom render
+        # you can also return the html if you like
+        #return self.renderer.LaTex(alt, link)
+        return self.renderer.LaTex_inline(text)
 # the end of sub class
+
+
+
+
 # 跳过LaTex片段的markdown to html parser mistune子类
 def md2html(md):
 	renderer = LaTexRenderer()
@@ -58,17 +90,20 @@ def md2html(md):
 
 # read configure file
 # v0.1 没有该值怎么办？
-def getConf(section, item): 
+def getConf(section, item):
 	base_dir = str(os.path.dirname(__file__))
 	base_dir = base_dir.replace('\\', '/')
-	file_path = base_dir + "./config/conf.ini"
+	file_path = base_dir + "/data/_config/conf.ini"
 	#return base_dir;
 	#print("file_path=", file_path);
-	
+
 	cf = configparser.ConfigParser()   # configparser类来读取config文件
 	cf.read(file_path)
 
-	return cf.get(section, item); 
+	return cf.get(section, item);
+
+
+
 
 
 #文本文件阅读器，input filepath, return string from the file.
@@ -76,6 +111,7 @@ def getConf(section, item):
 #v0.4 对尖括号转码
 #v0.5 添加纸质背景
 #v0.6 分离txt.css，支持在config/conf.ini配置文件中切换皮肤
+#v0.7 fix left corner
 def txtReader(fpath,txtStyle="ubuntu1"):
 	fr=open(fpath, 'r', encoding="utf8")
 	tmp=''
@@ -99,8 +135,25 @@ def txtReader(fpath,txtStyle="ubuntu1"):
 	js='<script type="text/javascript" src="/static/js/txt.js"></script>\n\n'
 	#获取配置风格
 	txtStyle=getConf('style','txt');
-	
-	return css+js+"<div class='content'><pre class="+txtStyle+">" + tmp + "</pre></div>\n";
+
+    	# left bottom corner contents
+	cornerContents="""
+<div id="common_box">
+	<div id="cli_title" class=title> Contents <b id="cli_on">+</b></div>
+	<div id="f_content" class=container>
+		<div class=content></div>
+		<div class="title">==This is the bottom==</div>
+	</div>
+</div>
+<script type="text/javascript" src="/static/js/startMove.js"></script>\n
+"""
+
+	return css+"<div class='content'><pre class="+txtStyle+">" + tmp + "</pre></div>"+cornerContents+js+"\n";
+
+
+
+
+
 
 #html读取器
 #v0.1
@@ -108,6 +161,15 @@ def htmlReader(fpath):
 	fr=open(fpath, 'r', encoding="utf8")
 	tmp=fr.read();
 	fr.close();
+
+    # LaTex
+	#js3='<script src="/static/js/MathJax-2.7.5.js"></script>\n';
+	#js3='<script src="/static/js/MathJax-tex-mml-chtml-3-es5.js?config=TeX-MML-AM_CHTML"></script>\n';
+	js3='<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>';
+	#js3+='<script src="/static/js/showLaTex.js"></script>\n\n';
+	if getConf("function","LaTex")=="on":
+		tmp=tmp+js3;
+
 	return tmp;
 #
 
@@ -118,23 +180,24 @@ def htmlReader(fpath):
 #v0.4 左下角添加目录
 #v0.5 增加LaTex支持，依赖MathJax.js，不好用。因为mistune解析markdown时转义_为<i>，导致带有_的公式转换失败
 #v0.6 LaTex根据配置文件，决定是否加载
+#v0.7 恢复使用 online 版的 MathJax.js
 def markdownReader(fpath):
 	# read markdown
 	fr=open(fpath, 'r', encoding="utf8")
 	text=fr.read()
 	fr.close()
-    
+
     #遇到 MathJax 和markdown 冲突怎么办?https://www.v2ex.com/t/240363
     # mathjax中的'_'(下划线字符 下标)与markdown中的斜体冲突
-    
-    
+
+
 	# markdown to html
 	#tmp=mistune.markdown(text, escape=False, hard_wrap=True) #'I am using **mistune markdown parser**'
 	tmp=md2html(text) #'I am using **mistune markdown parser**'  , escape=False, hard_wrap=True
 	tmp="<div class=markdown>\n"+tmp+"</div>\n"
 	#tmp="<div class=content>\n"+tmp+"</div>\n"
-	
-	# left bottom corner contents 
+
+	# left bottom corner contents
 	cornerContents="""
 <div id="common_box">
 	<div id="cli_title" class=title> Contents <b id="cli_on">+</b></div>
@@ -146,7 +209,7 @@ def markdownReader(fpath):
 <script type="text/javascript" src="/static/js/startMove.js"></script>\n
 """
 	tmp+=cornerContents;#这个框架的内容由js在markdown.js中填充
-	
+
 	# add markdown style sheet and top contents js, left bottom corner contents.
 	mdStyle=getConf("style","markdown") #get markdown style file name from config file.
 	css='<link rel="stylesheet" type="text/css" href="/static/css/'+mdStyle+'.css" media="all">\n'
@@ -188,14 +251,16 @@ addEvent(window, 'load', function(){
 	css2='<link rel="stylesheet" href="/static/css/highlight-routeros.css">\n'
 	js2='<script src="/static/js/highlight.pack.js"></script>\n\n'
 	tmp=tmp + css2+js2   + '<script>hljs.initHighlightingOnLoad();'+codeNumberJS+'</script>';
-	
+
 	# LaTex
-	#js3='<script src="/static/js/MathJax.js"></script>\n';
+	#js3='<script type="text/javascript" async src="/static/js/MathJax-2.7.5.js?config=TeX-MML-AM_CHTML"></script>\n';
+	#js3='<script type="text/javascript" async src="/static/js/MathJax-tex-mml-chtml-3-es5.js"></script>\n';
 	js3='<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>';
 	js3+='<script src="/static/js/showLaTex.js"></script>\n\n';
+	#print_red(js3);
 	if getConf("function","LaTex")=="on":
 		tmp=tmp+js3;
-	
+
 	return tmp;
 
 
@@ -216,9 +281,19 @@ def getData(k,id):
 	#
 	load_f=open(fname,'r',encoding="utf8")
 	menus = json.load(load_f);
+	#关闭文件
 	load_f.close();
 
-	#凑出来文件路径
+
+	#凑出来文件路径，如果找不到则定位到错误页面
+	print_red("====> menu: "+k+ "/ " + str(len(menus) ) + "sections" );
+	#print(menus); #顶部菜单数据
+
+	if len( menus )<=n0: #如果 R/ 下分块下标不含url的请求，则报错
+		return (0, "Error: Index out of bounds! Top menu length: "+ str(len(menus)) + ", doesn't have "+str(n0)+"th element(0-based index)" );
+	if len( menus[n0]["data"] )<=n1: #
+		return (0, "Error: Index out of bounds! "+k+"/ left section "+ str(n0) +" only have "+ str(len(menus[n0]["data"])) +" files, doesn't have index "+ str(n1) +"(0-based)" );
+
 	menuCur =  menus[n0]["data"][n1]
 	filepath="data/"+k+"/"+menuCur[1]+"."+menuCur[2] #路径
 	suffix=menuCur[2].lower() #后缀
@@ -238,12 +313,10 @@ def getData(k,id):
 			#
 			id=str(i)+"_"+str(j)
 			item_url=url_for('hello', k=k, id=id) #第一个参数是函数名，不是路由
-			
+
 			url_left+="<li"+cur+"><a href=" + item_url +">"+id+" "+arr2[j][0]+"</a></li>\n"
 		url_left+="</ul>\n</li>\n"
-	#关闭文件
-	load_f.close();
-	
+
 	#上次修改时间
 	lastModified = "2017-10-19 7:0:0"
 
@@ -265,7 +338,7 @@ def getData(k,id):
 			content=txtReader(filepath)
 
 	#如果是英语频道，则新增底部英语随机句子。
-	if k=="English":
+	if k=="English" or getConf('function','motto')=="on":
 		content+='\n<script src="/static/js/startMove_OOP.js"></script>\n<script src="/static/js/motto.js"></script>\n';
 
 	return (url_left, content,filepath.replace("data/",""), lastModified,suffix)

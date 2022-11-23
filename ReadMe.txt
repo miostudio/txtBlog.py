@@ -1,10 +1,11 @@
 ################################
 # project name: txtBlog.py is the python3 version of txtBlog 
 # desc: [知识管理]A simple yet powerful blog system for reading and organizing txt files.
-# desc2: Pyhton3编写的、基于文件的文本笔记管理系统，简捷高效，可用于管理知识。
-# version: 0.0.9
-# github: https://github.com/MioStudio/txtBlog.py
-# appearence: https://github.com/DawnEve/txtBlog
+# desc2: Pyhton3 编写的、基于文件的文本笔记管理系统，简捷高效，可用于管理知识。
+# version: 0.1.0-4
+# depend: python3, flask, mistune
+# github: https://github.com/BioMooc/txtBlog.py
+# appearence: https://www.biomooc.com/Python3/Python3-web.html#2
 #
 # (local=notebook)
 # local test url: http://127.0.0.1:8000/
@@ -17,9 +18,10 @@
 整体构架:
 # 和记忆作斗争，是“坐家”们毕生的事业，本项目是一个简洁的文本笔记系统，就是为了管理知识，支持插入少量图片。
 # 使用Python3的flask包作为web框架，尽量简化。https://flask.palletsprojects.com/en/1.1.x/
-# 顶部关键词，左侧文件名，都使用json格式的配置文件。
+# 顶部关键词menu，左侧文件名menu，都使用json格式的配置文件。
+# 网页内容顶部、网页标题都有文件名，方便找到去增删改。
 # 支持html/txt/markdown格式的笔记，未来会支持 ReStructuredText等;
-# 为了应付最危险的情况：python部件不再支持(5-10年内不会发生)，博客系统失灵，建议文件命名时要言简意赅、见名知意！保证human也能读懂。
+# 为应付最危险的情况：python部件不再支持(now=2022，5-10年内不会发生)，博客系统失灵，文件名要言简意赅、见名知意，保证human也能读懂。
 #
 
 
@@ -29,8 +31,8 @@
 ################################
 What's new?
 v0.0.9-1 为markdown代码块添加行号
-
-
+v0.0.9-6 data/search.sh 单行脚本搜索功能 $ cd data/ $ find . | xargs grep -n "someKeyWord" 2>/dev/null --color=auto
+v0.1.0-2 transfer to BioMooc/
 
 
 
@@ -46,23 +48,24 @@ OS: win10和linux都可以，但是需要有可用的端口号，本项目默认
 
 安装python3，查看版本号
 $ python -V  
-## Python 3.6.4
+## Python 3.6.4 #其他版本的没做过测试
 
 使用pip安装 flask(web服务器): 
 $ pip install flask
 
 使用pip安装 mistune(markdown解析器): 
-$ pip install mistune
+$ pip install mistune #v0.8.4, 在高版本的v2.0和v3.0需要修改本框架才能运行
+
 
 
 
 2.下载该项目
 通过
-$ git clone https://github.com/MioStudio/txtBlog.py.git
+$ git clone https://github.com/BioMooc/txtBlog.py.git
 或者下载压缩包并解压
-$ wget https://github.com/MioStudio/txtBlog.py/archive/master.zip
+$ wget https://github.com/BioMooc/txtBlog.py/archive/master.zip
 
-可以放到硬盘的任意位置，但是路径中不要出现中文字符。
+可以放到硬盘的任意位置，但是路径中最好不要出现中文字符和空格。
 
 
 
@@ -80,7 +83,7 @@ $ python index.py
 按照命令行提示的网址： Running on http://127.0.0.1:8000/ (Press CTRL+C to quit)
 打开chrome浏览器，输入 http://127.0.0.1:8000/ 并回车即可访问。
 
-如果报错，请阅读出错提示，百度解决，或者留言 issues 提问。
+如果报错，请阅读出错提示，百度解决，或者发 issues 留言。
 
 
 
@@ -103,14 +106,13 @@ $ python index.py
 /data/
  |- topMenu.json
  |- R.json
- |- Python.json
  |- R/
+ |- Python.json
  |- Python/
     |- images/
     |- Python001.html
     |- Python-basic.txt
  |- Linux/
- |- jupyter/ 放python笔记，附带运行结果
 
 (1)json格式的顶部目录 topMenu.json，一行一个顶部链接；
 第一个字符直接显示出来，第二个字符鼠标悬停时显示出来。
@@ -124,7 +126,7 @@ $ python index.py
 Pyhton对json要求很严格： 
 	- 最后一个元素后不能出现逗号！否则报错。
 	- 键值对中，键要用双引号，值如果是字符串也要用双引号。
-	- json中不能出现注释！相比js中的json，太可悲了。
+	- json中不能出现注释！相比js中的json，太严格了。
 
 
 
@@ -179,7 +181,7 @@ web based tutorials
 - css使用github的主要样式，颜色参考 https://segmentfault.com/a/1190000018084098
 - 支持代码高亮(依赖 highlight.js);
 - md中的代码行号由自定义js实现 模仿 模仿 https://blog.csdn.net/hustqb/article/details/80628721
-- 支持LaTex(依赖 MathJax.js, 在线cdn，加载很慢) ，默认不开启，开关在 /config/conf.ini；
+- 支持LaTex(依赖 MathJax.js, 在线cdn，加载很慢) ，默认不开启，开关在 /data/_config/conf.ini；
 
 
 
@@ -198,7 +200,7 @@ web based tutorials
 
 
 3. 底部友情链接的更新
-链接数据是json格式的，定义在文件 /footer_urls.py 中。
+链接数据是json格式的，定义在文件 /data/_config/footer_urls.py 中。
 链接html生成函数 get_links() 在 /txtBloglib.py 中定义，并在 /index.py 中执行。
 
 
@@ -267,14 +269,11 @@ top contents -> headers; 小标题
 
 ################################
 如何升级
-1. 从github使用 git clone 下载新的框架;
+1. 从github使用 git clone 下载新版本的框架;
 2. 把旧项目中自己的data/文件夹，复制粘贴，覆盖新版本中的data/文件夹；
+	- 用户自定义数据: /data/ 顶部目录、左侧目录、自定义文件等；
+	- 底部友情链接: /data/_config/footer_urls.py
+	- 自定义风格: /data/_config/conf.ini
 3. 其他小的数据文件包括：
-	- 底部友情链接: /footer_urls.py
-	- English 频道的名人名言: 
-	- 自定义风格: /config/conf.ini
-
-
-彩蛋：
-English项目下添加菜单：底部名人名言插件，刷新随机展示一条，会周期性滚动。
-	- 滚动显示的内容在 /static/js/motto.js
+彩蛋：English 顶部目录下，底部会出现名人名言插件，刷新时随机展示一条名人名言，并周期性滚动。
+	- English 频道的名人名言: 滚动显示的内容在 /static/js/motto.js

@@ -74,7 +74,7 @@ github 2019.8.16 .markdown-body
 .markdown pre>code {background:transparent;border:0;/*font-size:100%;*/margin:0;padding:0;white-space:pre;word-break:normal}
 .markdown .highlight {margin-bottom:16px}
 .markdown .highlight pre {margin-bottom:0;word-break:normal}
-.markdown .highlight pre,.markdown pre {background-color:#f6f8fa;border-radius:3px;font-size:85%;line-height:1.45;overflow:auto;padding:0 16px}
+.markdown .highlight pre,.markdown pre {background-color:#f6f8fa;border-radius:3px;font-size:85%;line-height:1.45;overflow:auto;padding:16px}
 .markdown pre code,.markdown pre tt {background-color:transparent;border:0;display:inline;line-height:inherit;margin:0;max-width:auto;overflow:visible;padding:0;word-wrap:normal}
 .markdown .csv-data td,.markdown .csv-data th {font-size:12px;line-height:1;overflow:hidden;padding:5px;text-align:left;white-space:nowrap}
 .markdown .csv-data .blob-num {background:#fff;border:0;padding:10px 8px 9px;text-align:right}
@@ -102,7 +102,6 @@ github 2019.8.16 .markdown-body
     border-bottom-right-radius: 5px;
 	
 }
-
 
 
 

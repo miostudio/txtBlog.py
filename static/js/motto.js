@@ -23,9 +23,16 @@ motto_Plugin.run([100 ,30], document.getElementsByClassName("motto")[1]);
 			"不要习惯用鸡汤、段子、搞笑视频、电子游戏去麻痹自己，暂时忘却现实中的烦恼。",
 			"必须明白，逃避无法解决问题，越是逃避，需要解决的问题就越多，解决起来就越痛苦。",
 			"实现梦想，就要学会放弃和牺牲，放弃所有不重要的事情，牺牲安逸的生活与娱乐，集中全部精力去追求目标，才有一线可能梦想成真。",
+
+			"把平凡做成优秀，把优秀变成习惯。",
+			"种一棵树最好的时间是十年前，其次是现在。",
+			"控制欲望，保持好奇。",
+			"Do have faith in what you're doing.",
 			//"Some 5,000 red-winged blackbirds, European starlings, common grackles and brown-headed cowbirds suffered blunt-force trauma after colliding with cars, trees and buildings, an ornithologist from the Arkansas Game and Fish Commission would tell National Geographic. //[熟词生义] game. 猎物",
 		],
-		'bgColors':['red','#F19C01','#A49B03','green','blue','#18C1C1','purple','black'],
+		'bgColors':['red','#F19C01','#A49B03','green','blue','#18C1C1','purple',
+			'#ff7f27',
+			'black'],
 /*
 #F19C01 orange
 #D2C701 yellow A49B03

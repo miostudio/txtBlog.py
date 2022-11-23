@@ -105,7 +105,7 @@
 border:1px solid #eee;
 */
 .content ul,
-.content ol{padding: 0 35px;}
+.content ol{ padding: 0 35px;}
 /*常见问题汇总*/
 .content ol.faq li{	margin:10px 0;}
 
