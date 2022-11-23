@@ -775,17 +775,364 @@ OS为每个TCP连接开销资源(overhead)
 	给服务器造成什么影响？
 
 
-
-
 (2) 持久性连接 http 
 发送响应后，服务器保持TCP连接的打开
 后续的http消息可以通过这个连接发送。
 
+无流水(pipelining) 的持久性连接
+
+带流水机制的持久性连接
+	http1.1 的默认选项
+	收到所有的引用默认时间都是 1 RPT
 
 
 
 
 
+4. http 请求消息 
+
+(1) http 协议的两类消息
+请求消息(request)
+响应消息(response)
+	都是用 ascii 码写的，可以直接读
+
+请求消息:
+	ASCII: 人直接可读
+
+
+GET /someDir/Page.html HTTP/1.1
+Host: www.some.edu
+User-agent: Mozilla/4.0
+Connection: close
+Accept-language:fr
+
+第一行 request method: GET/POST/HEAD/ cr lf
+接着 header field name: value cr lf 
+cr lf 
+Entidy Body 消息体
+
+
+
+(2) 上传输入的方法
+POST 方法
+	网页经常需要填写表格(form)
+	客户端输入在 Entity Body 中
+
+URL 方法:
+	GET 方法
+
+
+
+(3) 方法的类型
+HTTP/1.0
+	GET
+	POST
+	HEAD
+		请 Server 不要将所请求的对象放入响应消息中
+
+HTTP/1.1 新增了2种方法
+	GET/POST/HEAD/
+	PUT: 将消息体中的文件上传到url字段所指定的路径
+	DELETE: 删除URL字段所指定的文件
+
+
+(4) HTTP 响应消息
+
+HTTP/1.1 200 OK
+Connection: close
+Date: Thu, 06 Aug 2022 18:00:15 GMT
+Server: Apache/1.3.0 (Unix)
+Last-Modified: Mon, 22 Jun 2022 ...
+Cotent-Length: 6821
+Content-Type: text/html
+
+data data ...
+
+
+
+第一行是 status line: Protocol /status code /status phrase
+header lines: 键值对
+空行
+data, e.g: requested HTML file
+
+
+==> 状态行
+200 OK
+404 Not Found
+
+
+(5) 体验一下 http
+
+利用 telnet 登录到某个web服务器
+$ telnet www.hit.edu.cn 80
+
+输入一个http请求
+$ GET /about/profile.html HTTP/1.1
+$ Host: www.hit.edu.cn 
+
+查看http服务器所返回的响应消息
+
+
+
+
+
+========================================
+|-- Cookie 技术
+----------------------------------------
+
+1. http 协议无状态
+很多应用需要服务器掌握客户端的状态
+	网上购物
+
+(2) RFC6265
+Cookie 的组件
+	假设到 http 之上
+	http 响应消息的 cookie 头部行
+	http 请求消息的 cookie 头部行
+	客户端保存浏览器状态
+	服务端用数据库保存
+
+(3) Cookie 的作用
+身份认证
+购物车
+推荐
+web e-mail
+
+(4) 隐私问题: 可能被广告商针对
+cookie 怎么收集隐私?
+
+
+
+
+
+========================================
+|-- web 缓存/代理服务器技术
+----------------------------------------
+1. 功能 
+不访问服务器的前提下满足客户端的http请求
+
+(2) 为什么发明这种技术？
+主要是性能
+	缩短客户端请求的响应时间
+	减少机构/组织的流量
+	在大范围内（Internet）实现有效的内容分发: CDN
+
+
+(2) 在客户和服务器之间: Proxy server
+
+缓存服务器没有，则向原始服务器发送请求，并缓存下来。
+缓存服务器有，则直接返回内容。
+
+既充当客户端，又充当服务器。
+
+
+(3) 机构内部与外部网络连接
+如果增加一个内部 缓存服务器，则能起到增加宽带的作用。
+效果：省钱，且提速。
+
+类似于CPU的缓存的效果。
+
+问题: 缓存服务器上是不是最新的呢？最好完全一致才是最好的。
+解决方法: 条件性 GET 方法: Last-modified 参数
+	发送 if-modifed-since: <date>
+	服务器: 如果缓存的是新的，则相应消息不包含对象
+		HTTP/1.0 304 Not Modified
+
+
+
+
+
+
+
+
+========================================
+|-- Email 应用
+----------------------------------------
+
+1. Email 构成组间
+(1) 邮件服务器
+
+邮箱：
+消息队列: 等待发送的邮件
+
+(2) SMTP 协议: RFC 2821
+TCP 传输协议
+端口 25
+传输三个阶段:
+	握手
+	消息的传输
+	关闭
+
+命令/相应交互模式
+	命令 command: ascii文本
+	响应 response: 状态...
+
+
+异步应用: 发送与接收不需要同时。
+
+(3) 动手尝试 SMTP 交互
+telnet servername 25
+服务器返回代码220
+输入以下命令与SMTP服务器交互:
+	HELO
+	MAIL FROM
+	RCPT TO
+	DATA
+	QUIT
+
+(4) SMTP 协议 
+持久性连接
+要求消息必须由7位ascii码构成
+smtp服务器利用crlf.crlf确认消息的结束。
+
+
+(5) 只能包含ascii，二进制(图片、音乐)怎么办？
+MIME: 多媒体邮件扩展 RFC2045,2056
+
+
+
+
+
+2. POP3 协议
+
+(1) 用户访问自己的邮箱，使用的pop3协议等。
+可见，Email 应用包含了不止一个协议。
+
+POP3 协议的2个阶段:
+	认证
+	下载
+
+IMAP: 更多功能、更复杂，能操纵邮件服务器的邮件
+HTTP: 163，QQ mail等。
+
+(2) POP3 是无状态的
+
+(3) IMAP 协议 
+更新的协议。
+
+作业: 查资料，比较 IMAP 和 POP3 的不同。
+调研主流Email服务对2者的支持。
+手机上用的啥协议？
+
+
+
+
+
+
+
+========================================
+|-- DNS 应用: 互联网的核心应用
+----------------------------------------
+1.DNS: Domain Name System
+
+(1) 互联网上主机/路由器的识别问题。
+IP地址
+域名: www.xx.com
+	更好记忆
+
+以上两个怎么映射？就是 DNS 服务。
+	是一个应用层服务
+
+(2) 作用
+域名向IP地址的翻译
+主机别名
+负载均衡
+
+
+(3) 分布式、层次式架构
+为什么不使用集中式DNS? 不可伸缩。
+	防止单点失败问题
+	流量问题
+	距离问题
+	维护性问题
+
+
+Root DNS Server 
+->
+com DNS servers   |  org DNS servers   | edu DNS servers 
+->
+... | pbs.org DNS servers  | ...
+
+
+1) DNS 根域名服务器
+
+2) TLD: top-level domain 顶级域名服务器
+
+3) 权威(Authoritative)域名服务器
+
+4) 本地域名解析服务器
+	不严格属于层级体系
+	每个 ISP 有一个本地域名服务器
+		作为一个代理 proxy
+
+
+(4) DNS 查询示例
+
+迭代查询
+递归查询
+	似乎路程更远
+
+缓存、更新机制
+
+我国没有根域名服务器，对信息安全有什么影响?
+
+
+
+
+(5) DNS 记录
+
+资源记录 RR, Resource records
+
+RR format: (name, value, type, ttl)
+
+Type=A 
+	name: 主机域名
+	Value: IP地址
+
+Type=NS
+	name: 域(edu.cn)
+	Value: 该域权威域名解析服务器的主机域名
+
+Type=CNAME
+	Name: 某一真实域名的别名 www.ibm.com 
+	Value: 真实域名
+
+Type=MX
+	value 是与 name对应的邮件服务器。
+
+
+
+(6) DNS协议与消息 
+DNS 协议:
+	查询(query)和 回复(reply消息)
+	消息格式
+
+作业: DNS用的传输协议是 TCP还是UTP?
+
+
+
+(7) 如何创建域名?
+
+比如创建 xx 公司，打算注册 xx.com 
+顶级域名机构向 com 顶级域名解析服务器中插入2条记录
+	(xx.com, dns1.xx.com, NS)
+	(dns1.xx.com, 212.212.212.1, A)
+
+
+
+
+
+
+
+========================================
+|-- P2P协议
+----------------------------------------
+1. 文件分发: 客户机/服务器 vs P2P
+
+
+
+
+8'57''
 
 
 
@@ -801,7 +1148,7 @@ OS为每个TCP连接开销资源(overhead)
 
 
 ========================================
-current: 9/59
+current: 12/59
 ----------------------------------------
 https://www.bilibili.com/video/BV1FS4y1Y7Qe?p=2
 2022.7.27 01
@@ -813,6 +1160,7 @@ https://www.bilibili.com/video/BV1FS4y1Y7Qe?p=2
 2022.11.6 5, 6 网络接入-前面讲过;
 2022.11.8 7,8, 9
 2022.11.12 9,
+2022.11.23 9, 10-Email, 11-DNS, 12-P2P协议
 
 
 
