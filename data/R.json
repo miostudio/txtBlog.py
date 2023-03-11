@@ -16,7 +16,8 @@
 			["R OOP", "R-OOP", "txt" ],
 			["Seurat源码学习", "Seurat_source", "txt" ],
 			["ggplot2", "R-ggplot2", "txt" ],
-			["grid绘图系统", "R-grid", "txt" ]
+			["grid绘图系统", "R-grid", "txt" ],
+			["htmlwidgets", "R-htmlwidgets", "txt" ]
 		]
 	},
 
