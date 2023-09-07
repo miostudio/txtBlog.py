@@ -1,4 +1,4 @@
-from flask import Flask, escape,request, url_for,render_template,send_from_directory,redirect
+from flask import Flask, request, url_for,render_template,send_from_directory,redirect
 from txtBloglib import *
 from data._config.footer_urls import *
 
@@ -63,4 +63,4 @@ if __name__ == '__main__':
 	app.debug = True # 设置调试模式，生产模式的时候要关掉debug
 	#app.run(host="blog2.163.com",port=8000)
 	#app.run(host="127.0.0.1",port=8000) #default, private
-	app.run(host="0.0.0.0",port=8000) #public
+	app.run(host="0.0.0.0",port=getConf("system", "port")) #public

@@ -1,7 +1,7 @@
 ################################
 # project name: txtBlog.py is the python3 version of txtBlog 
 # desc: [知识管理]A simple yet powerful blog system for reading and organizing txt files.
-# desc2: Pyhton3 编写的、基于文件的文本笔记管理系统，简捷高效，可用于管理知识。
+# desc2: Python3 编写的、基于文件的文本笔记管理系统，简捷高效，可用于管理知识。
 # version: 0.1.0-4
 # depend: python3, flask, mistune
 # github: https://github.com/BioMooc/txtBlog.py
@@ -54,7 +54,14 @@ $ python -V
 $ pip install flask
 
 使用pip安装 mistune(markdown解析器): 
-$ pip install mistune #v0.8.4, 在高版本的v2.0和v3.0需要修改本框架才能运行
+在高版本的v2.0和v3.0可能需要修改本框架才能运行
+$ pip3 install mistune==0.8.4 -i https://pypi.douban.com/simple/
+OR
+$ pip3 install mistune==3.0.1 -i https://pypi.douban.com/simple/  #3.x版本也支持了
+
+命令行字体颜色
+$ pip3 install colorama -i https://pypi.douban.com/simple/
+
 
 
 
@@ -69,9 +76,13 @@ $ wget https://github.com/BioMooc/txtBlog.py/archive/master.zip
 
 
 
+
+
 3.修改该项目的IP和端口
 index.py的最后一行为host和端口号。 
 如果不确定，不用修改，使用默认值即可。
+
+
 
 
 
@@ -238,6 +249,7 @@ $ pip install Frozen-Flask
 $ python index.py build
 
 url已经静态化风格了。
+
 
 
 6.增加
