@@ -3,7 +3,7 @@
 */
 
 /*初始化*/
-*{padding:0;margin:0; font-family: "Microsoft Yahei","宋体","Tahoma",Arial;}
+*{padding:0;margin:0; /*font-family: "Microsoft Yahei","宋体","Tahoma",Arial;*/}
 body{background:#aaa;}
 
 .wrap{width:95%; margin:0 auto;}

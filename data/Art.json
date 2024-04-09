@@ -3,7 +3,7 @@
 		"title":"Illustrator",
 		"data":
 		[
-			["AI.html", "AI001", "html"],
+			["AI.html", "index", "html"],
 			["AI.txt", "AI002", "txt" ]
 		]
 	},

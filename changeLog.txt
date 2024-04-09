@@ -1,8 +1,9 @@
 ################################
 project name: txtBlog.py
 
-#local url:http://blog2.163.com/
-#dir:G:\xampp\htdocs\163
+# local url: http://127.0.0.1:8000
+# dir: D:\xampp\htdocs\txtBlog.py
+# Aim: 笔记本上记录内容，适当时候转移到主文档 txtBlog 中
 ################################
 
 # 使用flask框架，尽量简化。https://flask.palletsprojects.com/en/1.1.x/
@@ -369,13 +370,13 @@ nb0.1.6-4@TLC 听计网 12 p2p [2022.11.23]
 nb0.1.6-6@TLC 增加 Java 一级目录; [2023.3.11]
 	R/ add htmlwidgets for R
 nb0.1.6-7@HZZ 更新框架版本 [2023.9.8]
+nb0.1.6-8@picb update txt, add file [2024.4.9]
 
 #
 ##### commit 
 #------------------------->push to MioStudio
-$ git remote add origin https://github.com/miostudio/txtBlog.py.git
-
-
+$ git remote add origin https://github.com/miostudio/txtBlog.py.git 内容版
+# 更新框架的方式：下载 http://github.com/miostudio/txtBlog.py，覆盖其中的 /data/ 文件夹/ReadMe/changeLog文档
 
 
 

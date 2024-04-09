@@ -2,11 +2,17 @@ En104-listening
 
 
 ========================================
-哈利波特有声书，fry和
+哈利波特有声书，fry和 //每周两次
 ----------------------------------------
 两种朗读资源。
 
 AudioPath: http://scholar.dawneve.com/audio/static.php?file=fry_3_02.mp3
+
+
+HP4:
+	录音：本地盘
+	文本：IELTS
+	记录：IELTS
 
 
 
