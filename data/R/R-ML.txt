@@ -53,16 +53,213 @@ https://www.zhihu.com/question/19611094/answer/15234451
 
 
 ========================================
+曲线拟合：B样条法(B Spline)
 ----------------------------------------
+B样条曲线拟合原理
+
+B样条曲线是在 Bezier 曲线基础上发展起来的一类曲线，它克服了Bezier曲线整体控制性所带来的不便，最常用的是二次和三次B样条曲线。
+
+
+1. 二次B样条曲线
+(1)参数方程
+已知三个平面离散点P0, P1, P2，由这三个点可以定义二次抛物线段，
+
+1)其参数矢量方程为
+	P(t)=A0 + A1.t + A2.t^2 (0<= t <= 1)
+
+2)二次B样条曲线参数方程的矩阵形式为：
+	P(t) = [t^2 t 1].(1/2).
+[1 -2 1]
+[-2 2 0]
+[1 1 0]. [P0 P1 P2]^T  (0<= t <= 1)
+
+3)二次B样条曲线参数方程的分量形式：
+分量形式为：
+	x(t) = a0 + a1.t + a2.t^2;
+	y(t) = b0 + b1.t + b2.t^2;  (0<= t <= 1)
+其中
+	a0=1/2(x0+x1)
+	a1=x1-x0;
+	a2=1/2(x0 - 2.x1 + x2)
+	b0,b1,b2同上，把x0-x2换成y0-y2
+
+
+
+(2) 二次B样条曲线的特点
+1) 起点为P0, P1点的中点，并与线段P0P1相切。
+2) 终点为P1-P2点的中点，并于线段P1P2相切。
+3) 除起点、终点外，中间点将曲线蜡像自己。
+4) 二次B样条曲线为“平均通过式”曲线。
+
+
+
+(3) 多点时二次B样条曲线的拟合
+多于三个点时，采用二次B样条曲线进行分段拟合。
+
+假设有n+1个离散点，记为Pi(i=0,1,...,n)，拟合过程为：
+* 以P0、P1、P2为控制点绘制第1条二次B样条曲线；
+* 以P1、P2、P3为控制点绘制第2条二次B样条曲线；
+...
+* 以P(n-1)、P(n-1)、Pn为控制点绘制第(n-1)条二次B样条曲线；
+
+由于二次B样条曲线在连接点具有相同的切线，故多点的二次B样条曲线具有C^1级连续。
+
+问题：如何使曲线始于P0而至于Pn?
+
+
+
+(4) 二次B样条曲线的边界处理（边界问题）
+首位新增2个点Ps和Pe；
+第一条曲线用Ps代替P0，最后一条曲线用Pe代替Pn。
+Ps在P1P0的延长线上，且长度Ps0=P01相等。
+Pe在P(n-1)Pn的延长线上，且长度Pen=Pn(n-1)相等。
+
+如此，就可以绘制一条开始于起点结束于终点的二次B样条曲线。
+
+
+
+(5) 多点二次B样条曲线程序设计
+设计思想：
+	二次贝塞尔曲线：
+		三个平面散点确定
+		曲线特点：多点时可进行分段拟合，连接点一般不光滑
+	二次B样条曲线：
+		三个平面散点确定
+		曲线特点：多点时可进行分段拟合，连接点为C1级光滑。
+		边界问题
+
+
+
+
+2. 三次B样条曲线
+四个点确定一条曲线。
+(1) 分量形式：
+	x(t) = a0 + a1.t + a2.t^2 + a3.t^3;
+	y(t) = b0 + b1.t + b2.t^2 + b3.t^3; (0 <= t <= 1)
+其中 
+	a0=1/6(x0 + 4.x1 + x2)
+	a1=-1/2(x0 - x2)
+	a2=1/2(x0 - 2.x1 + x2)
+	a3=-1/6(x0 - 3.x1 + 3.x2 - x3)
+	b0-b3同理，换成y0-y3;
+#
+
+(2) 三次B样条曲线的特点
+四个离散点P0,P1,P2,P3;
+设终点为M1=1/2(P0+P2), M2=1/2(P1+P3)
+1) 起点S位于三角形P0P1P2的中线P1M1上，距P1点1/3P1M1处。
+2) 终点E位于三角形P1P2P3的中线P2M2上，距P2点1/3P2M2处。
+3) 曲线起点切线平行于P0P2，终点切线平行于P1P3；
+4) 为“平均通过式”曲线。
+
+
+(3) 多点：分段拟合
+
+(4) 边界问题
+与二次B样条曲线类似，在收尾各增加一个点Ps, Pe。
+
+
+
+
+
+3. B样条曲线拟合-光顺逼近
+
+曲线拟合包含两个方面，插值(interpolation)和逼近(approximation)。
+
+
+
+
+ref:
+* 数学原理：https://blog.csdn.net/shenziheng1/article/details/54411098
+B-Spline(11):样条曲线拟合-光顺逼近 http://www.whudj.cn/?p=672
+B-Spline曲线拟合 – Python实现 https://www.guyuehome.com/36044
 
 
 
 ========================================
+|-- B 样条曲线拟合实例：能平滑化曲线
 ----------------------------------------
+1. 实例1
+为MASS包中mcycle数据集。它测试了一系列模拟的交通车事故中，头部的加速度，以此来评估头盔的性能。times为撞击时间(ms)，accel为加速度（g）。首先导入数据，并绘制散点图
+
+(1) 关键函数
+# bs() ====
+# bs(x, df = NULL, knots = NULL, degree = 3, intercept = FALSE,
+#   Boundary.knots = range(x))
+#参数解释：
+#x：自变量，这里为x
+#df: 自由度（回归函数中的参数个数）,默认为0，由于我们需要截距,
+#  2.2 节中c中提到的公式减去1，因此自由度为4+3 = 7
+#knots：节点的位置，这里为c(15,20,32,40)
+#degree：q值，默认为3
+#其他的参数保持默认即可
+
+然后搭配lm 函数，即可画出样条函数曲线
+
+(2) 代码
+# Spline ====
+x=mcycle$time
+y=mcycle$accel
+plot(x, y, type="p", pch=19, cex=0.5)
+
+library(splines)
+#B = spline(y, n=3*length(y) )
+#lines(B$x, B$y, lty=2, col="red")
+
+bspl <- lm(y~bs(x, df =7, #knots = c(15,20,32,40), 
+                degree=2))
+lines(x, fitted(bspl),lwd = 2, col = 2)
+
+ref: https://blog.csdn.net/weixin_39642998/article/details/110705947
+似乎不靠谱，需要自己指定锚点位置？去掉 knots 参数就好了。
+请直接看2(2)
+
+
+
+
+2. help 例子：更靠谱的方法
+(1) 原例：不明显
+require(stats); require(graphics)
+head(women)
+bs(women$height, df = 5)
+summary(fm1 <- lm(weight ~ bs(height, df = 5), data = women))
+
+## example of safe prediction
+plot(women, xlab = "Height (in)", ylab = "Weight (lb)")
+ht <- seq(57, 73, length.out = 200)
+lines(ht, predict(fm1, data.frame(height = ht)))
+
+
+(2) 重做例1，模仿(1)
+library(MASS)
+head(mcycle)
+x=mcycle$times
+y=mcycle$accel
+
+#plot(x, y, pch=19, cex=0.5)
+library(splines)
+bs(y, df = 5)
+summary(fm1 <- lm(y ~ bs(x, df = 7, degree = 2), data = NULL))
+
+## example of safe prediction
+plot(mcycle, xlab = "times", ylab = "accel", pch=19, cex=0.5)
+x_2 <- seq(min(x), max(x), length.out = 200)
+lines(x_2, predict(fm1, data.frame(x = x_2)), lwd=2, col="red")
+
+目测效果很好！
+参数解释：
+df=7，有大概7个控制点，越多拟合越好；太多就会过拟合！
+degree=3，次数。
+
+
 
 
 ========================================
+CCA 典型相关分析
 ----------------------------------------
+
+https://cloud.tencent.com/developer/article/1801138
+
 
 
 

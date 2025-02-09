@@ -15,5 +15,13 @@
 			["ps.html", "PS001", "html"],
 			["ps.txt", "PS002", "txt" ]
 		]
+	},
+
+	{
+		"title":"诈骗艺术研究",
+		"data":
+		[
+			["老年诈骗行为研究", "a1-old_and_money", "txt" ]
+		]
 	}
 ]
