@@ -1,9 +1,36 @@
 <div class="content">
+	<h2>经验教训</h2>
+	<p>技术栈越小越好，否则组内无法交流。</p>
+	<p>技术要建立SOP，防止同一个技术不同人反复浪费时间摸索细节、填bug。</p>
+	<p>不同研究生的多样化差异可以体现在基因、病种、通路上。</p>
+	<p>扬长避短，好过面面俱到。因为人的时间是有限的。广撒网，找能合作的组合作，绝不能有一丝互相勉强。</p>
+	
+	<p><b>科研独立不是资源的贫瘠，而是思维的彻底自治。</b> 那些最持久的发现往往不是在设备阵列中诞生，而是在问题与智慧直接对峙的狭小空间里成形。你的限制正在塑造一种独特的科研节奏——紧密、高效、不受共识束缚。</p>
+
+
 	<h2>新名词</h2>
 	
 	<h3>文献中的 算法</h3>
 	<p>卷积，反卷积</p>
 	<p>B-样条 膜型 拟合曲线</p>
-	<p>xx</p>
+	
+	<h3>安装Seurat v4</h3>
+<pre>
+# 降级
+remotes::install_version("ggplot2", version = "3.4.4", repos = "http://cran.us.r-project.org")
+
+devtools::install_version("ggplot2", version = "3.5.0")
+devtools::install_version("Matrix", version = "1.5.4")
+
+
+# 失败
+remotes::install_version(package = 'Seurat', version = package_version('4.4.0'))
+
+#
+remotes::install_version("SeuratObject", "4.1.4", repos = c("https://satijalab.r-universe.dev", getOption("repos")))
+remotes::install_version("Seurat", "4.4.0", repos = c("https://satijalab.r-universe.dev", getOption("repos")))
+
+
+</pre>
 	<p>xx</p>
 </div>

@@ -372,6 +372,10 @@ nb0.1.6-6@TLC 增加 Java 一级目录; [2023.3.11]
 nb0.1.6-7@HZZ 更新框架版本 [2023.9.8]
 nb0.1.6-8@picb update txt, add file [2024.4.9]
 nb0.1.6-9@picb add Art/ 老年诈骗艺术 [2025.2.9]
+##########
+### 2026
+##########
+nb0.1.7-0@picb add BioInfo/ 生信研究方向 [2026.1.17]
 
 #
 ##### commit 
@@ -381,10 +385,8 @@ $ git remote add origin https://github.com/miostudio/txtBlog.py.git 内容版
 
 
 
+
 todo:
-1.md 不支持代码高亮 [solved v0.0.7-7]， 代码行号[solved in v0.0.9-1]
-2.md不支持自动生成目录。[solved v0.0.7-6]
-3.不支持随意换肤 [solved v0.0.8, txt file]
 4.不能随着浏览改变目录的样式。
 5.全站静态化如何做?
 	依赖: flask_frozen: 
@@ -393,3 +395,8 @@ todo:
 6.增加不公开内容，就是根据IP地址来源设置可见范围。
 
 
+
+done:
+1.md 不支持代码高亮 [solved v0.0.7-7]， 代码行号[solved in v0.0.9-1]
+2.md不支持自动生成目录。[solved v0.0.7-6]
+3.不支持随意换肤 [solved v0.0.8, txt file]

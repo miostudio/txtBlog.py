@@ -1,0 +1,210 @@
+proj bc
+
+
+
+
+
+========================================
+txtBlog 修改的部分
+----------------------------------------
+1.status
+ modified:   data/Linux/windows.txt
+
+
+
+2.diff
+@@ -578,6 +578,37 @@ to D:\Program_Files\WXWork
+
++3. 修改微信文件保持路径
++(1)默认
++C:\Users\Administrator\Documents\WeChat Files\
++C:\Users\wangj\Documents\WeChat Files\  #560Mb
++
++左下角 更多 - 设置，通用设置；
++- 存储空间管理：删除聊天记录
++- 文件管理 - 更改。
++       D:\Program_Files\WeChat Files
++       只需要写外层目录，它会新建内部目录
++       重启软件生效。
++
++
++
++
++
++4.修改QQ文件保存目录
++左下角设置 - 存储管理。
++底部 保存位置：
++       文件保存路径
++               c:\Users\wangjl\Downloads
++               to D:\Program_Files\QQ_files
++       消息保存路径：
++               C:\Users\wangj\Documents\Tencent Files
++               to D:\Program_Files\QQ_files_sms
++#
++
++
++
++
++
+
+
+
+
+wangj@wangHP MINGW64 /d/xampp/htdocs/txtBlog (south)
+
+
+
+
+========================================
+txtBlog2 修改的部分
+----------------------------------------
+1.status
+        modified:   ../data/Topic/t03_chatGPT.html
+        modified:   ../data/scPolyA-seq2/a06_PBMC_CD4-figure.txt
+        modified:   ../data/scPolyA-seq2/index.html
+
+2.diff
+(1) ###
+        <li>
+-               <a href="https://chatgpt.com/">ChatGPT.com</a>:
++               <a href="https://chatgpt.com/">ChatGPT.com</a>[Google登录]:
+                <a href="https://chatgpt.com/c/67b1b1a6-36ac-8000-bb66-392549339b93">ggplot2</a>
+
+
+(2) ###
+ =================== =====================
+-todo:
++plan: 备份重要数据。 cell cluster 颜色修改了；找IGV可视化基因；delta sd(18 vs 0) 最大最小的基因列表 //todo
+ ------------------- ---------------------
++0.下载数据到本地:
++E:\research\scPolyA-seq2\data
++
++scp wangjl@j3.biomooc.com:
++
++
++
++
++
++
++
++
++
+ 1.可视化
+
+
+
+(3) ###
+ .title{ font-weight: bold;}
+ </style>
+
++<pre>
++colorset.time=c("0h"="#FFA500", "18h"="#FF1493", "48h"="#4876FF");
++colorset.cycle=c(G1="#3AC96D", S="#FDE725", G2M='deeppink')
++
++# 3 time points, 8 samples
++colorset.sample=c( "orange", "orange4",
++                   # "hotpink","deeppink", "red",
++                   "#ff9999", "deeppink", "#9F0429",
++                   "cadetblue3","royalblue1", "navy")
++# to hex colors
++colorset.sample=c( "#FFA500", "#8B5A00",
++                "#ff9999", "#FF1493", "#9F0429",
++                "#7AC5CD","#4876FF", "#000080")
++
++# cluster 0:11
++#colorset.cluster = c(ggsci::pal_npg()(10), "#F2AF1C", "#668C13" ); colorset.cluster
++#t1=ggsci::pal_npg()(10); t1
++#sapply(t1, function(x){substr(x, 1, 7)}) |> as.character() |> jsonlite::toJSON() #remove FF at the end
++#colorset.cluster = c("#E64B35","#4DBBD5","#00A087","#3C5488","#F39B7F","#8491B4",
++#                     "#91D1C2","#DC0000","#7E6148","#B09C85", "#F2AF1C", "#668C13" ); colorset.cluster
++#"#E64B35FF" "#4DBBD5FF" "#00A087FF" "#3C5488FF" "#F39B7FFF" "#8491B4FF" "#91D1C2FF" "#DC0000FF" "#7E6148FF" "#B09C85FF"
++colorset.cluster = c("#E64B35","#4DBBD5","#DC0000", "#3C5488","#F39B7F","#8491B4",
++                     "#91D1C2","#00A087","#7E6148","#B09C85", "#F2AF1C", "#668C13" ); colorset.cluster
++barplot( rep(1, length(colorset.cluster)), col = colorset.cluster, border = NA, space = 0, yaxt="n")
++
++# Rest, Act color
++colorset.status=c("navy", "red3")
++</pre>
++
+     <p class=title>default colors in Seurat: > library(scales); scales::hue_pal()(9)</p>
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+

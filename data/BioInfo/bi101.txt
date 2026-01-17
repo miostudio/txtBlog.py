@@ -1,0 +1,73 @@
+bi101
+
+
+
+========================================
+1. IMGT/HLA 下载参考 fasta
+----------------------------------------
+1.官方链接
+https://www.ebi.ac.uk/ipd/imgt/hla/
+
+
+(1)下载资料
+https://www.ebi.ac.uk/ipd/imgt/hla/download/
+路径: D:\ref\IMGT-HLA
+
+文档：https://github.com/ANHIG/IMGTHLA/blob/Latest/README.md
+
+
+(2)Alignments folder
+Files designated “X_prot.txt”, where X is a locus or gene, contain protein sequences. Please note that alleles that contain non-coding variations may be identical at the protein level.
+
+Files designated “X_nuc.txt”, where X is a locus or gene, contain the nucleotide coding sequences (CDS). Please note that alleles that contain non-coding variations may be identical at the CDS level.
+
+Files designated “X_gen.txt”, where X is a locus or gene, contain genomic DNA sequences. Please note that for alleles that do not possess genomic sequences there will be no entry in the file, or where there is only a single genomic sequence at the locus, a file will not be produced.
+
+
+(3)检索
+https://www.ebi.ac.uk/ipd/imgt/hla/alleles/
+
+
+
+
+
+
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+========================================
+----------------------------------------
+
+
+
+
+========================================
+----------------------------------------
+
+
+
+========================================
+----------------------------------------
+
+
+
+========================================
+----------------------------------------
+
+
+
+========================================
+----------------------------------------
+
+
+
+========================================
+----------------------------------------
+
+

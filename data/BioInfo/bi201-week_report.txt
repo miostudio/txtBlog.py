@@ -1,0 +1,313 @@
+bi201-week_report
+
+
+
+
+========================================
+2025.12.18 文章完善记录 NB: Blog
+----------------------------------------
+1.区分 Tmem vs Tnaive
+
+
+2.区分两个发育路径
+对应T细胞激活的两个过程
+- 产生干扰素: 效应
+- 细胞分裂: 细胞变多
+
+使用打分，构建这样的体系，区分不同的分化方向。
+	绘图: 
+
+
+
+
+
+
+
+
+
+
+
+========================================
+2025.3.5 国自然填写 //保密
+----------------------------------------
+1. 信息
+调控细胞周期的多聚腺苷酸化位点的高通量筛选及分子机制研究
+
+2026年01月01日 -- 2029年12月31日
+
+√
+
+(2) 英文关键词多了个逗号，算了，不能修改了，等第二次提交修改吧
+
+(3) 修改代码
+https://www.nsfc.gov.cn/publish/portal0//xmzn/2025/18/info94128.htm
+H1101 免疫系统发育与分化异常
+H1827 肿瘤学研究新技术与新方法 √
+
+https://www.nsfc.gov.cn/publish/portal0//xmzn/2025/18/info94133.htm
+C0602 基因表达及非编码序列调控 √
+C0609 生物大数据解析
+
+
+更好的代码组合可能是
+H1827 肿瘤学研究新技术与新方法
+C0609 生物大数据解析
+
+
+
+
+
+
+2. 关于创新思路和重要研究线索的说明：800字
+申请项目创新性，及前期创新发现。
+- 课题最突出的创新思路和科学价值。
+- 已取得的重要研究线索和科学证据。
+
+关于创新思路和重要研究线索的说明
+(1) 申请项目创新性
+单细胞水平解析APA动态变化：
+不同于当前基于细胞亚群水平的APA分析，本研究利用改进的scPolyA-seq技术，首次在单细胞分辨率下解析激活CD4+T细胞周期过程中APA的动态变化规律，克服了传统bulk测序无法反映细胞异质性的局限，为揭示T细胞功能调控提供了全新的视角。
+
+聚焦APA调控网络：
+本研究不仅关注单个APA事件，更注重系统性解析APA调控网络，结合多组学数据挖掘关键调控因子，揭示APA调控CD4+T细胞功能的核心分子机制，为深入理解免疫细胞转录后调控提供了新的研究范式。
+
+结合基础研究与临床转化：
+通过构建T细胞激活过程中的APA图谱数据库，本研究在基础研究的基础上，进一步探索APA在CD4+T细胞相关疾病（如自身免疫性疾病和肿瘤免疫）中的作用，为疾病诊断标志物的发现和治疗靶点的开发提供理论依据和创新思路。
+
+(2) 前期创新发现
+我们的前期研究表明，T细胞激活过程中存在广泛的APA（选择性多聚腺苷酸化）事件，且这些事件与细胞周期进程密切相关。课题组已成功建立单细胞PolyA测序（scPolyA-seq）技术平台，并在细胞系和T细胞激活研究中获得高质量数据。通过RNA-seq数据分析，我们发现CD4+T细胞在激活过程中存在广泛的APA事件变化，部分基因在3'UTR长度上表现出显著差异，另一些基因则在上游polyA位点使用上呈现明显变化。基于单细胞数据的初步分析进一步揭示，CD4+T细胞在激活过程中具有显著的细胞异质性，部分亚群的APA事件与细胞周期进程高度相关。
+
+此外，我们通过实验证实，修改特定基因的polyA信号能够显著影响细胞周期进程，导致细胞周期加快或减慢，提示APA在细胞周期调控中具有重要作用。然而，其具体分子机制尚不清楚。鉴于T细胞激活本质上是一个高度协调的增殖过程，本研究拟通过筛选与细胞周期密切相关的APA事件，深入探究其分子调控机制，从而为APA水平检测和干预细胞周期相关疾病提供重要的理论依据。
+
+
+
+
+
+
+
+
+========================================
+CD34 bone marrow: CD27, 
+----------------------------------------
+1. CD27 分子
+
+- The CD27/CD70 pathway negatively regulates visceral adipose tissue-resident Th2 cells and controls metabolic homeostasis.
+- CD27 on human memory B cells-more than just a surface marker.
+	+ CD27 is one of the most commonly used markers to define human memory B cells
+- New emerging targets in cancer immunotherapy: CD27 (TNFRSF7).
+
+
+
+2. CD127
+
+
+
+
+========================================
+CellChat in Bone Marrow //todo
+----------------------------------------
+1. 
+
+
+
+
+
+
+
+
+========================================
+GSTP1 gene in Mouse grey hair //todo
+----------------------------------------
+Polymorphism of Glutathione S-transferase P1 (GSTP1)
+
+
+
+
+
+
+
+
+========================================
+NMF in scRNA-seq
+----------------------------------------
+1. paper:  IF=9.7
+https://pubmed.ncbi.nlm.nih.gov/39393173/
+
+EBioMedicine. 2024 Nov:109:105389. doi: 10.1016/j.ebiom.2024.105389. Epub 2024 Oct 10.
+Single cell atlas reveals multilayered metabolic heterogeneity across tumour types
+
+1Institute of Systems Biomedicine, Department of Pathology, School of Basic Medical Sciences, Peking University Health Science Centre and School of Life Sciences, Peking University, Beijing 100191, China.
+
+
+(1) 对 恶性上皮 做 NMF。只画出来 聚类的 NMF MP。
+https://pubmed.ncbi.nlm.nih.gov/39393173/#&gid=article-figures&pid=fig-4-uid-3
+
+Fig. 4 MMPs for malignant cells. (a) Heatmap showing Jaccard similarity indices for comparisons among robust NMF programs, which were ordered by clustering and grouped into MMPs. Only clustered NMF programs were shown.
+
+
+
+(2) 对所有细胞做亚群内 NMF：Fig.6C
+https://pubmed.ncbi.nlm.nih.gov/39393173/#&gid=article-figures&pid=fig-6-uid-5
+
+Fig. 6 MMPs of non-malignant cells and metabolic crosstalk in TME. 
+
+(a) Pie chart depicting the cell proportion of main non-malignant cell lineages in all tumours, with the number of cells, tumour samples and MMPs labelled. 
+
+(b) Heatmap showing the correlations between MMP scores and signature scores of CD8+ T cell metaclusters during exhaustion paths. Pearson correlation coefficients were calculated within each tumour and then averaged across tumours within each dataset. Significant correlations (Mean Pearson correlation coefficient >0.1 or < −0.1, and FDR <0.05) are coloured according to the correlation coefficients. Only MMPs with consistently significant correlations with at least one signature in more than 40% (4/10) datasets were shown. 
+至少在 40% 样本(4/10)中出现的MP才保留。
+
+(c) Network visualization of positive correlations (edges) between MMPs (nodes) from different cell types. Node color indicates cell types and edge color indicates the correlations’ significance.
+图：
+	边表示 相关性的显著性。
+	顶点：颜色表示细胞类型。
+
+
+
+
+
+(3) 方法 Identifying NMF programs
+Non-negative matrix factorization (NMF) was performed on each sample separately to capture the metabolic heterogeneity within each tumour. Multiple K parameters (ranging from 4 to 9) were set, resulting in 39 programs for each tumour. 
+每个肿瘤做NMF，K=4到9，这样每个肿瘤有 39个 programs
+
+Each program was summarized by top 30 genes based on NMF coefficients. 
+基于NMF系数，选择前30个基因 / program。
+
+Robust NMF programs were defined as below: 
+(1) robust within the sample (at least 70% gene overlap with NMF programs identified by different K value);
+	同样本内的稳定性：不同K值 NMF 最少70%基因重叠。
+(2) robust across tumours (at least 20% gene overlap with NMF programs from other tumours);
+	肿瘤间 稳定（不同肿瘤 NMF 程序至少 20%基因 重叠）
+(3) non-redundant within the tumour (within each tumour, NMF programs were sorted in descending order by max gene overlap with NMF programs from other tumours; then programs were selected from top to bottom, and once an program was selected, any other programs with more than 20% gene overlap with the selected one was removed).
+	肿瘤内 非冗余（每个肿瘤内，NMF 排序：按照与其他肿瘤最大基因重合降序；
+		从上到下挑选MP，一个一个MP选择，其余和它重合 20% 以上基因的MP都删掉。）
+
+
+
+
+
+(4) 方法 Defining MMPs
+Robust NMF programs from all tumours were clustered using a custom approach. 
+
+In brief, programs were first sorted in descending order by number of similar programs with more than 20% gene overlap (must be programs from other tumours due to non-redundancy within the tumour). The top program was selected as founder of a new cluster, and MMP was initialized as the genes in the program. 
+
+Next, the program with the highest gene overlap with MMP was added and the MMP was updated as top 30 genes with the most occurrence in all included programs. 
+
+This process was repeated until no programs have more than 20% gene overlap with this MMP and the resulted MMP was recorded. An attempt to find and extend a new cluster was made as above in the remaining programs until the number of similar programs less than 5 cases. 
+
+When clustering is done, MMPs with less than 10 programs were removed and the remaining MMPs were annotated according to enriched metabolic pathways.
+
+
+
+
+
+(5) 方法 Metabolic regulons and MMP regulators
+The python implementation of the SCENIC28 algorithm (pyscenic) was used to infer the gene regulatory network. The transcription factor list and annotation files used were downloaded from cisTarget (https://resources.aertslab.org/cistarget). Transcription factors and their metabolic targets were kept to construct metabolic regulons, and regulons with fewer than five targets were removed.
+
+To identify MMP regulators, we calculated both the Pearson and Spearman correlation between MMP scores and regulon scores within each tumour. For each combination of dataset and MMP, the Pearson correlation coefficients were then averaged between tumours, and significance was defined by one-sided t-test and adjusted by BH correction. Regulons with adjusted P value (both Pearson and Spearman) < 0.05 and absolute mean Pearson correlation coefficient >0.4 were kept. If more than three regulons exist, then only top three were retained. Finally, regulons for all combinations of datasets and MMPs were combined for visualization.
+
+
+
+
+(6) 方法 Correlation between pathway or MMP scores with various factors
+For correlation of pathway scores with clinical metrics, the individual CNV score was calculated as the average of all malignant cells from specific individual. Metrics including age, sex, clinical stage and CNV score were tested for correlation with metabolic pathway scores. For each of those metrics, a linear model was fitted using the R function lm. The adjusted R2 was interpreted as the proportion of variance explained (PVE). The P value of the F test by function anova and adjusted P value using the BH method were reported.
+
+
+MMP 和基因集合做 相关性：
+The Pearson correlations between MMP scores and other gene sets (cancer hallmarks, immune signatures and meta-programs) were calculated within each tumour, similar to correlations between MMPs score and regulon scores, and then averaged within each dataset or across all tumours. The significance was defined by one-sided t-test and adjusted by BH correction. Correlations with adjusted P value (both Pearson and Spearman) < 0.05 and absolute mean Pearson correlation coefficient >0.1 were assigned as significant.
+
+
+
+
+
+
+========================================
+HLA typing using RNA-seq data
+----------------------------------------
+
+Scholarly articles for HLA Loss RNA-seq method
+… loci and haplotypes by a new capture RNA-seq method - ‎Yamamoto - Cited by 51
+HLA typing from RNA-Seq sequence reads - ‎Boegel - Cited by 319
+HLA haplotyping from RNA-seq data using hierarchical … - ‎
+
+
+
+1. seq2HLA
+(1)In Silico Typing of Classical and Non-classical HLA Alleles from Standard RNA-Seq Reads
+Methods Mol Biol. 2018
+https://pubmed.ncbi.nlm.nih.gov/29858809/
+
+Here, we describe an in silico method, seq2HLA, that takes standard RNA-Seq reads as input and determines a sample's (classical and non-classical) HLA class I and class II types as well as HLA expression. We demonstrate the application of seq2HLA using publicly available RNA-Seq data from the Burkitt's lymphoma cell line DAUDI and the choriocarcinoma cell line JEG-3.
+
+
+
+(2)
+
+
+
+
+2. 
+(1) HLApers: HLA Typing and Quantification of Expression with Personalized Index
+Methods Mol Biol. 2020
+https://pubmed.ncbi.nlm.nih.gov/32124314/
+
+Here we describe HLApers, a pipeline which adapts widely used tools for analysis of standard RNA-seq data to infer HLA genotypes and estimate expression.
+
+
+
+========================================
+----------------------------------------
+
+
+========================================
+----------------------------------------
+
+
+
+
+
+
+========================================
+----------------------------------------
+
+
+========================================
+----------------------------------------
+
+
+========================================
+----------------------------------------
+
+
+========================================
+----------------------------------------
+
+
+========================================
+----------------------------------------
+
+
+
+
+
+
+========================================
+----------------------------------------
+
+
+========================================
+----------------------------------------
+
+
+========================================
+----------------------------------------
+
+
+========================================
+----------------------------------------
+
+
+========================================
+----------------------------------------
+
+
+

@@ -75,7 +75,23 @@ https://www.anaconda.com/distribution/#download-section
 
 
 ========================================
+获取交易量和平均PE on tx yun
 ----------------------------------------
+1.获取数据
+查看数据:
+http://stock.dawneve.cc/data/index2.html?year=2025
+
+(1)获取1天
+>>> wjl=getOne("2025-12-16"); ",".join(wjl)
+
+(2)获取一个月
+dat=getDataByYear(2025, month_start=12, month_end=12)
+merged_df=dat;
+# merged_df = pd.concat([dat_202405, dat_202406], axis=0, ignore_index=True) #tx
+merged_df.to_csv('merged_data_202512.csv', index=False)
+
+
+
 
 
 
