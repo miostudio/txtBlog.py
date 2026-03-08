@@ -24,7 +24,7 @@
 		[
 			["生信数据库", "bi200-bio-db", "txt" ],
 			["组会记录", "bi201-week_report", "txt" ],
-			["Proj tmp", "p01-bc", "txt" ],
+			["Proj tmp | 项目临时笔记", "p01-bc", "txt" ],
 			["养生", "bi201-health", "txt" ]
 		]
 	}

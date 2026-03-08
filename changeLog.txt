@@ -375,13 +375,14 @@ nb0.1.6-9@picb add Art/ 老年诈骗艺术 [2025.2.9]
 ##########
 ### 2026
 ##########
-nb0.1.7-0@picb add BioInfo/ 生信研究方向 [2026.1.17]
-
+nb0.1.7-0@hz add BioInfo/ 生信研究方向 [2026.1.17]
+nb0.1.7-1@hz BioInfo/p01-bc Proj tmp 项目临时笔记 [2026.1.17]
+	框架 gotoTop 缓动函数 fix;
 #
 ##### commit 
-#------------------------->push to MioStudio
+#------------------------->push to github.com/MioStudio/txtBlog.py, gitee.com/dawnEve/txtBlog.py_NBlog
 $ git remote add origin https://github.com/miostudio/txtBlog.py.git 内容版
-# 更新框架的方式：下载 http://github.com/miostudio/txtBlog.py，覆盖其中的 /data/ 文件夹/ReadMe/changeLog文档
+# 更新框架的方式：下载功能最新版: http://github.com/BioMooc/txtBlog.py，覆盖其中的 /data/ 文件夹/ReadMe/changeLog文档
 
 
 

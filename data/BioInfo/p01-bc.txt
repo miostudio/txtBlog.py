@@ -1,6 +1,8 @@
-proj bc
+proj bc 临时记录: 用完删除内容
 
-
+1.bc数据
+2. 2个blog NB 变更
+3.
 
 
 
@@ -132,13 +134,247 @@ txtBlog2 修改的部分
 
 
 ========================================
+远程连接 picb: H3 server Rstudio, shell
 ----------------------------------------
+1. 设置 Rstudio 登录方式
+
+(1)修改hosts文件
+C:\Windows\System32\drivers\etc\hosts
+
+127.0.0.1 h3.biomooc.com
+
+
+(2A)两跳连接: 示例
+ssh -N \
+  -J wangjl@gate1.picb.ac.cn \
+  -L 8000:j3.biomooc.com:8000 \
+  -L 8787:h3.biomooc.com:8787 \
+  wangjl@10.10.117.157
+
+或者写 ~/.ssh/config: /c/Users/wangj/.ssh/config
+Host jump
+  HostName gate1.picb.ac.cn
+  User wangjl
+
+Host rstudio-h3
+  HostName 10.10.117.157
+  User wangjl
+  ProxyJump jump
+  LocalForward 8001 j3.biomooc.com:8000
+  LocalForward 8787 h3.biomooc.com:8787
+
+然后: $ ssh -N rstudio-h3
+	输入两次密码，跳板机一次，内部主机一次，即可登录。
+	注意设置准确 HostName 和 User。
+
+访问浏览器: http://127.0.0.1:8787
 
 
 
 
 ========================================
+|-- 下载数据，开始分析
 ----------------------------------------
+1.原始数据
+@tx:/home/wangjl2/Downloads/
+
+total 1.1G
+-rw-rw-r-- 1 wangjl2 wangjl2  10M Jan  9 11:44 1879-BIOKEY_barcodes_vdj_combined_cohort1.csv
+-rw-rw-r-- 1 wangjl2 wangjl2 697M Jan  9 11:44 1863-counts_cells_cohort1.rds
+-rw-rw-r-- 1 wangjl2 wangjl2 2.3M Jan  9 11:44 1880-BIOKEY_barcodes_vdj_combined_cohort2.csv
+-rw-rw-r-- 1 wangjl2 wangjl2 1.5M Jan  9 11:44 1882-BIOKEY_clonotypes_combined_cohort2.csv
+-rw-rw-r-- 1 wangjl2 wangjl2 7.0M Jan  9 11:44 1881-BIOKEY_clonotypes_combined_cohort1.csv
+-rw-rw-r-- 1 wangjl2 wangjl2 233K Jan  9 11:43 1868-BIOKEY_metaData_DC_cohort1_web.csv
+-rw-rw-r-- 1 wangjl2 wangjl2  11M Jan  9 11:43 1866-counts_DC_cohort1.rds
+-rw-rw-r-- 1 wangjl2 wangjl2 169M Jan  9 11:43 1867-counts_cells_cohort2.rds
+-rw-rw-r-- 1 wangjl2 wangjl2  44M Jan  9 11:42 1865-counts_myeloid_cohort1.rds
+-rw-rw-r-- 1 wangjl2 wangjl2 5.1M Jan  9 11:41 1871-BIOKEY_metaData_cohort2_web.csv
+-rw-rw-r-- 1 wangjl2 wangjl2  18M Jan  9 11:40 1872-BIOKEY_metaData_cohort1_web.csv
+-rw-rw-r-- 1 wangjl2 wangjl2 789K Jan  9 11:40 1869-BIOKEY_metaData_myeloid_cohort1_web.csv
+-rw-rw-r-- 1 wangjl2 wangjl2 154M Jan  9 11:40 1864-counts_tcell_cohort1.rds
+-rw-rw-r-- 1 wangjl2 wangjl2 5.1M Jan  9 11:39 1870-BIOKEY_metaData_tcells_cohort1_web.csv
+
+怎么对应上?
+	Clustering all cells: 4个 5'端测序
+	Clustering per cell type: 6个
+	scTCR-seq data: 4个
+
+(1)4
+-rw-rw-r-- 1 wangjl2 wangjl2 697M Jan  9 11:44 1863-counts_cells_cohort1.rds
+-rw-rw-r-- 1 wangjl2 wangjl2  18M Jan  9 11:40 1872-BIOKEY_metaData_cohort1_web.csv
+-rw-rw-r-- 1 wangjl2 wangjl2 169M Jan  9 11:43 1867-counts_cells_cohort2.rds
+-rw-rw-r-- 1 wangjl2 wangjl2 5.1M Jan  9 11:41 1871-BIOKEY_metaData_cohort2_web.csv
+
+(2)6
+-rw-rw-r-- 1 wangjl2 wangjl2  11M Jan  9 11:43 1866-counts_DC_cohort1.rds
+-rw-rw-r-- 1 wangjl2 wangjl2 233K Jan  9 11:43 1868-BIOKEY_metaData_DC_cohort1_web.csv
+
+-rw-rw-r-- 1 wangjl2 wangjl2  44M Jan  9 11:42 1865-counts_myeloid_cohort1.rds
+-rw-rw-r-- 1 wangjl2 wangjl2 789K Jan  9 11:40 1869-BIOKEY_metaData_myeloid_cohort1_web.csv
+
+-rw-rw-r-- 1 wangjl2 wangjl2 154M Jan  9 11:40 1864-counts_tcell_cohort1.rds
+-rw-rw-r-- 1 wangjl2 wangjl2 5.1M Jan  9 11:39 1870-BIOKEY_metaData_tcells_cohort1_web.csv
+
+(3)4
+-rw-rw-r-- 1 wangjl2 wangjl2  10M Jan  9 11:44 1879-BIOKEY_barcodes_vdj_combined_cohort1.csv
+-rw-rw-r-- 1 wangjl2 wangjl2 2.3M Jan  9 11:44 1880-BIOKEY_barcodes_vdj_combined_cohort2.csv
+
+-rw-rw-r-- 1 wangjl2 wangjl2 7.0M Jan  9 11:44 1881-BIOKEY_clonotypes_combined_cohort1.csv
+-rw-rw-r-- 1 wangjl2 wangjl2 1.5M Jan  9 11:44 1882-BIOKEY_clonotypes_combined_cohort2.csv
+
+
+
+
+
+2.需要做什么
+Aim: 想确定三阴性乳腺癌在PD1免疫治疗中，T细胞扩增和不扩增中，巨噬细胞上CD300LF的表达差异
+- cohort1和2的区别: 1没转移，2有转移
+- 是否扩增，在哪里定义的？
+- 髓系是否是巨噬细胞？用哪些marker定义？这里单独的只有 cohort1，够用吗？
+
+macrophage
+
+(1)Fig5i Macrophages E vs NE pre-treatment
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3.开始分析
+(1)需要的数据
+-rw-rw-r-- 1 wangjl2 wangjl2 697M Jan  9 11:44 1863-counts_cells_cohort1.rds          #
+-rw-rw-r-- 1 wangjl2 wangjl2  18M Jan  9 11:40 1872-BIOKEY_metaData_cohort1_web.csv  #.
+-rw-rw-r-- 1 wangjl2 wangjl2 169M Jan  9 11:43 1867-counts_cells_cohort2.rds       #
+-rw-rw-r-- 1 wangjl2 wangjl2 5.1M Jan  9 11:41 1871-BIOKEY_metaData_cohort2_web.csv #.
+
+
+-rw-rw-r-- 1 wangjl2 wangjl2  44M Jan  9 11:42 1865-counts_myeloid_cohort1.rds              #.
+-rw-rw-r-- 1 wangjl2 wangjl2 789K Jan  9 11:40 1869-BIOKEY_metaData_myeloid_cohort1_web.csv #.
+
+(2)开始复制
+先从最小的 myeloid 开始
+@j3
+[wangjl@jinlab-svr3 ~]$ cd /home/wangjl/data4/others/shenwh/proj2_bc
+ 
+$ scp wangjl2@tx.biomooc.com:/home/wangjl2/Downloads/1865-counts_myeloid_cohort1.rds .
+$ scp wangjl2@tx.biomooc.com:/home/wangjl2/Downloads/1869-BIOKEY_metaData_myeloid_cohort1_web.csv .
+
+接着2个cohort
+
+全部移动到 data/ 下。
+$ mkdir data
+$ mv 18* data
+
+$ cd /datapool/wangjl/others/shenwh/proj2_bc
+
+
+(3)开始分析数据 in Rstudio
+从 myeloid 开始看:
+/datapool/wangjl/others/shenwh/proj2_bc
+
+> colnames(meta)
+[1] "Cell"         "nCount_RNA"   "nFeature_RNA" "patient_id"   "timepoint"    "expansion"   
+[7] "BC_type"      "cellSubType"  "cohort" 
+
+> head(meta, n=2)
+                                                             Cell nCount_RNA nFeature_RNA
+BIOKEY_13_Pre_CCTATTATCATCGCTC-1 BIOKEY_13_Pre_CCTATTATCATCGCTC-1      10960         3266
+BIOKEY_13_Pre_CTCACACAGGGCATGT-1 BIOKEY_13_Pre_CTCACACAGGGCATGT-1      25156         4863
+                                 patient_id timepoint expansion BC_type cellSubType
+BIOKEY_13_Pre_CCTATTATCATCGCTC-1  BIOKEY_13       Pre       n/a   HER2+    C5_CCL18
+BIOKEY_13_Pre_CTCACACAGGGCATGT-1  BIOKEY_13       Pre       n/a   HER2+     C4_CCL2
+                                          cohort
+BIOKEY_13_Pre_CCTATTATCATCGCTC-1 treatment_naive
+BIOKEY_13_Pre_CTCACACAGGGCATGT-1 treatment_naive
+
+
+> table(meta$timepoint) #治疗前，治疗中
+  On  Pre 
+4872 3080 
+
+> table(meta$expansion) #是否克隆扩增
+   E  n/a   NE 
+4384  448 3120 
+
+> table(meta$BC_type) #乳腺癌 亚型
+  ER+ HER2+  TNBC 
+ 2277  1157  4518 
+
+> table(meta$cellSubType) #细胞 亚型
+  C1_CD14 C10_LYVE1   C2_CD16   C3_CCR2   C4_CCL2  C5_CCL18   C6_MMP9 C7_CX3CR1   C8_MT1G 
+      532       233       101      1559      1430      1629       547       990       495 
+C9_SLC2A1 
+      436 
+
+> table(meta$cohort) #人群1
+treatment_naive 
+           7952 
+#
+
+
+看结果，确实是一个病人的细胞，都是一个克隆状态
+> dat=table(meta$patient_id, meta$expansion) |> as.matrix();
+> dat=dat[order(-dat[,1], -dat[,2], -dat[,3]),]; dat
+               E  n/a   NE
+  BIOKEY_16 1371    0    0
+  BIOKEY_28  955    0    0
+  BIOKEY_31  639    0    0
+  BIOKEY_10  407    0    0
+  BIOKEY_15  371    0    0
+  BIOKEY_11  277    0    0
+  BIOKEY_12  225    0    0
+  BIOKEY_18  105    0    0
+  BIOKEY_5    34    0    0
+  BIOKEY_1     0  371    0
+  BIOKEY_13    0   77    0
+  BIOKEY_3     0    0  305
+  BIOKEY_2     0    0  299
+  BIOKEY_8     0    0  295
+  BIOKEY_6     0    0  278
+  BIOKEY_24    0    0  247
+  BIOKEY_17    0    0  205
+  BIOKEY_7     0    0  187
+  BIOKEY_21    0    0  176
+  BIOKEY_26    0    0  162
+  BIOKEY_30    0    0  148
+  BIOKEY_19    0    0  138
+  BIOKEY_23    0    0  125
+  BIOKEY_20    0    0  107
+  BIOKEY_4     0    0  100
+  BIOKEY_9     0    0   96
+  BIOKEY_27    0    0   83
+  BIOKEY_14    0    0   66
+  BIOKEY_22    0    0   40
+  BIOKEY_29    0    0   37
+  BIOKEY_25    0    0   26
+
+#
+
+
+(2)取子集后
+> dat2=table(pbmc_sub2@meta.data$patient_id, pbmc_sub2@meta.data$expansion) |> as.matrix();
+> dat2=dat2[order(-dat2[,1], -dat2[,2], -dat2[,3]),]; dat2
+
+
+
+
+
 
 
 
