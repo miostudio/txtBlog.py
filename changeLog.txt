@@ -1,5 +1,5 @@
 ################################
-project name: txtBlog.py
+project name: txtBlog.py [内容版]
 
 # local url: http://127.0.0.1:8000
 # dir: D:\xampp\htdocs\txtBlog.py
@@ -379,28 +379,17 @@ nb0.1.7-0@hz add BioInfo/ 生信研究方向 [2026.1.17]
 nb0.1.7-1@hz BioInfo/p01-bc Proj tmp 项目临时笔记 [2026.1.17]
 	框架 gotoTop 缓动函数 fix;
 nb0.1.7-2@hz 从框架版更新：新增搜索，支持特殊符号搜索，如 /home/ [2026.5.3]
+nb0.1.7-3@hz update ReadMe [2026.5.3]
+
+
+
 #
 # 更新版本号 /data/_config/conf.ini 中的 version
-##### commit
+##### commit [内容版]
 #------------------------->push to github.com/MioStudio/txtBlog.py, gitee.com/dawnEve/txtBlog.py_NBlog [内容版]
 
+
 $ git remote add origin https://github.com/miostudio/txtBlog.py.git 内容版
+
 # 更新框架的方式：下载功能最新版: http://github.com/BioMooc/txtBlog.py，覆盖其中的 /data/ 文件夹/ReadMe/changeLog文档/.gitignore，以及 static/js/motto.js文件
 
-
-
-
-todo:
-4.不能随着浏览改变目录的样式。
-5.全站静态化如何做?
-	依赖: flask_frozen: 
-		https://pythonhosted.org/Frozen-Flask/
-		https://blog.csdn.net/zt_706/article/details/11476527
-6.增加不公开内容，就是根据IP地址来源设置可见范围。
-
-
-
-done:
-1.md 不支持代码高亮 [solved v0.0.7-7]， 代码行号[solved in v0.0.9-1]
-2.md不支持自动生成目录。[solved v0.0.7-6]
-3.不支持随意换肤 [solved v0.0.8, txt file]
