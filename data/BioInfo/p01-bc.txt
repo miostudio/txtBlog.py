@@ -7,52 +7,13 @@ proj bc 临时记录: 用完删除内容
 
 
 ========================================
-txtBlog 修改的部分
+txtBlog 修改的部分: wangj@wangHP MINGW64 /d/xampp/htdocs/txtBlog (south)
 ----------------------------------------
-1.status
- modified:   data/Linux/windows.txt
-
-
-
-2.diff
-@@ -578,6 +578,37 @@ to D:\Program_Files\WXWork
-
-+3. 修改微信文件保持路径
-+(1)默认
-+C:\Users\Administrator\Documents\WeChat Files\
-+C:\Users\wangj\Documents\WeChat Files\  #560Mb
-+
-+左下角 更多 - 设置，通用设置；
-+- 存储空间管理：删除聊天记录
-+- 文件管理 - 更改。
-+       D:\Program_Files\WeChat Files
-+       只需要写外层目录，它会新建内部目录
-+       重启软件生效。
-+
-+
-+
-+
-+
-+4.修改QQ文件保存目录
-+左下角设置 - 存储管理。
-+底部 保存位置：
-+       文件保存路径
-+               c:\Users\wangjl\Downloads
-+               to D:\Program_Files\QQ_files
-+       消息保存路径：
-+               C:\Users\wangj\Documents\Tencent Files
-+               to D:\Program_Files\QQ_files_sms
-+#
-+
-+
-+
-+
-+
 
 
 
 
-wangj@wangHP MINGW64 /d/xampp/htdocs/txtBlog (south)
+
 
 
 
