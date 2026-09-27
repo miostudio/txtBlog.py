@@ -7,8 +7,116 @@ proj bc 临时记录: 用完删除内容
 
 
 ========================================
-txtBlog 修改的部分: wangj@wangHP MINGW64 /d/xampp/htdocs/txtBlog (south)
+非对口专业，怎么拿证（临床医学检验技术）？
 ----------------------------------------
+
+根据国家卫生健康委规定，临床医学检验技术资格考试（如检验技士/技师）要求报考者具备医学检验相关专业学历，如医学检验技术、卫生检验与检疫等，且不同学历对应不同工作年限要求。
+
+
+如，大专学历需从事本专业工作满3年，本科学历需满1年。
+若专业不对口，需通过成人高考、自考等方式获得医学检验相关专业的非全日制学历，此类学历经国家认可（学信网可查）后，即可按对应条件报考。
+
+
+另一路径是报考卫生检验技术资格考试。该考试允许生物学、化学等相关专业人员报名，例如卫生检验技术师（专业代码211）要求医学及相应专业大专学历者工作满3年，本科以上学历者工作满1年。部分地区对“相应专业”的界定较宽松，生物技术、生物科学等专业可能符合条件，但需以当地卫健委审核为准。需注意，卫生检验技术与临床医学检验技术的工作内容侧重不同，前者更偏向公共卫生领域的检验，后者则专注于临床样本分析。
+
+
+
+报考前需确认三点核心条件：​学历是否国家认可​（学信网可查）、​专业是否对口或相关​（部分地区允许相近专业）、​工作年限是否达标​（需提供单位盖章的工作证明）。例如，某生物技术专业人员若通过成人高考获得医学检验技术大专学历，且在医疗机构检验科工作满3年，即可报考检验技师。此外，部分地区允许医学实验技术、生物技术等专业在有检验机构工作经验的情况下报考，但需具体咨询当地考点政策。
+
+
+
+
+历提升通常需2-3年，工作年限计算截止至考试报名年度的年底（如2026年考试需截止到2025年12月31日）。建议尽早通过官方渠道（如国家卫生健康委人才交流服务中心官网）了解最新政策，确保符合条件后再投入时间备考。
+
+
+
+2.
+==> 成人高考获得：医学检验技术大专学历
+-> 2026年卫生专业技术资格考试考试大纲-西医类105临床医学检验技术（士）
+
+
+医学检验技术资格证通常指‌卫生专业技术资格中的临床医学检验技士、技师或主管技师证书‌，是进入医院检验科、疾控中心等机构从事检验工作的必备敲门砖。该证书由国家统一组织考试，分为初级（士、师）和中级三个级别，通过考试后由人事部门和卫生部门共同盖章，全国有效。‌‌
+
+
+
+
+3.途径
+(1)读成人教育（函授/业余）
+这是在职人士最常见的选择。你可以参加成人高考，报考“医学检验技术”专业的专升本。需要注意：虽然成人学历可用来考职称，但根据现有政策，不能用于报考执业医师
+
+需要特别留意：根据部分医学院校的招生要求，报考成人“医学检验技术”专业时，可能要求考生前置学历为医药卫生大类，或已从事卫生行业工作。报名前务必仔细阅读你心仪院校的招生简章。
+
+
+(2)路径二：取得学历后，按步骤考证
+当你取得国家认可的检验专业学历后，就可以按照以下流程，一步步拿到心仪的证书了。
+
+先考“检验士”：这是初级职称。只要你一毕业，拿到中专、大专或本科的检验专业学历，就可以报名参加全国统一考试。
+  报名门槛：考试由人社部和国家卫健委组织，门槛很清晰——必须具备相应专业的学历。
+  关键条件：考试本身不要求工作年限，但必须在医疗机构内从事检验工作，并由所在单位盖章审核报名表。
+
+再考“检验师”和“主管技师”：在取得“检验士”资格后，随着工作年限的增加和学历的提升，你可以逐步考取更高级别的“检验技师”和“主管技师”职称
+
+
+(3)重要提醒
+另外有两点关乎报考资格的关键细节，需要特别留心：
+
+- 专业名称是关键：你的毕业证书上必须是“医学检验技术”或相关专业。一个来自建筑、土木等完全不相关专业的文凭，是无法通过资格审核的。
+
+- 工作单位是“入场券”：这一点非常重要。就算你拿到了检验专业的文凭，如果不在医院、检验中心等医疗机构工作，也无法报名。因为报名表必须由你工作的医疗机构盖章才能生效，人才交流中心的章是不被认可的
+
+
+这条路虽然需要一些时间和努力，但确实是拿到检验资格证书最稳妥、最正规的办法。
+
+
+
+
+
+4.todo
+(1)方案一：成人高考“医学检验技术”专升本（最推荐）
+适用人群：已有本科学历的在职人员
+
+具体路径：
+  参加全国成人高考，报考“医学检验技术”专业专升本
+  学制通常为2.5-3年，学习形式为函授或业余
+  毕业后取得国家承认的“医学检验技术”本科毕业证书
+
+关键注意事项：
+
+根据教育部和原卫生部2002年联合发布的《关于举办高等医学教育的若干意见》，成人高等教育举办的医学类专业学历教育，只能招收已取得卫生类执业资格的人员
+
+- https://wsjkw.gd.gov.cn/hdjlpt/detail?pid=3131350&via=pc
+
+
+* 这里有一个“先有鸡还是先有蛋”的问题：报考成人检验专业可能需要你先有卫生类执业资格，但你想考的检验资格正是这个执业资格。
+
+建议的做法：
+- 直接联系目标院校的继续教育学院，询问你的情况（已在医院从事微生物检验工作）是否可以凭单位工作证明报考
+- 部分院校对“在岗人员”会有灵活政策
+- 备选：如果成人专升本受限，可考虑全日制高职扩招（如果政策允许）或普通高校的专升本（需脱产学习）
+
+
+
+
+(2)
+方案二：成人教育“医学检验技术”专科起点本科（电大/开放大学）
+适用人群：希望更灵活学习、不受地域限制的考生
+
+国家开放大学（原电大）设有“医学检验技术”专升本专业，报考条件与成人高考类似，需咨询当地开放大学的具体政策。
+
+
+(3)备选方案：尝试按"相关专业"直接报考(有风险)
+
+
+===> 具体操作步骤:
+
+选择院校：南方医科大学、广州医科大学等高校都有医学检验技术专业的成人专升本
+  （如省内医科大学）
+
+参加成人高考：每年8-9月报名，10月考试
+
+学制：2.5-3年，函授或业余形式，不影响正常工作
+
+毕业获得：国家承认的"医学检验技术"本科毕业证书
 
 
 
@@ -341,19 +449,337 @@ treatment_naive
 
 
 ========================================
+思考绘图方法：fig3, Fig6
 ----------------------------------------
+1.Fig3
+- barplot: 局限在2pA的基因中
+	lenthen gene 中: 
+		tandem 比例: (lengthen的基因数)/总共的基因数
+		exonSwitch 比例:
+	shorten gene 中: 
+		tandem
+		exonSwitch 基因比例
+
+- pAS site? 之前使用的是 PASS, pAs 表示的都是site。
+
+
+(1)Bar plot  of length genes: 变长的基因中
+The fraction pAS usage shift in the same exon (tandem)
+The fraction pAS usage shift cross different exons (exon-switch)
+
+这个究竟要画什么图？问了 pAS不是pA signal的意思
+
+FigA)因 pAS 使用偏移而导致长度变化的基因，其两类事件的占比条形图。
+Y: 发生shift的基因中，属于tandem的比例
+X: 分组, p->d(只能选增长), d->p
+
+2)
+Y: 发生shift的基因中，属于 exon-switch类型的比例
+X: 分组, p->d(只能选增长), d->p
+
+(2)Bar plot of shorten genes: 变短的基因中
+The fraction pAS usage shift on the same exon
+The fraction pAS usage shift cross different exons
+
+
+
+X: 2个类别（tandem, exon switch）
+Y: 该类占基因集合的比例。
+
+- 两个子图并排(左length, 右shorten)，或上下
+- 每个子图两根柱子(tandem vs exon-switch)，纵轴统一方便比较
+- 顶部标数值：没重复所以没error bar
+
+
+
+
+2.统计什么数字？
+(1)四联表
+基因集	tandem 基因数	exon-switch 基因数	合计
+lengthen genes（变长）	a	b	a+b
+shorten genes（变短）	c	d	c+d
+
+(2A)Bar plot of length genes
+tandem 柱：分子 = a（length genes 中 tandem 型基因数）；分母 = a+b（length genes 总数）
+
+exon-switch 柱：分子 = b；分母 = a+b
+
+(2B)Bar plot of shorten genes
+tandem 柱：分子 = c（shorten genes 中 tandem 型基因数）；分母 = c+d（shorten genes 总数）
+
+exon-switch 柱：分子 = d；分母 = c+d
+
+
+所以：
+	分子 = 该基因集中属于某一 APA 类型的基因数
+	分母 = 该基因集中所有发生 pAS usage shift 的基因数（即两类之和）
+	两个柱子加起来 = 100%
+
+
+(3)参考老代码
+$ find . | grep ".*R" | xargs grep -in "DPAU sameExon:yes"  2>/dev/null --color=auto
+./scripts_PBMC/c08B_DEG_among_time.R:496:               title="DPAU sameExon:yes")  =>RNA
+./scripts_PBMC/c07F_DE_gDPAU.time.cellCluster.R:489:                   title="DPAU sameExon:yes") =>APA
+
+
+
+
+
+
+
+
 
 
 
 
 ========================================
+|-- Motifs of the 1054 tandem APA genes, Act vs Rest 怎么画？
 ----------------------------------------
+1.Fig 5. PAS usage switch accompanies with acquisition of canonical motifs. 
+
+A) Motifs of the 1054 tandem APA genes, Act vs Rest;
+B) Motifs of the 1373 exon switch APA genes, Act vs Rest.
+
+这个图该怎么画？怎么获取数据？主要是用什么motif没想明白
+
+
+并分别取它们在 Act 和 Rest 中主导使用的那个 pAS 的序列
+
+
+
+2.数据整理
+(1)对每个 tandem 基因，分别拿到：
+- Act 中 usage 最高的 pA 坐标
+- Rest 中 usage 最高的 pA 坐标
+
+整理成 BED，两个文件：
+	pas_act.bed    # 1054 行，Act 主导 pA
+	pas_rest.bed   # 1054 行，Rest 主导 pA
+
+(2)我已经获取了每个pA前的motif信息，我是单细胞数据。所以我可以
+1).根据pA * cell counts 矩阵，统计每个基因的2个pA在Rest中使用最多的pA位点(按细胞支持数计)，在Act中使用最多的pA位点（按细胞支持数算）
+2).统计各种pA motif频率，画饼图
+
+
+需要注意：
+1)只保留真正发生 shift 的基因
+	Act和Rest是同一个pA，则过滤掉
+2)细胞数阈值
+	该 pA 在对应条件下至少被 ≥3 或 ≥5 个细胞支持
+	或者该基因在该条件下总 pA counts ≥ 某阈值
+	否则“主导 pA”可能是噪声决定的。
+3)输出要能配对
+
+
+我Act内部比较每个基因的2个pA上哪个counts多就认为这个细胞使用哪个pA，再比较哪个pA支持的细胞多，就认为这个Act状态下使用哪个pA
+
+
+要补上：
+- 最小细胞数阈值
+- 平票处理规则
+- 配对过滤（两个条件都要有可靠主导 pA 的基因才纳入比较）
+
+
+
+./scripts_PBMC/b06_polyA_motif_power.R:419:drawMotifPie(high_pA_motifs.0, title="0h")
+
+$ wc /data/wangjl/scPolyA-seq2/chenxi/PBMC/DPAU_2pA/2pAgenes_3_1_2pA_shif*.genes.txt
+ 172  172 1105 /data/wangjl/scPolyA-seq2/chenxi/PBMC/DPAU_2pA/2pAgenes_3_1_2pA_shiftPA_N172tandem.genes.txt
+ 466  466 3132 /data/wangjl/scPolyA-seq2/chenxi/PBMC/DPAU_2pA/2pAgenes_3_1_2pA_shiftPA_N466exonSwitch.genes.txt
+ 638  638 4237 /data/wangjl/scPolyA-seq2/chenxi/PBMC/DPAU_2pA/2pAgenes_3_1_2pA_shiftPA_N638.genes.txt
+
+
+
+genes of 2pA with shift pA Act18 vs Rest0, N=638
+genes of 2pA with shift pA Act18 vs Rest0, tandem N=172
+genes of 2pA with shift pA Act18 vs Rest0, exon switch N=466
 
 
 
 
 ========================================
+|-- 单细胞水平计算 2pA 中 shift pA 的方法：二项分布给出p值？
 ----------------------------------------
+https://chatgpt.com/c/6ab78ae7-b4cc-83ec-b2af-c4b31e1c4de0
+
+1.
+     proximal   distal
+ 0h  nNum_0h    nNum_0h
+18h  nNum_18h   nNum_18h
+
+
+
+18h vs 0h, FDR<0.05, |delta DPAU| > 0, sig genes(N=630)
+18h vs 0h, FDR<0.05, |delta DPAU| > 0.1, sig genes(N=457)
+18h vs 0h, FDR<0.05, |delta DPAU| > 0.3, sig genes(N=224)
+
+18h vs 0h, cellRating(cell Num) & cellFisher(p value) both sig, N=221
+
+
+#          shift_cell
+#shift_read FALSE TRUE
+# threshold: 0.1
+#     FALSE  1340    0
+#     TRUE    520  457
+#
+# threshold: 0.3
+#     FALSE  1971    0
+#     TRUE    122  224
+
+
+
+所以分歧的 520 个基因，典型情况是：
+- 少数高 reads 细胞强烈偏向某一侧，拉动了 reads Fisher 的显著性；
+- 但多数细胞的方向分布比较均衡，细胞 Fisher 不显著。
+
+
+这不是方法错误，而是两个方法在问不同的问题：
+- reads Fisher：总体 reads 层面，P/D 比例是否不同？
+- cell Fisher：细胞层面，支持 P 和 D 的细胞比例是否不同？
+
+
+(2)用 shift_cell 作为主结果
+理由：
+
+1)单细胞的卖点是细胞异质性，不是 reads 总量。reads Fisher 本质上是在用单细胞数据模拟 bulk，权重被高表达细胞主导。
+
+2)cell Fisher 每个细胞一票，更符合“细胞状态是否改变”的问题。
+
+3)reads Fisher 的显著性可能被少数高 reads 细胞驱动，这些细胞可能是双细胞、高表达细胞、或技术噪声，不一定是真实的细胞状态改变。
+
+4)你原始方法的核心就是“每个细胞投票”，cell Fisher 是它的统计版本，逻辑一致。
+
+
+
+
+(3)0.12 可以作为“弱 shift / 强 shift”的分界点，而不是最终阈值。你可以：
+交叉点在 0.12–0.13 之间：
+	0.12：doublePos = 428，readPos = 441
+	0.13：doublePos = 415，readPos = 403
+	精确交叉在 0.12 之后一点。
+
+报告 0.12 为分界：|ΔDPAU| > 0.12 且双显著 = 强 shift；0.05 < |ΔDPAU| < 0.12 且仅 read 显著 = 弱 shift。
+
+主结果用更严格的阈值（如 0.2 或 0.3），保证高置信。
+
+
+
+
+
+
+========================================
+APA 和 gene expression 不是一个调控层次
+----------------------------------------
+1.
+$ find . | grep "R$" | xargs grep -in "Average of gene' DPAU" 2>/dev/null --color=auto
+./scripts_PBMC/c07C_get_tandem_DPAU_gDPAU.R:958:    labs(x="Average of gene' DPAU", y="Standard deviation of gene' DPAU")+
+./scripts_PBMC/c07C_get_tandem_DPAU_gDPAU.R:982:    labs(x="Average of gene' DPAU",y="RNA expression level [log2(cpm+1)]")+
+./scripts_PBMC/c07_get_DPAU_gDPAU.R:863:    labs(x="Average of gene' DPAU", y="Standard deviation of gene' DPAU")+
+./scripts_PBMC/c07_get_DPAU_gDPAU.R:887:    labs(x="Average of gene' DPAU",y="RNA expression level [log2(cpm+1)]")
+
+
+(2)参考代码
+
+  g4=ggplot(rsDF, aes(meanDPAU,log2cpm, color=DPAUcellNumber))+
+    geom_point(size=0.4) + 
+    scale_colour_gradientn('Cell number', colours=c('blue', 'white', 'red') )+
+    labs(x="Average of gene' DPAU",y="RNA expression level [log2(cpm+1)]")+
+    theme_bw()
+  print(g4)
+
+
+(2)数据来源 meanDPAU
+geneAPAInfo=(function(){
+  rsDF=NULL
+  for(i in 1:length(gene.2sites)){
+    #if(i>10){break;}
+    geneSymbol=gene.2sites[i]
+    #printP(i, ' ', geneSymbol)
+    dataRow1=DPAU[geneSymbol, which( !is.na(DPAU[geneSymbol,]) ), drop=F];
+    tmp=as.numeric(dataRow1)
+    
+    if(length(tmp)<2){
+      print(paste('Discard(obs<2): ', i, ' ', geneSymbol) )
+      next;
+    }
+    
+    tmpDF=data.frame(
+      gene=geneSymbol,
+      DPAUcellNumber=length(tmp),
+      meanDPAU=mean(tmp),
+      sdDPAU=sd(tmp)
+    )
+    rsDF=rbind(rsDF, tmpDF)
+  } #10seconds
+  #
+  rownames(rsDF)=rsDF$gene
+  print(dim(rsDF)) #2420    4
+  print( head(rsDF) )
+  #             gene DPAUcellNumber  meanDPAU     sdDPAU
+  #AAMP         AAMP           1219 0.9815385 0.09578089
+  #AARS1       AARS1            987 0.3436254 0.37239224
+  #AASDH       AASDH            122 0.7307795 0.41647121
+  #View(rsDF)
+  #
+  plot(rsDF$mean, rsDF$sd, xlab="Average of DPAU", ylab="SD of DPAU", main="[One gene one point]" )
+  rsDF
+})()
+
+
+
+DPAU[1:4, 1:5]
+tmp = sapply( colnames(DPAU), function(x){
+  mean(DPAU[,x], na.rm = T)
+})
+tmp=tmp[paste0(sub("_\\d$", "_", colnames(scObj2)),  scObj2@meta.data$orig.ident)]
+scObj2@meta.data$meanDPAU=as.numeric(tmp)
+DimPlot(scObj2, label=T)
+FeaturePlot(scObj2, features = c("meanDPAU"), cols = c("lightgrey", 'red'))
+
+
+
+
+(3)数据来源 log2cpm
+#rnaM=read.csv('/data/jinwf/wangjl/apa/20200701Fig/f2/BC_HeLa/BC_HeLa.222cells.count.V4.csv', row.names = 1)
+rnaM=scObj@assays$RNA@counts |> as.data.frame()
+dim(rnaM) #15855  3066
+colnames(rnaM) = paste0(sub("_\\d$", "_", rownames(scObj@meta.data)),  scObj@meta.data$orig.ident)
+rnaM[1:4,1:5]
+
+geneAPAInfo2=(function(){
+  rnaM.cpm=apply(rnaM, 2, function(x){x/sum(x)*1e6})
+  countsPerGene=getDF_fromNamesXX( apply(rnaM.cpm, 1, sum)  )
+  print(dim(countsPerGene))
+  #
+  gene.common=intersect(rownames(geneAPAInfo), rownames(rnaM.cpm))
+  countsPerGene=countsPerGene[gene.common, ]
+  geneAPAInfo=geneAPAInfo[gene.common,]
+  #
+  print(dim(countsPerGene)) #2036 2
+  print(head(countsPerGene))
+  
+  geneAPAInfo$cpm=countsPerGene$value
+  geneAPAInfo$log2cpm=log2( 1 + countsPerGene$value/ncol(rnaM) )
+  print(head(geneAPAInfo))
+  #             gene DPAUcellNumber  meanDPAU     sdDPAU       cpm  log2cpm
+  #AAMP         AAMP           1219 0.9815385 0.09578089 183673.82 5.928528
+  #AARS1       AARS1            987 0.3436254 0.37239224 137226.05 5.515932
+  geneAPAInfo
+})()
+#
+print(dim(geneAPAInfo)) #2420    4
+print(dim(geneAPAInfo2)) #2141    6
+head(geneAPAInfo2)
+
+
+
+
+
+2.
+
+
+
+
 
 
 

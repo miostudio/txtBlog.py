@@ -380,6 +380,7 @@ nb0.1.7-1@hz BioInfo/p01-bc Proj tmp 项目临时笔记 [2026.1.17]
 	框架 gotoTop 缓动函数 fix;
 nb0.1.7-2@hz 从框架版更新：新增搜索，支持特殊符号搜索，如 /home/ [2026.5.3]
 nb0.1.7-3@hz update ReadMe [2026.5.3]
+nb0.1.7-4@hz update 租房大坑 [2026.9.27]
 
 
 
