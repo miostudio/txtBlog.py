@@ -5,6 +5,20 @@ proj bc 临时记录: 用完删除内容
 3.
 
 
+========================================
+** 论文版本变化
+----------------------------------------
+针对方法学部分：
+v0.1-7b 修改了小错误
+v0.1-7c 接收修改
+v0.1-7d 并修改整体片段结构 ing
+
+
+
+
+
+
+
 
 ========================================
 非对口专业，怎么拿证（临床医学检验技术）？
@@ -668,6 +682,112 @@ https://chatgpt.com/c/6ab78ae7-b4cc-83ec-b2af-c4b31e1c4de0
 
 
 ========================================
+** 论文需要修改的地方：
+----------------------------------------
+1.占位符
+low (X U/μL), medium (Y U/μL), and high (Z U/μL)
+
+total UMI counts and detected genes >XX00
+
+gene complexity 未定义
+
+TargetScanHuman (version ??)
+
+5,000 reads per cell 建议统一千分位
+
+
+
+2.术语统一
+CD4+ T Cells / CD4+ T cells / CD4⁺ T cell → 统一为 CD4⁺ T cells
+
+3′UTR / 3′ UTR → 统一为 3′ UTR
+
+polyA site / polyA-site / polyA site cluster → 统一，例如 polyA site、polyA-site cluster
+
+
+PAS 首次出现应定义：polyadenylation signal (PAS) 或 polyA site (PAS)，但注意 PAS 通常指 signal，不是 site，需根据实际含义统一。
+
+FDR-adjusted P value / FDR < 0.05 / FDR-adjusted P value < 0.05 → 统一
+
+two-sided Wilcoxon rank-sum test / two-tailed Student's t-test → 统一 two-sided 或 two-tailed
+
+GRCh38 与 hg38 混用，建议统一为 GRCh38 (hg38)。
+
+
+
+
+3.数字和单位格式
+20 mL、4 EDTA blood collection tubes → four EDTA blood collection tubes
+
+1:1 bead-to-cell ratio → 可保留
+
+384-well plate、10 μL → 可保留
+
+5,000 reads per cell → 可保留
+
+24 nt、10 bp、1 kb → 统一空格
+
+
+
+4.逻辑和指代不清
+
+The definition is the same as before. 必须删除或替换为具体定义。
+
+gene complexity 必须定义。
+
+For clusters spanning more than 24 nt... until the span of each resulting polyA-site cluster was larger than 24 nt 逻辑反了。
+
+CytoTRACE 和 Monocle2 两种轨迹分析应明确区分目的，避免读者混淆。
+
+
+
+5.方法描述可补充细节
+scPolyA-seq2 中 UMI 和 cell barcode 的具体结构、长度、序列未描述。
+
+	template-switch 具体试剂或方法未描述。
+	Tn5 tagmentation 反应条件、时间、温度未描述。
+	AMPure XP beads 选择片段大小未描述。
+
+Illumina NovaSeq 测序模式、读长未描述。
+
+	STAR 2.7.10b 比对参数未描述。
+	GENCODE v30 注释来源可补充。
+	Seurat version 4.3.3 已写，但 FindMarkers 参数未写。
+
+	Monocle2 的 DDRTree 等参数未写。
+CytoTRACE 版本未写。
+
+	MEME version 5.0.5 已写，但 motif 分析参数未写。
+
+TargetScanHuman 版本缺失。
+
+	IGV.js version 2.12.2 已写，但可视化参数未写。
+
+Shannon entropy 计算细节未写。
+
+LOESS 平滑参数未写。
+
+WNN 分析参数未写。
+
+	Sankey diagram 用什么工具未写。
+
+
+
+
+
+6.被动语态和主动语态混用
+方法部分可统一用过去时被动语态，例如 were collected、were stimulated、were sequenced。
+
+但 we developed、we tested、we calculated 也可接受，需统一风格。
+
+
+
+
+
+
+
+
+========================================
 APA 和 gene expression 不是一个调控层次
 ----------------------------------------
 1.
@@ -785,14 +905,610 @@ head(geneAPAInfo2)
 
 
 ========================================
+占一个 exon Switch APA 的例子 
 ----------------------------------------
+1.必备
+(1)IGV.js
+	http://j3.biomooc.com:8090/list/index6B.html?cellType=time&gene=PSMD7&n=5
+
+(2)gene list
+both sig: cellRating & cellFisher, N=221;
+
+> intersect(wjl, genes.exonSwitch) |> jsonlite::toJSON() #149
+["ABCC4","ABCD3","ABHD18","ABL1","ANKHD1","ANLN","APOLD1","ASPHD2","ATE1","BBS9","BCAS4","C2CD3","CAPN15","CCDC126","CEP44","CLASP1","CLDN14","CLUAP1","CMAHP","CMIP","CMTM4","CORO2A","CPQ","CREB5","CRTC1","CTH","DAG1","DERA","DGKE","DIP2A","EGR2","ENOX2","EOLA2-DT","ERO1B","FARP2","FBXL17","G2E3","GABPB1","GMPPB","GTF3C1","HDAC4","HEATR5B","HEATR6","HERC5","HOOK2","HPS4","IKBKE","IL12RB1","INCENP","IPO11","ISY1-RAB43","KBTBD8","KCNQ5","KCTD2","KIF18B","KLHL15","KLHL7","KMT5A","KMT5B","KRAS","LATS1","LIMD1","LIN52","LINC01138","LINC02964","MAST4","MELK","METTL15","METTL25B","MIR3142HG","MIR762HG","MOSPD2","MROH1","MSANTD4","MTBP","MTRF1","MTRF1L","MVK","MYO18A","NALF1","NBAS","NEDD9","NEK1","NEURL1","NFATC1","NFRKB","NOTCH1","PACS2","PARP11","PDCD2L","PDE4B","PHOX2B-AS1","PI4KA","PIAS4","PKN2","PPIP5K1","PSMG3-AS1","PUDP","RAD52","RAI1","RAPH1","RBL1","RCOR1","RCOR3","RFXANK","RNF111","RNF8","S100PBP","SAP30-DT","SCMH1","SDHC","SETD4","SIDT2","SKAP2","SLC19A1","SLC6A9","SLC9A1","SPICE1","SPON2","SPR","SRD5A1","TAF1A","TARS3","TBC1D13","TBC1D14","TMEM107","TMEM135","TMEM164","TMEM187","TMEM192","TMX4","TPM1","TPRG1","TRIP4","TTC28","TUBGCP3","TXNDC11","TXNDC16","UBA6-DT","UBTD2","UBXN2A","WDR47","ZNF273","ZNF28","ZNF549","ZNF646","ZNF880","ZNF91","ZXDC"]
+
+> intersect(wjl, genes.tandem) |> jsonlite::toJSON() #72
+["ABI2","ADNP","AIFM2","B3GNT2","C8orf33","CBR4","CDADC1","CEP104","CSNK1D","CTC1","CTLA4","DLGAP4","DVL3","EIF1AD","ELOA-AS1","ELP3","ENGASE","FAM199X","FAS","FEM1B","GTPBP1","HCCS","HPSE","IPO9","ITPRIP","LEPROT","LINC01215","MAPK13","MFN1","MKLN1","MORC2","MXD4","MYO5A","NFYC","NIFK-AS1","NME3","PCNX1","PFKFB3","PIAS1","PPM1F","PXMP4","RAB4A","RANBP6","RAP1GDS1","RBM12B","RNF126","RNF141","RNU6-6P","RTCA","SAMD9","SAP30L","SGTB","SLC35C2","SLC9A3","SMAD4","SP1","SPRYD4","STK40","SYNJ2BP","TIMM10B","TMEM127","TOPORS","TTC9","UBE4B","UBFD1","UBIAD1","VAMP4","VMA21","WDR45","ZNF33A","ZNF445","ZNF805"]
+
+
+(2) one by one order by distance
+
+["ABCC4","ABCD3","ABHD18","ABL1","ANKHD1","ANLN","APOLD1","ASPHD2","ATE1","BBS9","BCAS4","C2CD3","CAPN15","CCDC126","CEP44","CLASP1","CLDN14","CLUAP1","CMAHP","CMIP","CMTM4","CORO2A","CPQ","CREB5","CRTC1","CTH","DAG1","DERA","DGKE","DIP2A","EGR2","ENOX2","EOLA2-DT","ERO1B","FARP2","FBXL17","G2E3","GABPB1","GMPPB","GTF3C1","HDAC4","HEATR5B","HEATR6","HERC5","HOOK2","HPS4","IKBKE","IL12RB1","INCENP","IPO11","ISY1-RAB43","KBTBD8","KCNQ5","KCTD2","KIF18B","KLHL15","KLHL7","KMT5A","KMT5B","KRAS","LATS1","LIMD1","LIN52","LINC01138","LINC02964","MAST4","MELK","METTL15","METTL25B","MIR3142HG","MIR762HG","MOSPD2","MROH1","MSANTD4","MTBP","MTRF1","MTRF1L","MVK","MYO18A","NALF1","NBAS","NEDD9","NEK1","NEURL1","NFATC1","NFRKB","NOTCH1","PACS2","PARP11","PDCD2L","PDE4B","PHOX2B-AS1","PI4KA","PIAS4","PKN2","PPIP5K1","PSMG3-AS1","PUDP","RAD52","RAI1","RAPH1","RBL1","RCOR1","RCOR3","RFXANK","RNF111","RNF8","S100PBP","SAP30-DT","SCMH1","SDHC","SETD4","SIDT2","SKAP2","SLC19A1","SLC6A9","SLC9A1","SPICE1","SPON2","SPR","SRD5A1","TAF1A","TARS3","TBC1D13","TBC1D14","TMEM107","TMEM135","TMEM164","TMEM187","TMEM192","TMX4","TPM1","TPRG1","TRIP4","TTC28","TUBGCP3","TXNDC11","TXNDC16","UBA6-DT","UBTD2","UBXN2A","WDR47","ZNF273","ZNF28","ZNF549","ZNF646","ZNF880","ZNF91","ZXDC"]
+
+
+# [('chr22',                             26443204, 26446015, '+')]
+classify_apa(units, "ASPHD2","chr22","+",26442814, 26445012 )   # 有一个因 internal priming 去掉
+
+
+> df.genes$symbol |> unique() |> jsonlite::toJSON()
+["SDHC", 不行
+"PHOX2B-AS1","MVK", # 竟然是同一个 exon?
+> df.genes[which(df.genes$symbol=="MVK"),]
+                    chr     start           pasName counts strand location isInnerPrime symbol  motif distanceMotif2pA distancepA2pA
+chr12:109597208:+ chr12 109597208 chr12:109597208:+   3133      +     UTR3            0    MVK TTAAAT               44            54
+chr12:109597262:+ chr12 109597262 chr12:109597262:+   4926      +       PA            0    MVK AATAAA               22            54
+
+
+> "KBTBD8",
+> df.genes[which(df.genes$symbol=="KBTBD8"),]
+                 chr    start         pasName counts strand     location isInnerPrime symbol  motif distanceMotif2pA distancepA2pA
+chr3:67011206:+ chr3 67011206 chr3:67011206:+   3808      +           PA            0 KBTBD8 AATAAA               20           417
+chr3:67011623:+ chr3 67011623 chr3:67011623:+  13026      + extended3UTR            0 KBTBD8                      -1           417
+
+我发现一个大问题：
+$ cat /data/wangjl/scPolyA-seq2/chenxi/PBMC/DPAU_2pA/2pAgenes_01_2_pA_sites_isSameExon.df.txt | grep -in "GMPPB"
+810:GMPPB       GMPPB   chr3    -       UTR3    49721498        PA      49719916        no
+这个分类不太对，不应该是exonSwitch，应该是tandem（跨某一个exon了，或者在ext3UTR上），不知道其他对不对
+
+
+找注释代码：
+	./annotation/c07D_2pAgenes_DPAU_gDPAU.ipynb:211:    "def isSameExon(array_DB, pAsite):\n",
+$ jupyter notebook list
+Currently running servers:
+http://jinlab-svr3:8085/?token=0a0b04baf81ab4f75b2941bab9db8e226c993804cbc05a72 :: /data/wangjl/scPolyA-seq2/chenxi/pipeline/annotation
+http://j3.biomooc.com:8085/?token=0a0b04baf81ab4f75b2941bab9db8e226c993804cbc05a72
+	逻辑：
+		- 找某个pA在strand的第一个exon ==> 应该是找所有exons;
+		- 判断另一个是否在该exon ==> 应该是判断 是否在这些exons;
+
+	目前在2个pA相对距离较短的gene上有问题：比如
+在R中检测：
+	df.genes[which(df.genes$symbol=="MVK"),] # PA UTR3
+
+	df.genes[which(df.genes$symbol=="INCENP"),] # UTR3 extended3UTR
+	df.genes[which(df.genes$symbol=="ASPHD2"),] # PA extended3UTR
+
+在shell中查看：
+	$ cat /data/wangjl/scPolyA-seq2/chenxi/PBMC/DPAU_2pA/2pAgenes_01_2_pA_sites_isSameExon.df.txt | grep -in "GMPPB"
+
+"NEDD9","DERA","RAD52","RAI1","ANLN", ?
+
+"INCENP",
+
+"TMEM107","GMPPB","SLC19A1","HOOK2","ASPHD2",
+
+"TXNDC11","RFXANK","S100PBP",
+
+"RCOR3",? 也有希望，不同exon上的
+"MSANTD4", 最有希望 MSANTD4 exon switch event;
+
+"PARP11","EGR2","CEP44","TRIP4","TMEM187","KRAS","SPR","METTL25B","CTH","SLC6A9","CRTC1","ZNF880","TAF1A","ERO1B","ZNF549","CLDN14","KMT5A","UBTD2","TMEM192","DAG1","SRD5A1","UBA6-DT","SAP30-DT","GABPB1","MTRF1L","ZNF646","SETD4","ZNF273","PSMG3-AS1","KMT5B","ENOX2","NEURL1","IL12RB1","PDCD2L","MELK","TPM1","CORO2A","PDE4B","APOLD1","TBC1D14","CAPN15","TBC1D13","TMX4","CCDC126","NOTCH1","CLUAP1","ZNF28","PPIP5K1","SIDT2","NFRKB","PIAS4","MIR3142HG","MIR762HG","ZXDC","IKBKE","ABCD3","KIF18B","RNF8","TUBGCP3","ISY1-RAB43","ZNF91","DGKE","CMAHP","ABHD18","HEATR6","RBL1","LINC01138","SPON2","CMTM4","HPS4","BCAS4","TMEM164","KCTD2","G2E3","KLHL15","LIMD1","MOSPD2","PACS2","UBXN2A","SLC9A1","MTRF1","FARP2","HERC5","WDR47","MROH1","KLHL7","HDAC4","LATS1","FBXL17","RCOR1","PI4KA","NFATC1","SPICE1","RNF111","ANKHD1","LIN52","TARS3","MTBP","GTF3C1","DIP2A","ABCC4","MYO18A","EOLA2-DT","PKN2","HEATR5B","TTC28","PUDP","CMIP","RAPH1","TXNDC16","CLASP1","METTL15","C2CD3","TMEM135","ATE1","ABL1","IPO11","SKAP2","SCMH1","NEK1","TPRG1","LINC02964","BBS9","NBAS","CPQ","KCNQ5","CREB5","MAST4","NALF1"]
+
+
+(3)那就从长的开始？
+
+
+(4)或许可以试试其他的gtf?
+/data/wangjl/scPolyA-seq2/ref/hg38/gencode/UTR3/GRCh38.p13.*
+
+$ ls -lth /data/wangjl/scPolyA-seq2/ref/hg38/gencode/UTR3/GRCh38.p13.*
+-rw-r--r--. 1 wangjl jinlab  43M Jul 27  2024 /data/wangjl/scPolyA-seq2/ref/hg38/gencode/UTR3/GRCh38.p13.exon.bed
+-rw-r--r--. 1 wangjl jinlab 3.9M Jul 20  2024 /data/wangjl/scPolyA-seq2/ref/hg38/gencode/UTR3/GRCh38.p13.UTR3_Ext.range.bed
+-rw-r--r--. 1 wangjl jinlab 3.6M Jul 20  2024 /data/wangjl/scPolyA-seq2/ref/hg38/gencode/UTR3/GRCh38.p13.UTR3.range.bed
+-rw-r--r--. 1 wangjl jinlab 9.1M Jul 20  2024 /data/wangjl/scPolyA-seq2/ref/hg38/gencode/UTR3/GRCh38.p13.UTR3_5.range.bed
+-rw-r--r--. 1 wangjl jinlab  13M Jul 20  2024 /data/wangjl/scPolyA-seq2/ref/hg38/gencode/UTR3/GRCh38.p13._UTR.stop_codon.bed
+-rw-r--r--. 1 wangjl jinlab 638K Jul 20  2024 /data/wangjl/scPolyA-seq2/ref/hg38/gencode/UTR3/GRCh38.p13.gene.range.bed
+
+
+查看前几行：
+$ cat /data/wangjl/scPolyA-seq2/ref/hg38/gencode/UTR3/GRCh38.p13.UTR3_Ext.range.bed | head
+chr1    71585   72585   +       UTR3_Ext        protein_coding  OR4F5
+chr1    449740  450740  -       UTR3_Ext        protein_coding  OR4F29
+chr1    684716  685716  -       UTR3_Ext        protein_coding  OR4F16
+chr1    944574  945574  +       UTR3_Ext        protein_coding  SAMD11
+chr1    944574  945574  +       UTR3_Ext        protein_coding  SAMD11
+$ cat /data/wangjl/scPolyA-seq2/ref/hg38/gencode/UTR3/GRCh38.p13.UTR3.range.bed | head
+chr1    70006   71585   +       UTR3    protein_coding  OR4F5
+chr1    450740  450742  -       UTR3    protein_coding  OR4F29
+chr1    685716  685718  -       UTR3    protein_coding  OR4F16
+chr1    944151  944574  +       UTR3    protein_coding  SAMD11
+
+
+按基因匹配区间：
+$ cat /data/wangjl/scPolyA-seq2/ref/hg38/gencode/UTR3/GRCh38.p13.UTR3.range.bed | grep S100PBP
+chr1    32856036        32857854        +       UTR3    protein_coding  S100PBP
+chr1    32856036        32858875        +       UTR3    protein_coding  S100PBP
+$ cat /data/wangjl/scPolyA-seq2/ref/hg38/gencode/UTR3/GRCh38.p13.UTR3_Ext.range.bed | grep S100PBP
+chr1    32857854        32858854        +       UTR3_Ext        protein_coding  S100PBP
+chr1    32858875        32859875        +       UTR3_Ext        protein_coding  S100PBP
+
+(5)代码合并utr3及ext
+设计原则:
+- 不合并成单一基因区间:	同一基因不同转录本的 3'UTR 必须分开保留，否则无法区分 tandem 和 exon switch
+- UTR3 + Ext 按转录本配对:	用 Ext.start == UTR3.end（正链）配对，避免把不同转录本的区间混在一起
+- 负链方向:	负链上 Ext 在 UTR3 的左侧，配对时 merged_start 取 Ext 起点，merged_end 取 UTR3 终点
+- 两个 pA 共享同一转录本区间 → tandem:	这是 tandem APA 的定义
+- 两个 pA 落在不同转录本区间 → exon switch:	前提是这两个转录本的末端 exon 不共享；如果共享，情况会更复杂，但一般注释里共享末端 exon 的转录本会被合并到同一个 3'UTR 条目里
+- pA 不在任何 3'UTR/Ext 内 → unknown:	可能是 intron、CDS、或注释缺失，需要单独处理
+	也可以认为是 exon switch;
+
+测试:
+units.get("S100PBP")
+	[('chr1', 32856036, 32858854, '+'), ('chr1', 32856036, 32859875, '+')]
+
+
+fix bug1: strand=="-" 连接不当
+				  [('chr2', 96847990, 96848303, '-')]
+	[unknown] not hit pos2: 96847988 in gene: ANKRD39
+	'partial'
+
+	# Ext 是下游1k bp;
+	! cat /data/wangjl/scPolyA-seq2/ref/hg38/gencode/UTR3/GRCh38.p13.UTR3.range.bed | grep ANKRD39
+	chr2	96847990	96848303	-	UTR3	protein_coding	ANKRD39
+
+	! cat /data/wangjl/scPolyA-seq2/ref/hg38/gencode/UTR3/GRCh38.p13.UTR3_Ext.range.bed | grep ANKRD39
+	chr2	96846990	96847990	-	UTR3_Ext	protein_coding	ANKRD39
+
+	units.get("ANKRD39")
+	[('chr2', 96846990, 96848303, '-')]
+
+bug2: 有些基因的3UTR不存在？
+	AHSA2P: IGV确实没看到utr3。AI 说是假基因。为什么被筛选出来？
+	V3: 先用UTR3_及其ext判断，不是tandem和exon switch的再判断是否是在同一个exons中
+
+	total lines: 2428
+	tandem: 1213, exon_switch: 809, unknown: 405
+
+
+bug3: add slack for find_exon:
+	total lines: 2428
+	tandem: 1218, exon_switch: 827, unknown: 382
+
+
+
+检查结果：
+$ cat /data/wangjl/scPolyA-seq2/chenxi/PBMC/DPAU_2pA/2pAgenes_01_2_pA_sites_isTandem.df.txt | grep -E "KBTBD8|RCOR3"
+KBTBD8  KBTBD8  chr3    +       PA      67011206        extended3UTR    67011623        tandem  yes     tandem  yes
+RCOR3   RCOR3   chr1    +       PA      211313295       UTR3    211316017       exon_switch     no      exon_switch     no
+
+统计：新结果
+$ awk '{print $9}' /data/wangjl/scPolyA-seq2/chenxi/PBMC/DPAU_2pA/2pAgenes_01_2_pA_sites_isTandem.df.txt | sort | uniq -c
+     83 exon_switch
+      1 isTandemV2   #去掉，因为是列名
+    251 no_annotation
+    264 outside
+    745 partial
+   1084 tandem
+$ awk '{print $11}' /data/wangjl/scPolyA-seq2/chenxi/PBMC/DPAU_2pA/2pAgenes_01_2_pA_sit
+es_isTandem.df.txt | sort | uniq -c
+    827 exon_switch
+      1 isTandemV3   #列名
+   1218 tandem
+    382 unknown
+
+
+#
+(5)和之前的注释对比，错了多少个？
+> datOld$isSameExon |> table()
+ no  yes 
+1373 1054
+> datNew$isTandemV3 |> table()
+  no  yes 
+1209 1218
+> datNew$APATypeV3 |> table()
+exon_switch      tandem     unknown 
+        827        1218         382
+> table(datOld$isSameExon, datNew$APATypeV3)
+      exon_switch tandem unknown
+  no          822    169     382
+  yes           5   1049       0
+> table(datNew$APATypeV3, datNew$APATypeV2)
+              exon_switch no_annotation outside partial tandem
+  exon_switch          83            35      37     672      0
+  tandem                0            65       9      60   1084
+  unknown               0           151     218      13      0
+> table(Old=datOld$isSameExon, New=datNew$isTandemV3)
+     New
+Old     no  yes
+  no  1204  169
+  yes    5 1049
+
+> table(sameExon=datOld$isSameExon, tandemV3=datNew$isTandemV3)
+        tandemV3
+sameExon   no  yes
+     no  1204  169
+     yes    5 1049
+和之前差异不大。且多数异常得到纠正。
+
+
+i)old=yes new=no: N=5
+         symbol   chr strand proximal      pPos distal      dPos   APATypeV2 isTandemV2   APATypeV3 isTandemV3
+FPGT       FPGT  chr1      +     UTR3  74205528   UTR3  74207233 exon_switch         no exon_switch         no #ok
+PARPBP   PARPBP chr12      +     UTR3 102196021     PA 102197519 exon_switch         no exon_switch         no #
+RANBP6   RANBP6  chr9      -     UTR3   6014018   UTR3   6011043 exon_switch         no exon_switch         no #ok
+ZNF480   ZNF480 chr19      +     UTR3  52321713     PA  52325919 exon_switch         no exon_switch         no #ok
+ZSCAN32 ZSCAN32 chr16      -       PA   3383690     PA   3382085 exon_switch         no exon_switch         no #ok
+=> 目测基本算是exon switch，2个pA位点属于不同UTR3
+
+
+
+
+# 边界条件: d pA 在UTR3区
+> (unknown |> filter(category=="distal_3utr")) [,1:10]
+                       symbol   chr strand proximal      pPos       distal      dPos     APATypeV2 isTandemV2 APATypeV3
+ATXN7L1               ATXN7L1  chr7      -   intron 105820117 extended3UTR 105604247       partial         no   unknown #reads少
+DHX37                   DHX37 chr12      -     exon 124986214           PA 124946824       partial         no   unknown #p PA read少
+ENST0000055206 ENST0000055206 chr12      +   intron  47252002           PA  47257548 no_annotation         no   unknown
+FGD5-AS1             FGD5-AS1  chr3      -     exon  14944253           PA  14942784 no_annotation         no   unknown
+INPP5A                 INPP5A chr10      +   intron 132701978 extended3UTR 132778351       partial         no   unknown # p PA read少
+MLIP                     MLIP  chr6      +   intron  54200635 extended3UTR  54218909       partial         no   unknown  # 认定为 exon switch
+ONECUT1               ONECUT1 chr15      -   intron  52767566 extended3UTR  52754091       partial         no   unknown # 18h 没read
+SLC12A2-DT         SLC12A2-DT  chr5      -     exon 127966456           PA 127965883 no_annotation         no   unknown
+SNORD104             SNORD104 chr17      +     exon  64146134           PA  64146159 no_annotation         no   unknown # linc RNA
+SNORD14E             SNORD14E chr11      -     exon 123058142           PA 123058067 no_annotation         no   unknown # linc RNA
+TMED8                   TMED8 chr14      -   intron  77367238           PA  77335022       partial         no   unknown # p pA read 少
+VAV3                     VAV3  chr1      -   intron 107930222 extended3UTR 107570797       partial         no   unknown # ok?
+ZNF91                   ZNF91 chr19      -     exon  23362651 extended3UTR  23338621       partial         no   unknown # reads 都很少
+
+
+
+> datNew$APATypeV3 |> table()
+exon_switch      tandem     unknown 
+        827        1218         382
+
+
+
+
+ii)old=no new=yes: N=164
+> sub2 |> head()
+         symbol   chr strand proximal     pPos distal     dPos     APATypeV2 isTandemV2 APATypeV3 isTandemV3
+AHSA2P   AHSA2P  chr2      +     exon 61186917     PA 61191202 no_annotation         no    tandem        yes
+ALDH3A2 ALDH3A2 chr17      +       PA 19675742     PA 19677595        tandem        yes    tandem        yes #ok
+ALDH5A1 ALDH5A1  chr6      +     UTR3 24533807     PA 24537206        tandem        yes    tandem        yes
+ANKRD39 ANKRD39  chr2      -     UTR3 96848040     PA 96847988        tandem        yes    tandem        yes
+ANKRD40 ANKRD40 chr17      -     UTR3 50694857     PA 50693197        tandem        yes    tandem        yes
+ANKRD49 ANKRD49 chr11      +     exon 94496938     PA 94499577       partial         no    tandem        yes
+> sub2 |> tail()
+       symbol   chr strand proximal      pPos distal      dPos APATypeV2 isTandemV2 APATypeV3 isTandemV3
+ZDHHC4 ZDHHC4  chr7      +       PA   6588926     PA   6588974    tandem        yes    tandem        yes
+ZMIZ2   ZMIZ2  chr7      +       PA  44768694     PA  44769878    tandem        yes    tandem        yes
+ZNF331 ZNF331 chr19      +       PA  53578078     PA  53580269    tandem        yes    tandem        yes
+ZNF593 ZNF593  chr1      +     exon  26170463     PA  26170869   partial         no    tandem        yes
+ZNF598 ZNF598 chr16      -     UTR3   1997774     PA   1997654    tandem        yes    tandem        yes  #ok
+ZNF664 ZNF664 chr12      +     exon 124012133     PA 124015426   partial         no    tandem        yes  #ok
+
+
+
+# 找几个exon switch例子
+> datNew |> filter(APATypeV3=="exon_switch") |> dim()
+[1] 809  11
+> datNew |> filter(APATypeV3=="exon_switch") |> head()
+      symbol   chr strand proximal      pPos distal      dPos   APATypeV2 isTandemV2   APATypeV3 isTandemV3
+AAMP    AAMP  chr2      -     exon 218269495     PA 218264129     partial         no exon_switch         no
+AASDH  AASDH  chr4      -     exon  56378342     PA  56338292     partial         no exon_switch         no
+ABAT    ABAT chr16      +   intron   8687239     PA   8784567     partial         no exon_switch         no
+ABCC4  ABCC4 chr13      -   intron  95109818     PA  95019835     partial         no exon_switch         no
+ABCC5  ABCC5  chr3      -       PA 183983753     PA 183919937 exon_switch         no exon_switch         no #
+ABCD3  ABCD3  chr1      +   intron  94496730     PA  94518662     partial         no exon_switch         no
+
+
+# 优先找v2中的例子？
+> datNew |> filter(APATypeV2=="exon_switch") |> dim()
+[1] 83 11
+> datNew |> filter(APATypeV2=="exon_switch") |> head()
+       symbol   chr strand proximal      pPos distal      dPos   APATypeV2 isTandemV2   APATypeV3 isTandemV3
+ABCC5   ABCC5  chr3      -       PA 183983753     PA 183919937 exon_switch         no exon_switch         no   #ok
+ADCY7   ADCY7 chr16      +       PA  50310520     PA  50318132 exon_switch         no exon_switch         no  #不好
+ALKBH6 ALKBH6 chr19      -   intron  36009609     PA  36009120 exon_switch         no exon_switch         no  #不好
+ANKHD1 ANKHD1  chr5      +       PA 140472476     PA 140539849 exon_switch         no exon_switch         no  #很乱
+ARMC7   ARMC7 chr17      +       PA  75114827   UTR3  75130228 exon_switch         no exon_switch         no  #有意思：0h只有一个，18h用2个。d pA是正负链都有，同位置的2个pA。
+ASRGL1 ASRGL1 chr11      +       PA  62357201     PA  62393410 exon_switch         no exon_switch         no #不好，0h没read
+> datNew |> filter(APATypeV2=="exon_switch") |> tail()                                                                               
+         symbol   chr strand proximal     pPos       distal     dPos   APATypeV2 isTandemV2   APATypeV3 isTandemV3
+ZNF544   ZNF544 chr19      +       PA 58263640           PA 58277490 exon_switch         no exon_switch         no
+ZNF559   ZNF559 chr19      +       PA  9343843 extended3UTR  9351267 exon_switch         no exon_switch         no
+ZNF771   ZNF771 chr16      +     UTR3 30414203           PA 30418594 exon_switch         no exon_switch         no
+ZNF814   ZNF814 chr19      -       PA 57869382           PA 57850321 exon_switch         no exon_switch         no
+ZNF880   ZNF880 chr19      +       PA 52374716 extended3UTR 52380339 exon_switch         no exon_switch         no
+ZSCAN32 ZSCAN32 chr16      -       PA  3383690           PA  3382085 exon_switch         no exon_switch         no
+
+
+
+IGV目测不错的例子:
+> datNew["ABCC5",]
+      symbol  chr strand proximal      pPos distal      dPos   APATypeV2 isTandemV2   APATypeV3 isTandemV3
+ABCC5  ABCC5 chr3      -       PA 183983753     PA 183919937 exon_switch         no exon_switch         no
+
+
+
+
+
+
+
+
+i)解读表格:
+- Old yes (1054) → New yes (1049) + New no (5)
+- Old no  (1373) → New yes (164) + New no (1209)
+
+- Old yes → New no：5 个（旧判 tandem，新判非 tandem）
+- Old no → New yes：164 个（旧判 exon switch，新判 tandem）
+
+这 169 个是两者判断不一致的，需要分别核查。
+
+
+ii)看 table(datOld$isSameExon, datNew$APAType) 里 Old=yes 那一行：
+Old yes: exon_switch 5, no_annotation 60, outside 8, partial 53, tandem 928
+- 5 个变成 exon_switch：旧方法误判，新方法纠正
+- 60 个变成 no_annotation：gene symbol 不在 units 里，新方法信息不足
+- 8 个变成 outside：两端都不在 3'UTR/Ext，多半是 pA 落在 intron/exon
+- 53 个变成 partial：一端在 3'UTR/Ext，一端不在
+真正需要人工核查的：partial（53）和 no_annotation（60）里两端 type 都是 3'UTR 相关类型的那些。其余的（type 落在 intron/exon）大概率是新方法纠正了旧方法的误判。
+
+iii)Old no → New yes（156 个）—— 新方法是否"判宽了"？
+看 Old=no 那一行：
+Old no: exon_switch 78, no_annotation 191, outside 256, partial 692, tandem 156
+- 156 个变成 tandem：旧方法判 exon switch，新方法判 tandem
+
+这批是最值得复核的。可能的情况：
+- 旧方法因为没考虑 UTR3_Ext，把落在 Ext 区的 pA 判成了 exon switch；新方法正确纠正。
+- 新方法因为 UTR3_Ext 延伸过宽，把本属于不同转录本的 pA 合并成 tandem。
+- 用 IGV 抽查 10–20 个即可判断。
+
+
+
+# iii)关于 no_annotation（251 个）
+这批新旧都是 no（191 + 60 = 251），说明它们从来没被正确判断过。
+
+建议单独处理这批：
+na_genes <- datNew$symbol[datNew$APAType == "no_annotation"]
+# 看这些基因里有多少是 pseudogene / lncRNA
+# 用 gencode 的 gene_type 列核对
+
+# iv)关于 partial（745）和 outside（264）
+从上一轮 type 表看，这两类里大部分 pA 落在 intron 或 exon（CDS）。它们本来就不该是 tandem APA，判 no 是对的。只是分类命名让人误以为方法有问题。
+
+
+> old_yes_new_no <- datOld$isSameExon == "yes" & datNew$isTandem == "no"
+> sub <- datNew[old_yes_new_no, ]
+> # 按 APAType + proximal + distal 分组看
+> table(sub$APAType)
+
+  exon_switch no_annotation       outside       partial 
+            5            60             8            53 
+> table(sub$APAType, sub$proximal)
+               
+                exon PA UTR3
+  exon_switch      0  1    4   #5个新方法纠正
+  no_annotation   55  3    2    #60个，需要单独处理：假基因？or symbol 对不上？
+  outside          8  0    0     #8个都在exon上；
+  partial         53  0    0     # 这53个叫 exon switch 吗？可以叫 intronic APA?
+> table(sub$APAType, sub$distal)
+               
+                exon PA UTR3
+  exon_switch      0  3    2
+  no_annotation   27 33    0
+  outside          8  0    0
+  partial          0 31   22
+>
+真正需要担心的只有：
+- exon_switch 里的 5 个（新方法说 exon switch，旧说 tandem）—— 这 5 个值得 IGV 看一眼；
+- no_annotation 里 proximal/distal 都是 PA/UTR3 的少数（约 5 个）。
+结论：新方法在这 126 个上基本是对的，旧方法漏了 type 判断。
+
+> sub |> filter(APAType=="exon_switch") #5个
+			 symbol   chr strand proximal      pPos distal      dPos     APAType isTandem
+	FPGT       FPGT  chr1      +     UTR3  74205528   UTR3  74207233 exon_switch       no  #疑似正确。不同转录本
+	PARPBP   PARPBP chr12      +     UTR3 102196021     PA 102197519 exon_switch       no  #同上
+	RANBP6   RANBP6  chr9      -     UTR3   6014018   UTR3   6011043 exon_switch       no  #同上
+	ZNF480   ZNF480 chr19      +     UTR3  52321713     PA  52325919 exon_switch       no  #同上
+	ZSCAN32 ZSCAN32 chr16      -       PA   3383690     PA   3382085 exon_switch       no  #同上
+
+> sub |> filter(APAType=="no_annotation" & ((proximal %in% c("PA", "UTR3")) & (distal %in% c("PA", "UTR3"))) )
+						   symbol   chr strand proximal      pPos distal      dPos       APAType isTandem
+	ENST0000054561 ENST0000054561  chr6      +     UTR3 143844494     PA 143844612 no_annotation       no
+	ENST0000064001 ENST0000064001 chr10      +     UTR3  14844747     PA  14846998 no_annotation       no
+	LINC00847           LINC00847  chr5      +       PA 180835702     PA 180835725 no_annotation       no
+	LINC01128           LINC01128  chr1      +       PA    854093     PA    854387 no_annotation       no
+	这几个可以去掉了，没啥用。
+
+
+> # ii)第二步：拆开 156 个 Old no → New yes
+> old_no_new_yes <- datOld$isSameExon == "no" & datNew$isTandem == "yes"
+> sub2 <- datNew[old_no_new_yes, ]
+> table(sub2$APAType)
+tandem 
+   156 
+> table(sub2$APAType, sub2$proximal)
+         PA UTR3
+  tandem 79   77
+> table(sub2$APAType, sub2$distal)
+         extended3UTR  PA UTR3
+  tandem           37 108   11
+#
+Old no → New yes 的 156 个
+	全部是 tandem，两端都是 3'UTR 相关类型
+	proximal: PA 79, UTR3 77          ← 没有 exon/intron
+	distal:   extended3UTR 37, PA 108, UTR3 11   ← 没有 exon/intron
+	这 156 个两端都是干净的 3'UTR 相关类型，没有 CDS/intron 混进来。这正是最值得关注的一批。
+
+关键观察：distal 有 37 个是 extended3UTR。
+	extended3UTR 意味着这个 pA 落在注释的 3'UTR 之外、但在 Ext 延伸区内。旧方法用的是 exon.bed，没有 Ext 区间，所以这些 pA 在旧方法里找不到对应的 exon，就被判成 exon switch。新方法用 UTR3 + UTR3_Ext 合并区间，正确地把它们识别为同一转录本的 3'UTR 延伸 → tandem。
+
+	这 37 个 extended3UTR 是新方法相对旧方法的核心改进点，大概率是对的。
+	> sub2 |> filter(distal=="extended3UTR") |> dim()
+	[1] 37  9
+	> sub2 |> filter(distal=="extended3UTR") |> head(10)
+			   symbol   chr strand proximal     pPos       distal     dPos APAType isTandem
+	ARPC1B     ARPC1B  chr7      +     UTR3 99394680 extended3UTR 99394829  tandem      yes  #不好，有其他杂峰。
+	AURKAIP1 AURKAIP1  chr1      -       PA  1373736 extended3UTR  1373710  tandem      yes  #不想。。。
+	BIK           BIK chr22      +       PA 43129711 extended3UTR 43130462  tandem      yes  #远端较少
+	CCDC167   CCDC167  chr6      -       PA 37482938 extended3UTR 37482925  tandem      yes
+	CCDC57     CCDC57 chr17      -       PA 82101469 extended3UTR 82101454  tandem      yes
+	CENPM       CENPM chr22      -       PA 41938737 extended3UTR 41938724  tandem      yes
+	DDX56       DDX56  chr7      -       PA 44565804 extended3UTR 44565417  tandem      yes
+	DRAP1       DRAP1 chr11      +       PA 65921544 extended3UTR 65921576  tandem      yes
+	FAM50B     FAM50B  chr6      +       PA  3851313 extended3UTR  3852137  tandem      yes
+	FARSA       FARSA chr19      -       PA 12922479 extended3UTR 12922465  tandem      yes
+
+	> sub2 |> filter(distal=="extended3UTR") |> tail(10)
+			   symbol   chr strand proximal      pPos       distal      dPos APAType isTandem
+	PTPN6       PTPN6 chr12      +       PA   6961316 extended3UTR   6961379  tandem      yes
+	RAD52       RAD52 chr12      -     UTR3    912088 extended3UTR    911025  tandem      yes
+	RNF25       RNF25  chr2      -       PA 218663891 extended3UTR 218663874  tandem      yes
+	SLC25A28 SLC25A28 chr10      -       PA  99610524 extended3UTR  99609718  tandem      yes
+	TK1           TK1 chr17      -       PA  78174091 extended3UTR  78174075  tandem      yes
+	TMEM107   TMEM107 chr17      -       PA   8174002 extended3UTR   8172440  tandem      yes
+	TMEM120A TMEM120A  chr7      -       PA  75986989 extended3UTR  75986208  tandem      yes  #延申到另一个反方向基因了
+	USP32       USP32 chr17      -       PA  60179101 extended3UTR  60177232  tandem      yes
+	WDR18       WDR18 chr19      +       PA    994557 extended3UTR    994570  tandem      yes
+	YIPF1       YIPF1  chr1      -       PA  53851733 extended3UTR  53851719  tandem      yes
+
+剩下 108 + 11 = 119 个，distal 是 PA 或 UTR3，proximal 是 PA 或 UTR3。这些为什么旧方法判 no？可能原因：
+- 旧方法只用了单个代表性 exon，没覆盖到 pA 所在的所有 exons：主要原因
+- 旧方法的 exon 列表里没包含某些转录本的末端 exon：不应该
+	> sub2 |> filter(distal %in% c("PA", "UTR3")) |> dim()
+	[1] 119   9
+	> sub2 |> filter(distal %in% c("PA", "UTR3")) |> head(5)
+			 symbol   chr strand proximal     pPos distal     dPos APAType isTandem
+	ALDH3A2 ALDH3A2 chr17      +       PA 19675742     PA 19677595  tandem      yes # 标准的tandem
+	ALDH5A1 ALDH5A1  chr6      +     UTR3 24533807     PA 24537206  tandem      yes
+	ANKRD39 ANKRD39  chr2      -     UTR3 96848040     PA 96847988  tandem      yes
+	ANKRD40 ANKRD40 chr17      -     UTR3 50694857     PA 50693197  tandem      yes
+	APMAP     APMAP chr20      -     UTR3 24962944     PA 24962924  tandem      yes
+	> sub2 |> filter(distal %in% c("PA", "UTR3")) |> tail(5)
+		   symbol   chr strand proximal      pPos distal      dPos APAType isTandem
+	ZBTB43 ZBTB43  chr9      +     UTR3 126834016     PA 126838206  tandem      yes
+	ZDHHC4 ZDHHC4  chr7      +       PA   6588926     PA   6588974  tandem      yes
+	ZMIZ2   ZMIZ2  chr7      +       PA  44768694     PA  44769878  tandem      yes
+	ZNF331 ZNF331 chr19      +       PA  53578078     PA  53580269  tandem      yes
+	ZNF598 ZNF598 chr16      -     UTR3   1997774     PA   1997654  tandem      yes
+
+小结：Old no → New yes 这 156 个
+这 156 个大概率是新方法纠正了旧方法的漏判，尤其是 37 个 extended3UTR。
+
+
+
+
+ii)问题：partial 和 outside 太多
+> datNew$APAType |> table()
+  exon_switch no_annotation       outside       partial        tandem 
+           83           251           264           745          1084 
+
+	partial  745
+	outside  264
+
+partial 意味着：两个 pA 里只有一个落在某个转录本的 3'UTR/Ext 内，另一个不在。outside 意味着两个都不在。
+
+这在生物学上很可疑。你的数据是 3' 端测序得到的 pA 位点，理论上绝大多数 pA 应该落在某个基因的 3'UTR 或 Ext 区间内。745 + 264 = 1009 个 partial/outside，说明：
+
+
+
+iii)检查主要是哪里的问题？
+> table(datNew$APAType, datNew$proximal)
+                exon extended3UTR intron  PA Promoter UTR3
+  exon_switch      0            3      1  61        0   18
+  no_annotation   81            0    149  13        3    5
+  outside         38            0    225   0        1    0
+  partial        370            0    358   5       10    2
+  tandem           0            1      0 250        0  833
+> table(datNew$APAType, datNew$distal)
+                exon extended3UTR intron  PA Promoter UTR3
+  exon_switch      0            3      0  66        0   14
+  no_annotation   42            1    145  61        1    1
+  outside         44            1    218   1        0    0
+  partial          0            8      5 571        0  161
+  tandem           0           37      0 823        0  224
+#
+
+
+
+
+(6)那些非tandem的是 exon switch APA吗？
+如果满足下面所有条件，可以把"上游 pA 不在任何已知 UTR3/Ext 内"解释为新转录本导致的 exon switch：
+
+1. 上游 pA 落在 exon 上，而不是 intron 上。落在 intron 的 pA 是 intronic APA，不是新转录本的末端 exon。
+2. 上游 pA 所在的 exon 与下游 pA 所在的末端 exon 不重叠（基因组坐标上不交叉）。如果重叠，那是同一个 exon 内部的 tandem，不是 exon switch。
+3. 上游 pA 所在的 exon 在基因的 3' 端方向，而不是 5'UTR 或中间 CDS。
+4. 上游 pA 有一个可信的 AATAAA（或类似）motif，且 3' 端测序信号明确（有一定 reads 支持）。
+5. 上游 pA 所在 exon 是某个已知转录本的最后（或接近最后）一个 exon，而不是 CDS 中间的外显子。
+
+满足这些，才比较合理地推断："这个 pA 定义了一个未被注释的末端 exon，它和已知转录本的末端 exon 不同 → exon switch。"
+
+
+我的数据3‘端测序，选取多polyA结尾的reads做的比对，可以认为比对到的位置下游就是转录本3UTR末端。
+条件1不好说，在intron区的可能在新转录本上是utr3呢？条件3同理。
+条件2说最后一个exon不重叠，也可以认为是exon switch，如果在同一个外显子内，则是tandem？
+条件4能比对上就认为是3utr末端，因为再往后在RNA上就是polyA序列了。至于motif，看情况，有的能找到，有的找不到。
+条件5无法判断，可以认定是新转录本3UTR末端。
+
+2.
+
+
+a) tandem, exon switch 比较干净。
+b) 但是 partial:
+- proximal 端：702/786 是 exon 或 intron（89%）。
+- distal 端：781/786 是 PA/UTR3/extended3UTR（99%）。
+
+也就是说，partial 的典型模式是：远端 pA 落在 3'UTR 内，近端 pA 落在 exon（CDS）或 intron 上。
+
+这在生物学上是什么？近端 pA 在 CDS 或 intron 里 → 这根本不是 3'UTR 内的 tandem APA，而是更上游的 APA（可能是 intronic APA、或 CR-APA 编码区 APA）。这类事件本来就不该判 tandem，判非 tandem 是对的。
+
+==> Me: 可以判定为 exon switch APA。
+
+c) outside（294）
+- proximal: intron 241, exon 49, PA 2, Promoter 2
+- distal:   intron 218, exon 44, PA 25, ...
+两端都在 intron/exon，根本不在 3'UTR 里。判非 tandem 也对。
+Me: 有问题，怎么又在PA的？
+
+d)no_annotation（251）
+- proximal: intron 149, exon 81, PA 13, ...
+- distal:   intron 145, exon 42, PA 61, ...
+
+gene symbol 在 units 里找不到，加上两端很多是 intron/exon。可能原因：
+- gene symbol 和 bed 对不上（命名差异）；
+- pA 落在 intron/exon，本来就不该是 tandem，即使 gene 对上了也不影响结论。
+
+
+iv) 检查错误的几批
+a)partial 里两端都是 3'UTR 类型的（可能被误判的 tandem）
+utr_types <- c("PA", "UTR3", "extended3UTR", "3UTR")
+susp <- datNew$APAType == "partial" &
+        datNew$proximal %in% utr_types &
+        datNew$distal   %in% utr_types
+datNew[susp, ] |> head(20)
+
+
+
+
+
+
+
+
+快速核查 5 个 exon_switch
+sub[sub$APAType == "exon_switch", ]
+这 5 个是旧判 tandem、新判 exon switch 的，用 IGV 看两个 pA 是否真的落在不同转录本的 3'UTR 内
+
+
+
+
 
 
 
 
 
 ========================================
+|-- 找脚本位置
 ----------------------------------------
+$ find . | grep "\.R$" | xargs grep -in "DPAU at"  --color=auto 2>/dev/null
+./scripts_PBMC/c07C_get_tandem_DPAU_gDPAU.R:1293:    labs(title="gDPAU", x=paste0("gDPAU at ", dimA), y=paste0("gDPAU at ", dimB) )+
+./scripts_PBMC/c07_get_DPAU_gDPAU.R:1592:# average DPAU at each time points for each gene
+./scripts_PBMC/c07_get_DPAU_gDPAU.R:1716:# average DPAU at each time points for each gene
+./scripts_PBMC/c07_get_DPAU_gDPAU.R:1836:    labs(title="gDPAU", x=paste0("gDPAU at ", dimA), y=paste0("gDPAU at ", dimB) )+
+./scripts_PBMC/c07D_2pAgenes_DPAU_gDPAU.R:1481:    labs(title=title, x=paste0("DPAU at ", dimA), y=paste0("DPAU at ", dimB) )+
+./scripts_PBMC/d02B_cmp_science_2008.tandem.R:182:    labs(title="gDPAU", x=paste0("gDPAU at ", dimA), y=paste0("gDPAU at ", dimB) )+
+./scripts_PBMC/c07F_DE_gDPAU.time.cellCluster.R:188:# average DPAU at each time points for each gene
+
 
 
 

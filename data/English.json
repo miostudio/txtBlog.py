@@ -19,7 +19,19 @@
 			["英语听力", "En104-listening", "txt" ],
 			["英语口语", "En105-speaking", "txt" ]
 		]
+	},
+
+
+	{
+		"title":"Kid英语启蒙",
+		"data":
+		[
+			["牛津树:起步", "En201_OX_tree", "txt"],
+			["RAZ: 长期主线", "En202_RAZ_main", "txt" ],
+			["little fox: 练习听力", "En203_little_fox", "txt" ]
+		]
 	}
+
 ]
 
 
