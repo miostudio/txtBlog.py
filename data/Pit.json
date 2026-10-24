@@ -4,14 +4,19 @@
 		"data":
 		[
 			["项目描述", "Pit001", "html"],
-			["租房大坑", "Pit002-house", "txt" ]
+			["租房大坑", "Pit002-house", "txt" ],
+
+			["我写的科幻", "Pit002-SciFi", "txt"]
 		]
 	},
 	{
 		"title":"购置电器",
 		"data":
 		[
-			["电器-投影仪", "Pit100-elec", "txt"]
+			["电器-投影仪", "Pit100-elec", "txt"],
+			["家庭菜谱 / How to eat", "Pit101-eat", "txt"],
+			["家庭菜谱 / Menu", "Pit101-eatMenu", "html"]
+
 		]
 	}
 

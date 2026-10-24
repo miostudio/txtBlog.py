@@ -905,7 +905,7 @@ head(geneAPAInfo2)
 
 
 ========================================
-占一个 exon Switch APA 的例子 
+找一个 exon Switch APA 的例子：lengthen + exonSwitch + IGV明显的 + 最好是2pA的
 ----------------------------------------
 1.必备
 (1)IGV.js
@@ -1491,14 +1491,21 @@ sub[sub$APAType == "exon_switch", ]
 
 
 
+10.select gene for IGV check
 
+不行的基因	strand	结论:	理由
+	理由1: p pA reads 少
+	TTC8 +: 不好	p pA 基本没有reads
+	CMAS -: 不好    p pA reads 没区别
+	ANAPC10 -: 不好，1
+	MARF1 -: 1
 
 
 
 
 
 ========================================
-|-- 找脚本位置
+|-- 找脚本位置: barplot for S_L / transient_sustained genes
 ----------------------------------------
 $ find . | grep "\.R$" | xargs grep -in "DPAU at"  --color=auto 2>/dev/null
 ./scripts_PBMC/c07C_get_tandem_DPAU_gDPAU.R:1293:    labs(title="gDPAU", x=paste0("gDPAU at ", dimA), y=paste0("gDPAU at ", dimB) )+
@@ -1510,17 +1517,247 @@ $ find . | grep "\.R$" | xargs grep -in "DPAU at"  --color=auto 2>/dev/null
 ./scripts_PBMC/c07F_DE_gDPAU.time.cellCluster.R:188:# average DPAU at each time points for each gene
 
 
+2.新建脚本c07C2_
+(1)DE DPAU
+GO:
+	DPAU 18vs0 - lengthen N=217=>209 symbols
+	DPAU 18vs0 - shorten N=126=>118 symbols
+
+3. edit c07H_
+3个时间点的动态变化
+$ find . | grep "\.R$" | xargs grep -in "APA usage dynamics"  --color=auto 2>/dev/null
+./scripts_PBMC/c07H_pA_types_early_late.R:193:       title = "APA usage dynamics") +
+./scripts_PBMC/c07H_pA_types_early_late.R:298:       title = "APA usage dynamics") +
+
+
+4.bar plot
+data: c07H_:500, using plot script in c07D2_
+http://localhost:8000/file/dustbin/tmp/PBMC/ge3pA/pA_transient/APA_3_4_pA_persist_pct.barplot.pdf#toolbar=0
+
+
+
+
 
 
 
 ========================================
+找脚本重绘：18h vs 0h
 ----------------------------------------
+1.c07D_
+./scripts_PBMC/c07D_2pAgenes_DPAU_gDPAU.R:1018:  labs(x="Activation time", y="Average DPAU per cell", title="Tandem")+
+./scripts_PBMC/c07D_2pAgenes_DPAU_gDPAU.R:1033:  labs(x="Activation time", y="Average DPAU per cell", title="Exon Switch")+
+./scripts_PBMC/c07D_2pAgenes_DPAU_gDPAU.R:1070:  labs(x="Cell cycle phase", y="Average DPAU per cell", title="All 2pA genes")+
+
+
+能用的pdf图片
+Fig3A: http://j3.biomooc.com:8000/file/dustbin/tmp/PBMC/DPAU/6-6.gDPAU.18h_vs_0h.dotplot.pdf#toolbar=0
+	$ find . | grep "\.R$" | xargs grep -in "gDPAU at" --color=auto 2>/dev/null
+	./c07C_get_tandem_DPAU_gDPAU.R:1293:    labs(title="gDPAU", x=paste0("gDPAU at ", dimA), y=paste0("gDPAU at ", dimB) )+
+	./c07_get_DPAU_gDPAU.R:1836:    labs(title="gDPAU", x=paste0("gDPAU at ", dimA), y=paste0("gDPAU at ", dimB) )+
+	./d02B_cmp_science_2008.tandem.R:182:    labs(title="gDPAU", x=paste0("gDPAU at ", dimA), y=paste0("gDPAU at ", dimB) )+
+
+
+Fig3C: 
+	$ find . | grep "\.R$" | xargs grep -in "delta Average DPAU" --color=auto 2>/dev/null
+	./c07H_pA_types_early_late.R:192:       y = "Delta Average DPAU",
+	./c07H_pA_types_early_late.R:269:    y = "Delta Average DPAU",
+	./c07H_pA_types_early_late.R:345:    y = "Delta Average DPAU",
+	./c07H_pA_types_early_late.R:460:       y = "Delta Average DPAU",
+
+
+Fig4OP:
+	E:\research\scPolyA-seq2\GO_V3-isTandem
+
+
+(1)
+http://j3.biomooc.com:8000/file/dustbin/tmp/PBMC/DPAU_2pA/2pAgenesV3_03_4B_DPAU_avg_per_cell.UMAP.pdf#toolbar=0
+
+(2)
+http://j3.biomooc.com:8000/file/dustbin/tmp/PBMC/DPAU_2pA/2pAgenesV3_03_4I_DPAU_avg_per_cell.time_Vertical.violin.pdf#toolbar=0
+http://j3.biomooc.com:8000/file/dustbin/tmp/PBMC/DPAU_2pA/2pAgenesV3RM_07_2I_DPAU_avg_per_cell.cluster.violin.pdf#toolbar=0
+
+表达水平 cluster mean violin:
+http://j3.biomooc.com:8000/file/dustbin/tmp/PBMC/DPAU_2pA/2pAgenesV3RM_07_3I_expression_avg_per_cell.cluster.violin.pdf#toolbar=0
+
+表达水平：0 vs 18h
+http://j3.biomooc.com:8000/file/dustbin/tmp/PBMC/DPAU_2pA/2pAgenesV3_08_4J_exp_avg_per_cell.time_Vertical.violin.pdf#toolbar=0
+
+表达水平都上升，但是 shorten的上升的更快：
+http://j3.biomooc.com:8000/file/dustbin/tmp/PBMC/DPAU_2pA/2pAgenesV3_08_5.DPAU.18vs0.expLevel-trend.pairedLine.pdf#toolbar=0
+
+
+(3)motif pie plot
+http://j3.biomooc.com:8000/file/dustbin/tmp/PBMC/DPAU_2pA/2pAgenesV3_06_7.DPAU.18vs0.motifPie.pdf#toolbar=0 # 阈值 0
+http://j3.biomooc.com:8000/file/dustbin/tmp/PBMC/DPAU_2pA/2pAgenesV3_06_7.DPAU.18vs0.threshold0.3.motifPie.pdf#toolbar=0 # 阈值 0.3
+
+(4)scatter plot DEAPA tandem vs exon_switch
+http://j3.biomooc.com:8000/file/dustbin/tmp/PBMC/DPAU_2pA/2pAgenesV3_08_1.DPAU.18h_vs_0h.dotplot.pdf#toolbar=0
+
+
+
+(5)两类基因比较图: tandem vs exon switch
+scripts_PBMC/c07E_APA_gene_types_cmp.R:432:p1=DrawViolinPlot(data.plot
+
+表达水平：http://j3.biomooc.com:8000/file/dustbin/tmp/PBMC/DPAU_2pA/geneTypeV3_00_2_expression.3APAgeneTypes.violin.pdf#toolbar=0
+
+transcript number:
+	http://j3.biomooc.com:8000/file/dustbin/tmp/PBMC/DPAU_2pA/geneTypeV3_01_transcript.number.2pA.violin.pdf#toolbar=0
+
+Exon number:
+	http://j3.biomooc.com:8000/file/dustbin/tmp/PBMC/DPAU_2pA/geneTypeV3_02_2_LongestSpanTrans.ExonNum_2pA.violin.pdf#toolbar=0
+
+Exon avg length:
+	http://j3.biomooc.com:8000/file/dustbin/tmp/PBMC/DPAU_2pA/geneTypeV3_02_5_LongestSpanTrans.Exon_AvgLen_2pA.violin.pdf#toolbar=0
+
+
+
+
+
+
+
 
 
 
 
 ========================================
+|-- paper word 的问题？
 ----------------------------------------
+1.
+(0)他就让把那个motif的图再改一下
+
+1) Seurat 聚类参数是啥？
+scObj=readRDS("/data/wangjl/scPolyA-seq2/chenxi/PBMC/UMAP/star_solo/scObj_final-PBMC_8plates.Star_Solo_PC25res0.8.CellCycle.withDEG.Seurat.Rds")
+找脚本:
+
+$ find . | grep "R$" | xargs grep -in "Solo_PC25res0.8.CellCycle.withDEG.Seurat" 2>/dev/null --color=auto  | grep -v "readRDS"
+./script_single/do_CellCycle_Drop-seq2015.script.R:33:  # /data/wangjl/scPolyA-seq2/chenxi/PBMC/UMAP/star_solo/scObj_final-PBMC_8plates.Star_Solo_PC25res0.8.CellCycle.withDEG.Seurat.Rds \
+./script_single/do_CellCycle_Drop-seq2015.script.R:36:#seurat_filename="/data/wangjl/scPolyA-seq2/chenxi/PBMC/UMAP/star_solo/scObj_final-PBMC_8plates.Star_Solo_PC25res0.8.CellCycle.withDEG.Seurat.Rds"
+./script_single/do_monocle2.script.R:16:  # /data/wangjl/scPolyA-seq2/chenxi/PBMC/UMAP/star_solo/scObj_final-PBMC_8plates.Star_Solo_PC25res0.8.CellCycle.withDEG.Seurat.Rds \
+./scripts_PBMC/a03_cell_cycle_Drop-seq2015.R:4:seurat_filename="/data/wangjl/scPolyA-seq2/chenxi/PBMC/UMAP/star_solo/scObj_final-PBMC_8plates.Star_Solo_PC25res0.8.CellCycle.withDEG.Seurat.Rds"
+./scripts_PBMC/do_slingshot.R:10:seurat_filename="/data/wangjl/scPolyA-seq2/chenxi/PBMC/UMAP/star_solo/scObj_final-PBMC_8plates.Star_Solo_PC25res0.8.CellCycle.withDEG.Seurat.Rds
+
+
+
+$ find . | grep "R$" | xargs grep -in "saveRDS(" 2>/dev/null --color=auto  | grep "res"
+
+./pipeline/scripts_PBMC/a01_load_star_solo.R:309:saveRDS(scObj, file = paste0(outputRoot, "scObj_final-PBMC_8plates.Star_Solo_PC25res0.8.Seurat.Rds") ) #only protein coding genes
+
+./pipeline/scripts_PBMC/a01_load_star_solo.R:624:saveRDS(scObj2, file = paste0(outputRoot, "scObj_final-PBMC_8plates.Star_Solo_PC25res0.8.CellCycle.Seurat.Rds") ) #only protein coding genes
+	最有可能！
+
+./pipeline/scripts_PBMC/c08C_DEG_rest_vs_act.R:75:saveRDS(scObj2, paste0(outputRoot, keyword, "_02_1.Act_Rest.Seurat.Rds"))
+
+
+
+
+
+
+(1)page1
+We further found the exon-switch APA shifting to distal polyA site after T cell activation is correlated with adoption of canonical polyadenylation signals (PAS) motifs and higher expression of polyadenylation factors
+
+哪个图支持？  exon-switch APA shifting to distal polyA site 18 vs 0: CPA 水平高。
+
+
+a)不确定的，有争议的？
+- Fig.S1b怎么提升？
+- Fig.1B 10x 用的啥细胞？CRC? 反正不是 MDA-MB-468
+- Fig. 1A 分子位置不对，颜色一致。
+
+- Fig1G: Use the cluster names in the manuscript? 
+- Fig. 2E: 不是使用wDPAU
+
+- same exon shift and cross exon shift 
+
+- Fig3K 要怎么画？
+- FigS5AB, 和 CD不是同一个东西吧？
+	PC1,3是怎么挑选出来的？是看沿着PC APA的变化明显的PC1_3_10，然后找和这几个PC显著的genelist做GO
+
++ Fig5A 怎么画？
+	The PAS motif composition at polyA sites from tandem APA genes was comparable between resting and stimulated T cells (Fig. 5A).
+	去掉该条件下没有read的pA，然后画motif饼图。
+
+- (3) gene complexity. 啥意思？
+	AI: 在单细胞转录组质控中，“gene complexity”通常指基因复杂度，常用指标是 log10GenesPerUMI（即 log10 检测基因数 / log10 UMI 总数）。它的逻辑是：如果一个细胞虽然测到了不少 UMI，但只来自极少数基因，说明捕获到的转录本复杂度低，可能是低质量细胞或特定简单细胞类型。好的细胞通常该值较高（例如 >0.80）。
+	我们没用到，删除吧。
+
+- Fig. 6J 是啥？
+
+
+b)要补充的内容：确定了，就差实施了。
+- wDPAU page 4(Fig 2CD)在方法学中介绍
+- Fig. S3: 桑基图
+- IGV: NMT1 (Fig. 3E) and MED10 (Fig. 3F)[shorten], 
+	[lengthen] AMD1 (Fig. 3G) and XXX (Fig. 3H)
+- is tandem 的定义：V3，方法学。
+- G1,S,G2M区分方法
+
+- IGV 例子: OldPPT_page158-162
+
+- ppt-v1.6-12: page8;
+	Fig.S6A-B: Act18 vs Rest0h: cell rating APA shift, 172tandem vs 466exonSwitch;
+
+- APA shift VlnPlot:
+	> isSameExon |> filter(symbol=="NOTCH1")
+		   symbol  chr strand proximal      pPos distal      dPos APATypeV2 isTandemV2   APATypeV3 isTandemV3
+	NOTCH1 NOTCH1 chr9      -     exon 136510670   UTR3 136494444   partial         no exon_switch         no
+
+	> isSameExon |> filter(symbol=="E2F1")
+	 [1] symbol     chr        strand     proximal   pPos       distal     dPos       APATypeV2  isTandemV2 APATypeV3  isTandemV3
+	<0 rows> (or 0-length row.names)
+	> isSameExon |> filter(symbol=="CCNT1")
+		  symbol   chr strand proximal     pPos distal     dPos APATypeV2 isTandemV2   APATypeV3 isTandemV3
+	CCNT1  CCNT1 chr12      -   intron 48712579     PA 48688462   partial         no exon_switch         no
+
+	> isSameExon |> filter(symbol=="SMAD4")
+		  symbol   chr strand proximal     pPos distal     dPos APATypeV2 isTandemV2 APATypeV3 isTandemV3
+	SMAD4  SMAD4 chr18      +     UTR3 51079776     PA 51085039    tandem        yes    tandem        yes
+
+
+
+c) suppl 实施
+- Table S1, S2: tandem(1218), exon switch(827)
+- Table S3: A total of 172 tandem APA genes switched their preferred polyA site upon T cell activation (Table S3)
+
+
+
+
+
+
+
+==>分工
+	这个文字包括图例文字，和word正文
+
+
+==>简写
+统一一下简写，图中使用(1)tandem，还是(2)tandem APA，还是 (3)tandem APA genes？
+
+感觉(3)更准确，但是(3)太长，有Fig4C使用(2)不太合适，所以我倾向图中简写作(1)，word正文使用(3)
+
+	这个文字包括图例文字，和word正文
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+========================================
+相关APA文献：Pubmed
+----------------------------------------
+1.
+https://pubmed.ncbi.nlm.nih.gov/41805127/
+Nucleic Acids Res. 2026
+Alternative polyadenylation links RNA processing to iron metabolism in human erythropoiesis
+
+
+
 
 
 

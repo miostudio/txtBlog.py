@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>家庭菜单 · 只读浏览版</title>
+    <style>
+/*
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+        body {
+            background: #f7f3ed;
+            padding: 1rem;
+            color: #2e2a24;
+            min-height: 100vh;
+        }
+*/
+        .app {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fffbf5;
+            border-radius: 2rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+            padding: 1.5rem 1.5rem 2rem;
+            border: 1px solid #f0e6db;
+        }
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #3b2e1f;
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        h1 small {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: #b7a48b;
+            background: #f3ede5;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-left: 0.5rem;
+        }
+        .subhead {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            color: #8b7a65;
+            font-size: 0.9rem;
+            border-bottom: 1px dashed #e3d7ca;
+            padding-bottom: 1rem;
+        }
+        .subhead .tagline {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+        .subhead .tagline span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .hint {
+            color: #b7a48b;
+            font-size: 0.8rem;
+            background: #f3ede5;
+            padding: 0.3rem 0.9rem;
+            border-radius: 40px;
+            display: inline-block;
+        }
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+        .filter-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        .filter-label {
+            font-size: 0.85rem;
+            color: #a28d75;
+            margin-right: 0.2rem;
+        }
+        .filter-pill {
+            background: #ede5db;
+            border: 1px solid transparent;
+            border-radius: 40px;
+            padding: 0.3rem 1rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+            color: #4d3e2e;
+            transition: 0.1s;
+            white-space: nowrap;
+            user-select: none;
+        }
+        .filter-pill.active {
+            background: #3b2e1f;
+            color: #fffbf5;
+            border-color: #3b2e1f;
+        }
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border: 1px solid #e2d5c7;
+            border-radius: 40px;
+            padding: 0.3rem 0.9rem;
+        }
+        .search-box input {
+            border: none;
+            background: transparent;
+            padding: 0.4rem 0.2rem 0.4rem 0.6rem;
+            font-size: 0.9rem;
+            outline: none;
+            width: 200px;
+            color: #2e2a24;
+        }
+        .search-box input::placeholder {
+            color: #c6b7a6;
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        .card {
+            background: #fff;
+            border-radius: 1.5rem;
+            padding: 1.2rem 1.2rem 1rem;
+            border: 1px solid #ede3d8;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            transition: 0.1s;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            border-color: #dacbbc;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.03);
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+        .card-title {
+            font-weight: 600;
+            font-size: 1.15rem;
+            line-height: 1.3;
+            color: #2b1f14;
+        }
+        .card-category {
+            font-size: 0.7rem;
+            background: #f0e8df;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+            color: #7a6853;
+            white-space: nowrap;
+            margin-left: 0.5rem;
+        }
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin: 0.4rem 0 0.7rem;
+        }
+        .tag {
+            font-size: 0.7rem;
+            padding: 0.15rem 0.7rem;
+            border-radius: 30px;
+            background: #f3f0eb;
+            color: #7f6f5d;
+        }
+        .tag.prep {
+            background: #e5efe5;
+            color: #4e7a4e;
+            font-weight: 500;
+        }
+        .card-desc {
+            font-size: 0.85rem;
+            color: #7b6b5a;
+            line-height: 1.6;
+            margin: 0.3rem 0 0.2rem;
+            flex: 1;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: #b7a48b;
+            grid-column: 1 / -1;
+            background: #fefcf9;
+            border-radius: 1.5rem;
+            border: 1px dashed #e3d7ca;
+        }
+        .footer-note {
+            margin-top: 2rem;
+            font-size: 0.75rem;
+            color: #c0b1a0;
+            text-align: center;
+            border-top: 1px solid #f0e6db;
+            padding-top: 1.2rem;
+        }
+        @media (max-width: 600px) {
+            body { padding: 0.6rem; }
+            .app { padding: 1rem 0.8rem; border-radius: 1.5rem; }
+            h1 { font-size: 1.4rem; flex-wrap: wrap; }
+            .toolbar { flex-direction: column; align-items: stretch; }
+            .search-box input { width: 100%; }
+            .card-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="app">
+    <h1>
+        🍲 家庭菜单
+        <small>晚餐·周末预制</small>
+    </h1>
+    <div class="subhead">
+        <div class="tagline">
+            <span>⏱️ 晚上快手</span>
+            <span>🧊 周末备菜</span>
+            <span>👦 防小朋友吃腻</span>
+        </div>
+        <span class="hint">📝 只读版 · 修改请编辑 HTML 源码</span>
+    </div>
+
+    <!-- 筛选工具栏 -->
+    <div class="toolbar">
+        <div class="filter-group" id="categoryFilters">
+            <span class="filter-label">分类：</span>
+            <!-- 分类按钮由 JS 生成 -->
+        </div>
+        <div class="search-box">
+            <span style="color:#b7a48b;">🔍</span>
+            <input type="text" id="searchInput" placeholder="搜索菜名、标签、做法...">
+        </div>
+    </div>
+
+    <!-- 预制筛选 -->
+    <div class="filter-group" style="margin-bottom: 1.2rem;">
+        <span class="filter-label">🥡 快速筛选：</span>
+        <button class="filter-pill" id="prepFilterBtn">仅显示周末可预制</button>
+    </div>
+
+    <!-- 卡片网格 -->
+    <div class="card-grid" id="cardGrid"></div>
+
+    <div class="footer-note">
+        ⚡ 本页仅用于浏览 · 添加/删除/修改菜品请直接编辑下方 &lt;script&gt; 中的 <strong>dishes</strong> 数组
+    </div>
+</div>
+
+<script>
+    // ============================================================
+    // ★★★ 在这里编辑你的菜单数据 ★★★
+    // 顺序就是页面显示顺序（从上到下、从左到右）
+    // 每个菜品包含: name(菜名), category(分类), tags(标签数组), desc(做法), prep(是否适合预制)
+    // 修改后保存 HTML 文件，刷新页面即可生效。
+    // ============================================================
+    const dishes = [
+		{
+			id: 'd1',
+			name: '蒜苗牛肉面',
+			category: '面食',
+			tags: ['咸香', '蒜香', '快手'],
+			desc: `卤牛肉切片，蒜苗白煸香，碗底加黄豆酱+猪油。适合周末预制卤牛肉。
+			`,
+			prep: true
+		},
+		{
+			id: 'd2',
+			name: '番茄炒蛋',
+			category: '炒菜',
+			tags: ['酸甜', '家常', '孩子爱'],
+			desc: '经典快手菜，鸡蛋先炒好盛出，番茄炒软再混合。可提前切好番茄。',
+			prep: false
+		},
+		{
+			id: 'd3',
+			name: '香菇滑鸡',
+			category: '蒸菜',
+			tags: ['咸鲜', '嫩滑'],
+			desc: '鸡腿肉切块，加香菇、生抽、淀粉腌制，周末腌好分装冷冻，晚上蒸15分钟。',
+			prep: true
+		},
+		{
+			id: 'd4',
+			name: '清炒时蔬',
+			category: '蔬菜',
+			tags: ['清淡', '解腻'],
+			desc: '蒜蓉炒任意绿叶菜，周末洗净切好沥干，密封冷藏。',
+			prep: true
+		},
+		{
+			id: 'd5',
+			name: '红烧鸡翅',
+			category: '荤菜',
+			tags: ['咸甜', '孩子爱', '下饭'],
+			desc: '周末可以提前焯水，或者做成半成品酱汁冷冻。',
+			prep: true
+		},
+
+		{
+			id: 'd6',
+			name: '可乐鸡翅',
+			category: '荤菜',
+			tags: ['甜'],
+			desc: `食材：鸡翅中10个、可乐1罐（约330ml）、姜片、料酒、生抽、老抽、盐。
+
+做法：
+- 鸡翅两面各划两刀，冷水下锅加姜片料酒焯水，捞出洗净沥干。
+- 锅中少油，鸡翅小火煎至两面金黄。
+- 加姜片、1勺料酒、1勺生抽、半勺老抽，倒入可乐没过鸡翅。
+- 大火烧开转小火焖15分钟，最后大火收汁至浓稠即可。`,
+			prep: true
+		},
+
+		{
+			id: 'd7',
+			name: '鱼头豆腐汤',
+			category: '荤菜',
+			tags: ['鲜美', '孩子爱'],
+			desc: `1.关键做法（决定成败）
+- 鱼先煎：两面煎微黄，去腥且汤才白
+- 加开水：一定倒滚烫开水，大火滚10分钟汤才奶白
+- 姜片料酒：煎时放姜，去腥
+- 豆腐后下：汤白后下嫩豆腐，再煮5分钟
+- 盐最后放：出锅前调味，早放肉易老
+
+2.给孩子吃的建议
+- 选黑鱼、鲈鱼这种刺少的，切块炖，方便挑刺
+- 或炖好后只给孩子喝汤吃豆腐，鱼肉大人吃
+- 鱼头汤给孩子喝汤为主，别让他自己啃鱼头
+
+3.一句话：鱼头豆腐汤=“煎鱼+开水+大火滚白+下豆腐”，鱼头鱼块都行，选刺少肉厚的鱼最稳妥。`,
+			prep: false
+		},
+
+
+
+
+		
+	];
+
+    // ============================================================
+    // 以下为渲染逻辑，一般不需要修改
+    // ============================================================
+
+    // 当前筛选状态
+    let currentCategory = 'all';
+    let currentSearch = '';
+    let onlyPrep = false;
+
+    // DOM 元素
+    const cardGrid = document.getElementById('cardGrid');
+    const categoryFilters = document.getElementById('categoryFilters');
+    const searchInput = document.getElementById('searchInput');
+    const prepFilterBtn = document.getElementById('prepFilterBtn');
+
+    // 获取所有分类（按字母排序，但保留原始顺序？分类按首次出现顺序比较自然）
+    function getAllCategories() {
+        const cats = [];
+        dishes.forEach(d => {
+            if (d.category && d.category.trim() !== '' && !cats.includes(d.category.trim())) {
+                cats.push(d.category.trim());
+            }
+        });
+        return cats;
+    }
+
+    // 渲染分类按钮
+    function renderCategoryFilters() {
+        const cats = getAllCategories();
+        // 保留“全部”按钮，重新构建
+        categoryFilters.innerHTML = `<span class="filter-label">分类：</span>`;
+
+        // “全部”按钮
+        const allBtn = document.createElement('button');
+        allBtn.className = `filter-pill ${currentCategory === 'all' ? 'active' : ''}`;
+        allBtn.dataset.cat = 'all';
+        allBtn.textContent = '全部';
+        allBtn.addEventListener('click', () => {
+            currentCategory = 'all';
+            renderCategoryFilters();
+            renderCards();
+        });
+        categoryFilters.appendChild(allBtn);
+
+        // 其他分类
+        cats.forEach(cat => {
+            const btn = document.createElement('button');
+            btn.className = `filter-pill ${currentCategory === cat ? 'active' : ''}`;
+            btn.dataset.cat = cat;
+            btn.textContent = cat;
+            btn.addEventListener('click', () => {
+                currentCategory = cat;
+                renderCategoryFilters();
+                renderCards();
+            });
+            categoryFilters.appendChild(btn);
+        });
+    }
+
+    // 转义 HTML
+    function escapeHtml(text) {
+        if (!text) return '';
+        return text.replace(/[&<>"]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            if (m === '"') return '&quot;';
+            return m;
+        });
+    }
+
+    // 渲染卡片
+    function renderCards() {
+        // 过滤
+        let filtered = dishes.filter(dish => {
+            // 分类过滤
+            if (currentCategory !== 'all' && dish.category !== currentCategory) {
+                return false;
+            }
+            // 搜索过滤
+            if (currentSearch.trim() !== '') {
+                const q = currentSearch.toLowerCase();
+                const nameMatch = (dish.name || '').toLowerCase().includes(q);
+                const tagMatch = (dish.tags || []).some(t => t.toLowerCase().includes(q));
+                const descMatch = (dish.desc || '').toLowerCase().includes(q);
+                const catMatch = (dish.category || '').toLowerCase().includes(q);
+                if (!(nameMatch || tagMatch || descMatch || catMatch)) {
+                    return false;
+                }
+            }
+            // 预制过滤
+            if (onlyPrep && !dish.prep) {
+                return false;
+            }
+            return true;
+        });
+
+        // 按数组顺序显示，不排序（保持你编辑的顺序）
+        // 如果想按名称排序，可取消下面注释
+        // filtered.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+
+        if (filtered.length === 0) {
+            cardGrid.innerHTML = `<div class="empty-state">🍽️ 没有匹配的菜品</div>`;
+            return;
+        }
+
+        let html = '';
+        filtered.forEach(dish => {
+            const tags = dish.tags || [];
+            const prepBadge = dish.prep ? `<span class="tag prep">周末预制</span>` : '';
+            const tagHtml = tags.map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('');
+            const desc = dish.desc ? escapeHtml(dish.desc) : '暂无详细做法';
+            html += `
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">${escapeHtml(dish.name)}</span>
+                        <span class="card-category">${escapeHtml(dish.category || '未分类')}</span>
+                    </div>
+                    <div class="card-tags">
+                        ${prepBadge}
+                        ${tagHtml}
+                    </div>
+                    <div class="card-desc">${desc}</div>
+                </div>
+            `;
+        });
+        cardGrid.innerHTML = html;
+    }
+
+    // 搜索事件
+    searchInput.addEventListener('input', (e) => {
+        currentSearch = e.target.value;
+        renderCards();
+    });
+
+    // 预制筛选按钮
+    prepFilterBtn.addEventListener('click', () => {
+        onlyPrep = !onlyPrep;
+        if (onlyPrep) {
+            prepFilterBtn.classList.add('active');
+            prepFilterBtn.textContent = '✓ 仅显示周末可预制';
+        } else {
+            prepFilterBtn.classList.remove('active');
+            prepFilterBtn.textContent = '仅显示周末可预制';
+        }
+        renderCards();
+    });
+
+    // 初始化
+    function init() {
+        renderCategoryFilters();
+        renderCards();
+    }
+
+    init();
+</script>
+</body>
+</html>

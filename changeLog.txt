@@ -383,6 +383,9 @@ nb0.1.7-3@hz update ReadMe [2026.5.3]
 nb0.1.7-4@hz update 租房大坑 [2026.9.27]
 nb0.1.7-5@hz update scPolyA-seq2: bioInfo/bc [2026.10.8]
 	English: 少儿英语启蒙
+nb0.1.7-6@hz BioInfo/ 整理sc2 [2026.10.24]
+	add Eng/ 硬件; kid英语启蒙
+	add Pit/菜谱+做饭方法; 我的科幻点子。
 
 
 
