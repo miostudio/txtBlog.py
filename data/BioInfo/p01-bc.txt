@@ -1620,6 +1620,51 @@ Exon avg length:
 
 
 ========================================
+|-- IGV figure
+----------------------------------------
+1. box plot
+http://j3.biomooc.com:8000/file/dustbin/tmp/PBMC/Tangbohu/demo_01_1.DPAU.time.BoxPlot-v2.pdf#toolbar=0
+	放附录
+
+2. IGV
+save to: E:\工作汇报-文献汇报\IGV_to_pdf
+
+(1)NMT1: 3
+	chr17:45,104,380-45,125,630
+
+(2)MED10:4
+	chr5:6,371,810-6,375,767
+
+(3)AMD1:6
+	chr6:110,893,112-110,915,159
+
+(4)IL12RB1:2  N=5效果不好，N=10可以
+	chr19:18,057,933-18,086,125
+
+(5)C4BPB:2  效果不好
+	chr1:207,088,275-207,101,169
+
+
+CD47:7
+STAT5B:4
+RFXANK:2
+
+
+
+
+
+3.illustrator操作
+(1)裁切掉画布之外的
+若不想破坏原始图稿，可在建立蒙版后直接执行 ‌文件 → 导出 → 导出为‌，选择需要的格式并勾选「使用画板」，导出文件会自动只保留画布内内容，无需手动裁切。
+
+(2)
+
+
+
+
+
+
+========================================
 |-- paper word 的问题？
 ----------------------------------------
 1.
@@ -1735,6 +1780,164 @@ c) suppl 实施
 
 	这个文字包括图例文字，和word正文
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+========================================
+提交 fastq 数据
+----------------------------------------
+1.科技部备份备案号
+(1)需要
+https://ngdc.cncb.ac.cn/gsa-human/submit/hra/subHRA033950/finishedOverview
+
+备案号:    备份号:
+    一个备案号可以关联多个备份号，不同备份号之间请用分号隔开。
+
+
+(2)帮助
+https://ngdc.cncb.ac.cn/gsa-human/submit/hra/submit
+
+帮助文档
+	人类遗传资源组学原始数据归档库使用说明，包括元数据信息提交，元数据修改，数据文件上传和生成分享链接等过程的详细操作描述。 CHN
+	人类遗传资源信息备案流程。 CHN
+	国家基因组科学数据中心人类遗传资源数据共享政策。 LINK
+
+
+
+
+2.上传数据
+(1)入口
+https://ngdc.cncb.ac.cn/gsa-human/submit/hra/subHRA033950/finishedOverview
+点击 元数据信息 后的 更新文件 按钮。
+
+(2)提示：
+（1）上传的文件的文件名和MD5码必须跟您在Run表格里填写的一致。
+（2）上传文件的文件名必须是唯一的，并且不能包含敏感信息。
+（3）.fastq文件必须压缩后上传，目前系统只接收gzip 或 bzip2格式的压缩文件。
+（4）一个提交，建议只创建1个文件夹，请不要包含太多子文件夹和复杂结构的文件目录。
+（5）文件和文件夹名中请不要包含中文、空格或其他特殊字符。建议文件和文件夹名称只包含以下字符：英文字母（A-Z或a-z），数字（0-9），下划线(_)和连接符(-)。
+（6）如果您需要上传超过 30TB 的数据，请先联系我们。联系邮箱：gsa@big.ac.cn。
+（7）数据上传后，请尽快完成元数据提交。数据文件上传后超过 90天且未提交元数据的，系统会自动删除数据。
+本步骤不是数据提交的最后一步。请点击页底的‘保存并进入下一项’按钮，进入‘概览 & 提交’页面。在‘概览 & 提交’页面，您可以浏览并检查您提交的元数据信息，检查无误后，点击‘提交’按钮，完成您的提交。
+
+
+(3)使用FTP客户端软件上传文件。FTP账号跟您登录GSA-Human的账号一样。
+您可以通过客户端软件如FileZilla或者FTP命令行下载文件。
+
+Address: ftp://subhra.cncb.ac.cn
+Username: Same as you login the GSA-Human
+Password: Same as you login the GSA-Human
+
+注意：
+	1. 登入FTP后，请进入GSA目录，创建subHRA033950文件夹，并把本次提交的数据上传到subHRA033950中。
+	2. 请不要上传与数据提交无关的数据。
+	3. 请使用二进制模式上传文件。 如果您使用FTP客户端软件，请参考软件的说明文档来设置传输模式；如果您使用FTP命令行上传文件，请在输入mput命令之前，先运行binary命令，来设置二进制传输模式。
+
+命令：
+#1 登陆server j3
+	$ ssh wangjl@gate1.picb.ac.cn
+	$ ssh j3.biomooc.com
+	$ cd /data/wangjl/scPolyA-seq2/rawData/PBMC/SUSTC-20221208-L-01-2022-12-121355/
+	$ tmux #防止链接中断
+
+每个平均15Gb。
+	$ ls -lth Sample_R*/*.fastq.gz
+	-rw-r--r--. 1 wangjl jinlab 18G Apr 16  2024 Sample_R22066887-PBMC-1-221207-48h-plate3/R22066887-PBMC-1-221207-48h-plate3_combined_R2.fastq.gz
+	-rw-r--r--. 1 wangjl jinlab 18G Apr 16  2024 Sample_R22066887-PBMC-1-221207-48h-plate3/R22066887-PBMC-1-221207-48h-plate3_combined_R1.fastq.gz
+	-rw-r--r--. 1 wangjl jinlab 16G Apr 16  2024 Sample_R22066887-PBMC-1-221207-48h-plate2/R22066887-PBMC-1-221207-48h-plate2_combined_R2.fastq.gz
+	-rw-r--r--. 1 wangjl jinlab 15G Apr 16  2024 Sample_R22066887-PBMC-1-221207-48h-plate2/R22066887-PBMC-1-221207-48h-plate2_combined_R1.fastq.gz
+	-rw-r--r--. 1 wangjl jinlab 16G Apr 16  2024 Sample_R22066887-PBMC-1-221207-48h-plate1/R22066887-PBMC-1-221207-48h-plate1_combined_R2.fastq.gz
+	-rw-r--r--. 1 wangjl jinlab 16G Apr 16  2024 Sample_R22066887-PBMC-1-221207-48h-plate1/R22066887-PBMC-1-221207-48h-plate1_combined_R1.fastq.gz
+	-rw-r--r--. 1 wangjl jinlab 15G Apr 16  2024 Sample_R22066887-PBMC-1-221207-18h-plate3/R22066887-PBMC-1-221207-18h-plate3_combined_R2.fastq.gz
+	-rw-r--r--. 1 wangjl jinlab 14G Apr 16  2024 Sample_R22066887-PBMC-1-221207-18h-plate3/R22066887-PBMC-1-221207-18h-plate3_combined_R1.fastq.gz
+	-rw-r--r--. 1 wangjl jinlab 16G Apr 16  2024 Sample_R22066887-PBMC-1-221207-18h-plate2/R22066887-PBMC-1-221207-18h-plate2_combined_R2.fastq.gz
+	-rw-r--r--. 1 wangjl jinlab 15G Apr 16  2024 Sample_R22066887-PBMC-1-221207-18h-plate2/R22066887-PBMC-1-221207-18h-plate2_combined_R1.fastq.gz
+	-rw-r--r--. 1 wangjl jinlab 17G Apr 16  2024 Sample_R22066887-PBMC-1-221207-18h-plate1/R22066887-PBMC-1-221207-18h-plate1_combined_R2.fastq.gz
+	-rw-r--r--. 1 wangjl jinlab 16G Apr 16  2024 Sample_R22066887-PBMC-1-221207-18h-plate1/R22066887-PBMC-1-221207-18h-plate1_combined_R1.fastq.gz
+	-rw-r--r--. 1 wangjl jinlab 14G Apr 16  2024 Sample_R22066887-PBMC-1-221207-0h-plate2/R22066887-PBMC-1-221207-0h-plate2_combined_R2.fastq.gz
+	-rw-r--r--. 1 wangjl jinlab 14G Apr 16  2024 Sample_R22066887-PBMC-1-221207-0h-plate2/R22066887-PBMC-1-221207-0h-plate2_combined_R1.fastq.gz
+	-rw-r--r--. 1 wangjl jinlab 15G Apr 16  2024 Sample_R22066887-PBMC-1-221207-0h-plate1/R22066887-PBMC-1-221207-0h-plate1_combined_R2.fastq.gz
+	-rw-r--r--. 1 wangjl jinlab 15G Apr 16  2024 Sample_R22066887-PBMC-1-221207-0h-plate1/R22066887-PBMC-1-221207-0h-plate1_combined_R1.fastq.gz
+
+
+
+
+#2 安装 lftp，可以递归上传
+	$ sudo yum install lftp
+
+#3 登陆ftp
+	$ USERNAME=xxA
+	$ PASSWORD=xxB
+	$ FTP_IP=subhra.cncb.ac.cn
+	## lftp -u $USERNAME,$PASSWORD ftp://${FTP_IP} <<EOF
+	
+	$ lftp ftp://${USERNAME}:${PASSWORD}@${FTP_IP}
+
+#4 新建文件夹
+	> # mkdir -p apaData
+	> cd GSA
+	> mkdir subHRA033950
+	> cd subHRA033950
+
+#5 确保二进制模式 (lftp 默认通常是 binary，但显式声明更安全)
+	> binary  # 失败
+		# Unknown command `binary'.
+
+	#6a [失败] 批量上传所有 .fastq.gz 文件到当前目录 (扁平化，无二级目录)
+		> lcd .
+		# glob 展开本地通配符，mput 上传到远程当前目录
+		> glob mput Sample_R*/*.fastq.gz #一直报错
+
+	#6b [失败] 批量上传 方法2：
+		# 1. 确认远程目录
+		pwd
+		# 应输出: /GSA/subHRA033950
+
+		# 2. 确认本地目录
+		lcd . # lcd /data/wangjl/scPolyA-seq2/rawData/PBMC/SUSTC-20221208-L-01-2022-12-121355
+
+		# 3. 执行上传循环 (复制整行粘贴)
+		!for f in Sample_R*/*.fastq.gz; do put "$f" "$(basename "$f")"; done  #失败
+
+#6c 方法3:
+	$ mput Sample_R*/*.fastq.gz
+	竟然可以了，14M/s; --> 理想满速下约 5 小时左右
+		2026.10.29 20:43，0h_plate1_R1 begin,
+		2026.10.29 21:42, 0h_plate1_R2 88%;
+		2026.10.29 22:00, 18h_plate1_R1 96%;
+		
+		次日中午查看：
+		261277335288 bytes transferred in 15744 seconds (15.83M/s)
+		Total 16 files transferred
+
+	或者一条一条来：没试。
+		mput Sample_R22066887-PBMC-1-221207-0h-plate1/*.fastq.gz
+		mput Sample_R22066887-PBMC-1-221207-0h-plate2/*.fastq.gz
+		mput Sample_R22066887-PBMC-1-221207-18h-plate1/*.fastq.gz
+		mput Sample_R22066887-PBMC-1-221207-18h-plate2/*.fastq.gz
+		mput Sample_R22066887-PBMC-1-221207-18h-plate3/*.fastq.gz
+		mput Sample_R22066887-PBMC-1-221207-48h-plate1/*.fastq.gz
+		mput Sample_R22066887-PBMC-1-221207-48h-plate2/*.fastq.gz
+		mput Sample_R22066887-PBMC-1-221207-48h-plate3/*.fastq.gz
+#
+
+#7. 核对
+	ls -lh
+
+	查看md5
+	cd /GSA/subHRA033950
+	quote SITE MD5 文件名.fastq.gz
+	报错: 502 Command SITE not implemented for MD5.
 
 
 
